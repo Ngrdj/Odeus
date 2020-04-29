@@ -19,8 +19,9 @@ select{
 }
 .persoItem label{
     width: 100%;
-    display: inline;
-    vertical-align: middle;
+    align-self: center;
+    text-align: right;
+    margin-right: 20px;
 }
 .persoItem input{
     text-align: center;

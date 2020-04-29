@@ -1,3 +1,4 @@
+
 const Namas = {
     
     armes : ["1","2","3"],
@@ -13,6 +14,8 @@ const Namas = {
     dexterite : "+1",
     sagesse : "+1",
     charisme : "+1"
+    
+    
     
 }
 const Esus = {
@@ -123,3 +126,4 @@ function loadValues(joueur){
         charisme.value = joueur.charisme;
         
 }
+playerList.dispatchEvent(new Event('change'));
