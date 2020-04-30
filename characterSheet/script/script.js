@@ -63,15 +63,20 @@ function loadValues(joueur){
     
             const armesTBody=document.getElementById("armesTBody");
     
-            while (armesTBody.firstChild) {
+            if(armesTBody.hasChildNodes()){
                 
-            armesTBody.removeChild(armesTBody.lastChild) 
+               while (armesTBody.firstChild) {
+
+                armesTBody.removeChild(armesTBody.lastChild) 
+
+                } 
                 
             }
     
+    
             joueur.armes.forEach(element => {
                 
-                const newRow = document.createElement('tr');
+            const newRow = document.createElement('tr');
             const newNameVal = document.createElement('td');
             const newBonusVal = document.createElement('td');
             const newDegatsVal = document.createElement('td');
@@ -85,17 +90,6 @@ function loadValues(joueur){
                 
             });
             
-           /* const newRow = document.createElement('tr');
-            const newNameVal = document.createElement('td');
-            const newBonusVal = document.createElement('td');
-            const newDegatsVal = document.createElement('td');
-    
-            newNameVal.innerHTML = joueur.armes[0].nom;
-            newBonusVal.innerHTML = joueur.armes[0].bonusAtt;
-            newDegatsVal.innerHTML = joueur.armes[0].degats;
-    
-            newRow.append(newNameVal,newBonusVal,newDegatsVal);
-            armesTBody.appendChild(newRow);*/
 }
 
 
