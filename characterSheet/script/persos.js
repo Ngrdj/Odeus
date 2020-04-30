@@ -10,12 +10,9 @@ const Namas = {
     dexterite : "+1",
     constitution : "+1",
     intelligence : "+1",
-    dexterite : "+1",
     sagesse : "+1",
     charisme : "+1"
-    
-    
-    
+     
 }
 const Esus = {
     
@@ -25,13 +22,12 @@ const Esus = {
     DDSav : "+2",
     bonusAtt : "+2",
     
-    force : "+2",
-    dexterite : "+2",
+    force : "0",
+    dexterite : "+3",
     constitution : "+2",
-    intelligence : "+2",
-    dexterite : "+2",
+    intelligence : "-1",
     sagesse : "+2",
-    charisme : "+2"
+    charisme : "+1"
     
 }
 const Kyra = {
@@ -46,26 +42,24 @@ const Kyra = {
     dexterite : "+3",
     constitution : "+3",
     intelligence : "+3",
-    dexterite : "+3",
     sagesse : "+3",
     charisme : "+3"
     
 }
 const Grudu = {
     
-    armes : [marteauG],
+    armes : [marteauG,javeline],
     
     sortPrep : 4,
     DDSav : "+4",
     bonusAtt : "+4",
     
-    force : "+4",
-    dexterite : "+4",
-    constitution : "+4",
-    intelligence : "+4",
-    dexterite : "+4",
-    sagesse : "+4",
-    charisme : "+4"
+    force : "+2",
+    dexterite : "+1",
+    constitution : "+3",
+    intelligence : "-1",
+    sagesse : "+2",
+    charisme : "+0"
     
 }
 const Lyre = {
@@ -80,7 +74,6 @@ const Lyre = {
     dexterite : "+5",
     constitution : "+5",
     intelligence : "+5",
-    dexterite : "+5",
     sagesse : "+5",
     charisme : "+5"
     

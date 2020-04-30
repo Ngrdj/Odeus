@@ -40,3 +40,4 @@ const marteauG={
     degats:"1d4"
     
 }
+ 
