@@ -1,6 +1,6 @@
 const Namas = {
     
-    armes : [javeline,baton,dague],
+    armes : [baton,epeeC],
     
     sortPrep : 1,
     DDSav : "+1",
@@ -19,6 +19,8 @@ const Namas = {
 }
 const Esus = {
     
+    armes : [dague,arc],
+    
     sortPrep : 2,
     DDSav : "+2",
     bonusAtt : "+2",
@@ -33,6 +35,8 @@ const Esus = {
     
 }
 const Kyra = {
+    
+    armes : [baton,dague],
     
     sortPrep : 3,
     DDSav : "+3",
@@ -49,6 +53,8 @@ const Kyra = {
 }
 const Grudu = {
     
+    armes : [marteauG],
+    
     sortPrep : 4,
     DDSav : "+4",
     bonusAtt : "+4",
@@ -63,6 +69,8 @@ const Grudu = {
     
 }
 const Lyre = {
+    
+    armes : [baton,dague],
     
     sortPrep : 5,
     DDSav : "+5",
