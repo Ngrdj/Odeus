@@ -1,0 +1,21 @@
+sortTab{
+    
+}
+#sortTab,th,td{
+    border: 1px solid black;
+    width: min-content;
+}
+
+.tabHeader {
+    
+        border: 1px solid black;
+    background-color: grey;
+    
+}
+.sortContent{
+    display: flex;
+    flex-direction: column;
+}
+.sortHead{
+    background-color: lightgray;
+}
