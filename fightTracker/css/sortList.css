@@ -8,22 +8,12 @@
     border: 1px solid black;
 }
 
-.FirstTabHeader {
-    
-    background-color: black;
-    color: white;
-    font-size: 17pt;
-    
-}
-.FirstTabHeader>th{
-    
-    padding: 20px;
-    
-}
-.SecondTabHeader {
+
+.TabHeader {
     
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
+    font-size: 17pt;
     
 }
 .SecondTabHeader>th{
@@ -70,11 +60,5 @@ th *{
     background-color:sandybrown;
 }
 .psyTabHead{
-    background-color:mediumpurple;
-}
-.invocTabHead{
-    background-color:plum;
-}
-.alterTabHead{
-    background-color:darkseagreen;
+    background-color: hsl(260,60%,70%)
 }

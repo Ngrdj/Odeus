@@ -6,3 +6,4 @@ for(const th of document.getElementsByTagName('th')){
     }
     
 }
+/*document.querySelector('.showButton').parentElement.nextElementSibling*/

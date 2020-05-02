@@ -6,6 +6,7 @@
     <link href="css/sortList.css" rel="Stylesheet" type="text/css"/>
   </head>
   <body>
+    <p>Mage<button class='showButton'>↓</button></p>
   	<table id ='sortTab' >
         <colgroup>
             <col class='nivTabHead'>
@@ -18,25 +19,18 @@
             <col class='alterTabHead'>
         </colgroup>
         <thead>
-            <tr class='FirstTabHeader'>
-                <th> </th>
-                <th colspan='4'>Élémentaires</th>
-                <th colspan='3'>Magiques</th>
-            </tr>
-            <tr class='SecondTabHeader'>
+            <tr class='TabHeader'>
                 <th>Niv</th>
                 <th>FEU (manipulation)</th>
                 <th>EAU (manipulation)</th>
                 <th>AIR (manipulation)</th>
                 <th>TERRE (manipulation)</th>
-                <th>PSY</th>
-                <th>INVOC</th>
-                <th>ALTÉR</th>
+                <th>ARCANES</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th>1</th>
+                <th>1<br>(+2 pt)</th>
                 <th>
                     <div class='sortContent'>
                         <span class='sortHead'>Controle des flammes :</span>
@@ -58,26 +52,14 @@
                 </th>
                 <th>
                     <div class='sortContent'>
-                        <span class='sortHead'>Façonnage de la terre :</span>
+                        <span class='sortHead'>Terraformation :</span>
                         Le lanceur peur modeler la terre en contact autour de lui
                     </div>
                 </th>
                 <th>
                     <div class='sortContent'>
-                        <span class='sortHead'>psy :</span>
-                        Au contact de la terre, le lanceur peut modeler la terre autour de lui
-                    </div>
-                </th>
-                <th>
-                    <div class='sortContent'>
-                        <span class='sortHead'>invoc :</span>
-                        Au contact de la terre, le lanceur peut modeler la terre autour de lui
-                    </div>
-                </th>
-                <th>
-                    <div class='sortContent'>
-                        <span class='sortHead'>Altér :</span>
-                        Au contact de la terre, le lanceur peut modeler la terre autour de lui
+                        <span class='sortHead'>Projectile magique :</span>
+                        Un projectile infligeant des dégats magiques
                     </div>
                 </th>
             </tr>
@@ -102,9 +84,12 @@
                         Consolide la terre pour créer une arme contondante
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Bouclier magique :</span>
+                        Invoque un bouclier magique dans la main du lanceur
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>3</th>
@@ -126,9 +111,12 @@
                         Crée un tremblement dans le sol autour du lanceur
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Arme liée :</span>
+                        Invoque une arme magique dans la main du lanceur
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>4</th>
@@ -156,22 +144,23 @@
                         Au contact de la pierre, la cible peut s'en recouvrir afin de se protèger
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Pénétration psychique :</span>
+                        Pénètre les pensées superficielles d'une créature à portée de main
+                    </div>
+                </th>
             </tr>
-            <tr class='SecondTabHeader'>
+            <tr class='TabHeader'>
                 <th>Niv</th>
                 <th>FEU (creation)</th>
                 <th>EAU (creation)</th>
                 <th>AIR (creation)</th>
                 <th>TERRE (creation)</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>ARCANE (maitrise)</th>
             </tr>
             <tr>
-                <th>5</th>
+                <th>5<br> (+2 pt)</th>
                 <th>
                     <div class='sortContent'>
                         <span class='sortHead'>Embrasement :</span>
@@ -196,9 +185,12 @@
                         Eruption de roche et de terre qui éclate en un point visible par le lanceur  
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Maitrise arcanique :</span>
+                        Les sorts de bouclier magiques, arme liée et pénétration psychique peuvent être lancé à distance  
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>6</th>
@@ -221,9 +213,12 @@
                     </div>
                 </th>
                 <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Télékinésie :</span>
+                        Déplace un objet où une créature légère par la pensée
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>7</th>
@@ -251,9 +246,12 @@
                         Transforme la cible en statue de pierre
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Dôme de lames :</span>
+                        Crée un dôme protecteur hérissé de lames autour du lanceur
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>8</th>
@@ -276,9 +274,12 @@
                         Crée une fissure dans le sol face au lanceur
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Téléportation :</span>
+                        Le lanceur se déplace instantanément vers un point visible
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>9</th>
@@ -306,9 +307,12 @@
                         Invoque un élémentaire de pierre
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Champ anti-magie :</span>
+                        Crée une zone à portée dans laquel la magie ne peut opérer
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th>10</th>
@@ -336,9 +340,12 @@
                         Crée un immense amas de pierres en hauteur s'écrasant sur une zone ciblée
                     </div>
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>
+                    <div class='sortContent'>
+                        <span class='sortHead'>Onde psionique :</span>
+                        Crée une vague magique face au lanceur qui provoque un état aléatoire à toute créature se trouvant dans la zone
+                    </div>
+                </th>
             </tr>
             
         </tbody>
