@@ -62,3 +62,11 @@ th *{
 .psyTabHead{
     background-color: hsl(260,60%,70%)
 }
+p{
+    font-size: 20pt;
+}
+button{
+    background: none;
+    border: none;
+    font-size: 20pt;
+}

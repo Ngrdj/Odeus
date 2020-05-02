@@ -6,4 +6,27 @@ for(const th of document.getElementsByTagName('th')){
     }
     
 }
-/*document.querySelector('.showButton').parentElement.nextElementSibling*/
+const showButtons = document.querySelectorAll('.showButton');
+
+/*.parentElement.nextElementSibling;*/
+
+for(const button of showButtons){
+    
+    button.addEventListener('click',() => {
+        
+        let nextTab = button.parentElement.nextElementSibling;
+        console.log(nextTab);
+        if(nextTab.style.display === 'none'){
+            
+            nextTab.style.display = 'table';
+            button.textContent = "↑";
+            
+        }else{
+            
+            nextTab.style.display = 'none';
+            button.textContent = "↓";
+        }
+        
+    })
+    
+}
