@@ -8,11 +8,27 @@
     border: 1px solid black;
 }
 
-.tabHeader {
+.FirstTabHeader {
     
-    border: 1px solid black;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: black;
     color: white;
+    font-size: 17pt;
+    
+}
+.FirstTabHeader>th{
+    
+    padding: 20px;
+    
+}
+.SecondTabHeader {
+    
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    
+}
+.SecondTabHeader>th{
+    
+    padding: 20px;
     
 }
 .sortContent{
@@ -37,4 +53,28 @@ th *{
 }
 .empty{
     background-color: rgba(0, 0, 0, 0.7);
+}
+.nivTabHead{
+    background-color:gainsboro;
+}
+.feuTabHead{
+    background-color:indianred;
+}
+.eauTabHead{
+    background-color:dodgerblue;
+}
+.airTabHead{
+    background-color:skyblue;
+}
+.terreTabHead{
+    background-color:sandybrown;
+}
+.psyTabHead{
+    background-color:mediumpurple;
+}
+.invocTabHead{
+    background-color:plum;
+}
+.alterTabHead{
+    background-color:darkseagreen;
 }
