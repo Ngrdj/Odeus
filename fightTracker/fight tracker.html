@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fight Tracker</title>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+  </head>
+  <body>
+  	<div class= fight-tracker>
+  		<div class="header">
+            <div>
+                
+                <button id="roundButton">Round</button>
+	  		    <input id="roundInput" type="number" name="round" size="5" value='0' readonly>
+                
+            </div>	
+            <div>
+              <button id="init">Calculer l'initiative</button>
+              <button id="trier"> Trier</button>
+            </div>
+            <div>
+                <select name="des" id='des'>
+                    <option value="d4">d4</option>
+                    <option value="d6">d6</option>
+                    <option value="d8">d8</option>
+                    <option value="d10">d10</option>
+                    <option value="d12">d12</option>
+                    <option value="d20">d20</option>
+                    <option value="d100">d100</option>
+	  	        </select>
+                <button id="lancer">Lancer</button>
+                <input type="number" id="resultat" size="5" readonly>
+            </div>
+  		</div>
+        <button id="ajouter">Ajouter Personnage</button>
+        
+        <!--"div perso" de référence clone-->
+        <div class="Perso hidden">
+            
+		  		<input class="charName" type="text" placeholder="Nom de personnage">
+                <div>
+                    <label >Init.</label>
+                    <input class="initPerso" type='number' value="0">
+                </div>
+                <div>
+                    <label>Attaque</label>
+		            <input type='number'>
+                </div>
+		  		<div>
+                    <label>Contre</label>
+		  		    <input type='number'>
+                </div>
+		  		<select name='etats'>
+		  			<option value="0">--</option>
+		  			<option value="1">À terre</option>
+		  			<option value="2">Agrippé</option>
+		  			<option value="3">Assourdi</option>
+		  			<option value="4">Aveuglé</option>
+		  			<option value="5">Charmé</option>
+		  			<option value="6">Effrayé</option>
+		  			<option value="7">Empoisonné</option>
+		  			<option value="8">Entravé</option>
+		  			<option value="9">Étourdi</option>
+		  			<option value="10">Incapable d'agir</option>
+		  			<option value="11">Inconscient</option>
+		  			<option value="12">Invisible</option>
+		  			<option value="13">Paralysé</option>
+		  			<option value="14">Pétrifié</option>
+		  		</select>
+		  		<button class="supprimer">x</button>
+	  		</div>
+        <!--..........................-->
+        
+  		<div id="persoList">
+	  		<!--.............Liste de personnages.............-->
+	  	</div>
+  	</div>
+    <script type="text/javascript" src="script/script.js"></script>
+  </body>
+ </html>
