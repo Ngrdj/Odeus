@@ -126,5 +126,4 @@ function reloadValues(){
     document.querySelector('.initPerso').value = 0;
     
 }
-
 reloadValues();
