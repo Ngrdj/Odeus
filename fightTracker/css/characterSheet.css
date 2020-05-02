@@ -2,16 +2,10 @@
     font-family: fantasy;
     display: grid;
     background-color: darkslateblue;
-    width:500px;
     padding : 20px;
     text-align: center;
     font-size: 100%;
-
-}
-select{
-    text-align: center;
-    font-size: 100%;
-    width: 100%;
+    border-radius: 20px;
 }
 .persoItem{
     background-color: aliceblue;
@@ -32,11 +26,6 @@ select{
 .tableau{
     width: 100%;
     background-color: lightgray;
-}
-caption{
-    text-align: left;
-    background-color: darkgrey;
-    padding: 5px;
 }
 .caract{  
     background-color: aliceblue;

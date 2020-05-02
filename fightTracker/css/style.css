@@ -1,83 +1,15 @@
-.fight-tracker{
-    
-    background-color: grey;
-    width: 800px;
-    padding: 10px;
-    border-radius: 10px;
-    
+body{
+    display: flex;
+    width: min-content;
+    width
 }
-.header{
-    
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: whitesmoke;
-    height: 100px;
-    width: inherit;
-
-
-}
-.header *{
-    
-    height: 50px;
+select{
     text-align: center;
-    
-}
-.header input{
-    
-    height: 42px;
-    
-}
-.Perso{
-    
-    margin: 10px;
-    background-color:white;
-    display : flex;
-    border-radius: 10px;
-    justify-content: space-around;
-    
-}
-.Perso *{
-    
-    margin: 5px;
-    align-self:stretch;
+    font-size: 100%;
 
 }
-.Perso input[type="number"]{
-    
-    max-width: 25px;
-
-}
-#persoList{
-    
-    width : auto;
-    
-}
-#ajouter{
-    
-    justify-self: center;
-    width: inherit;
-    height: 50px;
-    margin-top: 10px;
-    
-}
-.charName{
-    
-    text-align: center;
-
-}
-.hidden{
-    
-    display:none;
-    
-}
-input{
-    -moz-appearance: textfield;
-    -webkit-appearance: textfield;
-    -o-appearance: textfield;
-}
-button{
-    
-    cursor: pointer;
-    
+caption{
+    text-align: left;
+    background-color: darkgrey;
+    padding: 5px;
 }
