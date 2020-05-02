@@ -1,0 +1,54 @@
+.persos{
+    font-family: fantasy;
+    display: grid;
+    background-color: darkslateblue;
+    width:500px;
+    padding : 20px;
+    text-align: center;
+    font-size: 100%;
+
+}
+select{
+    text-align: center;
+    font-size: 100%;
+    width: 100%;
+}
+.persoItem{
+    background-color: aliceblue;
+    display: flex;
+}
+.persoItem label{
+    width: 100%;
+    align-self: center;
+    text-align: right;
+    margin-right: 20px;
+}
+.persoItem input{
+    text-align: center;
+    font-size: 15pt;
+    width: 100%;
+    
+}
+.tableau{
+    width: 100%;
+    background-color: lightgray;
+}
+caption{
+    text-align: left;
+    background-color: darkgrey;
+    padding: 5px;
+}
+.caract{  
+    background-color: aliceblue;
+    border: solid 5px;
+    margin:5px;
+    padding: 5px;
+ 
+}
+.caract .persoItem{
+    flex-direction: column;
+}
+.caract .persoItem div{
+    display: flex;
+    flex-direction: row;
+}

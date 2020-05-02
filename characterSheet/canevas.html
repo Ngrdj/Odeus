@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feuille de personnage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/style.css" rel="Stylesheet" type="text/css"/> 
+  </head>
+  <body>
+    <div class="persos">
+        <select id="name">
+            <option value="" selected hidden >Choisir un joueur</option>
+            <option value="namas" >Namas</option>
+            <option value="esus" >Esus</option>
+            <option value="kyra" >Kyra</option>
+            <option value="grudu" >Grudu</option>
+            <option value="lyre" >Lyre</option>
+        </select>
+        <select>
+            <option value="" selected hidden >Sorts</option>
+            <optgroup label="mineurs">
+                <option>Coup de tonnerre</option>
+                <option>Fouet épineux</option>
+                <option>Sauvagerie primitive</option>
+            </optgroup>
+            <optgroup label="niveau1">
+                <option>Soins</option>
+                <option>Mot de guérison</option>
+                <option>Couteau de glace</option>
+            </optgroup>
+            <optgroup label="niveau2">
+                <option>Croissance d'épines</option>
+                <option>Immobilisation de personne</option>
+                <option>Métal brulant</option>
+                <option>Rayon de lune</option>
+            </optgroup>
+            <optgroup label="niveau3">
+                <option>Flèches enflammées</option>
+                <option>Mur d'eau</option>
+                <option>Mur de vent</option>
+                <option>Raz-de-marée</option>
+                <option>Respiration aquatique</option>
+                <option>Tempête de neige</option>
+            </optgroup>
+        </select>
+        <div class="persoItem">
+            <label for="sortPrep" >Sorts par jour</label>
+            <input id="sortPrep" type ="number" name="sortPrep"  min="0">
+        </div>
+        <div class="persoItem">
+            <label for="DDSav" >DD de sauvegarde des sorts</label>
+            <input id="DDSav" name="DDSav" readonly value ="5">
+        </div>
+        <div class="persoItem">
+            <label for="bonusAtt" >Bonus d'attaque</label>
+            <input id="bonusAtt" name="bonusAtt" readonly value ="5">
+        </div>
+        <div class="armes">        
+            <table id="armesTab" class="tableau">
+                <caption>Tableau des armes</caption>
+                <thead>
+                    <tr>
+                        <th>Armes</th>
+                        <th>Bonus jet Attaque</th>
+                        <th>Dégats</th>
+                    </tr>
+                </thead>
+                <tbody id="armesTBody">
+                    <tr>
+                        <td>Epée</td>
+                        <td>+3</td>
+                        <td>1d6<td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>+2</td>
+                        <td>1d6<td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>+2</td>
+                        <td>1d6<td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>+2</td>
+                        <td>1d6<td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>+2</td>
+                        <td>1d6<td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="competences">
+            <table id="compTab" class="tableau">
+                <caption>Tableau des compétences</caption>
+                <thead>
+                    <tr>
+                        <th>Comp</th>
+                        <th>Bonus</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>comp1</td>
+                        <td>+3</td>
+                        <td>Int<td>
+                    </tr>
+                    <tr>
+                        <td>comp2</td>
+                        <td>+3</td>
+                        <td>Sag<td>
+                    </tr>
+                    <tr>
+                        <td>comp1</td>
+                        <td>+3</td>
+                        <td>Int<td>
+                    </tr>
+                    <tr>
+                        <td>comp2</td>
+                        <td>+3</td>
+                        <td>Sag<td>
+                    </tr>
+                    <tr>
+                        <td>comp1</td>
+                        <td>+3</td>
+                        <td>Int<td>
+                    </tr>
+                    <tr>
+                        <td>comp2</td>
+                        <td>+3</td>
+                        <td>Sag<td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="caract">
+            <div class="persoItem">
+                <div>
+                    <label for="force">Force</label>
+                    <input id="force" name="force" value ="+3" readonly>
+                </div>
+                <div>
+                    <label for="dexterite">Dextérité</label>
+                    <input id="dexterite" name="dexterite" value ="+3" readonly>
+                </div>
+                <div>
+                    <label for="constitution">Constitution</label>
+                    <input id="constitution" name="constitution" value ="+3" readonly>
+                </div>
+                <div>
+                    <label for="intelligence">Intelligence</label>
+                    <input id="intelligence" name="intelligence" value ="+3" readonly>
+                </div>
+                <div>
+                    <label for="sagesse">Sagesse</label>
+                    <input id="sagesse" name="sagesse" value ="+3" readonly>
+                </div>
+                <div>
+                    <label for="charisme">Charisme</label>
+                    <input id="charisme" name="charisme" value ="+3" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="persoItem">
+            <label for="objCle" >Objets clés</label>
+            <select name="objCle" readonly>
+                <option selected hidden >&hellip;</option>
+                <option value="1" >Clé des enfers de la mort qui tue la race à sa grand-mère</option>
+                <option value="2" >Trucs qui tuent 2</option>
+                <option value="3" >Trucs qui tuent 3</option>
+            </select>
+        </div>
+    </div>
+      <script src="script/armes.js"></script>
+      <script src="script/persos.js"></script>
+    <script src="script/script.js"></script>
+  </body>
+</html>
