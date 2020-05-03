@@ -72,6 +72,18 @@ th *{
 .exploTabHead{
     background-color: hsl(27, 65%, 60%);
 }
+.connexTabHead{
+    background-color: hsl(200, 25%, 50%)
+}
+.bestTabHead{
+    background-color: hsl(15, 45%, 50%)
+}
+.herboTabHead{
+    background-color: hsl(75, 25%, 50%)
+}
+.spiritTabHead{
+    background-color: hsl(160, 42%, 58%)
+}
 p{
     font-size: 20pt;
 }
