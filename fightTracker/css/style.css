@@ -11,3 +11,13 @@ caption{
     background-color: darkgrey;
     padding: 5px;
 }
+input{
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    -o-appearance: textfield;
+}
+button{
+    
+    cursor: pointer;
+    
+}

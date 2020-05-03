@@ -101,18 +101,39 @@ trier.addEventListener('click', () => {
 
 const roundButton = document.getElementById('roundButton');
 const roundInput = document.getElementById('roundInput');
+let i=0;
 
     roundButton.addEventListener('click', () => {
-       
-        if(perso.length > 1 ){
+       //for (var i = 0; i < perso.length; i++) {
+       	perso[i].classList.add('selected');
+       	
+       	if(i>0){
+       		perso[i-1].classList.remove('selected');
+       	}
+       	if(i==0){
+       		roundInput.value++;
+       		if(perso[perso.length-1].classList.contains('selected')){
+       			perso[perso.length-1].classList.remove('selected');
+       		}
+       	}
+       	if(i==perso.length-1){
+       		i=0;	
+   		}else{
+   			i++;
+   		}
+   		
 
-            roundInput.value++;
+
+       //}
+       /* if(perso.length > 1 ){
+
+            
             
 
         }else{
             
             alert('Il faut au moins 2 personnages pour commencer un combat');
-        }
+        }*/
         
         
     });
