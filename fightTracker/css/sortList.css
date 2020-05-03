@@ -1,10 +1,10 @@
-#sortTab{
+.sortTab{
     border-collapse: collapse;
     border-radius:20px;
     font-family: fantasy;
     font-stretch: condensed;
 }
-#sortTab,th,td{
+.sortTab,th,td{
     border: 1px solid black;
 }
 
@@ -37,13 +37,13 @@
     margin-bottom: 2px;
     padding: 5px;
 }
-}
 th *{
     display: block
 }
 .empty{
     background-color: rgba(0, 0, 0, 0.7);
 }
+/*mage color*/
 .nivTabHead{
     background-color:gainsboro;
 }
@@ -60,7 +60,17 @@ th *{
     background-color:sandybrown;
 }
 .psyTabHead{
-    background-color: hsl(260,60%,70%)
+    background-color: hsl(260,60%,70%);
+}
+/*rodeur color*/
+.distTabHead{
+    background-color: hsl(202, 52%, 70%);
+}
+.corpTabHead{
+    background-color: hsl(357, 72%, 60%);
+}
+.exploTabHead{
+    background-color: hsl(27, 65%, 60%);
 }
 p{
     font-size: 20pt;

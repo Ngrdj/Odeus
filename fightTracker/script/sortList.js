@@ -8,8 +8,6 @@ for(const th of document.getElementsByTagName('th')){
 }
 const showButtons = document.querySelectorAll('.showButton');
 
-/*.parentElement.nextElementSibling;*/
-
 for(const button of showButtons){
     
     button.addEventListener('click',() => {
