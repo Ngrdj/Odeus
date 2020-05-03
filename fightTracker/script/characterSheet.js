@@ -31,11 +31,9 @@ function loadValues(joueur){
     
 /*-----------------------------loadSpell-------------------------------*/
     
-            const sortPrep = document.getElementById("sortPrep");
             const DDSav = document.getElementById("DDSav");
             const bonusAtt = document.getElementById("bonusAtt");
 
-            sortPrep.max = joueur.sortPrep
             DDSav.value = joueur.DDSav
             bonusAtt.value = joueur.bonusAtt
         
