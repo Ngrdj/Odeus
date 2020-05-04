@@ -3,11 +3,14 @@
   <head>
     <title>fight Tracker</title>
     <meta charset="UTF-8">
-    <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+    
     <link href="css/fightTracker.css" rel="Stylesheet" type="text/css"/>
     <link href="css/characterSheet.css" rel="Stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="Stylesheet" type="text/css"/>
   </head>
   <body>
+    <header>
+    </header>
     <main>
         <div class= fight-tracker>
   		<div class="header">
@@ -34,6 +37,7 @@
                 <button id="lancer">Lancer</button>
                 <input type="number" id="resultat" size="5" readonly>
             </div>
+        <button value='charSheet' class='ShowHideButton'>Character Sheet ➔</button>
   		</div>
         <button id="ajouter">Ajouter Personnage</button>
         
@@ -80,7 +84,7 @@
   	</div>
     </main>
     <aside>
-      <div class="persos">
+      <div id='charSheet' class="persos hidden">
         <select id="name">
             <option value="" selected hidden >Choisir un joueur</option>
             <option value="namas" >Namas</option>
@@ -246,6 +250,11 @@
         </div>
     </div>
     </aside>
+    <footer>
+        <iframe class='hidden' id="sortsTab"  height="400px" src="sorts.html">
+        </iframe>
+        <button value='sortsTab' id="sortsTabButton" class='ShowHideButton' >Tableau des sorts</button>
+    </footer>
       <script src="script/armes.js"></script>
       <script src="script/persos.js"></script>
       <script type="text/javascript" src="script/characterSheet.js"></script>

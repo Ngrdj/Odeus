@@ -137,6 +137,29 @@ let i=0;
         
         
     });
+/*...........................ShowHideButtons.............................*/
+
+const sortsTab = document.getElementById('sortsTab');
+const ShowHideButtons = document.querySelectorAll('.ShowHideButton');
+
+for(const button of ShowHideButtons){
+
+    button.addEventListener('click', ()=>{
+        
+        const showHideElement = document.getElementById(button.getAttribute('value'));
+        console.log(showHideElement);
+        if(showHideElement.classList.contains('hidden')){
+            showHideElement.classList.remove('hidden');
+        }else{
+            showHideElement.classList.add('hidden')
+        }
+        /*if(sortsTab.classList.contains('hidden')){
+            sortsTab.classList.remove('hidden');
+        }else{
+            sortsTab.classList.add('hidden')
+        }  */  
+    });    
+}
 
 /*...........................Réinitialisation des valeurs.............................*/
 

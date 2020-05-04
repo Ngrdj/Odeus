@@ -92,3 +92,7 @@ button{
     border: none;
     font-size: 20pt;
 }
+.hidden{
+    
+    display: none;
+}

@@ -1,19 +1,19 @@
 .fight-tracker{
     
     background-color: grey;
-    width: 800px;
+    width: auto;
     padding: 10px;
     border-radius: 10px;
-    
+    min-width: 700px;
 }
 .header{
     
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: whitesmoke;
     height: 100px;
-    width: inherit;
+    width: auto;
 
 
 }
@@ -56,7 +56,7 @@
 #ajouter{
     
     justify-self: center;
-    width: inherit;
+    width: -moz-available;
     height: 50px;
     margin-top: 10px;
     
@@ -65,11 +65,6 @@
     
     text-align: center;
 
-}
-.hidden{
-    
-    display:none;
-    
 }
 .selected{
     border:2px solid red;

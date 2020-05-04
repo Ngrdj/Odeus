@@ -13,15 +13,15 @@ for(const button of showButtons){
     button.addEventListener('click',() => {
         
         let nextTab = button.parentElement.nextElementSibling;
-        console.log(nextTab);
-        if(nextTab.style.display === 'none'){
+        
+        if(nextTab.classList.contains('hidden')){
             
-            nextTab.style.display = 'table';
+            nextTab.classList.remove('hidden');
             button.textContent = "↑";
             
         }else{
             
-            nextTab.style.display = 'none';
+            nextTab.classList.add('hidden');
             button.textContent = "↓";
         }
         
