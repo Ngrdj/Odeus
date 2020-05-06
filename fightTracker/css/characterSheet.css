@@ -1,11 +1,10 @@
 .persos{
     font-family: fantasy;
     display: grid;
-    background-color: darkslateblue;
+    background-color: rgba(0,0,0,0.6);
     padding : 20px;
     text-align: center;
     font-size: 100%;
-    border-radius: 20px;
     min-height: 700px;
 }
 .persoItem{
@@ -41,4 +40,13 @@
 .caract .persoItem div{
     display: flex;
     flex-direction: row;
+}
+#charSheetButton{
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 20px 0px 0px 20px;
+    border:none;
+    writing-mode: sideways-lr;
+    min-width: 50px;
+    color:white;
+    font-size: xx-large;
 }

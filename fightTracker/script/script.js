@@ -140,7 +140,7 @@ for(const button of ShowHideButtons){
     button.addEventListener('click', ()=>{
         
         const showHideElement = document.getElementById(button.getAttribute('value'));
-        console.log(showHideElement);
+
         if(showHideElement.classList.contains('hidden')){
             showHideElement.classList.remove('hidden');
         }else{
@@ -205,24 +205,25 @@ let musicBar=document.getElementById('musicBar');
 
 play.addEventListener('click',()=>{
 
-  switch(music.selectedOptions[0].value){
-    case"intro": sourceMusic.setAttribute("src","sounds/music/Intro.mp3");
+  /*switch(music.selectedOptions[0].value){
+    case"intro": sourceMusic.setAttribute("src","sounds/music/intro.mp3");
     break;
 
-    case"nature": sourceMusic.src="sounds/music/Nature.mp3";
+    case"nature": sourceMusic.src="sounds/music/nature.mp3";
     break;
 
-    case"combat":sourceMusic.src="sounds/music/Combat.mp3";
+    case"combat":sourceMusic.src="sounds/music/fight.mp3";
     break;
 
     case"taverne":sourceMusic.src="sounds/music/Taverne.mp3";
     break;
   }
-  musicBar.load();
+   */ sourceMusic.src=`sounds/music/${music.selectedOptions[0].value}.mp3`;
+    musicBar.load();
 })
 stop.addEventListener('click',()=>{
   musicBar.src="";
-  musicBar.load()
+  musicBar.load();
 })
 
 /*...........................Réinitialisation des valeurs.............................*/

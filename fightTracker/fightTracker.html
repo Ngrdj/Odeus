@@ -21,11 +21,14 @@
             <select id="choixMusic" type="text" name="soundSelect">
                 <option value="intro">Intro</option>
                 <option value="nature">Nature</option>
-                <option value="combat">Combat</option>
-                <option value="taverne">Taverne</option>
+                <option value="fight">Combat</option>
+                <option value="fight2">CombatII</option>
+                <option value="tavern">Taverne</option>
+                <option value="market">Marché</option>
+                <option value="cave">Caverne</option>
             </select>
             <audio id="musicBar" loop autoplay>
-                <source id="sourceMusic" type="audio/mp3">
+                <source src="sounds/music/intro.mp3" id="sourceMusic" type="audio/mp3">
             </audio>
             <button id="playMusic">play</button>
             <button id="stopMusic">stop</button>
@@ -36,7 +39,7 @@
         <aside id="aside-left">
         
         <div id="meet" class="hidden"></div>
-        <button value='meet' class='ShowHideButton'>Video</button>
+        <button id="meetButton" value='meet' class='ShowHideButton'>Video</button>
           
       </aside>
         <div class= fight-tracker>
@@ -109,7 +112,7 @@
 	  	</div>
   	</div>
         <aside id="aside-right">
-        <button value='charSheet' class='ShowHideButton'>Char.<br> Sheet</button>
+        <button id="charSheetButton" value='charSheet' class='ShowHideButton'>Character Sheet</button>
         <div id='charSheet' class="persos hidden">
         <select id="name">
             <option value="" selected hidden >Choisir un joueur</option>
