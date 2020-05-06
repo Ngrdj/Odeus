@@ -14,16 +14,21 @@
             <label for="backgroundImgPath">Fond d'écran :</label>
             <input id="backgroundUrlInput" type="text" name="backgroundImgPath" placeholder="Background url">
             <button id="urlValidButton">Valider</button>
+            
         </div>
         <div>
             <label for="soundSelect">Fond sonore :</label>
-            <select type="text" name="soundSelect">
-                <option>Nature</option>
-                <option>Combat</option>
-                <option>Taverne</option>
+            <select id="choixMusic" type="text" name="soundSelect">
+                <option value="intro">Intro</option>
+                <option value="nature">Nature</option>
+                <option value="combat">Combat</option>
+                <option value="taverne">Taverne</option>
             </select>
-            <button>Play</button>
-            <button>Pause</button>
+            <audio id="musicBar" loop autoplay>
+                <source id="sourceMusic" type="audio/mp3">
+            </audio>
+            <button id="playMusic">play</button>
+            <button id="stopMusic">stop</button>
         </div>
         
     </header>

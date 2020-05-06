@@ -104,36 +104,29 @@ const roundInput = document.getElementById('roundInput');
 let i=0;
 
     roundButton.addEventListener('click', () => {
-       //for (var i = 0; i < perso.length; i++) {
-       	perso[i].classList.add('selected');
-       	
-       	if(i>0){
-       		perso[i-1].classList.remove('selected');
-       	}
-       	if(i==0){
-       		roundInput.value++;
-       		if(perso[perso.length-1].classList.contains('selected')){
-       			perso[perso.length-1].classList.remove('selected');
-       		}
-       	}
-       	if(i==perso.length-1){
-       		i=0;	
-   		}else{
-   			i++;
-   		}
-   		
+        if(perso.length > 1 ){
 
+            perso[i].classList.add('selected');
 
-       //}
-       /* if(perso.length > 1 ){
-
-            
-            
+            if(i>0){
+                perso[i-1].classList.remove('selected');
+            }
+            if(i==0){
+                roundInput.value++;
+                if(perso[perso.length-1].classList.contains('selected')){
+                    perso[perso.length-1].classList.remove('selected');
+                }
+            }
+            if(i==perso.length-1){
+                i=0;	
+            }else{
+                i++;
+            }
 
         }else{
             
             alert('Il faut au moins 2 personnages pour commencer un combat');
-        }*/
+        }
         
         
     });
@@ -161,14 +154,14 @@ for(const button of ShowHideButtons){
     });    
 }
 /*...........................jitsi test.............................*/
-const domain = 'meet.jit.si';
+/*const domain = 'meet.jit.si';
 const options = {
     roomName: 'ODEUS',
     width: '500px',
     height: '100%',
     parentNode: document.querySelector('#meet')
 };
-const api = new JitsiMeetExternalAPI(domain, options);
+const api = new JitsiMeetExternalAPI(domain, options);*/
 /*...........................BackgroundSelect.............................*/
 
 const urlValidButton = document.getElementById('urlValidButton');
@@ -202,7 +195,35 @@ function isValidUrl(string) {
   return true;
 }
 
+/*...........................MusicSelect.............................*/
 
+const play=document.getElementById('playMusic');
+const stop=document.getElementById('stopMusic');
+let music= document.getElementById('choixMusic');
+let sourceMusic=document.getElementById('sourceMusic');
+let musicBar=document.getElementById('musicBar');
+
+play.addEventListener('click',()=>{
+
+  switch(music.selectedOptions[0].value){
+    case"intro": sourceMusic.setAttribute("src","sounds/music/Intro.mp3");
+    break;
+
+    case"nature": sourceMusic.src="sounds/music/Nature.mp3";
+    break;
+
+    case"combat":sourceMusic.src="sounds/music/Combat.mp3";
+    break;
+
+    case"taverne":sourceMusic.src="sounds/music/Taverne.mp3";
+    break;
+  }
+  musicBar.load();
+})
+stop.addEventListener('click',()=>{
+  musicBar.src="";
+  musicBar.load()
+})
 
 /*...........................Réinitialisation des valeurs.............................*/
 
