@@ -160,7 +160,15 @@ for(const button of ShowHideButtons){
         }  */  
     });    
 }
-
+/*...........................jitsi test.............................*/
+const domain = 'meet.jit.si';
+const options = {
+    roomName: 'ODEUS',
+    width: '500px',
+    height: '100%',
+    parentNode: document.querySelector('#meet')
+};
+const api = new JitsiMeetExternalAPI(domain, options);
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){

@@ -10,8 +10,30 @@
   </head>
   <body>
     <header>
+        <div>
+            <label for="backgroundImgPath">Fond d'écran :</label>
+            <input type="text" name="backgroundImgPath" placeholder="Background url">
+            <button>Valider</button>
+        </div>
+        <div>
+            <label for="soundSelect">Fond sonore :</label>
+            <select type="text" name="soundSelect">
+                <option>Nature</option>
+                <option>Combat</option>
+                <option>Taverne</option>
+            </select>
+            <button>Play</button>
+            <button>Pause</button>
+        </div>
+        
     </header>
     <main>
+        <aside id="aside-left">
+        
+        <div id="meet" class="hidden"></div>
+        <button value='meet' class='ShowHideButton'>Video</button>
+          
+      </aside>
         <div class= fight-tracker>
   		<div class="header">
             <div>
@@ -37,7 +59,6 @@
                 <button id="lancer">Lancer</button>
                 <input type="number" id="resultat" size="5" readonly>
             </div>
-        <button value='charSheet' class='ShowHideButton'>Character Sheet ➔</button>
   		</div>
         <button id="ajouter">Ajouter Personnage</button>
         
@@ -82,9 +103,9 @@
 	  		<!--.............Liste de personnages.............-->
 	  	</div>
   	</div>
-    </main>
-    <aside>
-      <div id='charSheet' class="persos hidden">
+        <aside id="aside-right">
+        <button value='charSheet' class='ShowHideButton'>Char.<br> Sheet</button>
+        <div id='charSheet' class="persos hidden">
         <select id="name">
             <option value="" selected hidden >Choisir un joueur</option>
             <option value="namas" >Namas</option>
@@ -250,11 +271,14 @@
         </div>
     </div>
     </aside>
+    </main>
+    
     <footer>
         <iframe class='hidden' id="sortsTab"  height="400px" src="sorts.html">
         </iframe>
         <button value='sortsTab' id="sortsTabButton" class='ShowHideButton' >Tableau des sorts</button>
     </footer>
+      <script src='https://meet.jit.si/external_api.js'></script>
       <script src="script/armes.js"></script>
       <script src="script/persos.js"></script>
       <script type="text/javascript" src="script/characterSheet.js"></script>
