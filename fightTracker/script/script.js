@@ -169,10 +169,46 @@ const options = {
     parentNode: document.querySelector('#meet')
 };
 const api = new JitsiMeetExternalAPI(domain, options);
+/*...........................BackgroundSelect.............................*/
+
+const urlValidButton = document.getElementById('urlValidButton');
+
+const backgroundUrlInput = document.getElementById('backgroundUrlInput');
+const body = document.getElementsByTagName('body')[0];
+
+
+urlValidButton.addEventListener('click',()=>{
+    
+    if(isValidUrl(backgroundUrlInput.value)){
+        body.style.background = '';
+        body.style.background = `rgba(0, 0, 0, 0) url(${backgroundUrlInput.value}) no-repeat fixed`;
+        body.style.backgroundSize = 'cover';
+        
+    }else{
+        
+        alert('veuillez entrer un URL valide !');
+        
+    }
+    
+});
+
+function isValidUrl(string) {
+  try {
+    new URL(string);
+  } catch (_) {
+    return false;  
+  }
+
+  return true;
+}
+
+
+
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){
     
+    backgroundUrlInput.value = '';
     roundInput.value = 0;
     result.value = 0;
     document.querySelector('.initPerso').value = 0;
