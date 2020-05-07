@@ -7,6 +7,7 @@
     <link href="css/fightTracker.css" rel="Stylesheet" type="text/css"/>
     <link href="css/characterSheet.css" rel="Stylesheet" type="text/css"/>
     <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/afc5fa88b5.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -289,10 +290,16 @@
     </main>
     
     <footer>
+        <div id="soundBar">
+            <span class="soundIcon" id="swordIcon" data-name='sword'></span>
+            <span class="soundIcon" id="bowIcon" data-name='bow'></span>
+            <span class="soundIcon" id="axeIcon"data-name='axe'></span>
+        </div>
         <iframe class='hidden' id="sortsTab"  height="400px" src="sorts.html">
         </iframe>
-        <button value='sortsTab' id="sortsTabButton" class='ShowHideButton' >Tableau des sorts</button>
+        <button value='sortsTab' id="sortsTabButton" class='ShowHideButton hidden' >Tableau des sorts</button>
     </footer>
+    
       <script src='https://meet.jit.si/external_api.js'></script>
       <script src="script/armes.js"></script>
       <script src="script/persos.js"></script>

@@ -4,6 +4,7 @@ body{
     /*background-size: cover;*/
     background-size: 70%;
     background-position: center;
+    margin: 0px;
 }
 select{
     text-align: center;
@@ -56,8 +57,8 @@ footer{
     
     position: fixed;
     bottom: 0px;
-    margin: 10px;
     width: -moz-available;
+    padding: 5px 0px;
     
     background-color: #ffffff;
     -webkit-box-shadow:inset 0px 0px 20px 3px #656565;
@@ -88,4 +89,26 @@ iframe{
     min-width: 50px;
     color:white;
     font-size: xx-large;
+}
+#soundBar{
+    display: flex;
+    flex-direction: row;
+}
+.soundIcon{
+    background-repeat: no-repeat;
+    text-align: center;
+    width:20px;
+    height: 20px;
+    display: block;
+    background-size: cover;
+    margin: 0px 10px;
+}
+#swordIcon{
+    background-image: url('../img/icons/sword.png');    
+}
+#axeIcon{
+    background-image: url('../img/icons/axe.png');    
+}
+#bowIcon{
+    background-image: url('../img/icons/bow.png');
 }

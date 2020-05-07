@@ -226,6 +226,19 @@ stop.addEventListener('click',()=>{
   musicBar.load();
 })
 
+/*...........................SoundIcon.............................*/
+let icons= document.getElementsByClassName('soundIcon');
+
+for(const icon of icons){
+
+    let audio= new Audio(`sounds/effects/${icon.getAttribute('data-name')}.mp3`);
+    icon.addEventListener('click',()=>{
+    audio.play();
+})
+}
+
+
+
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){
