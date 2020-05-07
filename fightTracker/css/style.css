@@ -15,7 +15,7 @@ caption{
     background-color: darkgrey;
     padding: 5px;
 }
-input{
+input[type="number"]{
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
     -o-appearance: textfield;
