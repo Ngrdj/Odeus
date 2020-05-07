@@ -205,25 +205,13 @@ let musicBar=document.getElementById('musicBar');
 
 play.addEventListener('click',()=>{
 
-  /*switch(music.selectedOptions[0].value){
-    case"intro": sourceMusic.setAttribute("src","sounds/music/intro.mp3");
-    break;
-
-    case"nature": sourceMusic.src="sounds/music/nature.mp3";
-    break;
-
-    case"combat":sourceMusic.src="sounds/music/fight.mp3";
-    break;
-
-    case"taverne":sourceMusic.src="sounds/music/Taverne.mp3";
-    break;
-  }
-   */ sourceMusic.src=`sounds/music/${music.selectedOptions[0].value}.mp3`;
+ sourceMusic.src=`sounds/music/${music.selectedOptions[0].value}.mp3`;
     musicBar.load();
+    
 })
 stop.addEventListener('click',()=>{
-  musicBar.src="";
-  musicBar.load();
+
+    musicBar.pause();    
 })
 
 /*...........................SoundIcon.............................*/
