@@ -45,7 +45,8 @@ aside{
     flex-grow: 1;
     width: -moz-available;
     display: flex;
-    height: 90vh;
+    height: 80vh;
+    min-height: 900px;
 }
 #aside-left{
 
@@ -56,7 +57,7 @@ aside{
 footer{
     
     position: fixed;
-    bottom: 0px;
+    bottom: 50px;
     width: -moz-available;
     padding: 5px 0px;
     
@@ -93,6 +94,18 @@ iframe{
 #soundBar{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+.iconBackground{
+    
+    border-radius: 50%;
+    background-color: whitesmoke;
+    width: 30px;
+    height: 30px;
+    scale: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .soundIcon{
     background-repeat: no-repeat;
@@ -101,7 +114,8 @@ iframe{
     height: 20px;
     display: block;
     background-size: cover;
-    margin: 0px 10px;
+
+    
 }
 #swordIcon{
     background-image: url('../img/icons/sword.png');    
@@ -110,5 +124,18 @@ iframe{
     background-image: url('../img/icons/axe.png');    
 }
 #bowIcon{
-    background-image: url('../img/icons/bow.png');
+    background-image: url('../img/icons/bow.png');    
 }
+#waterIcon{
+    background-image: url('../img/icons/water.png');
+}
+#earthIcon{
+    background-image: url('../img/icons/earth.png');
+}
+#fireIcon{
+    background-image: url('../img/icons/fire.png');
+}
+#windIcon{
+    background-image: url('../img/icons/wind.png');
+}
+
