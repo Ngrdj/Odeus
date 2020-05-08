@@ -1,7 +1,6 @@
 body{
     background: url(https://dndcrew.com/wp-content/uploads/2018/06/DnD_Logo.png) 50%;
     background-repeat:no-repeat;
-    /*background-size: cover;*/
     background-size: 70%;
     background-position: center;
     margin: 0px;
@@ -61,10 +60,10 @@ footer{
     width: -moz-available;
     padding: 5px 0px;
     
-    background-color: #ffffff;
-    -webkit-box-shadow:inset 0px 0px 20px 3px #656565;
-    -moz-box-shadow:inset 0px 0px 20px 3px #656565;
-    box-shadow:inset 0px 0px 20px 3px #656565;
+    background-color: none;
+    -webkit-box-shadow:inset 0px 0px 20px 3px rgba(0,0,0,0.6);
+    -moz-box-shadow:inset 0px 0px 20px 3px rgba(0,0,0,0.6);
+    box-shadow:inset 0px 0px 20px 3px rgba(0,0,0,0.6);
 
 }
 iframe{
