@@ -292,8 +292,7 @@ backgroundValidButton.addEventListener('click',()=>{
            let fileURL =  window.URL.createObjectURL(backgroundFileInput.files[0]);
             
             body.style.background = '';
-            body.background = `url(${fileURL})`;
-            
+            body.style.background = `url(${fileURL})`;
             
         break;
     }
@@ -344,6 +343,8 @@ function reloadValues(){
     roundInput.value = 0;
     result.value = 0;
     document.querySelector('.initPerso').value = 0;
-    backgroundSelectType.opt
+    
+    backgroundSelectType.selectedIndex= 0;
+    music.selectedIndex= 0;
 }
 reloadValues();
