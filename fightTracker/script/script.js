@@ -259,8 +259,7 @@ backgroundValidButton.addEventListener('click',()=>{
     case 'select':
             
         body.style.background = '';
-        body.style.background = `rgba(0, 0, 0, 0) url(img/backgrounds/${backgroundSelect.options[backgroundSelect.selectedIndex].value}.jpg) no-repeat fixed`;
-        body.style.backgroundSize = 'cover';
+        body.style.background = `url(img/backgrounds/${backgroundSelect.options[backgroundSelect.selectedIndex].value}.jpg)`;
             
         break;
             
@@ -278,8 +277,7 @@ backgroundValidButton.addEventListener('click',()=>{
         }
         if(isValidUrl(backgroundUrlInput.value)){
             body.style.background = '';
-            body.style.background = `rgba(0, 0, 0, 0) url(${backgroundUrlInput.value}) no-repeat fixed`;
-            body.style.backgroundSize = 'cover';
+            body.style.background = `url(${backgroundUrlInput.value})`;
         
         }else{
         
@@ -294,16 +292,15 @@ backgroundValidButton.addEventListener('click',()=>{
            let fileURL =  window.URL.createObjectURL(backgroundFileInput.files[0]);
             
             body.style.background = '';
-            body.style.background = `rgba(0, 0, 0, 0) url(${fileURL}) no-repeat fixed`;
-            body.style.backgroundSize = 'cover';
+            body.background = `url(${fileURL})`;
+            
             
         break;
-}
-    
+    }
+body.style.backgroundSize = '100vw 100vh';
+body.style.backgroundRepeat = 'no-repeat'; 
     
 });
-    
-
 
 
 /*...........................MusicSelect.............................*/
