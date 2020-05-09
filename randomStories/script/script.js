@@ -65,24 +65,24 @@ for( const button of textGenButton){
             case 'location':
                 
                
-                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
+                buttonOutput.innerHTML = randomPlace[entierAleatoire(0, randomPlace.length-1)];
                 
                 break;
                 
             case 'details':
                 
                 
-                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
+                buttonOutput.innerHTML = randomDesc[entierAleatoire(0, randomDesc.length-1)];
                 
                 break;
                 
             case 'story':
                 
                 
-                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
+                buttonOutput.innerHTML = randomPast[entierAleatoire(0, randomPast.length-1)];
                 
                 break;
-    
+
         }     
     });
 }
@@ -128,7 +128,8 @@ const advBegin=["Alors qu'ils traversent une contrée sauvage, les personnages c
 				"Le succès d'une bardesse de renom lui est monté à la tête et elle manipule ses groupies pour qu'ils l'aident à renverser l'autorité locale et à devenir le nouveau gouverneur. Le gouverneur en place requiert l’aide des personnages pour régler le problème sans que cela nuise à son image.",
 				"Une créature mystérieuse tue et pétrifie les habitants d’une ville dans une région pourtant civilisée. Un marchand peu scrupuleux a négocié pour un client la capture d’une gorgone, mais celle-ci, bien que droguée, a réussi à s’échapper du convoi et traque son ravisseur.",
 				"Au cours d’une bagarre de taverne, les personnages amochent sans le savoir le fils d’un noble local. Ce dernier va le leur faire payer en les mandatant pour une mission suicide dans une caverne supposée occupée par de simples voleurs, mais en réalité habitée par une vouivre.",
-				"Les habitants d’une région ne semblent plus en mesure de mourir, à défaut de cesser de souffrir. Ils sollicitent les personnages pour mettre fin à leur souffrance sans fin. Un deva blessé à la tête en combat a un peu perdu la raison et abuse de ses pouvoirs divins pour faire « le bien ».",
+				"Les habitants d’une région ne semblent plus en mesure de mourir, à défaut de cesser de souffrir. Ils sollicitent les personnages pour mettre fin à leur souffrance sans fin.",
+				"Un deva blessé à la tête en combat a un peu perdu la raison et abuse de ses pouvoirs divins pour faire « le bien ».",
 				"un village est devenu le repère d'une bande de malfrats, qui terrorisent la population et y entassent le fruit de leurs larcins. Les personnages doivent faire preuve de psychologie pour savoir sur qui ils vont pouvoir compter s’ils veulent se débarrasser des voyous.",
 				"Un ami des personnages requiert leur aide pour fuir la milice et se disculper d’un crime dont on l’accuse. Le matin, il s’est réveillé aux côtés d’un cadavre et avec un sérieux mal de tête. Un changeforme l’a drogué et a usurpé son identité la nuit dernière pour le faire accuser de ses crimes.",
 				"Après avoir rêvé plusieurs nuits d’un homme l’enjoignant à fuir, un personnage voit un chevalier spectral s’approcher pour revendiquer son âme suite à un pacte passé par l’un de ses ancêtres. Pour briser le sort, les personnages doivent fuir sans repos trois jours et trois nuits ce spectre infatigable.",
@@ -158,8 +159,33 @@ const randomContext=[" Anniversaire du couronnement d'un monarque",
 					"Pleine lune",
 					"Funérailles",
 					"Remise de diplôme à des élèves oﬃciers ou des magiciens"];
-const randomEnnemies=[];
-const randomAllies=[];
+const randomEnnemies=["Un animal ou une monstruosite sans intention cachée particulière",
+					"Une abberation déterminée à corrompre ou à dominer",
+					"Un fiélon déterminé à corrompre ou à détruire",
+					"Un dragon déterminé à dominer et à piller",
+					"Un géant déterminé à piller",
+					"Un mort-vivant avec un objectif quelconque",
+					"Une fée avec un objectif mystérieux",
+					"Un fanatique humanoide",
+					"Un conquérant humanoide",
+					"Un humanoide en quête de vengeance",
+					"Un humanoide comploteur qui cherche à prendre le pouvoir",
+					"Le cerveau humanoide d'une organisation criminelle",
+					"Un pillard ou un destructeur humanoide",
+					"Un humanoide victime d'une malédiction",
+					"Un fanatique humanoide malavisé"];
+const randomAllies=["Un aventurier compétent",
+					"Un aventurier inexperimenté",
+					"Un roturier enthousiaste",
+					"Un soldat",
+					"Un prêtre",
+					"Un sage",
+					"Un individu qui cherche à se venger",
+					"Un fou furieux",
+					"Un allié céleste",
+					"Un allié féerique",
+					"Un monstre déguisé",
+					"Un adversaire qui se fait passer pour un allié"];
 const randomBonus=["Trouver un objet spéciﬁque qui, semble-t-il, se trouve dans les environs.",
 				"Récupérer un objet volé en possession de l'adversaire principal.",
 				"Recevoir une information d'un PNJ de la zone.",
@@ -178,4 +204,49 @@ const randomRebond=["Les aventuriers et d'autres créatures se précipitent pour
 					"L 'accomplissement d'un objectif aide secrètement leur adversaire.",
 					"Les aventuriers doivent coopérer avec un ennemi connu pour atteindre leur objectif",
 					"Les aventuriers sont victimes d'une coercition magique (telle qu'un sort de quête) qui les pousse à atteindre leur objectif."];
-
+const randomPlace=["Une cité",
+				   "Catacombes",
+				   "Egouts",
+				   "Ferme",
+				   "Cimetière",
+				   "Chateaux en ruine",
+				   "Cité en ruine",
+				   "Temple",
+				   "Gouffre",
+				   "Les parois d'une falaise",
+				   "Un désert",
+				   "Une forêt",
+				   "Un glacier",
+				   "Une jungle",
+				   "Un col de montagne",
+				   "Un marais",
+				   "Des grottes sous-marines",
+				   "Un pic montagneux",
+				   "Un promontoire",
+				   "Sur une île",
+				   "Sous l'eau"];
+const randomDesc=["Climat instable et dangereux",
+				  "Abandonné",
+				  "Infecté par le mal",
+				  "Habité par des créatures",
+				  "Envellopé dans un epais brouillard",
+				  "Remplit de piège",
+				  "Sombre",
+				  "Envahit par la végétation",
+				  "Entouré par une aura anti-magie",
+				  "Bercé d'une aura bienfaitrice",
+				  "Hantée",
+				  "Inondée",
+				  "Partiellement ensevelit"];
+const randomPast=["Abondonné par ses créateurs",
+				  "Abondonné à cause de la peste",
+				  "Conquis par des envahisseurs",
+				  "Créateurs tués par des assaillants",
+				  "Créateurs tués par une decouverte faite à l'intérieur du site",
+				  "Créateurs tués par un conflit interne",
+				  "Créateurs tués par une catastrophe magique",
+				  "Créateurs tués par un désastre naturel",
+				  "Site maudit par les dieux puis évité",
+				  "Les créateurs d'origine contrôlent toujours le site",
+				  "Envahit par des créatures",
+				  "Site créé par un fabuleux miracle"];
