@@ -130,12 +130,37 @@ let i=0;
         
         
     });
-/*...........................ShowHideButtons.............................*/
+/*...........................Show/HideButtons.............................*/
 
 const sortsTab = document.getElementById('sortsTab');
-const ShowHideButtons = document.querySelectorAll('.ShowHideButton');
+const showButtons = document.querySelectorAll('.showButton');
+const hideButtons = document.querySelectorAll('.hideButton');
+const showHideButton = document.querySelectorAll('.showHideButton');
 
-for(const button of ShowHideButtons){
+const filterFreeze = document.querySelectorAll('.filterFreeze');
+
+for(const button of showButtons){
+
+    button.addEventListener('click', ()=>{
+        
+        const showHideElement = document.getElementById(button.getAttribute('value'));
+
+        if(showHideElement.classList.contains('hidden')){
+            showHideElement.classList.remove('hidden');
+        }
+    });    
+}
+for(const button of hideButtons){
+
+    button.addEventListener('click', ()=>{
+
+        const showHideElement = button.parentElement;
+     
+            showHideElement.classList.add('hidden')
+    });    
+}
+
+for(const button of showHideButton){
 
     button.addEventListener('click', ()=>{
         
@@ -146,11 +171,15 @@ for(const button of ShowHideButtons){
         }else{
             showHideElement.classList.add('hidden')
         }
-        /*if(sortsTab.classList.contains('hidden')){
-            sortsTab.classList.remove('hidden');
-        }else{
-            sortsTab.classList.add('hidden')
-        }  */  
+    });    
+}
+for(const button of filterFreeze){
+
+    button.addEventListener('click', ()=>{
+
+        const showHideElement = button.parentElement;
+     
+            showHideElement.classList.add('hidden')
     });    
 }
 /*...........................jitsi test.............................*/

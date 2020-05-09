@@ -11,6 +11,7 @@
   </head>
   <body>
       <img id="bodyBackground" href="">
+
     <header>
         <div>
             <label>Fond d'écran :</label>
@@ -52,6 +53,12 @@
             
         </div>
         <div>
+        
+            <button >Générateur de personnage</button>
+            <button class="showButton" value="randomStories">Générateur de scénario</button>
+        
+        </div>
+        <div>
             <label for="soundSelect">Fond sonore :</label>
             <select id="choixMusic" type="text" name="soundSelect">
                 <option value="intro">Intro</option>
@@ -75,7 +82,7 @@
         <aside id="aside-left">
         
         <div id="meet" class="hidden"></div>
-        <button id="meetButton" value='meet' class='ShowHideButton'>Video</button>
+        <button id="meetButton" value='meet' class='showHideButton'>Video</button>
           
       </aside>
         <div class= fight-tracker>
@@ -148,7 +155,7 @@
 	  	</div>
   	</div>
         <aside id="aside-right">
-        <button id="charSheetButton" value='charSheet' class='ShowHideButton'>Character Sheet</button>
+        <button id="charSheetButton" value='charSheet' class='showHideButton'>Character Sheet</button>
         <div id='charSheet' class="persos hidden">
         <select id="name">
             <option value="" selected hidden >Choisir un joueur</option>
@@ -185,6 +192,7 @@
                 <option>Tempête de neige</option>
             </optgroup>
         </select>
+        <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
         <div class="persoItem">
             <label for="DDSav" >DD de sauvegarde des sorts</label>
             <input id="DDSav" name="DDSav" readonly value ="5">
@@ -343,11 +351,19 @@
 
             
         </div>
-        <iframe class='hidden' id="sortsTab"  height="400px" src="sorts.html">
-        </iframe>
-        <button value='sortsTab' id="sortsTabButton" class='ShowHideButton hidden' >Tableau des sorts</button>
+        
     </footer>
-    
+    <div id="sortsTab" class="hidden">
+            <div class="filterFreeze"></div>
+            <iframe src="sorts.html"></iframe>
+            <button value='sortsTab' class ="hideButton">X</button>
+    </div>
+    <div id="randomStories" class="hidden">
+            <div class="filterFreeze"></div>
+            <iframe src="../randomStories/randomStories.html"></iframe>
+            <button value='randomStories' class ="hideButton">X</button>
+    </div>
+      
       <script src='https://meet.jit.si/external_api.js'></script>
       <script src="script/armes.js"></script>
       <script src="script/persos.js"></script>
