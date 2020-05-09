@@ -10,18 +10,45 @@
     <script src="https://kit.fontawesome.com/afc5fa88b5.js" crossorigin="anonymous"></script>
   </head>
   <body>
+      <img id="bodyBackground" href="">
     <header>
         <div>
-            <label for="backgroundImgPath">Fond d'écran :</label>
+            <label>Fond d'écran :</label>
+            <select id="backgroundSelectType">
+                <option value="select" selected>Sélection</option>
+                <option value="url">URL</option>
+                <option value="browse">Parcourir</option> 
+            </select>
             
-            <label for="select">URL</label>
-            <input type="radio" name="background" value="select">
-            <label for="url">Sélection</label>
-            <input type="radio" name="background" value="url">
+            <input id="backgroundUrlInput" type="text" placeholder="Background url" class="hidden">
             
-            <input id="backgroundUrlInput" type="text" name="backgroundImgPath" placeholder="Background url">
+            <input id="backgroundFileInput" type="file" placeholder="Sélectionnez un fichier" accept="image/*" class="hidden">
+            
+            <select id="backgroundSelect">
+                
+                <option value ="tavern">Taverne</option>
+                <option value ="castle">Chateau</option>
+                <option value ="forest">Forêt</option>
+                <option value ="autel">Autel</option>
+                <option value ="graveyard">Cimetierre</option>
+                <option value ="swamp">Marécage</option>
+                <option value ="canyon">Canyon</option>
+                <option value ="mountain">Montagne</option>
+                <option value ="desert">Désert</option>
+                <option value ="city">Ville</option>
+                <option value ="village">Village</option>
+                <option value ="harbor">Port</option>
+                <option value ="coast">Côte</option>
+                <option value ="river">Rivière</option>
+                <option value ="cavern">Caverne</option>
+                <option value ="temple">Temple</option>
+                <option value ="abyss">Abysse</option>
+                <option value ="infernal">Infernale</option>
+                <option value ="celest">Celeste</option>
 
-            <button id="urlValidButton">Valider</button>
+            </select>
+
+            <button id="backgroundValidButton">Valider</button>
             
         </div>
         <div>

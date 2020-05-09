@@ -162,38 +162,120 @@ const options = {
     parentNode: document.querySelector('#meet')
 };
 const api = new JitsiMeetExternalAPI(domain, options);*/
+
 /*...........................BackgroundSelect.............................*/
 
-const urlValidButton = document.getElementById('urlValidButton');
+const backgroundValidButton = document.getElementById('backgroundValidButton');
+
+const backgroundSelectType = document.getElementById('backgroundSelectType');
 
 const backgroundUrlInput = document.getElementById('backgroundUrlInput');
+
+const backgroundFileInput = document.getElementById('backgroundFileInput');
+
+const backgroundSelect = document.getElementById('backgroundSelect');
+
 const body = document.getElementsByTagName('body')[0];
 
-
-urlValidButton.addEventListener('click',()=>{
+backgroundSelectType.addEventListener('change', ()=>{
     
-    if(isValidUrl(backgroundUrlInput.value)){
+    switch(backgroundSelectType.options[backgroundSelectType.selectedIndex].value){
+        
+    case 'select':
+            
+        backgroundFileInput.setAttribute('class','hidden');
+        backgroundUrlInput.setAttribute('class','hidden');
+            
+        if(backgroundSelect.classList.contains('hidden')){
+                
+            backgroundSelect.classList.remove('hidden')
+                
+        };
+            
+        break;
+            
+    case 'url':
+        
+        backgroundFileInput.setAttribute('class','hidden');
+        backgroundSelect.setAttribute('class','hidden');
+            
+        if(backgroundUrlInput.classList.contains('hidden')){
+                
+            backgroundUrlInput.classList.remove('hidden')
+                
+        };
+            
+        break;
+    case 'browse':
+        
+        backgroundUrlInput.setAttribute('class','hidden');
+        backgroundSelect.setAttribute('class','hidden');
+            
+        if(backgroundFileInput.classList.contains('hidden')){
+                
+            backgroundFileInput.classList.remove('hidden')
+                
+        };
+            
+        break;
+}
+    
+    
+})
+
+backgroundValidButton.addEventListener('click',()=>{
+    
+    switch(backgroundSelectType.options[backgroundSelectType.selectedIndex].value){
+        
+    case 'select':
+            
         body.style.background = '';
-        body.style.background = `rgba(0, 0, 0, 0) url(${backgroundUrlInput.value}) no-repeat fixed`;
+        body.style.background = `rgba(0, 0, 0, 0) url(img/backgrounds/${backgroundSelect.options[backgroundSelect.selectedIndex].value}.jpg) no-repeat fixed`;
         body.style.backgroundSize = 'cover';
+            
+        break;
+            
+    case 'url':
+            
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+            } 
+            catch (_) {
+                return false;  
+            }
+
+                return true;
+        }
+        if(isValidUrl(backgroundUrlInput.value)){
+            body.style.background = '';
+            body.style.background = `rgba(0, 0, 0, 0) url(${backgroundUrlInput.value}) no-repeat fixed`;
+            body.style.backgroundSize = 'cover';
         
-    }else{
+        }else{
         
-        alert('veuillez entrer un URL valide !');
+            alert('veuillez entrer un URL valide !');
         
-    }
+        }
+          
+        break;
+            
+    case 'browse':
+        
+           let fileURL =  window.URL.createObjectURL(backgroundFileInput.files[0]);
+            
+            body.style.background = '';
+            body.style.background = `rgba(0, 0, 0, 0) url(${fileURL}) no-repeat fixed`;
+            body.style.backgroundSize = 'cover';
+            
+        break;
+}
+    
     
 });
+    
 
-function isValidUrl(string) {
-  try {
-    new URL(string);
-  } catch (_) {
-    return false;  
-  }
 
-  return true;
-}
 
 /*...........................MusicSelect.............................*/
 
@@ -215,6 +297,7 @@ stop.addEventListener('click',()=>{
 })
 
 /*...........................SoundIcon.............................*/
+
 let icons= document.getElementsByClassName('soundIcon');
 
 for(const icon of icons){
@@ -235,6 +318,6 @@ function reloadValues(){
     roundInput.value = 0;
     result.value = 0;
     document.querySelector('.initPerso').value = 0;
-    
+    backgroundSelectType.opt
 }
 reloadValues();
