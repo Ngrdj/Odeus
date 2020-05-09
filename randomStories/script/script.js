@@ -2,81 +2,84 @@
 const randomButton=document.getElementById('random');
 const textGenButton = document.getElementsByClassName('textGenButton');
 
+function entierAleatoire(min, max)
+{
+ return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 for( const button of textGenButton){
     
     button.addEventListener('click', ()=>{
         
-        let randomNumber;
         
         let buttonOutput = document.querySelector(`output[name=${CSS.escape(button.value)}]`);
         
         switch(button.value) {
             case 'startAdvent':
                 
-                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
-                buttonOutput.innerHTML = advBegin[randomNumber];
+
+                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
                 
                 
                 break;
                 
             case 'contextEvent':
                 
-                randomNumber = Math.floor((Math.random()*randomContext.lenght-1)+1);
-                buttonOutput.innerHTML = randomContext[randomNumber];
+                
+                buttonOutput.innerHTML = randomContext[entierAleatoire(0, randomContext.length-1)];
                 
                 
                 break;
                 
             case 'enemy':
                 
-                randomNumber = Math.floor((Math.random()*randomEnnemies.lenght-1)+1);
-                buttonOutput.innerHTML = randomEnnemies[randomNumber];
+                
+                buttonOutput.innerHTML = randomEnnemies[entierAleatoire(0, randomEnnemies.length-1)];
                 
                 
                 break;
                 
             case 'allie':
                 
-                randomNumber = Math.floor((Math.random()*randomAllies.lenght-1)+1);
-                buttonOutput.innerHTML = randomAllies[randomNumber];
+               
+                buttonOutput.innerHTML = randomAllies[entierAleatoire(0, randomAllies.length-1)];
                 
                 
                 break;
                 
             case 'bonusQuest':
                 
-                randomNumber = Math.floor((Math.random()*randomBonus.lenght-1)+1);
-                buttonOutput.innerHTML = randomBonus[randomNumber];
+               
+                buttonOutput.innerHTML = randomBonus[entierAleatoire(0, randomBonus.length-1)];
                 
                 
                 break;
                 
             case 'rebound':
                 
-                randomNumber = Math.floor((Math.random()*randomRebond.lenght-1)+1);
-                buttonOutput.innerHTML = randomRebond[randomNumber];
+                
+                buttonOutput.innerHTML = randomRebond[entierAleatoire(0, randomRebond.length-1)];
                 
                 break;
                 
             case 'location':
                 
-                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
-                buttonOutput.innerHTML = advBegin[randomNumber];
+               
+                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
                 
                 break;
                 
             case 'details':
                 
-                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
-                buttonOutput.innerHTML = advBegin[randomNumber];
+                
+                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
                 
                 break;
                 
             case 'story':
                 
-                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
-                buttonOutput.innerHTML = advBegin[randomNumber];
+                
+                buttonOutput.innerHTML = advBegin[entierAleatoire(0, advBegin.length-1)];
                 
                 break;
     
