@@ -3,21 +3,84 @@ const randomButton=document.getElementById('random');
 const textGenButton = document.getElementsByClassName('textGenButton');
 
 
-/*randomButton.addEventListener('click',()=>{
-	resultRandom=Math.floor((Math.random()*20)+1);
-	console.log(resultRandom);
-<<<<<<< HEAD
-})*/
-
-resultRandom=Math.floor((Math.random()*20)+1);
-
 for( const button of textGenButton){
     
     button.addEventListener('click', ()=>{
         
-        let 
-        let RandomNumber = Math.floor((Math.random()*20)+1);
-                                  
+        let randomNumber;
+        
+        let buttonOutput = document.querySelector(`output[name=${CSS.escape(button.value)}]`);
+        
+        switch(button.value) {
+            case 'startAdvent':
+                
+                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
+                buttonOutput.innerHTML = advBegin[randomNumber];
+                
+                
+                break;
+                
+            case 'contextEvent':
+                
+                randomNumber = Math.floor((Math.random()*randomContext.lenght-1)+1);
+                buttonOutput.innerHTML = randomContext[randomNumber];
+                
+                
+                break;
+                
+            case 'enemy':
+                
+                randomNumber = Math.floor((Math.random()*randomEnnemies.lenght-1)+1);
+                buttonOutput.innerHTML = randomEnnemies[randomNumber];
+                
+                
+                break;
+                
+            case 'allie':
+                
+                randomNumber = Math.floor((Math.random()*randomAllies.lenght-1)+1);
+                buttonOutput.innerHTML = randomAllies[randomNumber];
+                
+                
+                break;
+                
+            case 'bonusQuest':
+                
+                randomNumber = Math.floor((Math.random()*randomBonus.lenght-1)+1);
+                buttonOutput.innerHTML = randomBonus[randomNumber];
+                
+                
+                break;
+                
+            case 'rebound':
+                
+                randomNumber = Math.floor((Math.random()*randomRebond.lenght-1)+1);
+                buttonOutput.innerHTML = randomRebond[randomNumber];
+                
+                break;
+                
+            case 'location':
+                
+                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
+                buttonOutput.innerHTML = advBegin[randomNumber];
+                
+                break;
+                
+            case 'details':
+                
+                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
+                buttonOutput.innerHTML = advBegin[randomNumber];
+                
+                break;
+                
+            case 'story':
+                
+                randomNumber = Math.floor((Math.random()*advBegin.lenght-1)+1);
+                buttonOutput.innerHTML = advBegin[randomNumber];
+                
+                break;
+    
+        }     
     });
 }
 //.................................................................
