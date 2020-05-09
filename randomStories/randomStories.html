@@ -9,43 +9,73 @@
     <link href="css/style.css" rel="Stylesheet" type="text/css"/>
   </head>
   <body>
-  	<header></header>
+  	<header><h1>Générateur de scénario</h1></header>
   	<main>
-  		<section>
-	  		<input type="checkbox" name="">
-	  		<label>L'aventure commence quand :</label>
-	  		<input type="text" name="" readonly>
-	  		<input type="checkbox" name="">
-	  		<label>Evenement Contextuel</label>
-	  		<input type="text" name="" readonly>
-	  		<br>
-	  		<input type="checkbox" name="">
-	  		<label>Contre :</label>
-	  		<input type="text" name="" readonly>
-	  		<input type="checkbox" name="">
-	  		<label>Aidée par :</label>
-	  		<input type="text" name="" readonly>
-	  		<br>
-	  		<input type="checkbox" name="">
-	  		<label>Quête Bonus</label>
-	  		<input type="text" name="" readonly>
-	  		<input type="checkbox" name="">
-	  		<label>Rebondissement</label>
-	  		<input type="text" name="" readonly>
-	  		<button id='random'>Générer</button>
-  		</section>
-  		<section>
-  			<input type="checkbox" name="">
-  			<label>Lieux :</label>
-  			<input type="text" name="" readonly>
-  			<input type="checkbox" name="">
-  			<label>Description/Détails :</label>
-  			<input type="text" name="" readonly>
-  			<input type="checkbox" name="">
-  			<label> Histoire :</label>
-  			<input type="text" name="" readonly>
-  			<button id='random'>Générer</button>
-  		</section>
+  		<div id="scenarioDiv">
+            
+	  		<div class="generatorBox">
+                <button id="startAdventButton" value="startAdvent">Situation initiale</button> <br>
+	  	        <output name = "startAdvent"></output>
+            </div>
+	  		
+            <div class="generatorBox">
+            
+                <button id="contextEventButton" value="contextEvent">Evenement Contextuel</button>
+	  	        <output type="text" name="contextEvent"></output>
+            
+            </div>
+            
+            <div class="generatorBox">
+            
+                <button id="enemyButton" value="enemy">Ennemis</button>
+	  	        <output type="text" name="enemy"></output>
+            
+            </div>
+            
+            <div class="generatorBox">
+            
+                <button id="allieButton" value="allie">Alliés</button>
+                <output type="text" name="allie"></output>
+            
+            </div>
+            
+            <div class="generatorBox">
+            
+                <button id="bonusQuestButton" value="bonusQuest">Quête Bonus</button>
+                <output type="text" name="bonusQuest"></output>
+            
+            </div>
+            
+            <div class="generatorBox">
+            
+                <button id="reboundButton" value="rebound">Rebondissement</button>
+                <output type="text" name="rebound"></output>
+            
+            </div>
+
+  		</div>
+  		<div id="lieuxDiv">
+            
+            <div class="generatorBox">
+  			   <button id="locationButton" value="location">Lieux</button>
+  			   <output type="text" name="location" readonly></output>
+            </div>
+            
+            <div class="generatorBox">
+            
+                <button id="detailsButton" value="details">Description/Détails</button>
+  			   <output type="text" name="details" readonly></output>
+                
+            </div>
+            
+            <div class="generatorBox">
+            
+                <button id="locationButton" value="location"> Histoire</button>
+  			   <output type="text" name="" readonly></output>
+            
+            </div>
+
+  		</div>
   	</main>
   	<script type="text/javascript" src="script/script.js"></script>
   </body>

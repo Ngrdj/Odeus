@@ -1,6 +1,30 @@
-body{
-    background: url(https://dndcrew.com/wp-content/uploads/2018/06/DnD_Logo.png) 50%;
-    background-repeat:no-repeat;
-    background-size: 100%;
-    background-position: center;
+#scenarioDiv{
+    
+    border: solid;
+    margin: 20px;
+}
+#lieuxDiv{
+    
+    border: solid;
+    margin: 20px;
+}
+.generatorBox{
+    
+    margin: 20px 5px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.generatorBox > button{
+    
+    background-color: white;
+    
+}
+.generatorBox > output{
+    
+    color: white;
+    margin-top: 10px;
+    
 }
