@@ -9,5 +9,60 @@
     <link href="css/style.css" rel="Stylesheet" type="text/css"/>
   </head>
   <body>
+  	<header><h1>Générateur de personnage</h1></header>
+  	<main>
+  		<fieldset id="scenarioDiv">
+            
+            <legend>PNJ</legend>
+            
+		  	<div class="generatorBox">
+		            
+		        <button class=textGenButton id="contextEventButton" value="startRole">
+		        Rôle</button>
+			  	<output type="text" name="startRole"></output>
+		            
+		    </div>
+		    <div class="generatorBox">
+		            
+		        <button class=textGenButton id="contextEventButton" value="startApp">
+		        Apparence</button>
+			  	<output type="text" name="startApp"></output>
+		            
+		    </div>
+		    <div class="generatorBox">
+		            
+		        <button class=textGenButton id="contextEventButton" value="startInt">
+		        Traits d'interaction</button>
+			  	<output type="text" name="startInt"></output>
+		            
+		    </div>
+		</fieldset>
+		<fieldset>
+			<legend>PJ</legend>
+			<div class="generatorBox">
+	            
+		        <button class=textGenButton id="contextEventButton" value="startRace">
+		        Race</button>
+			  	<output type="text" name="startRace"></output>
+	            
+	    	</div>
+	    	<div class="generatorBox">
+	            
+		        <button class=textGenButton id="contextEventButton" value="startClasse">
+		        Classe</button>
+			  	<output type="text" name="startClasse"></output>
+	            
+	    	</div>
+	    	<div class="generatorBox">
+	            
+		        <button class=textGenButton id="contextEventButton" value="startHist">
+		        Historique</button>
+			  	<output type="text" name="startHist"></output>
+	            
+	    	</div>
+	    	
+		</fieldset>
+	</main>
+	<script type="text/javascript" src="script/script.js"></script>
   </body>
  </html>

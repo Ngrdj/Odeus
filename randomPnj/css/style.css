@@ -1,0 +1,33 @@
+#scenarioDiv{
+    
+    border: solid;
+    margin: 20px;
+}
+#lieuxDiv{
+    
+    border: solid;
+    margin: 20px;
+}
+.generatorBox{
+    
+    margin: 20px 5px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.generatorBox > button{
+    
+    background-color: white;
+    
+}
+.generatorBox > output{
+    
+    color: white;
+    margin-top: 10px;
+    
+}
+legend{
+    font-size: xx-large;
+}
