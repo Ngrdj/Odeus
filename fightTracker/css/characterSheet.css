@@ -110,6 +110,7 @@
     width: 80%;
     align-self: center;
     align-items: center;
+    flex-direction: row;
     
 }
 #charCaract input{
@@ -117,6 +118,12 @@
     width: 20px;
     
 }
-#charSortsItem{
+#charCaract>div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     
+}
+#charSorts *{
+    min-height: 50px;
 }
