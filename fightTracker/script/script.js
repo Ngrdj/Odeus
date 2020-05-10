@@ -320,6 +320,17 @@ stop.addEventListener('click',()=>{
 
     musicBar.pause();    
 })
+/*...........................volumeBar.............................*/
+
+const volumeControl = document.getElementById('volumeControl');
+
+volumeControl.addEventListener('input',()=>{
+    
+    musicBar.volume = volumeControl.value/100;
+    
+})
+
+
 
 /*...........................SoundIcon.............................*/
 
@@ -333,8 +344,27 @@ for(const icon of icons){
 })
 }
 
+/*...........................Masque.............................*/
 
+/*const allBodyElements = document.querySelectorAll("body > :not(main), main > *");
 
+for(const element of allBodyElements){
+    
+    element.style.opacity = "0.5";
+    element.addEventListener('mouseover',()=>{
+        
+        element.style.opacity = "1";
+        
+        
+    });
+    element.addEventListener('mouseleave',()=>{
+        
+        element.style.opacity = "0.2";
+        
+        
+    });
+}
+*/
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){
