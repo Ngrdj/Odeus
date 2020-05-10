@@ -1,11 +1,17 @@
-.persos{
+/*.persos{
     font-family: fantasy;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: rgba(0,0,0,0.6);
     padding : 20px;
     text-align: center;
     font-size: 100%;
     min-height: 700px;
+    height: max-content;
+}
+.persos > *{
+    height: 100%;
 }
 .persoItem{
     background-color: aliceblue;
@@ -32,21 +38,85 @@
     border: solid 5px;
     margin:5px;
     padding: 5px;
+    display:flex;
+    justify-content: center;
  
 }
-.caract .persoItem{
-    flex-direction: column;
+.caract input{  
+    width : 50px;
+ 
 }
-.caract .persoItem div{
+.caractLeft, .caractRight{
+    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    margin: 0px 20px;
 }
-#charSheetButton{
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 20px 0px 0px 20px;
-    border:none;
-    writing-mode: sideways-lr;
-    min-width: 50px;
-    color:white;
-    font-size: xx-large;
+
+#charSheet > div > *[class = "showHideButton"]{
+    
+    width: -moz-available;
+    height: 50px;
+    
+}
+.armes{
+    
+    height: inherit;
+
+    
+}
+.competences{
+    
+    height: inherit;
+
+    
+}
+*/
+
+#charSheet{
+    
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+    
+}
+.charSheetItem{
+    
+    
+    height: inherit;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    
+}
+.charSheetItem button{
+    
+    width: 100%;
+    min-height: 50px;
+    
+}
+#charCaract{
+    
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border: solid;
+    width: 80%;
+    align-self: center;
+    align-items: center;
+    
+}
+#charCaract input{
+    
+    width: 20px;
+    
+}
+#charSortsItem{
+    
 }

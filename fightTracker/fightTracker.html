@@ -10,8 +10,6 @@
     <script src="https://kit.fontawesome.com/afc5fa88b5.js" crossorigin="anonymous"></script>
   </head>
   <body>
-      <img id="bodyBackground" href="">
-
     <header>
         <div>
             <label>Fond d'écran :</label>
@@ -56,7 +54,7 @@
         </div>
         <div>
         
-            <button >Générateur de personnage</button>
+            <button class="showButton" value="randomPnj" >Générateur de personnage</button>
             <button class="showButton" value="randomStories">Générateur de scénario</button>
         
         </div>
@@ -96,249 +94,357 @@
         
     </header>
     <main>
+        
         <aside id="aside-left">
+            <div id="test"></div>
+            <div id="meet"></div>
+            <button id="meetButton" value='meet' class='showHideButton'>Video</button>
+        </aside>
         
-        <div id="meet" class="hidden"></div>
-        <button id="meetButton" value='meet' class='showHideButton'>Video</button>
-          
-      </aside>
         <div class= fight-tracker>
-  		<div class="header">
-            <div>
-                
-                <button id="roundButton">Round</button>
-	  		    <input id="roundInput" type="number" name="round" size="5" value='0' readonly>
-                
-            </div>	
-            <div>
-              <button id="init">Calculer l'initiative</button>
-              <button id="trier"> Trier</button>
+            <div class="header">
+                <div>
+
+                    <button id="roundButton">Round</button>
+                    <input id="roundInput" type="number" name="round" size="5" value='0' readonly>
+
+                </div>	
+                <div>
+                  <button id="init">Calculer l'initiative</button>
+                  <button id="trier"> Trier</button>
+                </div>
+                <div>
+                    <select name="des" id='des'>
+                        <option value="d4">d4</option>
+                        <option value="d6">d6</option>
+                        <option value="d8">d8</option>
+                        <option value="d10">d10</option>
+                        <option value="d12">d12</option>
+                        <option value="d20">d20</option>
+                        <option value="d100">d100</option>
+                    </select>
+                    <button id="lancer">Lancer</button>
+                    <input type="number" id="resultat" size="5" readonly>
+                </div>
             </div>
-            <div>
-                <select name="des" id='des'>
-                    <option value="d4">d4</option>
-                    <option value="d6">d6</option>
-                    <option value="d8">d8</option>
-                    <option value="d10">d10</option>
-                    <option value="d12">d12</option>
-                    <option value="d20">d20</option>
-                    <option value="d100">d100</option>
-	  	        </select>
-                <button id="lancer">Lancer</button>
-                <input type="number" id="resultat" size="5" readonly>
-            </div>
-  		</div>
-        <button id="ajouter">Ajouter Personnage</button>
-        
-        <!--"div perso" de référence clone-->
-        <div class="Perso hidden">
-            
-		  		<input class="charName" type="text" placeholder="Nom de personnage">
+            <button id="ajouter">Ajouter Personnage</button>
+
+            <!--"div perso" de référence clone-->
+            <div class="Perso hidden">
+
+                <input class="charName" type="text" placeholder="Nom de personnage">
                 <div>
                     <label >Init.</label>
                     <input class="initPerso" type='number' value="0">
                 </div>
                 <div>
                     <label>Attaque</label>
-		            <input type='number'>
+                    <input type='number'>
                 </div>
-		  		<div>
+                <div>
                     <label>Contre</label>
-		  		    <input type='number'>
+                    <input type='number'>
                 </div>
-		  		<select name='etats'>
-		  			<option value="0">--</option>
-		  			<option value="1">À terre</option>
-		  			<option value="2">Agrippé</option>
-		  			<option value="3">Assourdi</option>
-		  			<option value="4">Aveuglé</option>
-		  			<option value="5">Charmé</option>
-		  			<option value="6">Effrayé</option>
-		  			<option value="7">Empoisonné</option>
-		  			<option value="8">Entravé</option>
-		  			<option value="9">Étourdi</option>
-		  			<option value="10">Incapable d'agir</option>
-		  			<option value="11">Inconscient</option>
-		  			<option value="12">Invisible</option>
-		  			<option value="13">Paralysé</option>
-		  			<option value="14">Pétrifié</option>
-		  		</select>
-		  		<button class="supprimer">x</button>
-	  		</div>
-        <!--..........................-->
-        
-  		<div id="persoList">
-	  		<!--.............Liste de personnages.............-->
-	  	</div>
-  	</div>
-        <aside id="aside-right">
-        <button id="charSheetButton" value='charSheet' class='showHideButton'>Character Sheet</button>
-        <div id='charSheet' class="persos hidden">
-        <select id="name">
-            <option value="" selected hidden >Choisir un joueur</option>
-            <option value="namas" >Namas</option>
-            <option value="esus" >Esus</option>
-            <option value="kyra" >Kyra</option>
-            <option value="grudu" >Grudu</option>
-            <option value="lyre" >Lyre</option>
-        </select>
-        <select>
-            <option value="" selected hidden >Sorts</option>
-            <optgroup label="mineurs">
-                <option>Coup de tonnerre</option>
-                <option>Fouet épineux</option>
-                <option>Sauvagerie primitive</option>
-            </optgroup>
-            <optgroup label="niveau1">
-                <option>Soins</option>
-                <option>Mot de guérison</option>
-                <option>Couteau de glace</option>
-            </optgroup>
-            <optgroup label="niveau2">
-                <option>Croissance d'épines</option>
-                <option>Immobilisation de personne</option>
-                <option>Métal brulant</option>
-                <option>Rayon de lune</option>
-            </optgroup>
-            <optgroup label="niveau3">
-                <option>Flèches enflammées</option>
-                <option>Mur d'eau</option>
-                <option>Mur de vent</option>
-                <option>Raz-de-marée</option>
-                <option>Respiration aquatique</option>
-                <option>Tempête de neige</option>
-            </optgroup>
-        </select>
-        <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
-        <div class="persoItem">
-            <label for="DDSav" >DD de sauvegarde des sorts</label>
-            <input id="DDSav" name="DDSav" readonly value ="5">
-        </div>
-        <div class="persoItem">
-            <label for="bonusAtt" >Bonus d'attaque</label>
-            <input id="bonusAtt" name="bonusAtt" readonly value ="5">
-        </div>
-        <div class="armes">        
-            <table id="armesTab" class="tableau">
-                <caption>Tableau des armes</caption>
-                <thead>
-                    <tr>
-                        <th>Armes</th>
-                        <th>Bonus jet Attaque</th>
-                        <th>Dégats</th>
-                    </tr>
-                </thead>
-                <tbody id="armesTBody">
-                    <tr>
-                        <td>Epée</td>
-                        <td>+3</td>
-                        <td>1d6<td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>+2</td>
-                        <td>1d6<td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>+2</td>
-                        <td>1d6<td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>+2</td>
-                        <td>1d6<td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>+2</td>
-                        <td>1d6<td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="competences">
-            <table id="compTab" class="tableau">
-                <caption>Tableau des compétences</caption>
-                <thead>
-                    <tr>
-                        <th>Comp</th>
-                        <th>Bonus</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>comp1</td>
-                        <td>+3</td>
-                        <td>Int<td>
-                    </tr>
-                    <tr>
-                        <td>comp2</td>
-                        <td>+3</td>
-                        <td>Sag<td>
-                    </tr>
-                    <tr>
-                        <td>comp1</td>
-                        <td>+3</td>
-                        <td>Int<td>
-                    </tr>
-                    <tr>
-                        <td>comp2</td>
-                        <td>+3</td>
-                        <td>Sag<td>
-                    </tr>
-                    <tr>
-                        <td>comp1</td>
-                        <td>+3</td>
-                        <td>Int<td>
-                    </tr>
-                    <tr>
-                        <td>comp2</td>
-                        <td>+3</td>
-                        <td>Sag<td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="caract">
-            <div class="persoItem">
-                <div>
-                    <label for="force">Force</label>
-                    <input id="force" name="force" value ="+3" readonly>
-                </div>
-                <div>
-                    <label for="dexterite">Dextérité</label>
-                    <input id="dexterite" name="dexterite" value ="+3" readonly>
-                </div>
-                <div>
-                    <label for="constitution">Constitution</label>
-                    <input id="constitution" name="constitution" value ="+3" readonly>
-                </div>
-                <div>
-                    <label for="intelligence">Intelligence</label>
-                    <input id="intelligence" name="intelligence" value ="+3" readonly>
-                </div>
-                <div>
-                    <label for="sagesse">Sagesse</label>
-                    <input id="sagesse" name="sagesse" value ="+3" readonly>
-                </div>
-                <div>
-                    <label for="charisme">Charisme</label>
-                    <input id="charisme" name="charisme" value ="+3" readonly>
-                </div>
+              <select name='etats'>
+
+                  <option value="0">--</option>
+                  <option value="1">À terre</option>
+                  <option value="2">Agrippé</option>
+                  <option value="3">Assourdi</option>
+                  <option value="4">Aveuglé</option>
+                  <option value="5">Charmé</option>
+                  <option value="6">Effrayé</option>
+                  <option value="7">Empoisonné</option>
+                  <option value="8">Entravé</option>
+                  <option value="9">Étourdi</option>
+                  <option value="10">Incapable d'agir</option>
+                  <option value="11">Inconscient</option>
+                  <option value="12">Invisible</option>
+                  <option value="13">Paralysé</option>
+                  <option value="14">Pétrifié</option>
+
+              </select>
+
+              <button class="supprimer">x</button>
+
+            </div>
+            <!--..........................-->
+
+            <div id="persoList">
+                <!--.............Liste de personnages.............-->
             </div>
         </div>
-        <div class="persoItem">
-            <label for="objCle" >Objets clés</label>
-            <select name="objCle" readonly>
-                <option selected hidden >&hellip;</option>
-                <option value="1" >Clé des enfers de la mort qui tue la race à sa grand-mère</option>
-                <option value="2" >Trucs qui tuent 2</option>
-                <option value="3" >Trucs qui tuent 3</option>
-            </select>
-        </div>
-    </div>
+        
+        <aside id="aside-right">
+            
+            <button id="charSheetButton" value='rightPanel' class='showHideButton'>Character Sheet</button>
+            <div id="rightPanel" class="hidden">
+            
+                <div id='charSheet'>
+
+                    <select id="charSelect" class="charSheetItem">
+                        <option value="" selected hidden >Choisir un joueur</option>
+                        <option value="namas" >Namas</option>
+                        <option value="esus" >Esus</option>
+                        <option value="kyra" >Kyra</option>
+                        <option value="grudu" >Grudu</option>
+                        <option value="lyre" >Lyre</option>
+                    </select>
+
+                    <div id="charSorts" class="charSheetItem">
+
+                        <div class="charSortsItem">
+
+                            <select>
+                                <option value="" selected hidden >Sorts</option>
+                                <optgroup label="mineurs">
+                                    <option>Coup de tonnerre</option>
+                                    <option>Fouet épineux</option>
+                                    <option>Sauvagerie primitive</option>
+                                </optgroup>
+                                <optgroup label="niveau1">
+                                    <option>Soins</option>
+                                    <option>Mot de guérison</option>
+                                    <option>Couteau de glace</option>
+                                </optgroup>
+                                <optgroup label="niveau2">
+                                    <option>Croissance d'épines</option>
+                                    <option>Immobilisation de personne</option>
+                                    <option>Métal brulant</option>
+                                    <option>Rayon de lune</option>
+                                </optgroup>
+                                <optgroup label="niveau3">
+                                    <option>Flèches enflammées</option>
+                                    <option>Mur d'eau</option>
+                                    <option>Mur de vent</option>
+                                    <option>Raz-de-marée</option>
+                                    <option>Respiration aquatique</option>
+                                    <option>Tempête de neige</option>
+                                </optgroup>
+                            </select>
+
+                        </div>
+                        <div class="charSortsItem">
+
+                            <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
+
+                        </div>
+                        <div class="charSortsItem">
+
+                            <label for="DDSav" >DD de sauvegarde des sorts</label>
+                            <input id="DDSav" name="DDSav" readonly value ="5">
+
+                        </div>
+                        <div class="charSortsItem">
+
+                            <label for="bonusAtt" >Bonus d'attaque</label>
+                            <input id="bonusAtt" name="bonusAtt" readonly value ="5">
+
+                        </div>
+
+                    </div>
+
+                    <div id="charCaract" class="charSheetItem">
+                        <div class = "caractLeft">
+
+                            <div>
+                                <label for="force">Force</label>
+                                <input id="force" name="force" value ="+3" readonly>
+                            </div>
+
+                            <div>
+                                <label for="dexterite">Dextérité</label>
+                                <input id="dexterite" name="dexterite" value ="+3" readonly>
+                            </div>
+
+                            <div>
+                                <label for="constitution">Constitution</label>
+                                <input id="constitution" name="constitution" value ="+3" readonly>
+                            </div>
+
+                            </div>
+                        <div class = "caractRight">
+
+                            <div>
+                                <label for="intelligence">Intelligence</label>
+                                <input id="intelligence" name="intelligence" value ="+3" readonly>
+                            </div>
+                            <div>
+                                <label for="sagesse">Sagesse</label>
+                                <input id="sagesse" name="sagesse" value ="+3" readonly>
+                                </div>
+                                <div>
+                                <label for="charisme">Charisme</label>
+                                <input id="charisme" name="charisme" value ="+3" readonly>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    <div id="charWeapons" class="charSheetItem">
+                        <button class="showHideButton" value ="armesTab">Tableau des armes</button>
+                        <table id="armesTab" class="tableau hidden">
+
+                            <thead>
+                                <tr>
+                                    <th>Armes</th>
+                                    <th>Bonus jet Attaque</th>
+                                    <th>Dégats</th>
+                                </tr>
+                            </thead>
+                            <tbody id="armesTBody">
+                                <tr>
+                                    <td>Epée</td>
+                                    <td>+3</td>
+                                    <td>1d6<td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>+2</td>
+                                    <td>1d6<td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>+2</td>
+                                    <td>1d6<td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>+2</td>
+                                    <td>1d6<td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>+2</td>
+                                    <td>1d6<td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="charCompet" class="charSheetItem">
+                        <button class = "showHideButton" value = "compTab">Tableau des compétences</button>
+                        <table id="compTab" class="tableau hidden">
+                            <thead>
+
+                                <tr>
+                                    <th>Comp</th>
+                                    <th>Bonus</th>
+                                    <th>Type</th>
+                                </tr>
+
+                            </thead> 
+
+                            <tbody>
+                                <tr>
+                                    <td>Acrobaties</td>
+                                    <td></td>
+                                    <td>Dex<td>
+                                </tr>
+                                <tr>
+                                    <td>Arcanes</td>
+                                    <td></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Athlétisme</td>
+                                    <td></td>
+                                    <td>For<td>
+                                </tr>
+                                <tr>
+                                    <td>Discrétion</td>
+                                    <td></td>
+                                    <td>Dex<td>
+                                </tr>
+                                <tr>
+                                    <td>Dressage</td>
+                                    <td></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Escamotage</td>
+                                    <td></td>
+                                    <td>Dex<td>
+                                </tr>
+                                <tr>
+                                    <td>Histoire</td>
+                                    <td></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Intimidation  </td>
+                                    <td></td>
+                                    <td>Cha<td>
+                                </tr>
+                                <tr>
+                                    <td>Investigation</td>
+                                    <td></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Médecine</td>
+                                    <td></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Nature</td>
+                                    <td></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Perception</td>
+                                    <td></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Perspicacité</td>
+                                    <td></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Persuasion</td>
+                                    <td></td>
+                                    <td>Cha<td>
+                                </tr>
+                                <tr>
+                                    <td>Religion</td>
+                                    <td></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Représentation</td>
+                                    <td></td>
+                                    <td>Cha<td>
+                                </tr>
+                                <tr>
+                                    <td>Survie</td>
+                                    <td></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Tromperie</td>
+                                    <td></td>
+                                    <td>Cha<td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <div id="charObjects" class="charSheetItem">
+                    <label for="objCle" >Objets clés</label>
+                    <select name="objCle" readonly>
+                        <option selected hidden >&hellip;</option>
+                        <option value="1" >Clé des enfers de la mort qui tue la race à sa grand-mère</option>
+                        <option value="2" >Trucs qui tuent 2</option>
+                        <option value="3" >Trucs qui tuent 3</option>
+                    </select>
+                    </div>
+
+                </div>
+                
+            </div>
     </aside>
     </main>
     
@@ -370,21 +476,28 @@
         </div>
         
     </footer>
+      
+    <!--iframes -->
     <div id="sortsTab" class="hidden">
             <div class="filterFreeze"></div>
             <iframe src="sorts.html"></iframe>
             <button value='sortsTab' class ="hideButton">X</button>
+    </div>
+    <div id="randomPnj" class="hidden">
+            <div class="filterFreeze"></div>
+            <iframe src="../randomPnj/randomPnj.html"></iframe>
+            <button value='randomPnj' class ="hideButton">X</button>
     </div>
     <div id="randomStories" class="hidden">
             <div class="filterFreeze"></div>
             <iframe src="../randomStories/randomStories.html"></iframe>
             <button value='randomStories' class ="hideButton">X</button>
     </div>
-      
-      <script src='https://meet.jit.si/external_api.js'></script>
-      <script src="script/armes.js"></script>
-      <script src="script/persos.js"></script>
-      <script type="text/javascript" src="script/characterSheet.js"></script>
+    <!--scripts -->
+    <script src='https://meet.jit.si/external_api.js'></script>
+    <script src="script/armes.js"></script>
+    <script src="script/persos.js"></script>
+    <script type="text/javascript" src="script/characterSheet.js"></script>
     <script type="text/javascript" src="script/script.js"></script>
   </body>
  </html>

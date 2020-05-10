@@ -1,12 +1,12 @@
 
-const playerList = document.getElementById("name");
+const charSelect = document.getElementById("charSelect");
 
-playerList.addEventListener("change", getCharName);
+charSelect.addEventListener("change", getCharName);
 window.addEventListener("load", getCharName);
 
 function getCharName(){
     
-        switch(playerList.selectedOptions[0].value){
+        switch(charSelect.selectedOptions[0].value){
         case 'namas': 
             loadValues(Namas);
         break;
