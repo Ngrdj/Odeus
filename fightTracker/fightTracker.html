@@ -193,9 +193,7 @@
 
                     <div id="charSorts" class="charSheetItem">
 
-                        <div class="charSortsItem">
-
-                            <select>
+                        <select>
                                 <option value="" selected hidden >Sorts</option>
                                 <optgroup label="mineurs">
                                     <option>Coup de tonnerre</option>
@@ -223,25 +221,23 @@
                                 </optgroup>
                             </select>
 
+                        <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
+
+                        <div>
+                            <div class="charSortsItem">
+
+                                <label for="DDSav" >DD de sauvegarde des sorts</label>
+                                <input id="DDSav" name="DDSav" readonly value ="5">
+
+                            </div>
+                            <div class="charSortsItem">
+
+                                <label for="bonusAtt" >Bonus d'attaque</label>
+                                <input id="bonusAtt" name="bonusAtt" readonly value ="5">
+
+                            </div>
                         </div>
-                        <div class="charSortsItem">
-
-                            <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
-
-                        </div>
-                        <div class="charSortsItem">
-
-                            <label for="DDSav" >DD de sauvegarde des sorts</label>
-                            <input id="DDSav" name="DDSav" readonly value ="5">
-
-                        </div>
-                        <div class="charSortsItem">
-
-                            <label for="bonusAtt" >Bonus d'attaque</label>
-                            <input id="bonusAtt" name="bonusAtt" readonly value ="5">
-
-                        </div>
-
+                        
                     </div>
 
                     <div id="charCaract" class="charSheetItem">
@@ -436,9 +432,9 @@
                     <label for="objCle" >Objets clés</label>
                     <select name="objCle" readonly>
                         <option selected hidden >&hellip;</option>
-                        <option value="1" >Clé des enfers de la mort qui tue la race à sa grand-mère</option>
-                        <option value="2" >Trucs qui tuent 2</option>
-                        <option value="3" >Trucs qui tuent 3</option>
+                        <option value="1" >Objet 1</option>
+                        <option value="2" >Objet 2</option>
+                        <option value="3" >Objet 3</option>
                     </select>
                     </div>
 

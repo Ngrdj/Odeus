@@ -119,11 +119,46 @@
     
 }
 #charCaract>div{
+    
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: flex-end;
     
 }
-#charSorts *{
+#charSorts > *{
     min-height: 50px;
+}
+#charSorts input{
+    width: 20%;
+    text-align: center;
+}
+#charSorts > div{
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
+.charSortsItem{
+    padding: 5px;
+    text-align: right;
+}
+.tableau{
+    width: 100%;
+    background-color: lightgray;
+    text-align: center;
+    padding: 10px;
+}
+.tableau td,th{
+    padding: 10px 0px;
+}
+.tableau th{
+    background: grey;
+    color: white;
+}
+.tableau td{
+    background: white;
+
 }
