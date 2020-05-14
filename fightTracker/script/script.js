@@ -363,8 +363,8 @@ for(const element of allBodyElements){
         
         
     });
-}
-*/
+}*
+
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){
