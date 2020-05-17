@@ -62,7 +62,23 @@ for( const button of textGenButton){
 }
 //.................................................................
 //Tableaux d'élément
-const randomRole=[];
+const randomRole=["acolyte",
+				  "artisan",
+				  "artiste",
+				  "charlatan",
+				  "criminel",
+				  "enfant des rues",
+				  "ermite",
+				  "héros du peuple",
+				  "marin",
+				  "noble",
+				  "sage",
+				  "sauvageon",
+				  "soldat",
+				  "chasseur de primes",
+				  "voyageur",
+				  "captif",
+				  "idiot du village"];
 const randomApp=["Bijoux dinstinctifs: boucles d'oreille, collier, bandeau,bracelets",
 				 "Piercings",
 				 "Vêtements extravagants ou voyants",
@@ -95,6 +111,25 @@ const randomInt=["Ergoteur",
 				 "Solennel",
 				 "Calme",
 				 "Suspicieux"];
-const randomRace=[];
-const randomClasse=[];
+const randomRace=["elfe",
+				  "halfelin",
+				  "Humain",
+				  "nain",
+				  "demi-elfe",
+				  "demi-orque",
+				  "drakeide",
+				  "gnome",
+				  "tieffelin"];
+const randomClasse=["barbare",
+					"barde",
+					"clerc",
+					"druide",
+					"ensorceleur",
+					"guerrier",
+					"magicien",
+					"moine",
+					"paladin",
+					"rôdeur",
+					"roublard",
+					"sorcier"];
 const randomHist=[];
