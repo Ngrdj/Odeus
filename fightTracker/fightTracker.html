@@ -194,36 +194,11 @@
                     </select>
 
                     <div id="charSorts" class="charSheetItem">
-
-                        <select>
-                                <option value="" selected hidden >Sorts</option>
-                                <optgroup label="mineurs">
-                                    <option>Coup de tonnerre</option>
-                                    <option>Fouet épineux</option>
-                                    <option>Sauvagerie primitive</option>
-                                </optgroup>
-                                <optgroup label="niveau1">
-                                    <option>Soins</option>
-                                    <option>Mot de guérison</option>
-                                    <option>Couteau de glace</option>
-                                </optgroup>
-                                <optgroup label="niveau2">
-                                    <option>Croissance d'épines</option>
-                                    <option>Immobilisation de personne</option>
-                                    <option>Métal brulant</option>
-                                    <option>Rayon de lune</option>
-                                </optgroup>
-                                <optgroup label="niveau3">
-                                    <option>Flèches enflammées</option>
-                                    <option>Mur d'eau</option>
-                                    <option>Mur de vent</option>
-                                    <option>Raz-de-marée</option>
-                                    <option>Respiration aquatique</option>
-                                    <option>Tempête de neige</option>
-                                </optgroup>
-                            </select>
-
+                        
                         <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
+                        
+                        <button class="showHideButton" value ="sortsList">Liste de sorts</button>
+                        <div id ="sortsList" class ="hidden"></div>
 
                         <div>
                             <div class="charSortsItem">
@@ -337,92 +312,92 @@
                             <tbody>
                                 <tr>
                                     <td>Acrobaties</td>
-                                    <td></td>
+                                    <td><input id="acrobaties" readonly></td>
                                     <td>Dex<td>
                                 </tr>
                                 <tr>
                                     <td>Arcanes</td>
-                                    <td></td>
+                                    <td><input id="arcanes" readonly></td>
                                     <td>Int<td>
                                 </tr>
                                 <tr>
                                     <td>Athlétisme</td>
-                                    <td></td>
+                                    <td><input id="athlethisme" readonly></td>
                                     <td>For<td>
                                 </tr>
                                 <tr>
                                     <td>Discrétion</td>
-                                    <td></td>
+                                    <td><input id="discretion" readonly></td>
                                     <td>Dex<td>
                                 </tr>
                                 <tr>
                                     <td>Dressage</td>
-                                    <td></td>
+                                    <td><input id="dressage" readonly></td>
                                     <td>Sag<td>
                                 </tr>
                                 <tr>
                                     <td>Escamotage</td>
-                                    <td></td>
+                                    <td><input id="escamotage" readonly></td>
                                     <td>Dex<td>
                                 </tr>
                                 <tr>
                                     <td>Histoire</td>
-                                    <td></td>
+                                    <td><input id="histoire" readonly></td>
                                     <td>Int<td>
                                 </tr>
                                 <tr>
                                     <td>Intimidation  </td>
-                                    <td></td>
+                                    <td><input id="intimidation" readonly></td>
                                     <td>Cha<td>
                                 </tr>
                                 <tr>
                                     <td>Investigation</td>
-                                    <td></td>
+                                    <td><input id="investigation" readonly></td>
                                     <td>Int<td>
                                 </tr>
                                 <tr>
                                     <td>Médecine</td>
-                                    <td></td>
+                                    <td><input id="medecine" readonly></td>
                                     <td>Sag<td>
                                 </tr>
                                 <tr>
                                     <td>Nature</td>
-                                    <td></td>
+                                    <td><input id="nature" readonly></td>
                                     <td>Int<td>
                                 </tr>
                                 <tr>
                                     <td>Perception</td>
-                                    <td></td>
+                                    <td><input id="perception" readonly></td>
                                     <td>Sag<td>
                                 </tr>
                                 <tr>
                                     <td>Perspicacité</td>
-                                    <td></td>
+                                    <td> <input id="perspicacite" readonly></td>
                                     <td>Sag<td>
                                 </tr>
                                 <tr>
                                     <td>Persuasion</td>
-                                    <td></td>
+                                    <td><input id="persuasion" readonly></td>
                                     <td>Cha<td>
                                 </tr>
                                 <tr>
                                     <td>Religion</td>
-                                    <td></td>
+                                    <td><input id="religion" readonly></td>
                                     <td>Int<td>
                                 </tr>
                                 <tr>
                                     <td>Représentation</td>
-                                    <td></td>
+                                    <td><input id="representation" readonly></td>
                                     <td>Cha<td>
                                 </tr>
                                 <tr>
                                     <td>Survie</td>
-                                    <td></td>
+                                    <td><input id="survie" readonly></td>
                                     <td>Sag<td>
                                 </tr>
                                 <tr>
                                     <td>Tromperie</td>
-                                    <td></td>
+                                    <td><input id="tromperie" readonly></td>
                                     <td>Cha<td>
                                 </tr>
                             </tbody>
@@ -478,17 +453,17 @@
     <!--iframes -->
     <div id="sortsTab" class="hidden">
             <div class="filterFreeze"></div>
-            <iframe src="sorts.html"></iframe>
+            <iframe id="sortsFrame" src="sorts.html"></iframe>
             <button value='sortsTab' class ="hideButton">X</button>
     </div>
     <div id="randomPnj" class="hidden">
             <div class="filterFreeze"></div>
-            <iframe src="../randomPnj/randomPnj.html"></iframe>
+            <iframe id="pnjFrame" src="../randomPnj/randomPnj.html"></iframe>
             <button value='randomPnj' class ="hideButton">X</button>
     </div>
     <div id="randomStories" class="hidden">
             <div class="filterFreeze"></div>
-            <iframe src="../randomStories/randomStories.html"></iframe>
+            <iframe id="storiesFrame" src="../randomStories/randomStories.html"></iframe>
             <button value='randomStories' class ="hideButton">X</button>
     </div>
     <!--scripts -->

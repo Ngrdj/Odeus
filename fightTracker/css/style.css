@@ -6,6 +6,7 @@ body{
     background-position-y: 50%;
     margin: 0px;
     height: 100vh;
+    overflow-y: hidden;
 }
 select{
     text-align: center;

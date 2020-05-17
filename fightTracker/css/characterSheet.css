@@ -1,85 +1,14 @@
-/*.persos{
-    font-family: fantasy;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgba(0,0,0,0.6);
-    padding : 20px;
-    text-align: center;
-    font-size: 100%;
-    min-height: 700px;
-    height: max-content;
-}
-.persos > *{
-    height: 100%;
-}
-.persoItem{
-    background-color: aliceblue;
-    display: flex;
-}
-.persoItem label{
-    width: 100%;
-    align-self: center;
-    text-align: right;
-    margin-right: 20px;
-}
-.persoItem input{
-    text-align: center;
-    font-size: 15pt;
-    width: 100%;
-    
-}
-.tableau{
-    width: 100%;
-    background-color: lightgray;
-}
-.caract{  
-    background-color: aliceblue;
-    border: solid 5px;
-    margin:5px;
-    padding: 5px;
-    display:flex;
-    justify-content: center;
- 
-}
-.caract input{  
-    width : 50px;
- 
-}
-.caractLeft, .caractRight{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-    margin: 0px 20px;
-}
-
-#charSheet > div > *[class = "showHideButton"]{
-    
-    width: -moz-available;
-    height: 50px;
-    
-}
-.armes{
-    
-    height: inherit;
-
-    
-}
-.competences{
-    
-    height: inherit;
-
-    
-}
-*/
 
 #charSheet{
     
     display: flex;
     flex-direction: column;
     margin:20px;
+    
+}
+#charSheet input{
+    
+    text-align: center;
     
 }
 .charSheetItem{
@@ -161,4 +90,13 @@
 .tableau td{
     background: white;
 
+}
+#compTab input{
+    
+    width : 20px;
+    -webkit-appearance:     none;
+    -moz-appearance:        none;
+    -ms-appearance:         none;
+    -o-appearance:          none;
+    appearance:             none;
 }

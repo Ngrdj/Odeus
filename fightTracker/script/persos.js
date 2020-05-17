@@ -1,5 +1,9 @@
 const Namas = {
     
+    classe :'druide',
+    
+    sortLvl :2,
+    
     armes : [baton,epeeC],
     
     DDSav : "14",
@@ -33,6 +37,10 @@ const Namas = {
 
 }
 const Esus = {
+    
+    classe :'rodeur',
+    
+    sortLvl :2,
     
     armes : [dague,arc],
     
@@ -68,6 +76,14 @@ const Esus = {
 }
 const Kyra = {
     
+    classe :'mage',
+    
+    feu :5,
+    eau :2,
+    air :1,
+    terre :1,
+    arcane :1,
+    
     armes : [baton,dague],
     
     DDSav : "14",
@@ -101,6 +117,10 @@ const Kyra = {
     
 }
 const Grudu = {
+    
+    classe :'guerrier',
+    
+    sortLvl :2,
     
     armes : [marteauG,javeline],
     
@@ -136,6 +156,14 @@ const Grudu = {
 }
 const Lyre = {
     
+    classe :'mage',
+    
+    feu :2,
+    eau :1,
+    air :1,
+    terre :5,
+    arcane :1 ,
+    
     armes : [baton,dague],
     
     DDSav : "14",
@@ -166,5 +194,4 @@ const Lyre = {
     représentation :["",""],
     survie :["",""],
     tromperie :["",""]
-    
 }

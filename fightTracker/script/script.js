@@ -376,5 +376,6 @@ function reloadValues(){
     
     backgroundSelectType.selectedIndex= 0;
     music.selectedIndex= 0;
+    
 }
 reloadValues();
