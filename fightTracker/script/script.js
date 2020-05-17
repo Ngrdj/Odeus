@@ -346,7 +346,7 @@ for(const icon of icons){
 
 /*...........................Masque.............................*/
 
-/*const allBodyElements = document.querySelectorAll("body > :not(main), main > *");
+const allBodyElements = document.querySelectorAll("body > :not(main), main > *");
 
 for(const element of allBodyElements){
     
@@ -363,8 +363,29 @@ for(const element of allBodyElements){
         
         
     });
-}*
+}
 
+/*...........................timer.............................*/
+const timerButton=document.getElementById("timerButton");
+const timerInput=document.getElementById("timerInput");
+const timerOutput=document.getElementById('timerOutput');
+let timer;
+timerButton.addEventListener('click',()=>{
+
+    clearInterval(timer);
+    let cpt=timerInput.value;
+    timer=setInterval(function(){
+        if(cpt>0){
+            --cpt;
+            timerOutput.innerHTML=cpt+"s";
+
+        }else{
+            clearInterval(timer);
+        }
+    }, 1000);
+    
+  
+})
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){
