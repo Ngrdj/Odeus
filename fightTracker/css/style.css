@@ -173,10 +173,8 @@ iframe{
     scale: 150%;
     
 }
-#test{
+#timerInput{
     
-    background-color: red;
-    width: 100%;
-    height: 100%;
+    width : 30px;
     
 }

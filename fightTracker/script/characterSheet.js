@@ -1,11 +1,13 @@
 
 const charSelect = document.getElementById("charSelect");
-const sortsFrame = document.getElementById("sortsFrame").contentWindow.document;
+const sortsFrame = document.getElementById("sortsFrame");
+ /* const sortFrameContent = (sortsFrame.contentWindow || sortsFrame.contentDocument);
 
-    const mageTab = sortsFrame.querySelector("#mageTab");
-    const druideTab = sortsFrame.querySelector("#druideTab");
-    const rodeurTab = sortsFrame.querySelector("#rodeurTab");
-    const guerrierTab = sortsFrame.querySelector("#guerrierTab");
+
+    const mageTab = sortFrameContent.querySelector("#mageTab");
+    const druideTab = sortFrameContent.querySelector("#druideTab");
+    const rodeurTab = sortFrameContent.querySelector("#rodeurTab");
+    const guerrierTab = sortFrameContent.querySelector("#guerrierTab");*/
 
 /*-----------------------------Spell-------------------------------*/
 
@@ -52,7 +54,7 @@ const armesTBody=document.getElementById("armesTBody");
 
 charSelect.addEventListener("change", getCharName);
 
-/*window.addEventListener("load", getCharName);*/
+
 window.addEventListener("load", reloadValues);
 
 
@@ -220,13 +222,6 @@ function reloadValues(){
     survie.value = '0';
     tromperie.value = '0';
     
-    do{
-        for(const child of armesTBody.children){
-            
-            armesTBody.removeChild(child);
-            
-        }  
-    }while(armesTBody.childElementCount > 0)
 }
 
 

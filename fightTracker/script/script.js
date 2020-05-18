@@ -345,7 +345,7 @@ for(const icon of icons){
 }
 
 /*...........................Masque.............................*/
-
+/*
 const allBodyElements = document.querySelectorAll("body > :not(main), main > *");
 
 for(const element of allBodyElements){
@@ -364,7 +364,7 @@ for(const element of allBodyElements){
         
     });
 }
-
+*/
 /*...........................timer.............................*/
 const timerButton=document.getElementById("timerButton");
 const timerInput=document.getElementById("timerInput");
@@ -372,6 +372,8 @@ const timerOutput=document.getElementById('timerOutput');
 let timer;
 timerButton.addEventListener('click',()=>{
 
+    timerOutput.innerHTML=timerInput.value+'s';
+    
     clearInterval(timer);
     let cpt=timerInput.value;
     timer=setInterval(function(){
@@ -386,6 +388,17 @@ timerButton.addEventListener('click',()=>{
     
   
 })
+/*...........................search.............................*/
+
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("searchInput");
+
+searchButton.addEventListener('click',()=>{
+    
+    searchButton.href = `https://www.aidedd.org/search/?q=${searchInput.value}`;
+    
+    
+});
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){

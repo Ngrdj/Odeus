@@ -11,8 +11,14 @@
   </head>
   <body>
     <header>
-        <a href="https://www.aidedd.org/search/?q=" target="_blank">Recherche</a>
-        <div>
+        <div id='search'>
+        
+            <input id='searchInput' type='text'>
+            <a id='searchButton' href="https://www.aidedd.org/search/?q=" target="_blank"><i class="fas fa-search"></i></a>
+        
+        </div>
+        
+        <div id='background'>
             <label>Fond d'écran :</label>
             <select id="backgroundSelectType">
                 <option value="select" selected>Sélection</option>
@@ -53,19 +59,19 @@
             <button id="backgroundValidButton">Valider</button>
             
         </div>
-        <div>
+        <div id='timer'>
             <label>Timer :</label>
             <input id="timerInput" type="number" name="timer">
-            <span id="timerOutput"></span>
             <button id="timerButton">Décompte</button>
+            <span id="timerOutput"></span>
         </div>
-        <div>
+        <div id='generators'>
         
             <button class="showButton" value="randomPnj" >Générateur de personnage</button>
             <button class="showButton" value="randomStories">Générateur de scénario</button>
         
         </div>
-        <div>
+        <div id='music'>
             <label for="soundSelect">Fond sonore :</label>
             <select id="choixMusic" type="text" name="soundSelect">
                 <option value="intro">Intro</option>
@@ -115,7 +121,7 @@
                 <div>
 
                     <button id="roundButton">Round</button>
-                    <input id="roundInput" type="number" name="round" size="5" value='0' readonly>
+                    <input id="roundInput" type="number" name="round" size="5" value='0' min="0">
 
                 </div>	
                 <div>
@@ -274,31 +280,7 @@
                                 </tr>
                             </thead>
                             <tbody id="armesTBody">
-                                <tr>
-                                    <td>Epée</td>
-                                    <td>+3</td>
-                                    <td>1d6<td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>+2</td>
-                                    <td>1d6<td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>+2</td>
-                                    <td>1d6<td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>+2</td>
-                                    <td>1d6<td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>+2</td>
-                                    <td>1d6<td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
