@@ -57,7 +57,7 @@
 #ajouter{
     
     justify-self: center;
-    width: -moz-available;
+    width: 100%;
     height: 50px;
     margin-top: 10px;
     

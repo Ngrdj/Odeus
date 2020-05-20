@@ -392,6 +392,8 @@ timerButton.addEventListener('click',()=>{
 
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("searchInput");
+const click = new Event('click');
+    
 
 searchButton.addEventListener('click',()=>{
     
@@ -399,6 +401,17 @@ searchButton.addEventListener('click',()=>{
     
     
 });
+
+searchInput.addEventListener('keydown', (e) => {
+        
+        if(e.keyCode === 13 ){
+            
+            searchButton.dispatchEvent(click);
+            console.log('clicked');
+            
+        } 
+});
+
 /*...........................Réinitialisation des valeurs.............................*/
 
 function reloadValues(){
@@ -410,6 +423,7 @@ function reloadValues(){
     
     backgroundSelectType.selectedIndex= 0;
     music.selectedIndex= 0;
+    searchInput.value = '';
     
 }
 reloadValues();
