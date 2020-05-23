@@ -381,9 +381,9 @@ backgroundValidButton.addEventListener('click',()=>{
             
         break;
     }
-body.style.backgroundSize = '105vw 105vh';
+body.style.backgroundSize = '100vw 100vh';
 body.style.backgroundRepeat = 'no-repeat'; 
-body.style.animationName = 'background';
+/*body.style.animationName = 'background';*/
     
 });
 
@@ -431,8 +431,8 @@ for(const icon of icons){
 }
 
 /*...........................Masque.............................*/
-/*
-const allBodyElements = document.querySelectorAll("body > :not(main), main > *");
+
+/*const allBodyElements = document.querySelectorAll("body > :not(main), main > *");
 
 for(const element of allBodyElements){
     
