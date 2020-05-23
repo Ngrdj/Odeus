@@ -142,46 +142,80 @@
                     <input type="number" id="resultat" size="5" readonly>
                 </div>
             </div>
+            
             <button id="ajouter">Ajouter Personnage</button>
 
             <!--"div perso" de référence clone-->
             <div class="Perso hidden">
+                
+                <div class ="persoMain">
+                
+                    <input class="charName" type="text" placeholder="Nom de personnage">
+                    <div>
+                        <label >Init.</label>
+                        <input class="initPerso" type='number' value="0">
+                    </div>
+                    <div>
+                        <label>Attaque</label>
+                        <input type='number'>
+                    </div>
+                    <div>
+                        <label>Contre</label>
+                        <input type='number'>
+                    </div>
+                  <select name='etats'>
 
-                <input class="charName" type="text" placeholder="Nom de personnage">
-                <div>
-                    <label >Init.</label>
-                    <input class="initPerso" type='number' value="0">
+                      <option value="0">--</option>
+                      <option value="1">À terre</option>
+                      <option value="2">Agrippé</option>
+                      <option value="3">Assourdi</option>
+                      <option value="4">Aveuglé</option>
+                      <option value="5">Charmé</option>
+                      <option value="6">Effrayé</option>
+                      <option value="7">Empoisonné</option>
+                      <option value="8">Entravé</option>
+                      <option value="9">Étourdi</option>
+                      <option value="10">Incapable d'agir</option>
+                      <option value="11">Inconscient</option>
+                      <option value="12">Invisible</option>
+                      <option value="13">Paralysé</option>
+                      <option value="14">Pétrifié</option>
+
+                  </select>
+
+                  <button class="supprimer">x</button>
                 </div>
-                <div>
-                    <label>Attaque</label>
-                    <input type='number'>
+                <button class = "showHidePlus" value = "persoPlus">vvv</button>
+                <div class = "persoPlus hidden" >
+                    
+                    <div>
+                        
+                        <button class="bonusButton">+</button>
+                        <div class = "bonusItem hidden">
+                        
+                            <button class="removeItem">X</button>
+                            <input placeholder="Nom">
+                            <input type="number" placeholder="VAL" min = '0'>
+                        
+                        </div>
+                        
+                    </div>
+                    <div>
+                    
+                        <button class="malusButton">+</button>
+                    
+                        <div class = "malusItem hidden">
+
+                            <button class="removeItem">X</button>
+                            <input placeholder="Nom">
+                            <input type="number" placeholder="VAL" max = '0'>
+
+                        </div>
+                    
+                    </div>
+      
                 </div>
-                <div>
-                    <label>Contre</label>
-                    <input type='number'>
-                </div>
-              <select name='etats'>
-
-                  <option value="0">--</option>
-                  <option value="1">À terre</option>
-                  <option value="2">Agrippé</option>
-                  <option value="3">Assourdi</option>
-                  <option value="4">Aveuglé</option>
-                  <option value="5">Charmé</option>
-                  <option value="6">Effrayé</option>
-                  <option value="7">Empoisonné</option>
-                  <option value="8">Entravé</option>
-                  <option value="9">Étourdi</option>
-                  <option value="10">Incapable d'agir</option>
-                  <option value="11">Inconscient</option>
-                  <option value="12">Invisible</option>
-                  <option value="13">Paralysé</option>
-                  <option value="14">Pétrifié</option>
-
-              </select>
-
-              <button class="supprimer">x</button>
-
+                
             </div>
             <!--..........................-->
 

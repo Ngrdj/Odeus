@@ -31,18 +31,106 @@
 }
 .Perso{
     
-    margin: 10px;
-    background-color:white;
-    display : flex;
+    margin: 10px 0px;
     border-radius: 10px;
+    background-color:white;
+    
+}
+.persoMain{
+    
+
+    display : flex;
     justify-content: space-around;
     
 }
-.Perso *{
+.persoMain *{
     
     margin: 5px;
     align-self:stretch;
 
+}
+.showHidePlus{
+    
+    width:100%;
+    border-radius: 10px;
+
+}
+.persoPlus{
+    
+    display : flex;
+    border-radius: 10px;
+    justify-content: space-around;
+
+}
+.persoPlus>div{
+    
+    background-color: lightgrey;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bonusButton{
+    
+    padding: 5px;
+    background: white;
+    border: none;
+    color:green;
+    align-self: flex-start;
+
+}
+.malusButton{
+    
+    padding: 5px;
+    background: white;
+    border: none;
+    color:red;
+    align-self: flex-end;
+
+}
+.bonusItem{
+    
+    padding: 5px;
+    margin: 2px;
+    align-self: center;
+    background: #7ec17e52;
+
+}
+.bonusItem > input{
+    
+    color: #050b05;
+    border: none;
+    text-align: center;
+    background: none;
+    color: green;
+    text-transform: uppercase;
+    
+}
+.malusItem{
+    
+    padding: 5px;
+    margin: 2px;
+    align-self: center;
+    background: #c1847e73;
+
+}
+.malusItem > input{
+    
+    color: #050b05;
+    border: none;
+    text-align: center;
+    background: none;
+    color: red;
+    text-transform: uppercase;
+    
+}
+.removeItem{
+    
+    background: none;
+    border: none;
+    
 }
 .Perso input[type="number"]{
     

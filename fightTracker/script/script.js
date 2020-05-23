@@ -52,7 +52,6 @@ const ajouter = document.getElementById('ajouter');
 const persoList = document.getElementById('persoList');
 
 let perso = persoList.children;
-let supprimer;
 
 ajouter.addEventListener('click', () => {
 
@@ -60,18 +59,104 @@ ajouter.addEventListener('click', () => {
 
  	newPerso.classList.remove('hidden');
  	persoList.appendChild(newPerso); 
+    
+    const supprimer = newPerso.querySelector('.supprimer');
+    
+    supprimer.addEventListener('click',()=>{
+            newPerso.remove();
+	       });
+    
+    
+    /*...........................PersoPlus.............................*/
+    
+    //ShowHide persoPlus
+    
+    const showHidePlus = newPerso.querySelector('.showHidePlus');
+    
+    let persoPlus = showHidePlus.parentElement.querySelector('.persoPlus');
+    
+    
+    showHidePlus.addEventListener('click',()=>{
+                
+        if(persoPlus.classList.contains('hidden')){
+            
+            persoPlus.classList.remove('hidden');
+            
+        }else{
+            
+            persoPlus.classList.add('hidden');
+            
+        }
+        
+    });
+    
+    //Add/Del bonus/malus
+    
+    const bonusButton = persoPlus.querySelector('.bonusButton');
+    const malusButton = persoPlus.querySelector('.malusButton');
+    
+    let bonusItemNumber = persoPlus.querySelectorAll('.bonusItem').length-1;
+    let malusItemNumber = persoPlus.querySelectorAll('.malusItem').length-1;
+    
+    bonusButton.addEventListener('click',()=>{
+        
+        const newBonusItem = persoPlus.querySelector('.bonusItem.hidden').cloneNode(true);
 
-	
- 	for(const item of perso){
+        newBonusItem.classList.remove('hidden');
+        bonusButton.parentElement.appendChild(newBonusItem);
+        
+        bonusItemNumber = persoPlus.querySelectorAll('.bonusItem').length-1;
+        
+        const removeItem = newBonusItem.querySelector('.removeItem');
+    
+        removeItem.addEventListener('click',()=>{
+            
+                newBonusItem.remove();
+                bonusItemNumber = persoPlus.querySelectorAll('.bonusItem').length-1;
+                showHidePlusRefresh(showHidePlus) ;
+        });   
+        
+        showHidePlusRefresh(showHidePlus) ;      
+    });
+    
+    malusButton.addEventListener('click',()=>{
+        
+        const newMalusItem = persoPlus.querySelector('.malusItem.hidden').cloneNode(true);
 
-            supprimer = item.querySelector('.supprimer');
-
-            supprimer.addEventListener('click',()=>{
-
-            item.remove();
-
-	});
+        newMalusItem.classList.remove('hidden');
+        malusButton.parentElement.appendChild(newMalusItem);      
+        
+        malusItemNumber = persoPlus.querySelectorAll('.malusItem').length-1;
+        
+        const removeItem = newMalusItem.querySelector('.removeItem');
+    
+        removeItem.addEventListener('click',()=>{
+            
+                newMalusItem.remove();
+                malusItemNumber = persoPlus.querySelectorAll('.malusItem').length-1;
+                showHidePlusRefresh(showHidePlus) ;
+        });
+        
+        
+        showHidePlusRefresh(showHidePlus) ;
+        
+    });
+    
+    function showHidePlusRefresh(button){
+        
+        if(bonusItemNumber === 0 && malusItemNumber ===0){
+            
+            button.innerHTML =  'vvv ';
+            
+        }else{
+            
+            button.innerHTML =  'vvv ' + `(<span style='color:green'>${bonusItemNumber}</span>|<span style='color:red'>${malusItemNumber}</span>)`;
+            
+        }
+        
+        
     }
+    
 });
 
 /*...........................Tri des personnage par l'initiative.............................*/
@@ -143,10 +228,9 @@ for(const button of showButtons){
 
     button.addEventListener('click', ()=>{
         
-        const showHideElement = document.getElementById(button.getAttribute('value'));
-
-        if(showHideElement.classList.contains('hidden')){
-            showHideElement.classList.remove('hidden');
+        const showElement = document.getElementById(button.getAttribute('value'));
+        if(showElement.classList.contains('hidden')){
+            showElement.classList.remove('hidden');
         }
     });    
 }
@@ -154,9 +238,9 @@ for(const button of hideButtons){
 
     button.addEventListener('click', ()=>{
 
-        const showHideElement = button.parentElement;
+        const hideElement = button.parentElement;
      
-            showHideElement.classList.add('hidden')
+            hideElement.classList.add('hidden')
     });    
 }
 
@@ -165,6 +249,7 @@ for(const button of showHideButton){
     button.addEventListener('click', ()=>{
         
         const showHideElement = document.getElementById(button.getAttribute('value'));
+                 
 
         if(showHideElement.classList.contains('hidden')){
             showHideElement.classList.remove('hidden');
