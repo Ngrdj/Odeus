@@ -116,7 +116,48 @@ ajouter.addEventListener('click', () => {
                 showHidePlusRefresh(showHidePlus) ;
         });   
         
-        showHidePlusRefresh(showHidePlus) ;      
+        showHidePlusRefresh(showHidePlus) ;
+        
+        //autoselect bonus values
+        
+        newBonusItem.querySelector(".bonusSource").focus();
+        newBonusItem.querySelector(".bonusSource").classList.add("selected");
+        
+        for(const element of newBonusItem.querySelectorAll("input,select")){
+            
+            element.addEventListener('keydown', (e) => {
+        
+                if(e.keyCode === 13 ){
+                    
+                    if(element.classList.contains('selected')){
+                        
+                        element.classList.remove('selected');
+                        
+                    }
+                    if(element.nextElementSibling !== null){
+                        
+                        element.nextElementSibling.classList.add("selected");
+                        element.nextElementSibling.focus();
+                        
+                    }else{
+                        
+                        element.blur();
+                        
+                    }
+      
+                } 
+            });
+            element.addEventListener('blur', () => {
+                
+               if(element.classList.contains('selected')){
+                        
+                        element.classList.remove('selected');
+                        
+                    }
+                
+            });
+        }
+        
     });
     
     malusButton.addEventListener('click',()=>{
@@ -139,6 +180,46 @@ ajouter.addEventListener('click', () => {
         
         
         showHidePlusRefresh(showHidePlus) ;
+        
+        //autoselect bonus values
+        
+        newMalusItem.querySelector(".malusSource").focus();
+        newMalusItem.querySelector(".malusSource").classList.add("selected");
+        
+        for(const element of newMalusItem.querySelectorAll("input,select")){
+            
+            element.addEventListener('keydown', (e) => {
+        
+                if(e.keyCode === 13 ){
+                    
+                    if(element.classList.contains('selected')){
+                        
+                        element.classList.remove('selected');
+                        
+                    }
+                    if(element.nextElementSibling !== null){
+                        
+                        element.nextElementSibling.classList.add("selected");
+                        element.nextElementSibling.focus();
+                        
+                    }else{
+                        
+                        element.blur();
+                        
+                    }
+      
+                } 
+            });
+            element.addEventListener('blur', () => {
+                
+               if(element.classList.contains('selected')){
+                        
+                        element.classList.remove('selected');
+                        
+                    }
+                
+            });
+        }
         
     });
     
@@ -215,6 +296,7 @@ let i=0;
         
         
     });
+
 /*...........................Show/HideButtons.............................*/
 
 const sortsTab = document.getElementById('sortsTab');
@@ -234,6 +316,7 @@ for(const button of showButtons){
         }
     });    
 }
+
 for(const button of hideButtons){
 
     button.addEventListener('click', ()=>{
@@ -258,6 +341,7 @@ for(const button of showHideButton){
         }
     });    
 }
+
 for(const button of filterFreeze){
 
     button.addEventListener('click', ()=>{
@@ -268,6 +352,7 @@ for(const button of filterFreeze){
     });    
 }
 /*...........................jitsi test.............................*/
+
 /*const domain = 'meet.jit.si';
 const options = {
     roomName: 'ODEUS',
@@ -452,6 +537,7 @@ for(const element of allBodyElements){
 }
 */
 /*...........................timer.............................*/
+
 const timerButton=document.getElementById("timerButton");
 const timerInput=document.getElementById("timerInput");
 const timerOutput=document.getElementById('timerOutput');
@@ -474,6 +560,7 @@ timerButton.addEventListener('click',()=>{
     
   
 })
+
 /*...........................search.............................*/
 
 const searchButton = document.getElementById("searchButton");
@@ -492,8 +579,7 @@ searchInput.addEventListener('keydown', (e) => {
         
         if(e.keyCode === 13 ){
             
-            searchButton.dispatchEvent(click);
-            console.log('clicked');
+            searchButton.click();
             
         } 
 });
