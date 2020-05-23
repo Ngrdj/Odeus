@@ -141,7 +141,7 @@ ajouter.addEventListener('click', () => {
                         
                     }else{
                         
-                        element.blur();
+                        bonusButton.focus();
                         
                     }
       
@@ -204,7 +204,7 @@ ajouter.addEventListener('click', () => {
                         
                     }else{
                         
-                        element.blur();
+                        malusButton.focus();
                         
                     }
       
