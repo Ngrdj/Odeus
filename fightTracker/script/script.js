@@ -381,8 +381,9 @@ backgroundValidButton.addEventListener('click',()=>{
             
         break;
     }
-body.style.backgroundSize = '100vw 100vh';
+body.style.backgroundSize = '105vw 105vh';
 body.style.backgroundRepeat = 'no-repeat'; 
+body.style.animationName = 'background';
     
 });
 
