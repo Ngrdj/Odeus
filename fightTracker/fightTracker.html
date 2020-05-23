@@ -116,8 +116,13 @@
             
         </aside>
         
-        <div class= fight-tracker>
-            <div class="header">
+        <div id='fightTracker' class = fight-tracker>
+            
+            <button class='showHideButton' value="ftContent">v v v</button>
+            
+            <div id='ftContent' class='hidden'>
+            
+                <div class="header">
                 <div>
 
                     <button id="roundButton">Round</button>
@@ -143,85 +148,166 @@
                 </div>
             </div>
             
-            <button id="ajouter">Ajouter Personnage</button>
+                <button id="ajouter">Ajouter Personnage</button>
 
-            <!--"div perso" de référence clone-->
-            <div class="Perso hidden">
-                
-                <div class ="persoMain">
-                
-                    <input class="charName" type="text" placeholder="Nom de personnage">
-                    <div>
-                        <label >Init.</label>
-                        <input class="initPerso" type='number' value="0">
-                    </div>
-                    <div>
-                        <label>Attaque</label>
-                        <input type='number'>
-                    </div>
-                    <div>
-                        <label>Contre</label>
-                        <input type='number'>
-                    </div>
-                  <select name='etats'>
+                <!--"div perso" de référence clone-->
+                <div class="Perso hidden">
 
-                      <option value="0">--</option>
-                      <option value="1">À terre</option>
-                      <option value="2">Agrippé</option>
-                      <option value="3">Assourdi</option>
-                      <option value="4">Aveuglé</option>
-                      <option value="5">Charmé</option>
-                      <option value="6">Effrayé</option>
-                      <option value="7">Empoisonné</option>
-                      <option value="8">Entravé</option>
-                      <option value="9">Étourdi</option>
-                      <option value="10">Incapable d'agir</option>
-                      <option value="11">Inconscient</option>
-                      <option value="12">Invisible</option>
-                      <option value="13">Paralysé</option>
-                      <option value="14">Pétrifié</option>
+                    <div class ="persoMain">
 
-                  </select>
-
-                  <button class="supprimer">x</button>
-                </div>
-                <button class = "showHidePlus" value = "persoPlus">vvv</button>
-                <div class = "persoPlus hidden" >
-                    
-                    <div>
-                        
-                        <button class="bonusButton">+</button>
-                        <div class = "bonusItem hidden">
-                        
-                            <button class="removeItem">X</button>
-                            <input placeholder="Nom">
-                            <input type="number" placeholder="VAL" min = '0'>
-                        
+                        <input class="charName" type="text" placeholder="Nom de personnage">
+                        <div>
+                            <label >Init.</label>
+                            <input class="initPerso" type='number' value="0">
                         </div>
-                        
-                    </div>
-                    <div>
-                    
-                        <button class="malusButton">+</button>
-                    
-                        <div class = "malusItem hidden">
+                        <div>
+                            <label>Attaque</label>
+                            <input type='number'>
+                        </div>
+                        <div>
+                            <label>Contre</label>
+                            <input type='number'>
+                        </div>
+                      <select name='etats'>
 
-                            <button class="removeItem">X</button>
-                            <input placeholder="Nom">
-                            <input type="number" placeholder="VAL" max = '0'>
+                          <option value="0">--</option>
+                          <option value="1">À terre</option>
+                          <option value="2">Agrippé</option>
+                          <option value="3">Assourdi</option>
+                          <option value="4">Aveuglé</option>
+                          <option value="5">Charmé</option>
+                          <option value="6">Effrayé</option>
+                          <option value="7">Empoisonné</option>
+                          <option value="8">Entravé</option>
+                          <option value="9">Étourdi</option>
+                          <option value="10">Incapable d'agir</option>
+                          <option value="11">Inconscient</option>
+                          <option value="12">Invisible</option>
+                          <option value="13">Paralysé</option>
+                          <option value="14">Pétrifié</option>
+
+                      </select>
+
+                      <button class="supprimer">x</button>
+                    </div>
+                    
+                    <button class = "showHidePlus" value = "persoPlus">v v v</button>
+                    
+                    <div class = "persoPlus hidden" >
+
+                        <div>
+
+                            <button class="bonusButton">+</button>
+                            <div class = "bonusItem hidden">
+
+                                <button class="removeItem">X</button>
+                                <input placeholder="Source">
+                                <select>
+                                
+                                    <option hidden selected>-Cible-</option>
+                                    <optgroup label='Caract'>
+                                        
+                                        <option>FOR</option>
+                                        <option>DEX</option>
+                                        <option>CON</option>
+                                        <option>INT</option>
+                                        <option>SAG</option>
+                                        <option>CHA</option>
+                                        
+                                    </optgroup>
+                                    
+                                    <optgroup label='Comp'>
+                                        
+                                        <option>ACC</option>
+                                        <option>ARC</option>
+                                        <option>ATH</option>
+                                        <option>DIS</option>
+                                        <option>DRE</option>
+                                        <option>ESC</option>
+                                        <option>HIS</option>
+                                        <option>INT</option>
+                                        <option>INV</option>
+                                        <option>MED</option>
+                                        <option>NAT</option>
+                                        <option>PERCE</option>
+                                        <option>PERSP</option>
+                                        <option>PERSU</option>
+                                        <option>REL</option>
+                                        <option>REP</option>
+                                        <option>SUR</option>
+                                        <option>TRO</option>
+                                    
+                                    </optgroup>
+                                
+                                </select>
+                                <input type="number" placeholder="VAL" min = '0'>
+
+                            </div>
 
                         </div>
-                    
-                    </div>
-      
-                </div>
-                
-            </div>
-            <!--..........................-->
+                        <div>
 
-            <div id="persoList">
-                <!--.............Liste de personnages.............-->
+                            <button class="malusButton">+</button>
+
+                            <div class = "malusItem hidden">
+
+                                <button class="removeItem">X</button>
+                                <input placeholder="Source">
+                                 <select>
+                                     
+                                    <option hidden selected>-Cible-</option>
+                                    <optgroup label='Caract'>
+                                        
+                                        <option>FOR</option>
+                                        <option>DEX</option>
+                                        <option>CON</option>
+                                        <option>INT</option>
+                                        <option>SAG</option>
+                                        <option>CHA</option>
+                                        
+                                    </optgroup>
+                                    
+                                    <optgroup label='Comp'>
+                                        
+                                        <option>ACC</option>
+                                        <option>ARC</option>
+                                        <option>ATH</option>
+                                        <option>DIS</option>
+                                        <option>DRE</option>
+                                        <option>ESC</option>
+                                        <option>HIS</option>
+                                        <option>INT</option>
+                                        <option>INV</option>
+                                        <option>MED</option>
+                                        <option>NAT</option>
+                                        <option>PERCE</option>
+                                        <option>PERSP</option>
+                                        <option>PERSU</option>
+                                        <option>REL</option>
+                                        <option>REP</option>
+                                        <option>SUR</option>
+                                        <option>TRO</option>
+                                    
+                                    </optgroup>
+                                
+                                </select>
+                                <input type="number" placeholder="VAL" max = '0'>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--..........................-->
+
+                <div id="persoList">
+                    <!--.............Liste de personnages.............-->
+                </div>
+            
             </div>
+            
         </div>
         
         <aside id="aside-right">

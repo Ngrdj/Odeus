@@ -146,11 +146,11 @@ ajouter.addEventListener('click', () => {
         
         if(bonusItemNumber === 0 && malusItemNumber ===0){
             
-            button.innerHTML =  'vvv ';
+            button.innerHTML =  'v v v ';
             
         }else{
             
-            button.innerHTML =  'vvv ' + `(<span style='color:green'>${bonusItemNumber}</span>|<span style='color:red'>${malusItemNumber}</span>)`;
+            button.innerHTML =  'v v v ' + `(<span style='color:green'>${bonusItemNumber}</span>|<span style='color:red'>${malusItemNumber}</span>)`;
             
         }
         

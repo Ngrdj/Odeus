@@ -1,3 +1,8 @@
+[value="ftContent"]{
+    background: gray;
+    color: white;
+    border: none;
+}
 .fight-tracker{
     
     background-color: rgba(0,0,0,0.6);
@@ -6,6 +11,8 @@
     border-radius: 10px;
     min-width: 750px;
     max-width: 1600px;
+    display: flex;
+    flex-direction: column;
 }
 .header{
     
@@ -100,12 +107,20 @@
 }
 .bonusItem > input{
     
-    color: #050b05;
+    color: #224a22;
     border: none;
     text-align: center;
     background: none;
-    color: green;
     text-transform: uppercase;
+    max-width: 150px;
+    
+}
+.bonusItem > select{
+    
+    color: #224a22;
+    border: none;
+    text-align: center;
+    background: none;
     
 }
 .malusItem{
@@ -118,12 +133,20 @@
 }
 .malusItem > input{
     
-    color: #050b05;
+    color: #571010;
     border: none;
     text-align: center;
     background: none;
-    color: red;
     text-transform: uppercase;
+    max-width: 150px;
+    
+}
+.malusItem > select{
+    
+    color: #571010;
+    border: none;
+    text-align: center;
+    background: none;
     
 }
 .removeItem{
