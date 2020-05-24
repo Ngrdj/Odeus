@@ -39,8 +39,7 @@ function getPnjName(){
             loadPnjValues(tavernier);
         break;
                 
-        default:
-                reloadPnjValues();
+        default:reloadPnjValues();
     }
     
 }

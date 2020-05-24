@@ -104,6 +104,10 @@ footer{
     background: rgba(0,0,0,0.6);
     overflow: auto;
     max-height: 80vh;
+    direction: rtl;
+}
+#leftPanel>*{
+    direction: ltr;
 }
 #soundBar{
     display: flex;
