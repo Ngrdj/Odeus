@@ -1,5 +1,5 @@
 
-const charSelect = document.getElementById("charSelect");
+
 const sortsFrame = document.getElementById("sortsFrame");
  /* const sortFrameContent = (sortsFrame.contentWindow || sortsFrame.contentDocument);
 
@@ -8,7 +8,10 @@ const sortsFrame = document.getElementById("sortsFrame");
     const druideTab = sortFrameContent.querySelector("#druideTab");
     const rodeurTab = sortFrameContent.querySelector("#rodeurTab");
     const guerrierTab = sortFrameContent.querySelector("#guerrierTab");*/
-
+/*-----------------------------portrait/classe-------------------------------*/
+const charSelect = document.getElementById("charSelect");
+const charClassOutput = document.getElementById("charClassOutput");
+const portraitChar = document.getElementById("portraitChar");
 /*-----------------------------Spell-------------------------------*/
 
 const DDSav = document.getElementById("DDSav");
@@ -87,7 +90,15 @@ function getCharName(){
         
 function loadValues(joueur){
         
+/*-----------------------------loadPortrait-------------------------------*/
     
+            portraitChar.style.background=`url(${joueur.portrait})`;
+            portraitChar.style.backgroundSize= "100% 100%"; 
+            portraitChar.style.backgroundRepeat="no-repeat";
+    
+/*-----------------------------loadClasse-------------------------------*/
+    
+            charClassOutput.value = joueur.classe;
 /*-----------------------------loadSpell-------------------------------*/
     
             DDSav.value = joueur.DDSav

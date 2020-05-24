@@ -3,6 +3,7 @@
   to{background-size: 100vw 100vh;}
 }
 body{
+    
     background: url(https://dndcrew.com/wp-content/uploads/2018/06/DnD_Logo.png);
     background-repeat:no-repeat;
     background-size: 70%;
@@ -15,6 +16,7 @@ body{
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
+    
 }
 select{
     text-align: center;

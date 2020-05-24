@@ -24,6 +24,26 @@
     padding: 10px;
     
 }
+#charClassOutput{
+    
+    height: 20px;
+    border: solid white;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+    align-self: center;
+}
+#portraitChar{
+
+	height: 250px;
+    background : url('https://res.cloudinary.com/teepublic/image/private/s--hwb-koK6--/t_Preview/b_rgb:191920,c_limit,f_jpg,h_630,q_90,w_630/v1561522527/production/designs/5163991_0.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    align-self: center;
+    
+}
 .charSheetItem button{
     
     width: 100%;

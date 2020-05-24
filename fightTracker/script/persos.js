@@ -1,5 +1,7 @@
 const Namas = {
     
+    portrait : "img/portraits/namas.jpg",
+    
     classe :'druide',
     
     sortLvl :2,
@@ -38,6 +40,8 @@ const Namas = {
 }
 const Esus = {
     
+    portrait : "img/portraits/esus.jpg",
+    
     classe :'rodeur',
     
     sortLvl :2,
@@ -75,6 +79,8 @@ const Esus = {
     
 }
 const Kyra = {
+    
+    portrait : "img/portraits/kyra.jpg",
     
     classe :'mage',
     
@@ -118,6 +124,8 @@ const Kyra = {
 }
 const Grudu = {
     
+    portrait : "img/portraits/grudu.jpg",
+    
     classe :'guerrier',
     
     sortLvl :2,
@@ -155,6 +163,8 @@ const Grudu = {
     
 }
 const Lyre = {
+    
+    portrait : "img/portraits/lyre.jpg",
     
     classe :'mage',
     
