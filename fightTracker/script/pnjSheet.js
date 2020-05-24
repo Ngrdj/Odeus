@@ -8,29 +8,35 @@ const sagessePnj = document.getElementById("sagessePnj");
 const charismePnj = document.getElementById("charismePnj");
 
 const portraitPnj=document.getElementById("portraitPnj");
+
+const pnjDetails=document.getElementById("pnjDetails");
+
 //............................................................................................
 pnjSelect.addEventListener("change", getPnjName);
 
 
 window.addEventListener("load", reloadValues);
+
+
 //............................................................................................
+
 function getPnjName(){
     
         switch(pnjSelect.selectedOptions[0].value){
         case 'loup': 
-            loadPnjValues(Loup);
+            loadPnjValues(loup);
         break;
         case 'gobelin': 
-            loadPnjValues(Gobelin);
+            loadPnjValues(gobelin);
         break;
         case 'hobgobelin': 
-            loadPnjValues(Hobgobelin);
+            loadPnjValues(hobgobelin);
         break;
-        case 'brigand': 
-            loadPnjValues(Brigand);
+        case 'brigand':  
+            loadPnjValues(brigand);
         break;
         case 'tavernier': 
-            loadPnjValues(Tavernier);
+            loadPnjValues(tavernier);
         break;
                 
         default:
@@ -38,18 +44,7 @@ function getPnjName(){
     }
     
 }
-//............................................................................................
-function reloadPnjValues(){
-    
-    pnjSelect.selectedIndex = 0;
 
-    forcePnj.value = '0';
-    dexteritePnj.value = '0';
-    constitutionPnj.value = '0';
-    intelligencePnj.value = '0';
-    sagessePnj.value = '0';
-    charismePnj.value = '0';
-}
 //............................................................................................
 function loadPnjValues(pnj){
         
@@ -69,4 +64,30 @@ function loadPnjValues(pnj){
             portraitPnj.style.backgroundSize= "100% 100%"; 
             portraitPnj.style.backgroundRepeat="no-repeat";
             
+/*-----------------------------loadDetails-------------------------------*/
+    
+            pnjDetails.value = pnj.details;
+            
+            pnjDetails.addEventListener("blur",()=>{
+
+            pnj.details = pnjDetails.value;
+
+            });
 }
+
+//............................................................................................
+
+function reloadPnjValues(){
+    
+    pnjSelect.selectedIndex = 0;
+
+    forcePnj.value = '0';
+    dexteritePnj.value = '0';
+    constitutionPnj.value = '0';
+    intelligencePnj.value = '0';
+    sagessePnj.value = '0';
+    charismePnj.value = '0';
+    
+    pnjDetails.value = '';
+}
+reloadPnjValues();
