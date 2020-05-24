@@ -52,8 +52,44 @@ function getPnjName(){
         case 'mageP': 
             loadPnjValues(mageP);
         break;
+        case 'mageE': 
+            loadPnjValues(mageE);
+        break;
+        case 'mageT': 
+            loadPnjValues(mageT);
+        break;
+        case 'mageA': 
+            loadPnjValues(mageA);
+        break;
         case 'ogre': 
             loadPnjValues(ogre);
+        break;
+        case 'noble': 
+            loadPnjValues(noble);
+        break;
+        case 'paysan': 
+            loadPnjValues(paysan);
+        break;
+        case 'orque': 
+            loadPnjValues(orque);
+        break;
+        case 'pretre': 
+            loadPnjValues(pretre);
+        break;
+        case 'marchand': 
+            loadPnjValues(marchand);
+        break;
+        case 'roi': 
+            loadPnjValues(roi);
+        break;
+        case 'prince': 
+            loadPnjValues(prince);
+        break;
+        case 'princesse': 
+            loadPnjValues(princesse);
+        break;
+        case 'druide': 
+            loadPnjValues(druide);
         break;
                 
         default:reloadPnjValues();
