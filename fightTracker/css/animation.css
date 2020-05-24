@@ -1,0 +1,38 @@
+#upFocus{
+    
+    width: 100vw;
+    height: 10%;
+    position: absolute;
+    top: 0%;
+}
+#downFocus{
+    
+    width: 100vw;
+    height: 10%;
+    position: absolute;
+    bottom: 0%;
+}
+
+#leftFocus{
+    
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    
+}
+#rightFocus{
+    
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    
+}
+.focusZone{
+    
+    background: red;
+    opacity: 50%;
+}

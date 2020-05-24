@@ -4,20 +4,22 @@
     <title>fight Tracker</title>
     <meta charset="UTF-8">
     
+    <link href="css/animation.css" rel="Stylesheet" type="text/css"/>
     <link href="css/fightTracker.css" rel="Stylesheet" type="text/css"/>
     <link href="css/characterSheet.css" rel="Stylesheet" type="text/css"/>
     <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+      
     <script src="https://kit.fontawesome.com/afc5fa88b5.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
+    <header id="headerBar">
+        
         <div id='search'>
         
             <input id='searchInput' type='text'>
             <a id='searchButton' href="https://www.aidedd.org/search/?q=" target="_blank"><i class="fas fa-search"></i></a>
         
-        </div>
-        
+        </div>     
         <div id='background'>
             <label>Fond d'écran :</label>
             <select id="backgroundSelectType">
@@ -106,13 +108,17 @@
         </div>
         
     </header>
+      
     <main>
         
         <aside id="aside-left">
             
-            <div id="test"></div>
-            <div id="meet"></div>
-            <button id="meetButton" value='meet' class='showHideButton'>Video</button>
+            <div id="leftPanel" class="hidden">
+            
+                <div>img</div>
+            
+            </div>
+            <button id="pnjButton" value='leftPanel' class='showHideButton'>PNJ</button>
             
         </aside>
         
@@ -527,9 +533,10 @@
                 
             </div>
     </aside>
+        
     </main>
     
-    <footer>
+    <footer id="footerBar">
         <div id="soundBar">
             <div class="iconBackground">
                 <span class="soundIcon" id="swordIcon" data-name='sword'></span>
@@ -557,6 +564,11 @@
         
     </footer>
       
+    <!-- div focus animation -->
+      <div id="upFocus" class ="focusZone"></div>
+      <div id="downFocus" class ="focusZone"></div>
+      <div id="leftFocus" class ="focusZone"></div>
+      <div id="rightFocus" class ="focusZone"></div>
     <!--iframes -->
     <div id="sortsTab" class="hidden">
             <div class="filterFreeze"></div>
@@ -574,10 +586,11 @@
             <button value='randomStories' class ="hideButton">X</button>
     </div>
     <!--scripts -->
-    <script src='https://meet.jit.si/external_api.js'></script>
+    
     <script src="script/armes.js"></script>
     <script src="script/persos.js"></script>
     <script type="text/javascript" src="script/characterSheet.js"></script>
     <script type="text/javascript" src="script/script.js"></script>
+    <script src='script/animation.js'></script>
   </body>
  </html>
