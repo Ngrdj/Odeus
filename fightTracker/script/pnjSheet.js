@@ -38,6 +38,21 @@ function getPnjName(){
         case 'tavernier': 
             loadPnjValues(tavernier);
         break;
+        case 'zombi': 
+            loadPnjValues(zombi);
+        break;
+        case 'araignée': 
+            loadPnjValues(araignéeG);
+        break;
+        case 'archer': 
+            loadPnjValues(archer);
+        break;
+        case 'mageP': 
+            loadPnjValues(mageP);
+        break;
+        case 'ogre': 
+            loadPnjValues(ogre);
+        break;
                 
         default:reloadPnjValues();
     }
