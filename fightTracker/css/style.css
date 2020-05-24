@@ -74,7 +74,7 @@ footer{
     display:none;
     
 }
-#charSheetButton,#meetButton{
+#charSheetButton, #pnjSheetButton{
     
     background-color: rgba(0,0,0,0.6);
     border:none;
@@ -91,14 +91,19 @@ footer{
 }
 #rightPanel{
     background: rgba(0,0,0,0.6);
-    overflow: scroll;
+    overflow: auto;
     max-height: 80vh;
 }
-#meetButton{
+#pnjSheetButton{
     
     border-radius: 0px 20px 20px 0px;
     writing-mode: sideways-rl;
 
+}
+#leftPanel{
+    background: rgba(0,0,0,0.6);
+    overflow: auto;
+    max-height: 80vh;
 }
 #soundBar{
     display: flex;

@@ -6,6 +6,7 @@
     
     <link href="css/fightTracker.css" rel="Stylesheet" type="text/css"/>
     <link href="css/characterSheet.css" rel="Stylesheet" type="text/css"/>
+    <link href="css/pnjSheet.css" rel="Stylesheet" type="text/css"/>
     <link href="css/style.css" rel="Stylesheet" type="text/css"/>
     <script src="https://kit.fontawesome.com/afc5fa88b5.js" crossorigin="anonymous"></script>
   </head>
@@ -110,9 +111,59 @@
         
         <aside id="aside-left">
             
-            <div id="test"></div>
-            <div id="meet"></div>
-            <button id="meetButton" value='meet' class='showHideButton'>Video</button>
+            <div id="leftPanel" class="hidden">
+                <div id='pnjSheet'>
+                    <select id="pnjSelect" class="pnjSheetItem">
+                            <option value="" selected hidden >Choisir un pnj</option>
+                            <option value="loup" >Loup</option>
+                            <option value="gobelin" >Gobelin</option>
+                            <option value="hobgobelin" >Hobgobelin</option>
+                            <option value="brigand" >Brigand</option>
+                            <option value="tavernier" >Tavernier</option>
+                    </select>
+                    <div id="portraitPnj">
+                    </div>
+                    <div id="charCaract" class="charSheetItem">
+                        <div class = "caractLeft">
+
+                            <div>
+                                <label for="force">FORCE</label>
+                                <input id="forcePnj" name="force" value ="+3" readonly>
+                            </div>
+
+                            <div>
+                                <label for="dexterite">DEXTÉRITÉ</label>
+                                <input id="dexteritePnj" name="dexterite" value ="+3" readonly>
+                            </div>
+
+                            <div>
+                                <label for="constitution">CONSTITUTION</label>
+                                <input id="constitutionPnj" name="constitution" value ="+3" readonly>
+                            </div>
+
+                            </div>
+                        <div class = "caractRight">
+
+                            <div>
+                                <label for="intelligence">INTELLIGENCE</label>
+                                <input id="intelligencePnj" name="intelligence" value ="+3" readonly>
+                            </div>
+                            <div>
+                                <label for="sagesse">SAGESSE</label>
+                                <input id="sagessePnj" name="sagesse" value ="+3" readonly>
+                                </div>
+                                <div>
+                                <label for="charisme">CHARISME</label>
+                                <input id="charismePnj" name="charisme" value ="+3" readonly>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <textarea></textarea>
+                </div>
+            </div>
+            <button id="pnjSheetButton" value='leftPanel' class='showHideButton'>PNJ</button>
             
         </aside>
         
@@ -574,10 +625,11 @@
             <button value='randomStories' class ="hideButton">X</button>
     </div>
     <!--scripts -->
-    <script src='https://meet.jit.si/external_api.js'></script>
     <script src="script/armes.js"></script>
     <script src="script/persos.js"></script>
+    <script src="script/pnj.js"></script>
     <script type="text/javascript" src="script/characterSheet.js"></script>
+    <script type="text/javascript" src="script/pnjSheet.js"></script>
     <script type="text/javascript" src="script/script.js"></script>
   </body>
  </html>
