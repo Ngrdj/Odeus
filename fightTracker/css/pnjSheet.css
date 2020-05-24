@@ -4,13 +4,21 @@
     flex-direction: column;
     margin: 20px;
 }
+#pnjClassOutput{
+    
+    height: 20px;
+    border: solid white;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
 #portraitPnj{
-	width: 100%;
-	min-width: 400px;
-	height: 450px;
+
+	height: 400px;
     background : url('https://res.cloudinary.com/teepublic/image/private/s--hwb-koK6--/t_Preview/b_rgb:191920,c_limit,f_jpg,h_630,q_90,w_630/v1561522527/production/designs/5163991_0.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    
 }
 #pnjDetails{
     resize : vertical;
@@ -19,6 +27,19 @@
     color: white;
     font-family: Century Gothic;
     border-radius: 10px;
+    padding: 10px;
+    
+}
+.pnjSheetItem{
+    
+    
+    height: inherit;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    margin: 10px;
     padding: 10px;
     
 }

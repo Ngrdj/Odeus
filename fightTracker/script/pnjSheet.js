@@ -7,6 +7,8 @@ const intelligencePnj = document.getElementById("intelligencePnj");
 const sagessePnj = document.getElementById("sagessePnj");
 const charismePnj = document.getElementById("charismePnj");
 
+const pnjClassOutput=document.getElementById("pnjClassOutput");
+
 const portraitPnj=document.getElementById("portraitPnj");
 
 const pnjDetails=document.getElementById("pnjDetails");
@@ -77,7 +79,11 @@ function loadPnjValues(pnj){
             portraitPnj.style.background=`url(${pnj.portrait})`;
             portraitPnj.style.backgroundSize= "100% 100%"; 
             portraitPnj.style.backgroundRepeat="no-repeat";
-            
+    
+/*-----------------------------loadClasse-------------------------------*/
+    
+            pnjClassOutput.value = pnj.classe;
+    
 /*-----------------------------loadDetails-------------------------------*/
     
             pnjDetails.value = pnj.details;

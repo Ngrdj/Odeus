@@ -30,31 +30,6 @@
     min-height: 50px;
     
 }
-#charCaract{
-    
-    display: flex;
-    justify-content: space-around;
-    background: white;
-    border: solid;
-    width: 80%;
-    align-self: center;
-    align-items: center;
-    flex-direction: row;
-    
-}
-#charCaract input{
-    
-    width: 20px;
-    
-}
-#charCaract>div{
-    
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-end;
-    
-}
 #charSorts > *{
     min-height: 50px;
 }
