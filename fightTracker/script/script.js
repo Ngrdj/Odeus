@@ -485,7 +485,7 @@ play.addEventListener('click',()=>{
 
  sourceMusic.src=`sounds/music/${music.selectedOptions[0].value}.mp3`;
     musicBar.load();
-    
+    musicBar.play();
 })
 stop.addEventListener('click',()=>{
 
