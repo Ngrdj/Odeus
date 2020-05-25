@@ -511,7 +511,10 @@ for(const icon of icons){
 
     let audio= new Audio(`sounds/effects/${icon.getAttribute('data-name')}.mp3`);
     icon.addEventListener('click',()=>{
+        
+    audio.load();   
     audio.play();
+        
 })
 }
 
