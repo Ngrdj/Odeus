@@ -24,23 +24,32 @@
     padding: 10px;
     
 }
+#charGeneral{
+    
+    display: grid;
+    border: solid;
+    
+}
 #charClassOutput{
     
+    grid-column: 2;
+    grid-row: 1;
     height: 20px;
-    border: solid white;
     color: white;
+    background-color: black;
     text-align: center;
     text-transform: uppercase;
-    width: 200px;
-    align-self: center;
+    width: 125px;
 }
 #portraitChar{
-
-	height: 250px;
+    
+    grid-column: 2;
+    grid-row: 2;
+	height: 150px;
     background : url('https://res.cloudinary.com/teepublic/image/private/s--hwb-koK6--/t_Preview/b_rgb:191920,c_limit,f_jpg,h_630,q_90,w_630/v1561522527/production/designs/5163991_0.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    width: 200px;
+    width: 125px;
     align-self: center;
     
 }
@@ -60,15 +69,36 @@
 #charSorts > div{
     background-color: gray;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-
 }
 .charSortsItem{
     padding: 5px;
     text-align: right;
 }
+
+#charCaract{
+    
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1/3;
+    justify-content: space-around;
+    margin-right: 30px;
+    
+}
+#charCaract input{
+    
+    width: 20px;
+    margin-left: 10px;
+    border: none;
+    
+}
+#charCaract>div{
+    
+    display: flex;
+    justify-content: end;
+    
+}
+
 .tableau{
     width: 100%;
     background-color: lightgray;

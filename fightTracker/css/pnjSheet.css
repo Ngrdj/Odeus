@@ -43,3 +43,28 @@
     padding: 10px;
     
 }
+#pnjCaract{
+    
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border: solid;
+    min-width: 300px;
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    
+}
+#pnjCaract input{
+    
+    width: 20px;
+    
+}
+#pnjCaract>div{
+    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+    
+}

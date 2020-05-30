@@ -111,31 +111,6 @@ footer{
 #leftPanel>*{
     direction: ltr;
 }
-.caractPanel{
-    
-    display: flex;
-    justify-content: space-around;
-    background: white;
-    border: solid;
-    min-width: 300px;
-    align-self: center;
-    align-items: center;
-    flex-direction: row;
-    
-}
-.caractPanel input{
-    
-    width: 20px;
-    
-}
-.caractPanel>div{
-    
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-end;
-    
-}
 #soundBar{
     display: flex;
     flex-direction: row;
