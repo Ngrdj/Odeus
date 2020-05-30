@@ -390,22 +390,70 @@
         <aside id="aside-right">
             
             <button id="charSheetButton" value='rightPanel' class='showHideButton'>Character Sheet</button>
+            
             <div id="rightPanel" class="hidden">
             
                 <div id='charSheet'>
 
                     <select id="charSelect" class="charSheetItem">
+                        
                         <option value="" selected hidden >Choisir un joueur</option>
                         <option value="namas" >Namas</option>
                         <option value="esus" >Esus</option>
                         <option value="kyra" >Kyra</option>
                         <option value="grudu" >Grudu</option>
                         <option value="lyre" >Lyre</option>
+                        
                     </select>
+ 
+                    <div id="charGeneral" class = "charSheetItem">
+                        
+                        <output id="charClassOutput"></output>
+                        
+                        <div id="portraitChar"></div>
+                        
+                        <div id="charCaract" class="caractPanel">
+                            
+                            <div class = "caractLeft">
+
+                                <div>
+                                    <label for="force">FORCE</label>
+                                    <input id="force" name="force" value ="+3" readonly>
+                                </div>
+
+                                <div>
+                                    <label for="dexterite">DEXTÉRITÉ</label>
+                                    <input id="dexterite" name="dexterite" value ="+3" readonly>
+                                </div>
+
+                                <div>
+                                    <label for="constitution">CONSTITUTION</label>
+                                    <input id="constitution" name="constitution" value ="+3" readonly>
+                                </div>
+
+                            </div>
+                            
+                            <div class = "caractRight">
+
+                                <div>
+                                    <label for="intelligence">INTELLIGENCE</label>
+                                    <input id="intelligence" name="intelligence" value ="+3" readonly>
+                                </div>
+                                <div>
+                                    <label for="sagesse">SAGESSE</label>
+                                    <input id="sagesse" name="sagesse" value ="+3" readonly>
+                                    </div>
+                                    <div>
+                                    <label for="charisme">CHARISME</label>
+                                    <input id="charisme" name="charisme" value ="+3" readonly>
+                                    </div>
+
+                                </div>
+
+                        </div>
+                        
+                    </div>
                     
-                    <output id="charClassOutput"></output>
-                    
-                    <div id="portraitChar"></div>
                     
                     <div id="charSorts" class="charSheetItem">
                         
@@ -430,44 +478,6 @@
                         </div>
                         
                     </div>
-
-                    <div id="charCaract" class="charSheetItem caractPanel">
-                        <div class = "caractLeft">
-
-                            <div>
-                                <label for="force">FORCE</label>
-                                <input id="force" name="force" value ="+3" readonly>
-                            </div>
-
-                            <div>
-                                <label for="dexterite">DEXTÉRITÉ</label>
-                                <input id="dexterite" name="dexterite" value ="+3" readonly>
-                            </div>
-
-                            <div>
-                                <label for="constitution">CONSTITUTION</label>
-                                <input id="constitution" name="constitution" value ="+3" readonly>
-                            </div>
-
-                            </div>
-                        <div class = "caractRight">
-
-                            <div>
-                                <label for="intelligence">INTELLIGENCE</label>
-                                <input id="intelligence" name="intelligence" value ="+3" readonly>
-                            </div>
-                            <div>
-                                <label for="sagesse">SAGESSE</label>
-                                <input id="sagesse" name="sagesse" value ="+3" readonly>
-                                </div>
-                                <div>
-                                <label for="charisme">CHARISME</label>
-                                <input id="charisme" name="charisme" value ="+3" readonly>
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     <div id="charWeapons" class="charSheetItem">
                         <button class="showHideButton" value ="armesTab">Tableau des armes</button>
