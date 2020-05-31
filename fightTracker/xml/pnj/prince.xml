@@ -1,0 +1,17 @@
+<character>
+	<name>Prince</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/originals/a3/d2/99/a3d299e9a30d1b317f6913fcc4bde8e1.jpg</portrait>
+
+	<str>+2</str>
+	<dex>+1</dex>
+	<con>+1</con>
+	<int>+2</int>
+	<wis>+2</wis>
+	<cha>+2</cha>
+
+	<description></description>
+
+
+</character>

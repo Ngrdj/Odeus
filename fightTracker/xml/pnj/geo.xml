@@ -1,0 +1,17 @@
+<character>
+	<name>Géomancien</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/236x/4b/6d/74/4b6d744d4352319fb2fe90b92c72a1b4.jpg</portrait>
+
+	<str>-1</str>
+	<dex>+2</dex>
+	<con>+0</con>
+	<int>+3</int>
+	<wis>+1</wis>
+	<cha>+0</cha>
+
+	<description>Les mages passent leur vie à étudier et expérimenter la magie. Les mages bons conseillent des nobles ou d'autres dirigeants, alors que les mages mauvais résident dans des lieux isolés pour y pratiquer leurs expériences impies sans ingérence.</description>
+
+
+</character>

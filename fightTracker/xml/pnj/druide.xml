@@ -1,0 +1,17 @@
+<character>
+	<name>Druide</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://www.aidedd.org/dnd/images/druid.jpg</portrait>
+
+	<str>+0</str>
+	<dex>+1</dex>
+	<con>+1</con>
+	<int>+1</int>
+	<wis>+2</wis>
+	<cha>+0</cha>
+
+	<description>Les druides demeurent dans des forêts ou d'autres lieux sauvages isolés, où ils protègent le monde naturel contre les monstres et les empiétements de la civilisation. Certains sont des chamanes tribaux qui soignent les malades, vénèrent les esprits animaux, et apportent des conseils spirituels.</description>
+
+
+</character>

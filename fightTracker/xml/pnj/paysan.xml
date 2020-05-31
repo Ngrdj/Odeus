@@ -1,0 +1,17 @@
+<character>
+	<name>Paysan</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/236x/39/88/66/398866456fd3f88c55e34dda123d41d0.jpg</portrait>
+
+	<str>+0</str>
+	<dex>+0</dex>
+	<con>+0</con>
+	<int>+0</int>
+	<wis>+0</wis>
+	<cha>+0</cha>
+
+	<description>Les roturiers sont paysans, serfs, esclaves, domestiques, pèlerins, marchands, artisans, ermites, etc.</description>
+
+
+</character>

@@ -1,0 +1,17 @@
+<character>
+	<name>Marchand</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/originals/36/75/03/367503a1cb63942a10fd9351ae9f4788.png</portrait>
+
+	<str>-1</str>
+	<dex>-1</dex>
+	<con>+1</con>
+	<int>+3</int>
+	<wis>+2</wis>
+	<cha>+3</cha>
+
+	<description></description>
+
+
+</character>

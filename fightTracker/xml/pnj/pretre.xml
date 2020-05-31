@@ -1,0 +1,17 @@
+<character>
+	<name>Prêtre</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/236x/b5/33/76/b533761f9cc53d39170e234250dfed5c.jpg</portrait>
+
+	<str>+0</str>
+	<dex>+0</dex>
+	<con>+1</con>
+	<int>+1</int>
+	<wis>+3</wis>
+	<cha>+1</cha>
+
+	<description>Les prêtres transmettent les enseignements de leurs dieux aux gens du peuple. Ils sont les leaders spirituels des temples et des chapelles et détiennent souvent une position influente au sein de leur communauté. Les prêtres mauvais peuvent travailler ouvertement sous le joug d'un tyran, ou être les chefs d'une secte religieuse dissimulée dans l'ombre d'une civilisation bonne, supervisant des rites dépravés.</description>
+
+
+</character>

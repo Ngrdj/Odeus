@@ -1,0 +1,17 @@
+<character>
+	<name>Roi</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/236x/bc/b2/f7/bcb2f714b472f603a431579c3f43fcb9.jpg</portrait>
+
+	<str>+3</str>
+	<dex>+0</dex>
+	<con>+0</con>
+	<int>+3</int>
+	<wis>+3</wis>
+	<cha>+3</cha>
+
+	<description></description>
+
+
+</character>

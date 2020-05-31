@@ -1,0 +1,17 @@
+<character>
+	<name>Aérothurge</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/236x/95/af/c2/95afc2a8d814081c8e4afdf1d4f53e88.jpg</portrait>
+
+	<str>-1</str>
+	<dex>+2</dex>
+	<con>+0</con>
+	<int>+3</int>
+	<wis>+1</wis>
+	<cha>+0</cha>
+
+	<description>Les mages passent leur vie à étudier et expérimenter la magie. Les mages bons conseillent des nobles ou d'autres dirigeants, alors que les mages mauvais résident dans des lieux isolés pour y pratiquer leurs expériences impies sans ingérence.</description>
+
+
+</character>
