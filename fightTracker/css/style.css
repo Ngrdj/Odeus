@@ -55,6 +55,11 @@ header{
     justify-content: space-between;
     color:white;
 }
+#searchButton{
+    
+    color:white;
+    
+}
 main{
     display: flex;
     justify-content: space-between;
@@ -100,7 +105,7 @@ footer{
     grid-row: 2;
     grid-column: 1;
     display: flex;
-    
+    background: rgba(0,0,0,0.5);
 }
 .footerButton{
     

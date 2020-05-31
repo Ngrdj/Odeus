@@ -65,6 +65,7 @@
     align-self: center;
     align-items: center;
     flex-direction: row;
+    font-size: 10pt;
     
 }
 #pnjCaract input{
