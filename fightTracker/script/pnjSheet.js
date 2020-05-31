@@ -1,4 +1,4 @@
-const pnjSelect = document.getElementById("pnjSelect");
+const pnjSheet = document.getElementById("pnjSheet");
 
 const forcePnj = document.getElementById("forcePnj");
 const dexteritePnj = document.getElementById("dexteritePnj");
@@ -14,128 +14,58 @@ const portraitPnj=document.getElementById("portraitPnj");
 const pnjDetails=document.getElementById("pnjDetails");
 
 //............................................................................................
-pnjSelect.addEventListener("change", getPnjName);
-
 
 window.addEventListener("load", reloadValues);
 
+pnjSheet.addEventListener("drop",(event)=>{
+    
+    loadPnjValues(event);
+    
+});
+
 
 //............................................................................................
 
-function getPnjName(){
+function loadPnjValues(){
     
-        switch(pnjSelect.selectedOptions[0].value){
-        case 'loup': 
-            loadPnjValues(loup);
-        break;
-        case 'gobelin': 
-            loadPnjValues(gobelin);
-        break;
-        case 'hobgobelin': 
-            loadPnjValues(hobgobelin);
-        break;
-        case 'brigand':  
-            loadPnjValues(brigand);
-        break;
-        case 'tavernier': 
-            loadPnjValues(tavernier);
-        break;
-        case 'zombi': 
-            loadPnjValues(zombi);
-        break;
-        case 'araignée': 
-            loadPnjValues(araignéeG);
-        break;
-        case 'archer': 
-            loadPnjValues(archer);
-        break;
-        case 'mageP': 
-            loadPnjValues(mageP);
-        break;
-        case 'mageE': 
-            loadPnjValues(mageE);
-        break;
-        case 'mageT': 
-            loadPnjValues(mageT);
-        break;
-        case 'mageA': 
-            loadPnjValues(mageA);
-        break;
-        case 'ogre': 
-            loadPnjValues(ogre);
-        break;
-        case 'noble': 
-            loadPnjValues(noble);
-        break;
-        case 'paysan': 
-            loadPnjValues(paysan);
-        break;
-        case 'orque': 
-            loadPnjValues(orque);
-        break;
-        case 'pretre': 
-            loadPnjValues(pretre);
-        break;
-        case 'marchand': 
-            loadPnjValues(marchand);
-        break;
-        case 'roi': 
-            loadPnjValues(roi);
-        break;
-        case 'prince': 
-            loadPnjValues(prince);
-        break;
-        case 'princesse': 
-            loadPnjValues(princesse);
-        break;
-        case 'druide': 
-            loadPnjValues(druide);
-        break;
-                
-        default:reloadPnjValues();
-    }
+    console.log(event.dataTransfer.files[0]);
     
-}
-
-//............................................................................................
-function loadPnjValues(pnj){
+    let getFile = event.dataTransfer.files[0];
+    let xmlFile = new FileReader();
         
-
-/*-----------------------------loadCaract-------------------------------*/
-
-            forcePnj.value = pnj.force;
-            dexteritePnj.value = pnj.dexterite;
-            constitutionPnj.value = pnj.constitution;
-            intelligencePnj.value = pnj.intelligence;
-            sagessePnj.value = pnj.sagesse;
-            charismePnj.value = pnj.charisme;
-    
-/*-----------------------------loadPortrait-------------------------------*/
-    
-            portraitPnj.style.background=`url(${pnj.portrait})`;
+    xmlFile.readAsText(getFile);
+        
+        
+    xmlFile.addEventListener('load', () =>{
+            
+        parser = new DOMParser();
+            
+        const xmlContent = parser.parseFromString(xmlFile.result,"text/xml");
+        
+        //XML content
+        /*-----------*/
+        
+        
+            pnjClassOutput.value = `${xmlContent.getElementsByTagName('class')[0].textContent}`;
+            portraitPnj.style.background = `url(${xmlContent.getElementsByTagName('portrait')[0].textContent})`;
             portraitPnj.style.backgroundSize= "100% 100%"; 
             portraitPnj.style.backgroundRepeat="no-repeat";
-    
-/*-----------------------------loadClasse-------------------------------*/
-    
-            pnjClassOutput.value = pnj.classe;
-    
-/*-----------------------------loadDetails-------------------------------*/
-    
-            pnjDetails.value = pnj.details;
-            
-            pnjDetails.addEventListener("blur",()=>{
+        
+            forcePnj.value = `${xmlContent.getElementsByTagName('str')[0].textContent}`;
+            dexteritePnj.value = `${xmlContent.getElementsByTagName('dex')[0].textContent}`;
+            constitutionPnj.value = `${xmlContent.getElementsByTagName('con')[0].textContent}`;
+            intelligencePnj.value = `${xmlContent.getElementsByTagName('int')[0].textContent}`;
+            sagessePnj.value = `${xmlContent.getElementsByTagName('wis')[0].textContent}`;
+            charismePnj.value = `${xmlContent.getElementsByTagName('cha')[0].textContent}`;
+        
+        /*----------*/
 
-            pnj.details = pnjDetails.value;
-
-            });
+    })
+    
 }
-
-//............................................................................................
 
 function reloadPnjValues(){
     
-    pnjSelect.selectedIndex = 0;
 
     forcePnj.value = '0';
     dexteritePnj.value = '0';
@@ -145,5 +75,6 @@ function reloadPnjValues(){
     charismePnj.value = '0';
     
     pnjDetails.value = '';
+    
 }
 reloadPnjValues();
