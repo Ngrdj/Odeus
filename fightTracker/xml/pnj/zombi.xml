@@ -1,0 +1,17 @@
+<character>
+	<name>Zombi</name>
+	<type>Monstres</type>
+	<class>Mort-vivant</class>
+	<portrait>https://www.aidedd.org/dnd/images/zombie.jpg</portrait>
+
+	<str>+1</str>
+	<dex>-2</dex>
+	<con>+3</con>
+	<int>-4</int>
+	<wis>-2</wis>
+	<cha>-3</cha>
+
+	<description>Un zombi est le résultat obéissant d'une magie nécromantique lancée dans le but de réanimer un cadavre le plus souvent humanoïde. Parfois un zombi se relève aussi tout seul s'il se trouve dans un lieu fortement imprégné d'une aura de mort ou d'énergie nécromantique. Les zombis se déplacent d'une démarche saccadée et inégale, vêtus des habits maintenant moisis qu'ils portaient lors de leur mort. Ils sécrètent une puanteur nauséabonde.</description>
+
+
+</character>

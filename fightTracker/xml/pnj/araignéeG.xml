@@ -1,0 +1,17 @@
+<character>
+	<name>Araignée Géante</name>
+	<type>Monstres</type>
+	<class>Bête</class>
+	<portrait>https://www.aidedd.org/dnd/images/giant-spider.jpg</portrait>
+
+	<str>+2</str>
+	<dex>+3</dex>
+	<con>+1</con>
+	<int>-4</int>
+	<wis>+0</wis>
+	<cha>-3</cha>
+
+	<description>Pour piéger sa proie, une araignée géante tisse des toiles élaborées ou jette des brins de toile collants de son abdomen. Les araignées géantes vivent généralement sous terre, établissant leurs repaires au plafond ou dans des crevasses obscures. Ces endroits sont souvent ornés de cocons qui retiennent d'anciennes victimes.</description>
+
+
+</character>

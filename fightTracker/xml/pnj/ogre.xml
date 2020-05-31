@@ -1,0 +1,17 @@
+<character>
+	<name>Ogre</name>
+	<type>Monstres</type>
+	<class>Humanoïde</class>
+	<portrait>https://www.aidedd.org/dnd/images/ogre.jpg</portrait>
+
+	<str>+4</str>
+	<dex>-1</dex>
+	<con>+3</con>
+	<int>-3</int>
+	<wis>-2</wis>
+	<cha>-2</cha>
+
+	<description>Les ogres ressemblent à des géants et sont connus pour leur caractère irritable. Lorsque sa rage est titillée, un ogre se déchaîne dans un accès de colère frustrée jusqu'à ne plus avoir d'objets ou de créatures à écraser.</description>
+
+
+</character>

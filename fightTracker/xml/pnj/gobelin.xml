@@ -1,0 +1,17 @@
+<character>
+	<name>Gobelin</name>
+	<type>Monstre</type>
+	<class>humanoïde</class>
+	<portrait>https://www.aidedd.org/dnd/images/goblin.jpg</portrait>
+
+	<str>-1</str>
+	<dex>+2</dex>
+	<con>+0</con>
+	<int>+0</int>
+	<wis>-1</wis>
+	<cha>-1</cha>
+
+	<description>Les gobelins sont de petits humanoïdes malveillants qui vivent dans des donjons abandonnés ou dans des taudis lugubres. Individuellement faibles, ils se rassemblent en grand nombre pour tourmenter les autres créatures.</description>
+
+
+</character>

@@ -1,0 +1,17 @@
+<character>
+	<name>Tavernier</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/originals/d4/eb/bf/d4ebbfccb7f87d0b714d4f6f2fefa46e.jpg</portrait>
+
+	<str>+3</str>
+	<dex>+1</dex>
+	<con>+2</con>
+	<int>-2</int>
+	<wis>-1</wis>
+	<cha>+0</cha>
+
+	<description></description>
+
+
+</character>

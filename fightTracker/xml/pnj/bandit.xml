@@ -1,0 +1,17 @@
+<character>
+	<name>Bandits</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://www.aidedd.org/dnd/images/bandit-captain.jpg</portrait>
+
+	<str>+2</str>
+	<dex>+2</dex>
+	<con>+2</con>
+	<int>-1</int>
+	<wis>+0</wis>
+	<cha>+1</cha>
+
+	<description>Les bandits vagabondent en bandes et sont parfois dirigés par des malfrats, des vétérans ou des mages. Tous les bandits ne sont pas mauvais. L'oppression, la sécheresse, les épidémies ou la famine peuvent souvent entraîner d'honnêtes gens vers une vie de banditisme.</description>
+
+
+</character>

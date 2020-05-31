@@ -1,0 +1,17 @@
+<character>
+	<name>Archer</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/564x/de/ba/50/deba50c800370ce189a016e62925f27e.jpg</portrait>
+
+	<str>+0</str>
+	<dex>+4</dex>
+	<con>+3</con>
+	<int>+0</int>
+	<wis>+1</wis>
+	<cha>+0</cha>
+
+	<description>Les archers défendent les châteaux, chassent le gibier sauvage en marge de la civilisation, servent dans des unités militaires et parfois gagnent quelques pièces comme brigands ou gardes de caravane.</description>
+
+
+</character>

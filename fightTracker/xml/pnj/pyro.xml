@@ -1,0 +1,17 @@
+<character>
+	<name>Pyromancien</name>
+	<type>Pnj</type>
+	<class>Humanoïde</class>
+	<portrait>https://i.pinimg.com/564x/1d/f2/19/1df21954732a435b9b80d0dcec2cd1bf.jpg</portrait>
+
+	<str>-1</str>
+	<dex>+2</dex>
+	<con>+0</con>
+	<int>+3</int>
+	<wis>+1</wis>
+	<cha>+0</cha>
+
+	<description>Les mages passent leur vie à étudier et expérimenter la magie. Les mages bons conseillent des nobles ou d'autres dirigeants, alors que les mages mauvais résident dans des lieux isolés pour y pratiquer leurs expériences impies sans ingérence.</description>
+
+
+</character>
