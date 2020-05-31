@@ -101,8 +101,8 @@
             <audio id="musicBar" loop >
                 <source src="sounds/music/intro.mp3" id="sourceMusic" type="audio/mp3">
             </audio>
-            <button id="playMusic">play</button>
-            <button id="stopMusic">stop</button>
+            <button id="playMusic"><i class="fas fa-play"></i></button>
+            <button id="stopMusic"><i class="fas fa-stop"></i></button>
             <input type="range" min="0" max="100" value="50" step="10" id="volumeControl">
         </div>
         
@@ -115,17 +115,27 @@
                 
                 <div id='pnjSheet'>
                     
-                    <p>Faites glisser un fichier XML dans ce panneau</p>
+                    <input type='file' accept='.xml'>
                     
-                    <output id="pnjNameOutput"></output>
+                    <button class='showHideButton' value="pnjList">Liste des PNJ</button>
+                    <div id="pnjList"  class='hidden'>
+                        <ul>
+                            
+                            <li>elem1 <button class="supprimer">X</button></li>
+                            <li>elem1</li>
+                        
+                        </ul>
+                    </div>
+                    
+                    <output id="pnjNameOutput">NOM</output>
                     
                     <div id="portraitPnj"></div>
 
                     <div id="pnjTypeClassItem">
                         
-                        <output id="pnjTypeOutput"></output>
+                        <output id="pnjTypeOutput">Type</output>
                         <span>-</span>
-                        <output id="pnjClassOutput"></output>
+                        <output id="pnjClassOutput">Classe</output>
                         
                     </div>
                     
@@ -166,8 +176,8 @@
                             </div>
 
                         </div>
-                    
-                    <textarea id="pnjDetails"></textarea>
+                    <p id="pnjDetails">Description</p>
+                    <textarea id="pnjComment" placeholder="Commentaires"></textarea>
                     
                 </div>
                 

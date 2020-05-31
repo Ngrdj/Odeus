@@ -61,6 +61,8 @@ function loadPnjValues(){
             intelligencePnj.value = `${xmlContent.getElementsByTagName('int')[0].textContent}`;
             sagessePnj.value = `${xmlContent.getElementsByTagName('wis')[0].textContent}`;
             charismePnj.value = `${xmlContent.getElementsByTagName('cha')[0].textContent}`;
+            
+            pnjDetails.innerHTML = `${xmlContent.getElementsByTagName('description')[0].textContent}`;
         
         /*----------*/
 

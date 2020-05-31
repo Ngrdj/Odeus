@@ -3,6 +3,35 @@
     display: flex;
     flex-direction: column;
     margin: 20px;
+    width: 400px;
+}
+#pnjList{
+    
+    position: inherit;
+    background: white;
+    max-height: 200px;
+    overflow-y: auto;
+    
+}
+#pnjList>ul{
+    
+    padding: 5px;
+    margin: 0px;
+    
+}
+#pnjList li{
+    
+    list-style: none;
+    background: gray;
+    margin: 5px 0px;
+    padding: 5px;
+    
+}
+#pnjList button{
+    
+    float: right;
+    margin-right: 10px;
+    
 }
 #pnjNameOutput{
     
@@ -33,12 +62,21 @@
     
 }
 #pnjDetails{
-    resize : vertical;
-    font-size: 15pt;
     background: none;
     color: white;
     font-family: Century Gothic;
     border-radius: 10px;
+    border: solid;
+    padding: 10px;
+    
+}
+#pnjComment{
+    resize: vertical;
+    background: none;
+    color: white;
+    font-family: Century Gothic;
+    border-radius: 10px;
+    border: solid;
     padding: 10px;
     
 }
