@@ -28,7 +28,7 @@
     
     display: grid;
     border: solid;
-    
+    justify-content: space-around;
 }
 #charClassOutput{
     
@@ -82,7 +82,10 @@
     grid-column: 1;
     grid-row: 1/3;
     justify-content: space-around;
-    margin-right: 30px;
+    padding: 9px;
+    border: solid;
+    border-radius: 18px;
+    font-size: 10pt;
     
 }
 #charCaract input{
