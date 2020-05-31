@@ -562,16 +562,18 @@ for(const icon of icons){
 
 for(const element of allBodyElements){
     
-    element.style.opacity = "0.5";
+    element.style.opacity = "0.2";
     element.addEventListener('mouseover',()=>{
         
+        element.style.animationName = "upOpacity";
+        element.style.animationDuration = "0.2s";
         element.style.opacity = "1";
-        
     });
     element.addEventListener('mouseleave',()=>{
         
+        element.style.animationName = "downOpacity";
+        element.style.animationDuration = "0.2s";
         element.style.opacity = "0.2";
-        
     });
 }*/
 
