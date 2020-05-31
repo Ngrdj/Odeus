@@ -1,15 +1,16 @@
 const pnjSheet = document.getElementById("pnjSheet");
 
+const pnjClassOutput=document.getElementById("pnjClassOutput");
+const pnjTypeOutput=document.getElementById("pnjTypeOutput");
+const pnjNameOutput=document.getElementById("pnjNameOutput");
+const portraitPnj=document.getElementById("portraitPnj");
+
 const forcePnj = document.getElementById("forcePnj");
 const dexteritePnj = document.getElementById("dexteritePnj");
 const constitutionPnj = document.getElementById("constitutionPnj");
 const intelligencePnj = document.getElementById("intelligencePnj");
 const sagessePnj = document.getElementById("sagessePnj");
 const charismePnj = document.getElementById("charismePnj");
-
-const pnjClassOutput=document.getElementById("pnjClassOutput");
-
-const portraitPnj=document.getElementById("portraitPnj");
 
 const pnjDetails=document.getElementById("pnjDetails");
 
@@ -47,6 +48,9 @@ function loadPnjValues(){
         
         
             pnjClassOutput.value = `${xmlContent.getElementsByTagName('class')[0].textContent}`;
+            pnjTypeOutput.value = `${xmlContent.getElementsByTagName('type')[0].textContent}`;
+            pnjNameOutput.value = `${xmlContent.getElementsByTagName('name')[0].textContent}`;
+        
             portraitPnj.style.background = `url(${xmlContent.getElementsByTagName('portrait')[0].textContent})`;
             portraitPnj.style.backgroundSize= "100% 100%"; 
             portraitPnj.style.backgroundRepeat="no-repeat";

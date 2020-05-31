@@ -483,19 +483,30 @@ window.addEventListener("drop",(event) => {
     
     if(Array.from(event.dataTransfer.types).includes('Files')){
         
-        imageUrl = window.URL.createObjectURL( event.dataTransfer.files[0]);
+        const imageTypes = /^[image\/]/;
+        
+        if(event.dataTransfer.files[0].type.match(imageTypes)){
+            
+            imageUrl = window.URL.createObjectURL( event.dataTransfer.files[0]);
+            body.style.background = '';
+            body.style.background = `url(${imageUrl})`;
+            body.style.backgroundSize = '100vw 100vh';
+            body.style.backgroundRepeat = 'no-repeat'; 
+            
+        }
         
     }else{
         
         imageUrl = event.dataTransfer.getData('URL');
+        body.style.background = '';
+        body.style.background = `url(${imageUrl})`;
+        body.style.backgroundSize = '100vw 100vh';
+        body.style.backgroundRepeat = 'no-repeat'; 
         
     }
     
     
-    body.style.background = '';
-    body.style.background = `url(${imageUrl})`;
-    body.style.backgroundSize = '100vw 100vh';
-    body.style.backgroundRepeat = 'no-repeat'; 
+    
 
     
 });
