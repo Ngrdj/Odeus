@@ -8,30 +8,32 @@ lancer.addEventListener("click", () => {
     
 	switch(des.selectedOptions[0].value){
             
-		case"d4": result.value=Math.floor(Math.random()*5);
+		case"d4": result.value = randomIntFromInterval(1, 4)
 		break;
 
-		case"d6":result.value=Math.floor(Math.random()*7);
+		case"d6":result.value = randomIntFromInterval(1, 6)
 		break;
 
-		case"d8":result.value=Math.floor(Math.random()*9);
+		case"d8":result.value = randomIntFromInterval(1, 8)
 		break;
 
-		case"d10":result.value=Math.floor(Math.random()*11);
+		case"d10":result.value = randomIntFromInterval(1, 10)
 		break;
 
-		case"d12":result.value=Math.floor((Math.random()*10)+3);
+		case"d12":result.value = randomIntFromInterval(1, 12)
 		break;
 
-		case"d20":result.value=Math.floor((Math.random()*20)+1);
+		case"d20":result.value = randomIntFromInterval(1, 20)
 		break;
 
-		case"d100":result.value=Math.floor((Math.random()*100)+1);
+		case"d100":result.value = randomIntFromInterval(1, 100)
 		break;
 
 	} 
 })
-
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 /*...........................Calcul de l'initiative.............................*/
 
 let init = document.getElementById("init");
@@ -42,7 +44,7 @@ init.addEventListener('click', () => {
 
 		let initPerso=itemPerso.querySelector(".initPerso");
         
-		initPerso.value=Math.floor((Math.random()*20)+1);
+		initPerso.value = randomIntFromInterval(1, 20);
 }
 })
 
