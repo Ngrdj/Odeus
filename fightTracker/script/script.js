@@ -34,6 +34,7 @@ lancer.addEventListener("click", () => {
 function randomIntFromInterval(min, max) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
 /*...........................Calcul de l'initiative.............................*/
 
 let init = document.getElementById("init");

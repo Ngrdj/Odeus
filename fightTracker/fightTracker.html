@@ -109,6 +109,7 @@
         </div>
         
     </header>
+      
     <main>
         
         <aside id="aside-left">
@@ -443,10 +444,18 @@
                     
                     <div id="charSorts" class="charSheetItem">
                         
-                        <button value='sortsTab' id="sortsTabButton" class='showButton' >Tableau des sorts</button>
+                        <button class="showHideButton" value ="sortsListContainer">Liste de sorts</button>
+                        <div id ="sortsListContainer" class ="hidden">
                         
-                        <button class="showHideButton" value ="sortsList">Liste de sorts</button>
-                        <div id ="sortsList" class ="hidden"></div>
+                            <ul id="sortsList">
+                                
+                                <li class='sortItem'>
+                                    <label class='sortName'></label><output class='sortValue'></output>
+                                </li>
+                            
+                            </ul>
+                        
+                        </div>
 
                         <div>
                             <div class="charSortsItem">
@@ -647,6 +656,8 @@
             <button class='footerButton showHideButton' value ='soundBar'><i class="fas fa-music"></i></button>
             <button class='footerButton showHideButton' value ='timer'><i class="far fa-hourglass"></i></button>
             <button class='footerButton showHideButton' value ='comment'><i class="fas fa-feather-alt"></i></button>
+            
+            <button value='sortsTab' id="sortsTabButton" class='footerButton showButton' ><i class="fas fa-hand-sparkles"></i></button>
             
         </div>
          

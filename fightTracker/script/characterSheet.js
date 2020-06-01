@@ -12,7 +12,7 @@ const sortsFrame = document.getElementById("sortsFrame");
 const charSelect = document.getElementById("charSelect");
 const charClassOutput = document.getElementById("charClassOutput");
 const portraitChar = document.getElementById("portraitChar");
-/*-----------------------------Spell-------------------------------*/
+/*-----------------------------Sorts-------------------------------*/
 
 const DDSav = document.getElementById("DDSav");
 const bonusAtt = document.getElementById("bonusAtt");
@@ -103,31 +103,63 @@ function loadValues(joueur){
     
             DDSav.value = joueur.DDSav
             bonusAtt.value = joueur.bonusAtt
-            
-        
-            if(sortsList.hasChildNodes){
                 
-                for( element of sortsList.children){
-                    
-                    sortsList.removeChild(element);
-                    
-                }  
-            }
+
+            sortsList.textContent = '';
     
-            switch(joueur.classe){
-                case "mage":
-                    
-                    
-                    
-                    
-                    break;
-                case "druide": 
-                    break;
-                case "rodeur": 
-                    break;
-                case "guerrier": 
-                    break;
-            }
+                if(joueur.classe === 'mage'){
+
+                    const newFireItem = document.createElement('li');
+                    const newWaterItem = document.createElement('li');
+                    const newAirItem = document.createElement('li');
+                    const newEarthItem = document.createElement('li');
+                    const newArcaItem = document.createElement('li');
+
+                    const newFireName = document.createElement('label');
+                    const newWaterName = document.createElement('label');
+                    const newAirName = document.createElement('label');
+                    const newEarthName = document.createElement('label');
+                    const newArcaName = document.createElement('label');
+
+                    const newFireValue = document.createElement('output');
+                    const newWaterValue = document.createElement('output');
+                    const newAirValue = document.createElement('output');
+                    const newEarthValue = document.createElement('output');
+                    const newArcaValue = document.createElement('output');
+
+                    newFireItem.append(newFireName, newFireValue);
+                    newWaterItem.append(newWaterName, newWaterValue);
+                    newAirItem.append(newAirName, newAirValue);
+                    newEarthItem.append(newEarthName, newEarthValue);
+                    newArcaItem.append(newArcaName, newArcaValue);
+
+                    sortsList.append(newFireItem,newWaterItem,newAirItem,newEarthItem,newArcaItem);
+
+                    newFireName.textContent = "Feu";
+                    newWaterName.textContent = "Eau";
+                    newAirName.textContent = "Air";
+                    newEarthName.textContent = "Terre";
+                    newArcaName.textContent = "Arcanes";
+
+                    newFireValue.textContent = joueur.feu;
+                    newWaterValue.textContent = joueur.eau;
+                    newAirValue.textContent = joueur.air;
+                    newEarthValue.textContent = joueur.terre;
+                    newArcaValue.textContent = joueur.arcane;
+
+                }else{
+
+                    const newSortItem = document.createElement('li');
+                    const newSortName = document.createElement('label');
+                    const newSortValue = document.createElement('output');
+
+                    newSortItem.append(newSortName, newSortValue);
+
+                    sortsList.append(newSortItem);
+
+                    newSortName.textContent = "Niveau"
+                    newSortValue.textContent = joueur.sortLvl;
+                }
 /*-----------------------------loadCaract-------------------------------*/
 
             force.value = joueur.force;
