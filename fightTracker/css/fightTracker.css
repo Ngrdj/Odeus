@@ -53,10 +53,12 @@
     justify-content: space-around;
     
 }
-.persoMain *{
+.persoMain>*{
     
     margin: 5px;
-    align-self:stretch;
+    display: flex;
+    align-items: center;
+    padding: 5px;
 
 }
 .showHidePlus{
@@ -161,6 +163,7 @@
 .Perso input[type="number"]{
     
     max-width: 25px;
+    margin-left: 10px;
 
 }
 #persoList{
