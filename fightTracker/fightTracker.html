@@ -101,8 +101,10 @@
             <audio id="musicBar" loop >
                 <source src="sounds/music/intro.mp3" id="sourceMusic" type="audio/mp3">
             </audio>
-            <button id="playMusic"><i class="fas fa-play"></i></button>
+            
             <button id="stopMusic"><i class="fas fa-stop"></i></button>
+            <button id="playMusic"><i class="fas fa-play"></i></button>
+            
             <input type="range" min="0" max="100" value="50" step="10" id="volumeControl">
         </div>
         
@@ -195,13 +197,13 @@
                 <div class="header">
                 <div>
 
-                    <button id="roundButton">Round</button>
+                    <button id="roundButton"><i class="fas fa-forward"></i></button>
                     <input id="roundInput" type="number" name="round" size="5" value='0' min="0">
 
                 </div>	
                 <div>
-                  <button id="init">Calculer l'initiative</button>
-                  <button id="trier"> Trier</button>
+                  <button id="init"><i class="fas fa-running"></i></button>
+                  <button id="trier"><i class="fas fa-sort-amount-down"></i></button>
                 </div>
                 <div>
                     <select name="des" id='des'>
@@ -213,7 +215,7 @@
                         <option value="d20">d20</option>
                         <option value="d100">d100</option>
                     </select>
-                    <button id="lancer">Lancer</button>
+                    <button id="lancer"><i class="fas fa-dice"></i></button>
                     <input type="number" id="resultat" size="5" readonly>
                 </div>
             </div>
@@ -227,7 +229,7 @@
 
                         <input class="charName" type="text" placeholder="Nom de personnage">
                         <div>
-                            <label >Init.</label>
+                            <label ><i class="fas fa-running"></i></label>
                             <input class="initPerso" type='number' value="0">
                         </div>
                         <div>
@@ -258,7 +260,7 @@
 
                       </select>
 
-                      <button class="supprimer">x</button>
+                      <button class="supprimer"><i class="fas fa-times"></i></button>
                     </div>
                     
                     <button class = "showHidePlus" value = "persoPlus">v v v</button>
@@ -267,7 +269,7 @@
 
                         <div>
 
-                            <button class="bonusButton">+</button>
+                            <button class="bonusButton"><i class="fas fa-plus"></i></button>
                             <div class = "bonusItem hidden">
 
                                 <button class="removeItem">X</button>
@@ -317,7 +319,7 @@
                         </div>
                         <div>
 
-                            <button class="malusButton">+</button>
+                            <button class="malusButton"><i class="fas fa-plus"></i></button>
                             <div class = "malusItem hidden">
 
                                 <button class="removeItem">X</button>

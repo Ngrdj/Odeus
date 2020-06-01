@@ -29,13 +29,14 @@
 }
 .header *{
     
-    height: 50px;
     text-align: center;
+    font-size: 21pt;
+    border-radius: 10px;
     
 }
 .header input{
     
-    height: 42px;
+    width: 50px;
     
 }
 .Perso{

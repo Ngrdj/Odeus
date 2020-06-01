@@ -11,7 +11,7 @@
   to{opacity: 0.2;}
 }
 
-html{
+html,label{
     
     cursor: url('../img/icons/cursor1.png'), auto;
     
@@ -35,7 +35,7 @@ body{
     background-position-x: center;
     background-position-y: 50%;
     margin: 0px;
-    overflow-y: hidden;
+    overflow-y: auto;
     animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
