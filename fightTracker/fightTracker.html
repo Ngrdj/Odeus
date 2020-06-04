@@ -222,8 +222,7 @@
             </div>
             
                 <button id="ajouter">Ajouter Personnage</button>
-
-                <!--"div perso" de référence clone-->
+                
                 <datalist id="nameList">
                     
                     <option value="Namas">
@@ -233,6 +232,9 @@
                     <option value="Kyra">
                         
                 </datalist>
+                
+                <!--"div perso" de référence clone-->
+                
                 <div class="Perso hidden">
 
                     <div class ="persoMain">
@@ -449,8 +451,7 @@
                         <div id="portraitChar"></div>
                         
                     </div>
-                    
-                    
+                           
                     <div id="charSorts" class="charSheetItem">
                         
                         <button class="showHideButton" value ="sortsListContainer">Liste de sorts</button>
@@ -622,6 +623,7 @@
                 </div>
                 
             </div>
+            
     </aside>
         
     </main>
@@ -657,7 +659,16 @@
 
             </div>
             
-        
+            <div id ='mapBox' class='hidden'>
+                <div class="filterFreeze"></div>
+                <div id ='maps'>
+                
+                    <img id='worldMap' class='map' src='img/maps/Monde.jpg'>
+                
+                </div>
+                <button value='map' class ="hideButton">X</button>
+            </div>
+            
         </div>
         
         <div id="soundButtons">
@@ -665,8 +676,8 @@
             <button class='footerButton showHideButton' value ='soundBar'><i class="fas fa-music"></i></button>
             <button class='footerButton showHideButton' value ='timer'><i class="far fa-hourglass"></i></button>
             <button class='footerButton showHideButton' value ='comment'><i class="fas fa-feather-alt"></i></button>
-            
-            <button value='sortsTab' id="sortsTabButton" class='footerButton showButton' ><i class="fas fa-hand-sparkles"></i></button>
+            <button class='footerButton showButton' value='sortsTab' id="sortsTabButton" ><i class="fas fa-hand-sparkles"></i></button>
+            <button class='footerButton showButton' value='mapBox' id="mapButton" ><i class="fas fa-map"></i></button>
             
         </div>
          
@@ -689,6 +700,7 @@
             <iframe id="storiesFrame" src="../randomStories/randomStories.html"></iframe>
             <button value='randomStories' class ="hideButton">X</button>
     </div>
+      
     <!--scripts -->
     <script src="script/armes.js"></script>
     <script src="script/persos.js"></script>
