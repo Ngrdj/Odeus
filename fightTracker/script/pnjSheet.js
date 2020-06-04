@@ -63,6 +63,14 @@ function loadPnjValues(){
             charismePnj.value = `${xmlContent.getElementsByTagName('cha')[0].textContent}`;
             
             pnjDetails.innerHTML = `${xmlContent.getElementsByTagName('description')[0].textContent}`;
+            
+            //Ajout du nom à la liste de suggestion (temporaire)!!
+                const optionPnjName =  document.createElement('option');
+                document.getElementById("nameList").appendChild(optionPnjName);
+
+                optionPnjName.value = pnjNameOutput.value;
+            /*--------------------------------------*/
+            
         
         /*----------*/
 

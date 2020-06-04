@@ -27,7 +27,7 @@ button,select,a,i{
     cursor: url('../img/icons/cursor3.png'), auto;
     
 }
-input:-moz-read-write{
+input:-moz-read-write,textarea{
     
     cursor: url('../img/icons/cursor6.png'), auto;
     
@@ -152,8 +152,13 @@ footer{
     background: rgba(0,0,0,0.5);
     color: white;
     border: none;
-}
 
+}
+.footerButton:hover{
+    
+    filter: invert(100%);
+    
+}
 .hidden{
     
     display:none;

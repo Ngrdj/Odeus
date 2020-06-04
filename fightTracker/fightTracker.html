@@ -224,11 +224,20 @@
                 <button id="ajouter">Ajouter Personnage</button>
 
                 <!--"div perso" de référence clone-->
+                <datalist id="nameList">
+                    
+                    <option value="Namas">
+                    <option value="Esus">
+                    <option value="Grudu">
+                    <option value="Lyre">
+                    <option value="Kyra">
+                        
+                </datalist>
                 <div class="Perso hidden">
 
                     <div class ="persoMain">
-
-                        <input class="charName" type="text" placeholder="Nom de personnage">
+                        
+                        <input list="nameList" class="charName" type="text" placeholder="Nom de personnage">
                         <div>
                             <label ><i class="fas fa-running"></i></label>
                             <input class="initPerso" type='number' value="0">
