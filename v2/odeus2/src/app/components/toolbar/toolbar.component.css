@@ -1,0 +1,36 @@
+:host{
+
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    height: max-content;
+    font-size: 3vh;
+
+}
+.toolBar{
+
+    display: flex;
+    background-color: rgba(0,0,0,0.5);
+
+}
+button{
+
+    font-size: 75%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 0.5em;
+    width: 2%;
+
+}
+button:hover {
+
+    filter: invert(100%);
+
+}
+.menuButton{
+
+    position: absolute;
+    right: 0px;
+
+}
