@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/models/character';
+import { PlayersTeamService } from 'src/app/services/players-team.service';
 
 @Component({
   selector: 'app-fight-tracker',
@@ -7,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FightTrackerComponent implements OnInit {
 
+  fighterList : Character [] = [];
+
   private visible:boolean = true;
 
-  constructor() { }
+    constructor(private playersTeamService : PlayersTeamService) {}
 
   ngOnInit(): void {
+
+    this.playersTeamService.getPlayersList().forEach(player => this.fighterList.push(player));
+    
   }
-  toggleVisibility(){
+
+  toggleVisibility():void{
 
     if(this.visible){
 
@@ -25,9 +33,22 @@ export class FightTrackerComponent implements OnInit {
 
     }
   }
-  getVisibility(){
+
+  getVisibility():boolean{
 
     return this.visible
 
   }
+
+  addFighter(newFighter : Character){
+
+
+
+  }
+  deleteFighter(fighter : Character){
+
+    
+
+  }
+
 }

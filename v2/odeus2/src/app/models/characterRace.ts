@@ -1,10 +1,11 @@
 import { characterRaceEnum } from './characterRaceEnum';
 
-export abstract class characterRace{
+export class characterRace{
 
     raceName : string | undefined
 
     constructor(raceName:string ){ 
+        
         this.raceName = Object.values(characterRaceEnum).find(element => element === raceName )
 
         if (this.raceName){

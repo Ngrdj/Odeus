@@ -30,13 +30,19 @@
 
     <button class="addChar">Ajouter Personnage</button>
 
+    <datalist id="nameList">
+                    
+        <option *ngFor='let fighter of fighterList' [value]="fighter.getName()"></option>
+
+    </datalist>
+
     <ul class='characterList'>
 
-        <li class="character">
+        <li *ngFor='let fighter of fighterList' class="character">
 
             <div class="charMainInfos">
                 
-                <input list="nameList" class="charName" type="text" placeholder="Nom de personnage">
+                <input list="nameList" class="charName" type="text" [value]="fighter.getName()" placeholder="Nom de personnage">
                 <div>
                     <label><i class="fas fa-running" aria-hidden="true"></i></label>
                     <input class="initPerso" type="number" value="0">

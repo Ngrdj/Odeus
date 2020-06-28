@@ -3,30 +3,62 @@ import { characterClass } from './characterClass';
 
 export abstract class Character{
 
-    name : string;
-    race : characterRace;
-    class : characterClass;
+   private initiative:number = 0;
 
-    portrait : string;
+    private characteristics = {
 
-    //characteristics
-    strength : number = 0;
-    dexterity : number = 0;
-    constitution : number = 0;
-    intelligence : number = 0;
-    wisdom : number = 0;
-    charisma : number = 0;
+        strength : 0,
+        dexterity : 0,
+        constitution : 0,
+        intelligence : 0,
+        wisdom : 0,
+        charisma : 0,
+
+    }
 
     constructor(
-        newName : string,
-        newRace : characterRace,
-        newClass : characterClass 
-    ){
 
-        this.name = newName;
-        this.race = newRace;
-        this.class = newClass;
+        private charName : string,
+        private charRace : characterRace,
+        private charClass : characterClass,
+        private portrait : string = 'default.jpg'
+
+    ){}
+
+     getName(){
+
+        return this.charName
 
      }
+     getRace(){
 
+        return this.charRace
+
+     }
+     getClass(){
+
+        return this.charClass
+
+     }
+     getPortrait(){
+
+        return this.portrait
+
+     }
+     getCharact(){
+
+        return this.characteristics
+
+     }
+     getInitiative(){
+
+      return this.initiative
+
+   }
+   setInitiative(newInit:number){
+
+      this.initiative = newInit;
+
+   }
+     
 }
