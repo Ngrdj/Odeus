@@ -1,0 +1,93 @@
+:host{
+
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 750px;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: auto;
+
+}
+.ftShowHide{
+
+    background: gray;
+    color: white;
+    border: none;
+
+}
+.header{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: whitesmoke;
+    height: 100px;
+
+}
+.header * {
+
+    text-align: center;
+    font-size: 21pt;
+    border-radius: 10px;
+    margin: 5px;
+
+}
+input[type="number"] {
+
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    -o-appearance: textfield;
+
+}
+.addChar {
+
+    justify-self: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+
+}
+.characterList{
+
+    padding: 0px;
+            
+}
+.character{
+
+    margin: 10px 0px;
+    border-radius: 10px;
+    background-color: white;
+    list-style: none;
+
+}
+.charMainInfos{
+
+    display: flex;
+    justify-content: space-around;
+
+}
+.charMainInfos > * {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.charName {
+    text-align: center;
+}
+.character input[type="number"] {
+    max-width: 25px;
+    margin-left: 10px;
+}
+select {
+    text-align: center;
+    font-size: 100%;
+    min-height: 20px;
+}
+.showHidePlus {
+    width: 100%;
+    border-radius: 10px;
+}

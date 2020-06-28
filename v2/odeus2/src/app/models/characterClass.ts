@@ -2,9 +2,9 @@ import { characterClassEnum } from './characterClassEnum';
 
 export abstract class characterClass{
 
-    className : string | undefined
+    className : string | undefined;
 
-    constructor(className:string ){ 
+    constructor(className:string){ 
         this.className = Object.values(characterClassEnum).find(element => element === className )
 
         if (this.className){

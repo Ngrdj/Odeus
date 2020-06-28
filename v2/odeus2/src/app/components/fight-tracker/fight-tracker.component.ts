@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FightTrackerComponent implements OnInit {
 
+  private visible:boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  toggleVisibility(){
 
+    if(this.visible){
+
+      this.visible = false;
+
+    }else{
+
+      this.visible = true;
+
+    }
+  }
+  getVisibility(){
+
+    return this.visible
+
+  }
 }
