@@ -4,7 +4,6 @@
     bottom: 0px;
     width: 100vw;
     height: max-content;
-    font-size: 3vh;
 
 }
 .toolBar{
@@ -15,13 +14,13 @@
 }
 button{
 
-    font-size: 75%;
+    font-size: 2vh;
     background: rgba(0,0,0,0.5);
     color: white;
     border: none;
     padding: 0.5em;
     width: 2%;
-
+    min-width: 60px;;
 }
 button:hover {
 

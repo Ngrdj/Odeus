@@ -7,6 +7,7 @@ import { FightTrackerComponent } from './components/fight-tracker/fight-tracker.
 import { CharacterSheetComponent } from './components/character-sheet/character-sheet.component';
 import { PnjSheetComponent } from './components/pnj-sheet/pnj-sheet.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FighterComponent } from './components/fight-tracker/fighter/fighter.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     FightTrackerComponent,
     CharacterSheetComponent,
     PnjSheetComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FighterComponent
   ],
   imports: [
     BrowserModule,

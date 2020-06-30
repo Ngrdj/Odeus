@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { PlayersTeamService } from 'src/app/services/players-team.service';
 
+
 @Component({
   selector: 'app-fight-tracker',
   templateUrl: './fight-tracker.component.html',
@@ -47,8 +48,8 @@ export class FightTrackerComponent implements OnInit {
   }
   deleteFighter(fighter : Character){
 
-    
-
+    this.fighterList = this.fighterList.filter(element => element != fighter);
+    console.log(this.fighterList)
   }
 
 }

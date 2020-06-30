@@ -12,7 +12,8 @@
     max-height: 90%;
     box-sizing: border-box;
     height: min-content;
-
+    align-self: baseline;
+    
 }
 .ftShowHide{
 
@@ -24,7 +25,7 @@
 .ftContent{
 
     display: contents;
-
+    font-size: 2vh;
 }
 .header{
 
@@ -38,9 +39,9 @@
 .header * {
 
     text-align: center;
-    font-size: 21pt;
     border-radius: 10px;
     margin: 5px;
+    font-size: 3vh;
 
 }
 input[type="number"] {
@@ -48,7 +49,7 @@ input[type="number"] {
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
     -o-appearance: textfield;
-
+    max-width: 3ch;
 }
 .addChar {
 
@@ -63,39 +64,11 @@ input[type="number"] {
     padding: 0px;
     overflow-y: auto;
 }
-.character{
 
-    margin: 10px 0px;
-    border-radius: 10px;
-    background-color: white;
-    list-style: none;
 
-}
-.charMainInfos{
-
-    display: flex;
-    justify-content: space-around;
-
-}
-.charMainInfos > * {
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-.charName {
+select,input {
     text-align: center;
-}
-.character input[type="number"] {
-    max-width: 25px;
-    margin-left: 10px;
-}
-select {
-    text-align: center;
-    font-size: 100%;
+    font-size: 2vh;
     min-height: 20px;
-}
-.showHidePlus {
-    width: 100%;
-    border-radius: 10px;
+
 }

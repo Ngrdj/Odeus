@@ -9,5 +9,7 @@
     background-size: 70%;
     background-position-x: center;
     background-position-y: 50%; 
+    overflow: hidden;
 
+    align-items: center;
 }

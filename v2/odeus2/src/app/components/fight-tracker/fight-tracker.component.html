@@ -39,8 +39,8 @@
     <ul class='characterList'>
 
         <li *ngFor='let fighter of fighterList' class="character">
-
-            <div class="charMainInfos">
+            <app-fighter (deleteFighter)='deleteFighter($event)' [fighter]= 'fighter'></app-fighter>
+           <!-- <div class="charMainInfos">
                 
                 <input list="nameList" class="charName" type="text" [value]="fighter.getName()" placeholder="Nom de personnage">
                 <div>
@@ -75,7 +75,7 @@
 
               </select>
 
-              <button class="supprimer"><i class="fas fa-times" aria-hidden="true"></i></button>
+              <button (click)="deleteFighter(fighter, $event.target.closest('.character'))" class="deleteCharButton"><i class="fas fa-times" aria-hidden="true"></i></button>
             </div>
             
             <button class="showHidePlus" value="persoPlus">v v v</button>
@@ -184,7 +184,7 @@
                 </div>
 
             </div>
-
+-->
         </li>
 
     </ul>

@@ -1,0 +1,64 @@
+.fighter{
+
+    margin: 0px 0px 10px 0px;
+    border-radius: 10px;
+    background-color: white;
+    list-style: none;
+    z-index: 1;
+    position: relative;
+}
+.charName{
+
+    border-radius: 10px 10px 0px 0px;
+    top: 8px;
+    position: relative;
+    border: none;
+    padding-bottom: 10px;
+    background-color: gainsboro;
+}
+.deleteCharButton {
+
+    border: none;
+    background: none;
+    color: white;
+    float: right;
+    top: 12px;
+    position: relative;
+
+}
+.charMainInfos{
+
+    display: flex;
+    justify-content: space-around;
+
+}
+.charMainInfos > * {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.character input[type="number"] {
+
+    margin-left: 10px;
+    margin-left: 10px;
+    font-size: 2vh;
+
+}
+select,input {
+    text-align: center;
+    font-size: 2vh;
+    min-height: 20px;
+
+}
+input[type="number"] {
+
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    -o-appearance: textfield;
+    max-width: 3ch;
+}
+.showHidePlus {
+    width: 100%;
+    border-radius: 10px;
+}

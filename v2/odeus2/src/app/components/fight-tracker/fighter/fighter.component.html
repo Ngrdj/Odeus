@@ -1,0 +1,150 @@
+<input list="nameList" class="charName" type="text" [value]="fighter.getName()" placeholder="Nom de personnage">
+<button (click)="onDeleteClick(fighter)" class="deleteCharButton"><i class="fas fa-times" aria-hidden="true"></i></button>
+<div class='fighter'>
+
+    <div class="charMainInfos">
+                
+        <div>
+            <label><i class="fas fa-running" aria-hidden="true"></i></label>
+            <input class="initPerso" type="number" value="0">
+        </div>
+        <div>
+            <label><img alt="Attaque" class="icon" src="../assets/img/icons/sword.png" width="20px" height="20px"></label>
+            <input type="number">
+        </div>
+        <div>
+            <label><i class="fas fa-shield-alt" aria-hidden="true"></i></label>
+            <input type="number">
+        </div>
+        <select name="etats">
+    
+            <option value="0">--</option>
+            <option value="1">À terre</option>
+            <option value="2">Agrippé</option>
+            <option value="3">Assourdi</option>
+            <option value="4">Aveuglé</option>
+            <option value="5">Charmé</option>
+            <option value="6">Effrayé</option>
+            <option value="7">Empoisonné</option>
+            <option value="8">Entravé</option>
+            <option value="9">Étourdi</option>
+            <option value="10">Incapable d'agir</option>
+            <option value="11">Inconscient</option>
+            <option value="12">Invisible</option>
+            <option value="13">Paralysé</option>
+            <option value="14">Pétrifié</option>
+    
+        </select>
+    
+        
+    </div>
+    
+    <button class="showHidePlus" value="persoPlus">v v v</button>
+    
+    <div class="persoPlus hidden">
+        
+        <div>
+            
+            <button class="bonusButton"><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="bonusItem hidden">
+                
+                <button class="removeItem">X</button>
+                <input class="bonusSource" placeholder="Source">
+                <select class="bonusTarget">
+                    
+                    <option selected="" hidden="">-Cible-</option>
+                    <optgroup label="Caract">
+                        
+                        <option>FOR</option>
+                        <option>DEX</option>
+                        <option>CON</option>
+                        <option>INT</option>
+                        <option>SAG</option>
+                        <option>CHA</option>
+                        
+                    </optgroup>
+                    
+                    <optgroup label="Comp">
+                        
+                        <option>ACC</option>
+                        <option>ARC</option>
+                        <option>ATH</option>
+                        <option>DIS</option>
+                        <option>DRE</option>
+                        <option>ESC</option>
+                        <option>HIS</option>
+                        <option>INT</option>
+                        <option>INV</option>
+                        <option>MED</option>
+                        <option>NAT</option>
+                        <option>PERCE</option>
+                        <option>PERSP</option>
+                        <option>PERSU</option>
+                        <option>REL</option>
+                        <option>REP</option>
+                        <option>SUR</option>
+                        <option>TRO</option>
+                        
+                    </optgroup>
+                    
+                </select>
+                <input class="bonusValue" type="number" placeholder="VAL" min="0">
+                
+            </div>
+            
+        </div>
+        <div>
+            
+            <button class="malusButton"><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="malusItem hidden">
+                
+                <button class="removeItem">X</button>
+                <input class="malusSource" placeholder="Source">
+                <select class="malusTarget">
+                    
+                    <option selected="" hidden="">-Cible-</option>
+                    <optgroup label="Caract">
+                        
+                        <option>FOR</option>
+                        <option>DEX</option>
+                        <option>CON</option>
+                        <option>INT</option>
+                        <option>SAG</option>
+                        <option>CHA</option>
+                        
+                    </optgroup>
+                    
+                    <optgroup label="Comp">
+                        
+                        <option>ACC</option>
+                        <option>ARC</option>
+                        <option>ATH</option>
+                        <option>DIS</option>
+                        <option>DRE</option>
+                        <option>ESC</option>
+                        <option>HIS</option>
+                        <option>INT</option>
+                        <option>INV</option>
+                        <option>MED</option>
+                        <option>NAT</option>
+                        <option>PERCE</option>
+                        <option>PERSP</option>
+                        <option>PERSU</option>
+                        <option>REL</option>
+                        <option>REP</option>
+                        <option>SUR</option>
+                        <option>TRO</option>
+                        
+                    </optgroup>
+                    
+                </select>
+                <input class="malusValue" type="number" placeholder="VAL" max="0">
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+</div>
+
