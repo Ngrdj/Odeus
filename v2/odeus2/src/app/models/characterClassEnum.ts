@@ -1,4 +1,4 @@
-export const characterClassEnum = {
+export const CharacterClassEnum = {
     
     ARTIFICER : 'ARTIFICER' ,
     BARBARIAN : 'BARBARIAN' ,

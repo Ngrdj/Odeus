@@ -1,4 +1,4 @@
-export const characterRaceEnum = {
+export const CharacterRaceEnum = {
 
     AARAKOCRA: 'AARAKOCRA',
     AASIMAR: 'AASIMAR',
@@ -7,8 +7,8 @@ export const characterRaceEnum = {
     CENTAUR: 'CENTAUR',
     CHANGELING: 'CHANGELING',
     DRAGONBORN: 'DRAGONBORN',
+    DROW: 'DROW',
     DWARF: 'DWARF',
-    ELF: 'ELF',
     FIRBOLG: 'FIRBOLG',
     GENASI: 'GENASI',
     GITH: 'GITH',
@@ -18,6 +18,7 @@ export const characterRaceEnum = {
     HALFELF: 'HALF-ELF',
     HALFORC: 'HALF-ORC',
     HALFLING: 'HALFLING',
+    HIGHELF: 'HIGH-ELF',
     HOBGOBLIN: 'HOBGOBLIN',
     HUMAN: 'HUMAN',
     KENKU: 'KENKU',
@@ -36,6 +37,7 @@ export const characterRaceEnum = {
     VAMPIRE: 'VAMPIRE',
     VEDALKEN: 'VEDALKEN',
     WARFORGED: 'WARFORGED',
+    WOODELF: 'WOOD-ELF',
     YUANTI: 'YUAN-TI',
 
 }
