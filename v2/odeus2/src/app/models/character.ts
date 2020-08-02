@@ -14,10 +14,15 @@ export class Character{
         public race : string,
         public charClass: string,
         public level: number,
-        public skills:Skill[],
+        public masteryBonus:number,
+        public skills:Skill[]=[],
         public portrait : string = 'default.jpg',
         public characteristics:Characteristic[]=[
-           
+         {
+            "name":"strength",
+            "value":10,
+            "bonus":0
+        },
          {
             "name":"dexterity",
             "value":10,
@@ -63,7 +68,14 @@ export class Character{
       }
 
     }
-
+   addBonusToSkills(){
+      this.skills.forEach(skill=>{
+         skill.value+=this.characteristics.find(chara=>skill.type===chara.name).bonus;
+         if(skill.isCheked){
+            skill.value+=this.masteryBonus;
+         }
+      })
+   }
    setClassTraits(className:string){
 
       switch(className){

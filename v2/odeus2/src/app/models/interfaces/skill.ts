@@ -1,5 +1,6 @@
 export interface Skill {
     name:string,
     value: number,
-    isCheked:boolean
+    isCheked:boolean,
+    type:string
 }
