@@ -888,11 +888,333 @@
     ],
     "Capacities":[
         {
+            "name":"Controle des flammes",
+            "description":"Manipule l'intensité d'une flamme visible",
+            "class":"WIZARD",
+            "level":1,
+            "id":0
+        },
+        {
+            "name":"Projection de flamme",
+            "description":"Projette une flamme depuis la main du lanceur ",
+            "class":"WIZARD",
+            "level":2,
+            "id":1
+        },
+        {
+            "name":"Mur de feu",
+            "description":"Concentre une flamme proche pour créer une barrière face au lanceur ",
+            "class":"WIZARD",
+            "level":4,
+            "id":2
+        },
+        {
+            "name":"Embrasement",
+            "description":"Crée une flamme dans une zone visible par le lanceur",
+            "class":"WIZARD",
+            "level":5,
+            "id":3
+        },
+        {
+            "name":"Déflagration",
+            "description":"Projette un cône de flamme en continu face au lanceur",
+            "class":"WIZARD",
+            "level":6,
+            "id":4
+        },
+        {
+            "name":"Dôme de flammes",
+            "description":"Crée un dome de flammes protecteur autour du lanceur ",
+            "class":"WIZARD",
+            "level":7,
+            "id":5
+        },
+        {
+            "name":"Sphère de feu",
+            "description":"Lance une boule de feu de 3m de diamètre qui explose sur commande ",
+            "class":"WIZARD",
+            "level":8,
+            "id":6
+        },
+        {
+            "name":"Elémentaire de feu",
+            "description":"Invoque un élémentaire de feu",
+            "class":"WIZARD",
+            "level":9,
+            "id":7
+        },
+        {
+            "name":"Tempête de flammes",
+            "description":"Crée une immense vague de flammes se dirigeant vers l'ennemi ",
+            "class":"WIZARD",
+            "level":10,
+            "id":8
+        },
+        {
+            "name":"Fluidité",
+            "description":"Manipule une petite quantité de liquide ",
+            "class":"WIZARD",
+            "level":1,
+            "id":9
+        },
+        {
+            "name":"Cryothermie",
+            "description":"Altère l'état des liquide (vapeur, glace)",
+            "class":"WIZARD",
+            "level":2,
+            "id":10
+        },
+        {
+            "name":"Fouet aqueu",
+            "description":"Transforme un jet d'eau en une arme mortelle",
+            "class":"WIZARD",
+            "level":3,
+            "id":11
+        },
+        {
+            "name":"Mur de glace",
+            "description":"Transforme une zone d'eau en une paroi de glace protectrice",
+            "class":"WIZARD",
+            "level":4,
+            "id":12
+        },
+        {
+            "name":"Couteau de glace",
+            "description":"Lance une pointe de glace",
+            "class":"WIZARD",
+            "level":5,
+            "id":13
+        },
+        {
+            "name":"Cône de froid",
+            "description":"Projette un cône de givre en continu face au lanceur",
+            "class":"WIZARD",
+            "level":6,
+            "id":14
+        },
+        {
+            "name":"Piège givrant",
+            "description":"Crée un piège condamnant l'ennemi dans un cercueil de glace ",
+            "class":"WIZARD",
+            "level":7,
+            "id":15
+        },
+        {
+            "name":"Elémentaire de glace",
+            "description":"Invoque un élémentaire de glace",
+            "class":"WIZARD",
+            "level":9,
+            "id":16
+        },
+        {
+            "name":"Raz-de-marée",
+            "description":"Provoque une vague gigantesque",
+            "class":"WIZARD",
+            "level":10,
+            "id":17
+        },
+        {
+            "name":"Souffle",
+            "description":"Manipule l'intensité des courants d'air",
+            "class":"WIZARD",
+            "level":1,
+            "id":18
+        },
+        {
+            "name":"Bourrasque",
+            "description":"Envoie une rafale de vent qui renverse les ennemis sur son passage",
+            "class":"WIZARD",
+            "level":3,
+            "id":19
+        },
+        {
+            "name":"Répulsion",
+            "description":"Crèe un courant d'air autour du lanceur qui projette tout ce qui se trouve aux alentours ",
+            "class":"WIZARD",
+            "level":4,
+            "id":20
+        },
+        {
+            "name":"Ruée aérienne",
+            "description":"Le vent est du coté du lanceur et accélère ses mouvements ",
+            "class":"WIZARD",
+            "level":5,
+            "id":21
+        },
+        {
+            "name":"Catapulte",
+            "description":"Crée une surface piégée qui projette l'ennemi en l'air ",
+            "class":"WIZARD",
+            "level":6,
+            "id":22
+        },
+        {
+            "name":"Zone de vide",
+            "description":"Enferme l'ennemi dans une zone qui peut être vidée de son air ",
+            "class":"WIZARD",
+            "level":7,
+            "id":23
+        },
+        {
+            "name":"Lévitation",
+            "description":"Place quelqu'un ou quelque chose en état de lévitation",
+            "class":"WIZARD",
+            "level":8,
+            "id":24
+        },
+        {
+            "name":"Elémentaire d'air",
+            "description":"Invoque un élémentaire d'air",
+            "class":"WIZARD",
+            "level":9,
+            "id":25
+        },
+        {
+            "name":"Cyclone",
+            "description":"Crée une tornade destructrice controlée par le lanceur",
+            "class":"WIZARD",
+            "level":10,
+            "id":26
+        },
+        {
+            "name":"Terraformation",
+            "description":"Le lanceur peur modeler la terre en contact autour de lui",
+            "class":"WIZARD",
+            "level":1,
+            "id":27
+        },
+        {
+            "name":"Marteau de pierre",
+            "description":"Consolide la terre pour créer une arme contondante",
+            "class":"WIZARD",
+            "level":2,
+            "id":28
+        },
+        {
+            "name":"Tremblement",
+            "description":"Crée un tremblement dans le sol autour du lanceur",
+            "class":"WIZARD",
+            "level":3,
+            "id":29
+        },
+        {
+            "name":"Peau de pierre",
+            "description":"Au contact de la pierre, la cible peut s'en recouvrir afin de se protèger",
+            "class":"WIZARD",
+            "level":4,
+            "id":30
+        },
+        {
+            "name":"Eruption",
+            "description":"Eruption de roche et de terre qui éclate en un point visible par le lanceur",
+            "class":"WIZARD",
+            "level":5,
+            "id":31
+        },
+        {
+            "name":"Pétrification",
+            "description":"Transforme la cible en statue de pierre",
+            "class":"WIZARD",
+            "level":7,
+            "id":32
+        },
+        {
+            "name":"Crevasse",
+            "description":"Crée une fissure dans le sol face au lanceur",
+            "class":"WIZARD",
+            "level":8,
+            "id":33
+        },
+        {
+            "name":"Elémentaire de pierre",
+            "description":"Invoque un élémentaire de pierre",
+            "class":"WIZARD",
+            "level":9,
+            "id":34
+        },
+        {
+            "name":"Météor",
+            "description":"Crée un immense amas de pierres en hauteur s'écrasant sur une zone ciblée",
+            "class":"WIZARD",
+            "level":10,
+            "id":35
+        },
+        {
+            "name":"Projectile magique",
+            "description":"Un projectile infligeant des dégats magiques",
+            "class":"WIZARD",
+            "level":1,
+            "id":36
+        },
+        {
+            "name":"Bouclier magique",
+            "description":"Invoque un bouclier magique dans la main du lanceur",
+            "class":"WIZARD",
+            "level":2,
+            "id":37
+        },
+        {
+            "name":"Arme liée",
+            "description":"Invoque une arme magique dans la main du lanceur",
+            "class":"WIZARD",
+            "level":3,
+            "id":38
+        },
+        {
+            "name":"Pénétration psychique",
+            "description":"Pénètre les pensées superficielles d'une créature à portée de main",
+            "class":"WIZARD",
+            "level":4,
+            "id":39
+        },
+        {
+            "name":"Maitrise arcanique",
+            "description":"Les sorts de bouclier magiques, arme liée et pénétration psychique peuvent être lancé à distance",
+            "class":"WIZARD",
+            "level":5,
+            "id":40
+        },
+        {
+            "name":"Télékinésie",
+            "description":"Déplace un objet où une créature légère par la pensée",
+            "class":"WIZARD",
+            "level":6,
+            "id":41
+        },
+        {
+            "name":"Dôme de lames",
+            "description":"Crée un dôme protecteur hérissé de lames autour du lanceur",
+            "class":"WIZARD",
+            "level":7,
+            "id":42
+        },
+        {
+            "name":"Téléportation",
+            "description":"Le lanceur se déplace instantanément vers un point visible",
+            "class":"WIZARD",
+            "level":8,
+            "id":43
+        },
+        {
+            "name":"Champ anti-magie",
+            "description":"Crée une zone à portée dans laquel la magie ne peut opérer",
+            "class":"WIZARD",
+            "level":9,
+            "id":44
+        },
+        {
+            "name":"Onde psionique",
+            "description":"Crée une vague magique face au lanceur qui provoque un état aléatoire à toute créature se trouvant dans la zone",
+            "class":"WIZARD",
+            "level":10,
+            "id":45
+        },
+        {
             "name":"",
             "description":"",
-            "class":"DRUID",
+            "class":"",
             "level":0,
-            "id":0
+            "id":
         }
     ]
 }
