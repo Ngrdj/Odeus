@@ -6,7 +6,7 @@
             "class":"DRUID",
             "level":5,
             "masteryBonus":3,
-            "capacities":[0],
+            "capacities":[46,47,51,56,57,58,61,62],
             "skills":[
                {
                     "name":"acrobaties",
@@ -318,7 +318,7 @@
             "class":"WIZARD",
             "level":5,
             "masteryBonus":3,
-            "capacities":[0],
+            "capacities":[0,1,2,3,4,10,11,18,27,36],
             "skills":[
                {
                     "name":"acrobaties",
@@ -630,7 +630,7 @@
             "class":"WIZARD",
             "level":5,
             "masteryBonus":3,
-            "capacities":[0],
+            "capacities":[0,1,10,18,27,28,29,30,31,36],
             "skills":[
                {
                     "name":"acrobaties",
@@ -891,6 +891,7 @@
             "name":"Controle des flammes",
             "description":"Manipule l'intensité d'une flamme visible",
             "class":"WIZARD",
+            "type":"Feu",
             "level":1,
             "id":0
         },
@@ -898,6 +899,7 @@
             "name":"Projection de flamme",
             "description":"Projette une flamme depuis la main du lanceur ",
             "class":"WIZARD",
+            "type":"Feu",
             "level":2,
             "id":1
         },
@@ -905,6 +907,7 @@
             "name":"Mur de feu",
             "description":"Concentre une flamme proche pour créer une barrière face au lanceur ",
             "class":"WIZARD",
+            "type":"Feu",
             "level":4,
             "id":2
         },
@@ -912,6 +915,7 @@
             "name":"Embrasement",
             "description":"Crée une flamme dans une zone visible par le lanceur",
             "class":"WIZARD",
+            "type":"Feu",
             "level":5,
             "id":3
         },
@@ -919,6 +923,7 @@
             "name":"Déflagration",
             "description":"Projette un cône de flamme en continu face au lanceur",
             "class":"WIZARD",
+            "type":"Feu",
             "level":6,
             "id":4
         },
@@ -926,6 +931,7 @@
             "name":"Dôme de flammes",
             "description":"Crée un dome de flammes protecteur autour du lanceur ",
             "class":"WIZARD",
+            "type":"Feu",
             "level":7,
             "id":5
         },
@@ -933,6 +939,7 @@
             "name":"Sphère de feu",
             "description":"Lance une boule de feu de 3m de diamètre qui explose sur commande ",
             "class":"WIZARD",
+            "type":"Feu",
             "level":8,
             "id":6
         },
@@ -940,6 +947,7 @@
             "name":"Elémentaire de feu",
             "description":"Invoque un élémentaire de feu",
             "class":"WIZARD",
+            "type":"Feu",
             "level":9,
             "id":7
         },
@@ -947,6 +955,7 @@
             "name":"Tempête de flammes",
             "description":"Crée une immense vague de flammes se dirigeant vers l'ennemi ",
             "class":"WIZARD",
+            "type":"Feu",
             "level":10,
             "id":8
         },
@@ -954,6 +963,7 @@
             "name":"Fluidité",
             "description":"Manipule une petite quantité de liquide ",
             "class":"WIZARD",
+            "type":"Eau",
             "level":1,
             "id":9
         },
@@ -961,6 +971,7 @@
             "name":"Cryothermie",
             "description":"Altère l'état des liquide (vapeur, glace)",
             "class":"WIZARD",
+            "type":"Eau",
             "level":2,
             "id":10
         },
@@ -968,6 +979,7 @@
             "name":"Fouet aqueu",
             "description":"Transforme un jet d'eau en une arme mortelle",
             "class":"WIZARD",
+            "type":"Eau",
             "level":3,
             "id":11
         },
@@ -975,6 +987,7 @@
             "name":"Mur de glace",
             "description":"Transforme une zone d'eau en une paroi de glace protectrice",
             "class":"WIZARD",
+            "type":"Eau",
             "level":4,
             "id":12
         },
@@ -982,6 +995,7 @@
             "name":"Couteau de glace",
             "description":"Lance une pointe de glace",
             "class":"WIZARD",
+            "type":"Eau",
             "level":5,
             "id":13
         },
@@ -989,6 +1003,7 @@
             "name":"Cône de froid",
             "description":"Projette un cône de givre en continu face au lanceur",
             "class":"WIZARD",
+            "type":"Eau",
             "level":6,
             "id":14
         },
@@ -996,6 +1011,7 @@
             "name":"Piège givrant",
             "description":"Crée un piège condamnant l'ennemi dans un cercueil de glace ",
             "class":"WIZARD",
+            "type":"Eau",
             "level":7,
             "id":15
         },
@@ -1003,6 +1019,7 @@
             "name":"Elémentaire de glace",
             "description":"Invoque un élémentaire de glace",
             "class":"WIZARD",
+            "type":"Eau",
             "level":9,
             "id":16
         },
@@ -1010,6 +1027,7 @@
             "name":"Raz-de-marée",
             "description":"Provoque une vague gigantesque",
             "class":"WIZARD",
+            "type":"Eau",
             "level":10,
             "id":17
         },
@@ -1017,6 +1035,7 @@
             "name":"Souffle",
             "description":"Manipule l'intensité des courants d'air",
             "class":"WIZARD",
+            "type":"Air",
             "level":1,
             "id":18
         },
@@ -1024,6 +1043,7 @@
             "name":"Bourrasque",
             "description":"Envoie une rafale de vent qui renverse les ennemis sur son passage",
             "class":"WIZARD",
+            "type":"Air",
             "level":3,
             "id":19
         },
@@ -1031,6 +1051,7 @@
             "name":"Répulsion",
             "description":"Crèe un courant d'air autour du lanceur qui projette tout ce qui se trouve aux alentours ",
             "class":"WIZARD",
+            "type":"Air",
             "level":4,
             "id":20
         },
@@ -1038,6 +1059,7 @@
             "name":"Ruée aérienne",
             "description":"Le vent est du coté du lanceur et accélère ses mouvements ",
             "class":"WIZARD",
+            "type":"Air",
             "level":5,
             "id":21
         },
@@ -1045,6 +1067,7 @@
             "name":"Catapulte",
             "description":"Crée une surface piégée qui projette l'ennemi en l'air ",
             "class":"WIZARD",
+            "type":"Air",
             "level":6,
             "id":22
         },
@@ -1052,6 +1075,7 @@
             "name":"Zone de vide",
             "description":"Enferme l'ennemi dans une zone qui peut être vidée de son air ",
             "class":"WIZARD",
+            "type":"Air",
             "level":7,
             "id":23
         },
@@ -1059,6 +1083,7 @@
             "name":"Lévitation",
             "description":"Place quelqu'un ou quelque chose en état de lévitation",
             "class":"WIZARD",
+            "type":"Air",
             "level":8,
             "id":24
         },
@@ -1066,6 +1091,7 @@
             "name":"Elémentaire d'air",
             "description":"Invoque un élémentaire d'air",
             "class":"WIZARD",
+            "type":"Air",
             "level":9,
             "id":25
         },
@@ -1073,6 +1099,7 @@
             "name":"Cyclone",
             "description":"Crée une tornade destructrice controlée par le lanceur",
             "class":"WIZARD",
+            "type":"Air",
             "level":10,
             "id":26
         },
@@ -1080,6 +1107,7 @@
             "name":"Terraformation",
             "description":"Le lanceur peur modeler la terre en contact autour de lui",
             "class":"WIZARD",
+            "type":"Terre",
             "level":1,
             "id":27
         },
@@ -1087,6 +1115,7 @@
             "name":"Marteau de pierre",
             "description":"Consolide la terre pour créer une arme contondante",
             "class":"WIZARD",
+            "type":"Terre",
             "level":2,
             "id":28
         },
@@ -1094,6 +1123,7 @@
             "name":"Tremblement",
             "description":"Crée un tremblement dans le sol autour du lanceur",
             "class":"WIZARD",
+            "type":"Terre",
             "level":3,
             "id":29
         },
@@ -1101,6 +1131,7 @@
             "name":"Peau de pierre",
             "description":"Au contact de la pierre, la cible peut s'en recouvrir afin de se protèger",
             "class":"WIZARD",
+            "type":"Terre",
             "level":4,
             "id":30
         },
@@ -1108,6 +1139,7 @@
             "name":"Eruption",
             "description":"Eruption de roche et de terre qui éclate en un point visible par le lanceur",
             "class":"WIZARD",
+            "type":"Terre",
             "level":5,
             "id":31
         },
@@ -1115,6 +1147,7 @@
             "name":"Pétrification",
             "description":"Transforme la cible en statue de pierre",
             "class":"WIZARD",
+            "type":"Terre",
             "level":7,
             "id":32
         },
@@ -1122,6 +1155,7 @@
             "name":"Crevasse",
             "description":"Crée une fissure dans le sol face au lanceur",
             "class":"WIZARD",
+            "type":"Terre",
             "level":8,
             "id":33
         },
@@ -1129,6 +1163,7 @@
             "name":"Elémentaire de pierre",
             "description":"Invoque un élémentaire de pierre",
             "class":"WIZARD",
+            "type":"Terre",
             "level":9,
             "id":34
         },
@@ -1136,6 +1171,7 @@
             "name":"Météor",
             "description":"Crée un immense amas de pierres en hauteur s'écrasant sur une zone ciblée",
             "class":"WIZARD",
+            "type":"Terre",
             "level":10,
             "id":35
         },
@@ -1143,6 +1179,7 @@
             "name":"Projectile magique",
             "description":"Un projectile infligeant des dégats magiques",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":1,
             "id":36
         },
@@ -1150,6 +1187,7 @@
             "name":"Bouclier magique",
             "description":"Invoque un bouclier magique dans la main du lanceur",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":2,
             "id":37
         },
@@ -1157,6 +1195,7 @@
             "name":"Arme liée",
             "description":"Invoque une arme magique dans la main du lanceur",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":3,
             "id":38
         },
@@ -1164,6 +1203,7 @@
             "name":"Pénétration psychique",
             "description":"Pénètre les pensées superficielles d'une créature à portée de main",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":4,
             "id":39
         },
@@ -1171,6 +1211,7 @@
             "name":"Maitrise arcanique",
             "description":"Les sorts de bouclier magiques, arme liée et pénétration psychique peuvent être lancé à distance",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":5,
             "id":40
         },
@@ -1178,6 +1219,7 @@
             "name":"Télékinésie",
             "description":"Déplace un objet où une créature légère par la pensée",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":6,
             "id":41
         },
@@ -1185,6 +1227,7 @@
             "name":"Dôme de lames",
             "description":"Crée un dôme protecteur hérissé de lames autour du lanceur",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":7,
             "id":42
         },
@@ -1192,6 +1235,7 @@
             "name":"Téléportation",
             "description":"Le lanceur se déplace instantanément vers un point visible",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":8,
             "id":43
         },
@@ -1199,6 +1243,7 @@
             "name":"Champ anti-magie",
             "description":"Crée une zone à portée dans laquel la magie ne peut opérer",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":9,
             "id":44
         },
@@ -1206,15 +1251,401 @@
             "name":"Onde psionique",
             "description":"Crée une vague magique face au lanceur qui provoque un état aléatoire à toute créature se trouvant dans la zone",
             "class":"WIZARD",
+            "type":"Arcanes",
             "level":10,
             "id":45
         },
         {
-            "name":"",
-            "description":"",
-            "class":"",
-            "level":0,
-            "id":
+            "name":"Prédiction",
+            "description":"Prévois les changements météorologiques à venir",
+            "class":"DRUID",
+            "type":"Météorologie",
+            "level":1,
+            "id":46
+        },
+        {
+            "name":"Nappe de brouillard",
+            "description":"Étend une nappe de brouillard dans une zone",
+            "class":"DRUID",
+            "type":"Météorologie",
+            "level":3,
+            "id":47
+        },
+        {
+            "name":"Éclat du soleil",
+            "description":"Une vive lumière équivalente à celle du soleil aveugle une créature face au lanceur",
+            "class":"DRUID",
+            "type":"Météorologie",
+            "level":9,
+            "id":48
+        },
+        {
+            "name":"Contrôle du climat",
+            "description":"Modifie progressivement les conditions climatiques en extérieur (précipitation, température et force du vent)",
+            "class":"DRUID",
+            "type":"Météorologie",
+            "level":13,
+            "id":49
+        },
+        {
+            "name":"Appel de la foudre",
+            "description":"Les créatures prisent dans la zone de l'orage sont frappées par la foudre",
+            "class":"DRUID",
+            "type":"Météorologie",
+            "level":19,
+            "id":50
+        },
+        {
+            "name":"Communication avec les animaux",
+            "description":"Permet de dialoguer avec un animal",
+            "class":"DRUID",
+            "type":"Bestialité",
+            "level":1,
+            "id":51
+        },
+        {
+            "name":"Sens Animal",
+            "description":"Le lanceur peut voir/entendre/sentir à travers les sens d'une bête consentante",
+            "class":"DRUID",
+            "type":"Bestialité",
+            "level":7,
+            "id":52
+        },
+        {
+            "name":"Communication télépathique",
+            "description":"Communiquer télépatiquement avec les animaux",
+            "class":"DRUID",
+            "type":"Bestialité",
+            "level":11,
+            "id":53
+        },
+        {
+            "name":"Localisation d'animaux ou de plantes",
+            "description":"En vous concentrant sur les murmures de la Nature qui vous environne, vous apprenez la direction et la distance de la créature, ou plante que vous connaissez dans les alentours",
+            "class":"DRUID",
+            "type":"Bestialité",
+            "level":15,
+            "id":54
+        },
+        {
+            "name":"Domination de bête",
+            "description":"Vous tentez de prendre le contrôle d'une bête à portée que vous pouvez voir",
+            "class":"DRUID",
+            "type":"Bestialité",
+            "level":19,
+            "id":55
+        },
+        {
+            "name":"Interactions naturelles",
+            "description":"Permet d'influencer légèrement la végétation",
+            "class":"DRUID",
+            "type":"Herboriste",
+            "level":1,
+            "id":56
+        },
+        {
+            "name":"Fouet épineux",
+            "description":"Le lanceur crée une longue et épaisse liane de vignes et d'épines dans sa main",
+            "class":"DRUID",
+            "type":"Herboriste",
+            "level":3,
+            "id":57
+        },
+        {
+            "name":"Enchevêtrement",
+            "description":"Parralyser une créature grace à la pouse de plantes et de racines",
+            "class":"DRUID",
+            "type":"Herboriste",
+            "level":5,
+            "id":58
+        },
+        {
+            "name":"Nuage toxique",
+            "description":"Grâce à la pousse de champignons, un nuage toxique se propage dans une zone définie",
+            "class":"DRUID",
+            "type":"Herboriste",
+            "level":11,
+            "id":59
+        },
+        {
+            "name":"Colère de la foret",
+            "description":"Permet de déchaîner la colère des arbres afin qu'ils soutiennent le lanceur ",
+            "class":"DRUID",
+            "type":"Herboriste",
+            "level":17,
+            "id":60
+        },
+        {
+            "name":"Soin léger",
+            "description":"Permet de soigner les blessures légère",
+            "class":"DRUID",
+            "type":"Esprit Druidique",
+            "level":1,
+            "id":61
+        },
+        {
+            "name":"Detection de magie",
+            "description":"Le lanceur détecte toutes émanations magiques autour de lui ",
+            "class":"DRUID",
+            "type":"Esprit Druidique",
+            "level":5,
+            "id":62
+        },
+        {
+            "name":"Guérison",
+            "description":"Le lanceur peut soigner une altération d'état ",
+            "class":"DRUID",
+            "type":"Esprit Druidique",
+            "level":9,
+            "id":63
+        },
+        {
+            "name":"Armure spirituelle",
+            "description":"Crée une armure spirituelle autour du lanceur",
+            "class":"DRUID",
+            "type":"Esprit Druidique",
+            "level":15,
+            "id":64
+        },
+        {
+            "name":"Prière de Sylvanna",
+            "description":"Le lanceur fait une prière à la déesse Sylvanna, peut etre l'exaucera-t-elle ",
+            "class":"DRUID",
+            "type":"Esprit Druidique",
+            "level":17,
+            "id":65
+        },
+        {
+            "name":"Carquoi magique",
+            "description":"Un carquoi qui ne se vide jamais",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":1,
+            "id":66
+        },
+        {
+            "name":"Bombe fumigène",
+            "description":"Vous vous dissimulez derrière un écran de fumée",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":3,
+            "id":67
+        },
+        {
+            "name":"Bola",
+            "description":"Lancez des bolas sur vos adversaires pour les faire chuter",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":5,
+            "id":68
+        },
+        {
+            "name":"Flèche de feu",
+            "description":"Vous maitrisez le tir de flèches enflammées",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":7,
+            "id":69
+        },
+        {
+            "name":"Flèche empoisonnée",
+            "description":"Empoisonnez vos flèches",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":9,
+            "id":70
+        },
+        {
+            "name":"Force flèche",
+            "description":"Vos flèche peuvent transpercer un mur de pierre d'une certaine épaisseur ou le corp d'un ennemis",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":11,
+            "id":71
+        },
+        {
+            "name":"Double flèche",
+            "description":"Tirez deux flèches à la fois",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":17,
+            "id":72
+        },
+        {
+            "name":"Volée de flèches",
+            "description":"Toute la zone est frappée par une pluie de flèches",
+            "class":"RANGER",
+            "type":"Distance",
+            "level":19,
+            "id":73
+        },
+        {
+            "name":"Analyse de l'environnement",
+            "description":"Vous avez accès à certaines informations spécifiques à l'environnement dans lequel vous vous trouvez",
+            "class":"RANGER",
+            "type":"Survie",
+            "level":1,
+            "id":74
+        },
+        {
+            "name":"Hâte",
+            "description":"Faite +1d4 à votre jet d'initiative",
+            "class":"RANGER",
+            "type":"Survie",
+            "level":5,
+            "id":75
+        },
+        {
+            "name":"Sang-froid",
+            "description":"Vous résistez au charme et à la peur",
+            "class":"RANGER",
+            "type":"Survie",
+            "level":9,
+            "id":76
+        },
+        {
+            "name":"Camouflage",
+            "description":"Vous vous fondez dans l'environnement et devenez invisible aux yeux des ennemis jusqu'à ce que vous soyez découvert ou que vous entriez en mouvement",
+            "class":"RANGER",
+            "type":"Survie",
+            "level":13,
+            "id":77
+        },
+        {
+            "name":"Imprenable",
+            "description":"Vous ne pouvez plus être entravé ou agrippé",
+            "class":"RANGER",
+            "type":"Survie",
+            "level":17,
+            "id":78
+        },
+        {
+            "name":"Lien avec un familier",
+            "description":"Vous vous lié d'amitié avec une creature de votre choix",
+            "class":"RANGER",
+            "type":"Familier",
+            "level":1,
+            "id":79
+        },
+        {
+            "name":"Communication avec un familier",
+            "description":"Vous pouvez communiquer avec votre familier par la pensée",
+            "class":"RANGER",
+            "type":"Familier",
+            "level":3,
+            "id":80
+        },
+        {
+            "name":"Appel de familier",
+            "description":"Téléporte votre familier à vos côté",
+            "class":"RANGER",
+            "type":"Familier",
+            "level":7,
+            "id":81
+        },
+        {
+            "name":"Transfert de vie",
+            "description":"Puisez l'energie de votre familier afin de remettre sur pied un membre de votre groupe ou vous-même. Le familier est assomé",
+            "class":"RANGER",
+            "type":"Familier",
+            "level":11,
+            "id":82
+        },
+        {
+            "name":"Flèche de transfert",
+            "description":"Tirez une flèche qui, à tout moment souhaité, peut être remplacé par votre familier",
+            "class":"RANGER",
+            "type":"Familier",
+            "level":15,
+            "id":83
+        },
+        {
+            "name":"Transfert de l'âme",
+            "description":"Prenez instantanément la place de votre familer",
+            "class":"RANGER",
+            "type":"Familier",
+            "level":19,
+            "id":84
+        },
+        {
+            "name":"Provocation",
+            "description":"Force les ennemis à se retourner dans votre direction",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":1,
+            "id":85
+        },
+        {
+            "name":"Force du boucher",
+            "description":"Vous frappez suffisament fort pour arracher ou découper des membres",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":3,
+            "id":86
+        },
+        {
+            "name":"Attaque éclair",
+            "description":"Si vous frappez un ennemi vous avez une chance de frapper un deuxième tout prêt ",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":5,
+            "id":87
+        },
+        {
+            "name":"Bélier",
+            "description":"Foncez sur un groupe d'ennemis et mettez les à terre",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":7,
+            "id":88
+        },
+        {
+            "name":"Retour à l'envoyeur",
+            "description":"Vous pouvez essayer de renvoyer un projectil à celui qui vous l'a lancé",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":9,
+            "id":89
+        },
+        {
+            "name":"Bon du guerrier",
+            "description":"Sautez jusqu'à un ennemi pour lui tomber dessus",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":11,
+            "id":90
+        },
+        {
+            "name":"Piétinement guerrier",
+            "description":"Frappez le sol avec votre arme afin de renverser les ennemis autour de vous",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":13,
+            "id":91
+        },
+        {
+            "name":"Force du guerrier",
+            "description":"Vous pouvez soulever des objets de trois à quatre fois votre poids",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":15,
+            "id":92
+        },
+        {
+            "name":"Ange gardien",
+            "description":"Vous pouvez prendre les dégats à la place d'un autre",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":17,
+            "id":93
+        },
+        {
+            "name":"Enragement guerrier",
+            "description":"Tout vos coups sont des coups critiques pendant plusieures minutes, mais vous serez épuisé après ça",
+            "class":"WARRIOR",
+            "type":"Champion",
+            "level":19,
+            "id":94
         }
     ]
 }
