@@ -12,6 +12,7 @@ export const CharacterClassEnum = {
     ROGUE : 'ROGUE' ,
     SORCERER : 'SORCERER' ,
     WARLOCK : 'WARLOCK' ,
+    WARRIOR : 'WARRIOR' ,
     WIZARD : 'WIZARD' 
 
 }

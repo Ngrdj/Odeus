@@ -128,6 +128,10 @@ export class Character{
 
               break;
 
+          case 'WARRIOR' : 
+
+              break;
+
           case 'WIZARD' : 
 
               break;
@@ -159,15 +163,17 @@ export class Character{
 
            break;
            
-       case 'CHANGELING' : 
+       case 'CHANGELING' :
 
            break;
 
-       case 'DRAGONBORN' : 
+       case 'DRAGONBORN' : this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="strength")].value+=2;
+                           this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="charisma")].value+=1;
 
            break;
 
-       case 'DWARF' : 
+       case 'DWARF' : this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="constitution")].value+=2;
+                      this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="strength")].value+=2;
 
            break;
 
@@ -216,7 +222,8 @@ export class Character{
 
            break;
 
-       case 'HALFLING' : 
+       case 'HALFLING' : this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="dexterity")].value+=2;
+                         this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="constitution")].value+=1;
 
            break;
 
@@ -272,7 +279,8 @@ export class Character{
 
            break;
 
-       case 'TIEFLING' : 
+       case 'TIEFLING' : this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="charisma")].value+=2;
+                         this.characteristics[this.characteristics.findIndex(characteristic=>characteristic.name="intelligence")].value+=1;
 
            break;
 
