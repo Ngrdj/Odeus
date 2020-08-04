@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
-import { PlayersTeamService } from 'src/app/services/players-team.service';
 
 
 @Component({
@@ -14,11 +13,10 @@ export class FightTrackerComponent implements OnInit {
 
   private visible:boolean = true;
 
-    constructor(private playersTeamService : PlayersTeamService) {}
+    constructor() {}
 
   ngOnInit(): void {
 
-    this.playersTeamService.getPlayersList().forEach(player => this.fighterList.push(player));
     
   }
 
