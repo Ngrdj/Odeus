@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fight Tracker</title>
+    <meta charset="UTF-8">
+    
+    <link href="fightTracker/css/fightTracker.css" rel="Stylesheet" type="text/css"/>
+    <link href="fightTracker/css/characterSheet.css" rel="Stylesheet" type="text/css"/>
+    <link href="fightTracker/css/pnjSheet.css" rel="Stylesheet" type="text/css"/>
+    <link href="fightTracker/css/style.css" rel="Stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/afc5fa88b5.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+        <div id='search'>
+        
+            <input id='searchInput' type='text'>
+            <a id='searchButton' href="https://www.aidedd.org/search/?q=" target="_blank"><i class="fas fa-search"></i></a>
+        
+        </div>
+        
+        <div id='background'>
+            <label>Fond d'écran :</label>
+            <select id="backgroundSelectType">
+                <option value="select" selected>Sélection</option>
+                <option value="url">URL</option>
+                <option value="browse">Parcourir</option> 
+            </select>
+            
+            <input id="backgroundUrlInput" type="text" placeholder="Background url" class="hidden">
+            
+            <input id="backgroundFileInput" type="file" placeholder="Sélectionnez un fichier" accept="image/*" class="hidden">
+            
+            <select id="backgroundSelect">
+                
+                <option value ="tavern">Taverne</option>
+                <option value ="castle">Chateau</option>
+                <option value ="forest">Forêt</option>
+                <option value ="autel">Autel</option>
+                <option value ="sewer">Égouts</option>
+                <option value ="graveyard">Cimetierre</option>
+                <option value ="swamp">Marécage</option>
+                <option value ="canyon">Canyon</option>
+                <option value ="mountain">Montagne</option>
+                <option value ="desert">Désert</option>
+                <option value ="city">Ville</option>
+                <option value ="village">Village</option>
+                <option value ="harbor">Port</option>
+                <option value ="coast">Côte</option>
+                <option value ="river">Rivière</option>
+                <option value ="cavern">Caverne</option>
+                <option value ="temple">Temple</option>
+                <option value ="abyss">Abysse</option>
+                <option value ="infernal">Infernale</option>
+                <option value ="celest">Celeste</option>
+                
+
+            </select>
+
+            <button id="backgroundValidButton">Valider</button>
+            
+        </div>
+        <div id='timer'>
+            <label>Timer :</label>
+            <input id="timerInput" type="number" name="timer">
+            <button id="timerButton">Décompte</button>
+            <span id="timerOutput"></span>
+        </div>
+        <div id='generators'>
+        
+            <button class="showButton" value="randomPnj" >Générateur de personnage</button>
+            <button class="showButton" value="randomStories">Générateur de scénario</button>
+        
+        </div>
+        <div id='music'>
+            <label for="soundSelect">Fond sonore :</label>
+            <select id="choixMusic" type="text" name="soundSelect">
+                <option value="intro">Intro</option>
+                <option value="fight">Combat</option>
+                <option value="fight2">CombatII</option>
+                <option value="fight3">CombatIII</option>
+                <option value="tavern">Taverne</option>
+                <option value="market">Marché</option>
+                <option value="market2">MarcheII</option>
+                <option value="beastBreath">La bête</option>
+                <option value="blackCastle">Sombre chateau</option>
+                <option value="campFire">Feu de camp</option>
+                <option value="cemetery">Cimetière</option>
+                <option value="commercialPort">Port</option>
+                <option value="desert">Désert</option>
+                <option value="forest">Forêt</option>
+                <option value="forestNight">Forêt de nuit</option>
+                <option value="greatHall">Dîner royale</option>
+                <option value="jungle">Jungle</option>
+                <option value="magicLibrary">Bibliothèque magique</option>
+                <option value="mountain">Montagne</option>
+                <option value="ruin">Ruines</option>
+                <option value="sewer">Égouts</option>
+                <option value="swamp">Marais</option>
+            </select>
+            <audio id="musicBar" loop >
+                <source src="fightTracker/sounds/music/intro.mp3" id="sourceMusic" type="audio/mp3">
+            </audio>
+            
+            <button id="stopMusic"><i class="fas fa-stop"></i></button>
+            <button id="playMusic"><i class="fas fa-play"></i></button>
+            
+            <input type="range" min="0" max="100" value="50" step="10" id="volumeControl">
+        </div>
+        
+    </header>
+      
+    <main>
+        
+        <aside id="aside-left">
+            
+            <div id="leftPanel" class="hidden">
+                
+                <div id='pnjSheet'>
+                    
+                    <input type='file' accept='.xml'>
+                    
+                    <button class='showHideButton' value="pnjList">Liste des PNJ</button>
+                    <div id="pnjList"  class='hidden'>
+                        <ul>
+                            
+                            <li>elem1 <button class="supprimer">X</button></li>
+                            <li>elem1</li>
+                        
+                        </ul>
+                    </div>
+                    
+                    <output id="pnjNameOutput">NOM</output>
+                    
+                    <div id="portraitPnj"></div>
+
+                    <div id="pnjTypeClassItem">
+                        
+                        <output id="pnjTypeOutput">Type</output>
+                        <span>-</span>
+                        <output id="pnjClassOutput">Classe</output>
+                        
+                    </div>
+                    
+                    <div id="pnjCaract" class="pnjSheetItem">
+                        <div class = "caractLeft">
+
+                            <div>
+                                <label for="force">FORCE</label>
+                                <input id="forcePnj" name="force" value ="+3" readonly>
+                            </div>
+
+                            <div>
+                                <label for="dexterite">DEXTÉRITÉ</label>
+                                <input id="dexteritePnj" name="dexterite" value ="+3" readonly>
+                            </div>
+
+                            <div>
+                                <label for="constitution">CONSTITUTION</label>
+                                <input id="constitutionPnj" name="constitution" value ="+3" readonly>
+                            </div>
+
+                            </div>
+                        <div class = "caractRight">
+
+                            <div>
+                                <label for="intelligence">INTELLIGENCE</label>
+                                <input id="intelligencePnj" name="intelligence" value ="+3" readonly>
+                            </div>
+                            <div>
+                                <label for="sagesse">SAGESSE</label>
+                                <input id="sagessePnj" name="sagesse" value ="+3" readonly>
+                                </div>
+                                <div>
+                                <label for="charisme">CHARISME</label>
+                                <input id="charismePnj" name="charisme" value ="+3" readonly>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    <p id="pnjDetails">Description</p>
+                    <textarea id="pnjComment" placeholder="Commentaires"></textarea>
+                    
+                </div>
+                
+            </div>
+            <button id="pnjSheetButton" value='leftPanel' class='showHideButton'>PNJ</button>
+            
+        </aside>
+        
+        <div id='fightTracker' class = fight-tracker>
+            
+            <button class='showHideButton' value="ftContent">v v v</button>
+            
+            <div id='ftContent' class='hidden'>
+            
+                <div class="header">
+                <div>
+
+                    <button id="roundButton"><i class="fas fa-forward"></i></button>
+                    <input id="roundInput" type="number" name="round" size="5" value='0' min="0">
+
+                </div>	
+                <div>
+                  <button id="init"><i class="fas fa-running"></i></button>
+                  <button id="trier"><i class="fas fa-sort-amount-down"></i></button>
+                </div>
+                <div>
+                    <select name="des" id='des'>
+                        <option value="d4">d4</option>
+                        <option value="d6">d6</option>
+                        <option value="d8">d8</option>
+                        <option value="d10">d10</option>
+                        <option value="d12">d12</option>
+                        <option value="d20">d20</option>
+                        <option value="d100">d100</option>
+                    </select>
+                    <button id="lancer"><i class="fas fa-dice"></i></button>
+                    <input type="number" id="resultat" size="5" readonly>
+                </div>
+            </div>
+            
+                <button id="ajouter">Ajouter Personnage</button>
+                
+                <datalist id="nameList">
+                    
+                    <option value="Namas">
+                    <option value="Esus">
+                    <option value="Grudu">
+                    <option value="Lyre">
+                    <option value="Kyra">
+                        
+                </datalist>
+                
+                <!--"div perso" de référence clone-->
+                
+                <div class="Perso hidden">
+
+                    <div class ="persoMain">
+                        
+                        <input list="nameList" class="charName" type="text" placeholder="Nom de personnage">
+                        <div>
+                            <label ><i class="fas fa-running"></i></label>
+                            <input class="initPerso" type='number' value="0">
+                        </div>
+                        <div>
+                            <label><img width="20px" height="20px" alt="Attaque" class='icon' src="fightTracker/img/icons/sword.png"></label>
+                            <input type='number'>
+                        </div>
+                        <div>
+                            <label><i class="fas fa-shield-alt"></i></label>
+                            <input type='number'>
+                        </div>
+                      <select name='etats'>
+
+                          <option value="0">--</option>
+                          <option value="1">À terre</option>
+                          <option value="2">Agrippé</option>
+                          <option value="3">Assourdi</option>
+                          <option value="4">Aveuglé</option>
+                          <option value="5">Charmé</option>
+                          <option value="6">Effrayé</option>
+                          <option value="7">Empoisonné</option>
+                          <option value="8">Entravé</option>
+                          <option value="9">Étourdi</option>
+                          <option value="10">Incapable d'agir</option>
+                          <option value="11">Inconscient</option>
+                          <option value="12">Invisible</option>
+                          <option value="13">Paralysé</option>
+                          <option value="14">Pétrifié</option>
+
+                      </select>
+
+                      <button class="supprimer"><i class="fas fa-times"></i></button>
+                    </div>
+                    
+                    <button class = "showHidePlus" value = "persoPlus">v v v</button>
+                    
+                    <div class = "persoPlus hidden" >
+
+                        <div>
+
+                            <button class="bonusButton"><i class="fas fa-plus"></i></button>
+                            <div class = "bonusItem hidden">
+
+                                <button class="removeItem">X</button>
+                                <input class ="bonusSource" placeholder="Source">
+                                <select class ="bonusTarget">
+                                
+                                    <option hidden selected>-Cible-</option>
+                                    <optgroup label='Caract'>
+                                        
+                                        <option>FOR</option>
+                                        <option>DEX</option>
+                                        <option>CON</option>
+                                        <option>INT</option>
+                                        <option>SAG</option>
+                                        <option>CHA</option>
+                                        
+                                    </optgroup>
+                                    
+                                    <optgroup label='Comp'>
+                                        
+                                        <option>ACC</option>
+                                        <option>ARC</option>
+                                        <option>ATH</option>
+                                        <option>DIS</option>
+                                        <option>DRE</option>
+                                        <option>ESC</option>
+                                        <option>HIS</option>
+                                        <option>INT</option>
+                                        <option>INV</option>
+                                        <option>MED</option>
+                                        <option>NAT</option>
+                                        <option>PERCE</option>
+                                        <option>PERSP</option>
+                                        <option>PERSU</option>
+                                        <option>REL</option>
+                                        <option>REP</option>
+                                        <option>SUR</option>
+                                        <option>TRO</option>
+                                    
+                                    </optgroup>
+                                
+                                </select>
+                                <input class ="bonusValue" type="number" placeholder="VAL" min = '0'>
+
+                            </div>
+
+                        </div>
+                        <div>
+
+                            <button class="malusButton"><i class="fas fa-plus"></i></button>
+                            <div class = "malusItem hidden">
+
+                                <button class="removeItem">X</button>
+                                <input class ="malusSource" placeholder="Source">
+                                 <select class="malusTarget">
+                                     
+                                    <option hidden selected>-Cible-</option>
+                                    <optgroup label='Caract'>
+                                        
+                                        <option>FOR</option>
+                                        <option>DEX</option>
+                                        <option>CON</option>
+                                        <option>INT</option>
+                                        <option>SAG</option>
+                                        <option>CHA</option>
+                                        
+                                    </optgroup>
+                                    
+                                    <optgroup label='Comp'>
+                                        
+                                        <option>ACC</option>
+                                        <option>ARC</option>
+                                        <option>ATH</option>
+                                        <option>DIS</option>
+                                        <option>DRE</option>
+                                        <option>ESC</option>
+                                        <option>HIS</option>
+                                        <option>INT</option>
+                                        <option>INV</option>
+                                        <option>MED</option>
+                                        <option>NAT</option>
+                                        <option>PERCE</option>
+                                        <option>PERSP</option>
+                                        <option>PERSU</option>
+                                        <option>REL</option>
+                                        <option>REP</option>
+                                        <option>SUR</option>
+                                        <option>TRO</option>
+                                    
+                                    </optgroup>
+                                
+                                </select>
+                                <input class="malusValue" type="number" placeholder="VAL" max = '0'>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--..........................-->
+
+                <div id="persoList">
+                    <!--.............Liste de personnages.............-->
+                </div>
+            
+            </div>
+            
+        </div>
+        
+        <aside id="aside-right">
+            
+            <button id="charSheetButton" value='rightPanel' class='showHideButton'>Character Sheet</button>
+            
+            <div id="rightPanel" class="hidden">
+            
+                <div id='charSheet'>
+
+                    <select id="charSelect" class="charSheetItem">
+                        
+                        <option value="" selected hidden >Choisir un joueur</option>
+                        <option value="namas" >Namas</option>
+                        <option value="esus" >Esus</option>
+                        <option value="kyra" >Kyra</option>
+                        <option value="grudu" >Grudu</option>
+                        <option value="lyre" >Lyre</option>
+                        
+                    </select>
+ 
+                    <div id="charGeneral" class = "charSheetItem">
+                        
+                        <output id="charClassOutput"></output>
+                        
+                        <div id="charCaract">
+
+                                <div>
+                                    <label for="force">FORCE</label>
+                                    <input id="force" name="force" value ="+3" readonly>
+                                </div>
+
+                                <div>
+                                    <label for="dexterite">DEXTÉRITÉ</label>
+                                    <input id="dexterite" name="dexterite" value ="+3" readonly>
+                                </div>
+
+                                <div>
+                                    <label for="constitution">CONSTITUTION</label>
+                                    <input id="constitution" name="constitution" value ="+3" readonly>
+                                </div>
+
+                                <div>
+                                    <label for="intelligence">INTELLIGENCE</label>
+                                    <input id="intelligence" name="intelligence" value ="+3" readonly>
+                                </div>
+                                <div>
+                                    <label for="sagesse">SAGESSE</label>
+                                    <input id="sagesse" name="sagesse" value ="+3" readonly>
+                                    </div>
+                                    <div>
+                                    <label for="charisme">CHARISME</label>
+                                    <input id="charisme" name="charisme" value ="+3" readonly>
+                                    </div>
+
+                                </div>
+                        
+                        <div id="portraitChar"></div>
+                        
+                    </div>
+                           
+                    <div id="charSorts" class="charSheetItem">
+                        
+                        <button class="showHideButton" value ="sortsListContainer">Liste de sorts</button>
+                        <div id ="sortsListContainer" class ="hidden">
+                        
+                            <ul id="sortsList">
+                                
+                                <li class='sortItem'>
+                                    <label class='sortName'></label><output class='sortValue'></output>
+                                </li>
+                            
+                            </ul>
+                        
+                        </div>
+
+                        <div>
+                            <div class="charSortsItem">
+
+                                <label for="DDSav" >DD de sauvegarde des sorts</label>
+                                <input id="DDSav" name="DDSav" readonly value ="5">
+
+                            </div>
+                            <div class="charSortsItem">
+
+                                <label for="bonusAtt" >Bonus d'attaque</label>
+                                <input id="bonusAtt" name="bonusAtt" readonly value ="5">
+
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div id="charWeapons" class="charSheetItem">
+                        <button class="showHideButton" value ="armesTab">Tableau des armes</button>
+                        <table id="armesTab" class="tableau hidden">
+
+                            <thead>
+                                <tr>
+                                    <th>Armes</th>
+                                    <th>Bonus jet Attaque</th>
+                                    <th>Dégats</th>
+                                </tr>
+                            </thead>
+                            <tbody id="armesTBody">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="charCompet" class="charSheetItem">
+                        <button class = "showHideButton" value = "compTab">Tableau des compétences</button>
+                        <table id="compTab" class="tableau hidden">
+                            <thead>
+
+                                <tr>
+                                    <th>Comp</th>
+                                    <th>Bonus</th>
+                                    <th>Type</th>
+                                </tr>
+
+                            </thead> 
+
+                            <tbody>
+                                <tr>
+                                    <td>Acrobaties</td>
+                                    <td><input id="acrobaties" readonly></td>
+                                    <td>Dex<td>
+                                </tr>
+                                <tr>
+                                    <td>Arcanes</td>
+                                    <td><input id="arcanes" readonly></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Athlétisme</td>
+                                    <td><input id="athlethisme" readonly></td>
+                                    <td>For<td>
+                                </tr>
+                                <tr>
+                                    <td>Discrétion</td>
+                                    <td><input id="discretion" readonly></td>
+                                    <td>Dex<td>
+                                </tr>
+                                <tr>
+                                    <td>Dressage</td>
+                                    <td><input id="dressage" readonly></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Escamotage</td>
+                                    <td><input id="escamotage" readonly></td>
+                                    <td>Dex<td>
+                                </tr>
+                                <tr>
+                                    <td>Histoire</td>
+                                    <td><input id="histoire" readonly></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Intimidation  </td>
+                                    <td><input id="intimidation" readonly></td>
+                                    <td>Cha<td>
+                                </tr>
+                                <tr>
+                                    <td>Investigation</td>
+                                    <td><input id="investigation" readonly></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Médecine</td>
+                                    <td><input id="medecine" readonly></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Nature</td>
+                                    <td><input id="nature" readonly></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Perception</td>
+                                    <td><input id="perception" readonly></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Perspicacité</td>
+                                    <td> <input id="perspicacite" readonly></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Persuasion</td>
+                                    <td><input id="persuasion" readonly></td>
+                                    <td>Cha<td>
+                                </tr>
+                                <tr>
+                                    <td>Religion</td>
+                                    <td><input id="religion" readonly></td>
+                                    <td>Int<td>
+                                </tr>
+                                <tr>
+                                    <td>Représentation</td>
+                                    <td><input id="representation" readonly></td>
+                                    <td>Cha<td>
+                                </tr>
+                                <tr>
+                                    <td>Survie</td>
+                                    <td><input id="survie" readonly></td>
+                                    <td>Sag<td>
+                                </tr>
+                                <tr>
+                                    <td>Tromperie</td>
+                                    <td><input id="tromperie" readonly></td>
+                                    <td>Cha<td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <div id="charObjects" class="charSheetItem">
+                    <label for="objCle" >Objets clés</label>
+                    <select name="objCle" readonly>
+                        <option selected hidden >&hellip;</option>
+                        <option value="1" >Objet 1</option>
+                        <option value="2" >Objet 2</option>
+                        <option value="3" >Objet 3</option>
+                    </select>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+    </aside>
+        
+    </main>
+    
+    <footer>
+        <div>
+        
+            <textarea id='comment' class='hidden'></textarea>
+            
+            <div id='soundBar' class="soundBar hidden" >
+                
+                <div class="iconBackground">
+                    <span class="soundIcon" id="swordIcon" data-name='sword'></span>
+                </div>
+                <div class="iconBackground">
+                    <span class="soundIcon" id="bowIcon" data-name='bow'></span>
+                </div>
+                <div class="iconBackground">
+                    <span class="soundIcon" id="axeIcon" data-name='axe'></span>
+                </div>
+               <div class="iconBackground">
+                    <span class="soundIcon" id="waterIcon" data-name='water'></span>
+                </div>
+                <div class="iconBackground">
+                    <span class="soundIcon" id="earthIcon" data-name='earth'></span>
+                </div>
+                <div class="iconBackground">
+                    <span class="soundIcon" id="fireIcon" data-name='fire'></span>
+                </div>
+                <div class="iconBackground">
+                    <span class="soundIcon" id="windIcon" data-name='wind'></span>
+                </div>
+
+            </div>
+            
+            <div id ='mapBox' class='hidden'>
+                <div class="filterFreeze"></div>
+                <div id ='maps'>
+                
+                    <img id='worldMap' class='map' src='fightTracker/img/maps/Monde.jpg'>
+                
+                </div>
+                <button value='map' class ="hideButton">X</button>
+            </div>
+            
+        </div>
+        
+        <div id="soundButtons">
+            
+            <button class='footerButton showHideButton' value ='soundBar'><i class="fas fa-music"></i></button>
+            <button class='footerButton showHideButton' value ='timer'><i class="far fa-hourglass"></i></button>
+            <button class='footerButton showHideButton' value ='comment'><i class="fas fa-feather-alt"></i></button>
+            <button class='footerButton showButton' value='sortsTab' id="sortsTabButton" ><i class="fas fa-hand-sparkles"></i></button>
+            <button class='footerButton showButton' value='mapBox' id="mapButton" ><i class="fas fa-map"></i></button>
+            
+        </div>
+         
+         
+    </footer>
+      
+    <!--iframes -->
+    <div id="sortsTab" class="hidden">
+            <div class="filterFreeze"></div>
+            <iframe id="sortsFrame" src="fightTracker/sorts.html"></iframe>
+            <button value='sortsTab' class ="hideButton">X</button>
+    </div>
+    <div id="randomPnj" class="hidden">
+            <div class="filterFreeze"></div>
+            <iframe id="pnjFrame" src="randomPnj/randomPnj.html"></iframe>
+            <button value='randomPnj' class ="hideButton">X</button>
+    </div>
+    <div id="randomStories" class="hidden">
+            <div class="filterFreeze"></div>
+            <iframe id="storiesFrame" src="randomStories/randomStories.html"></iframe>
+            <button value='randomStories' class ="hideButton">X</button>
+    </div>
+      
+    <!--scripts -->
+    <script src="fightTracker/script/armes.js"></script>
+    <script src="fightTracker/script/persos.js"></script>
+    <script src="fightTracker/script/pnj.js"></script>
+    <script type="text/javascript" src="fightTracker/script/characterSheet.js"></script>
+    <script type="text/javascript" src="fightTracker/script/pnjSheet.js"></script>
+    <script type="text/javascript" src="fightTracker/script/script.js"></script>
+  </body>
+ </html>
