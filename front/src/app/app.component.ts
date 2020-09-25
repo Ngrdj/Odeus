@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'odeus';
+  
+  displaySide:boolean;
+
+
+  showHideSide(){
+
+    this.displaySide = !this.displaySide
+    console.log(this.displaySide)
+
+  }
+
 }
