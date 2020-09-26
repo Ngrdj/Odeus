@@ -1,7 +1,9 @@
-<div class="container" [ngClass]="displaySide?'hide':'deploy'">
+<div class="container" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
   <options-bar class="header"></options-bar>
+  <button (click)="showHideHeader()" class="headerButton">Show/Hide header</button>
   <fight-tracker class="main"></fight-tracker>
+  <button (click)="showHideSide()" class="sideButton">Show/Hide side</button>
   <team-manager  (showHideClick)="showHideSide()"></team-manager>
     
 
