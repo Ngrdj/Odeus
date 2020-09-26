@@ -1,9 +1,12 @@
-$header-height:50px;
-$header-button-height:15px;
+$header-height:70px;
+$header-button-height:30px;
+$side-button-width:30px;
 
 :root{
     --headerAnimation:hideHeader;
     --sideAnimation:hideSide;
+    --headerAnimationDuration:1s;
+    --sideAnimationDuration:1s;
 }
 
 
@@ -16,14 +19,15 @@ $header-button-height:15px;
 .container{
 
     display: grid;
-    grid-template-columns: auto 20px 30%;
+    grid-template-columns: auto $side-button-width 30%;
     grid-template-areas:
         "header header header"
         "headerButton headerButton headerButton"
         "main sideButton side";
     grid-template-rows: $header-height $header-button-height auto;
     height: 100%;
-    animation-name: var(--headerAnimation),var(--sideAnimation);
+    animation: var(--headerAnimation) var(--headerAnimationDuration),var(--sideAnimation) var(--sideAnimationDuration);
+    animation-fill-mode: forwards;
 
 }
 .header{
@@ -35,6 +39,7 @@ $header-button-height:15px;
 
     grid-area: headerButton;
     font-size: $header-button-height/2;
+    border: none;
 
 }
 .main{
@@ -51,35 +56,35 @@ $header-button-height:15px;
 
     grid-area: sideButton;
     writing-mode: sideways-lr;
+    border: none;
 
 }
 
 .deploySide{
 
     --sideAnimation:deploySide;
-    animation-fill-mode: forwards;
-    animation-duration: 1s;
+    --sideAnimationDuration:0.8s;
+
 
 }
 .hideSide{
 
     --sideAnimation:hideSide;
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
+    --sideAnimationDuration:0.5s;
 
 }
 .deployHeader{
 
     --headerAnimation:deployHeader;
-    animation-fill-mode: forwards;
-    animation-duration: 1s;
+    --headerAnimationDuration:0.5s;
+
 
 }
 .hideHeader{
 
     --headerAnimation:hideHeader;
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
+    --headerAnimationDuration:0.2s;
+
 
 }
 @keyframes deployHeader {
@@ -112,21 +117,21 @@ $header-button-height:15px;
 
 @keyframes deploySide {
     from {
-        grid-template-columns: auto 20px 0%;
+        grid-template-columns: auto $side-button-width 0%;
     }
   
     to {
-        grid-template-columns: auto 20px 30%;
+        grid-template-columns: auto $side-button-width 30%;
     }
 }
 
 @keyframes hideSide {
     from {
-        grid-template-columns: auto 20px 30%;
+        grid-template-columns: auto $side-button-width 30%;
     }
   
     to {
-        grid-template-columns: auto 20px 0%;
+        grid-template-columns: auto $side-button-width 0%;
 
     }
 }
