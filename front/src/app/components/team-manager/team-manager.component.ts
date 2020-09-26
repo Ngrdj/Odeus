@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Team } from 'src/app/models/interfaces/team';
 
 @Component({
   selector: 'team-manager',
@@ -7,16 +8,19 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class TeamManagerComponent implements OnInit {
 
-  @Output() showHideClick:EventEmitter<any> = new EventEmitter()
+
+  teams:Team[] = [{members:[{name:"Namas"},{name:"Lyre"},{name:"Kyra"}],name:"embuscade"},{members:[],name:"embuscade"},{members:[],name:"embuscade"},{members:[],name:"embuscade"}];
+  selectedTag:number=0;
+  selectedTeam:Team;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onShowHideClick(){
+  onSelectTeam(teamIndex){
 
-    this.showHideClick.emit()
+    this.selectedTeam = this.teams[teamIndex]
 
   }
 

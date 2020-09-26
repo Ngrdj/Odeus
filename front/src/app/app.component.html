@@ -1,10 +1,15 @@
-<div class="container" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
+<div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
-  <options-bar class="header"></options-bar>
+  <options-bar [ngClass]="{hidden:!displayHeader}" class="header"></options-bar>
   <button (click)="showHideHeader()" class="headerButton">Show/Hide header</button>
+
   <fight-tracker class="main"></fight-tracker>
-  <button (click)="showHideSide()" class="sideButton">Show/Hide side</button>
-  <team-manager  (showHideClick)="showHideSide()"></team-manager>
+
+  <button (click)="showHideSide()" class="sideButton">TEAMS</button>
+  <team-manager [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
     
 
+  <settings-panel class="panel" cdkDragBoundary=".boundary" cdkDrag></settings-panel>
+
 </div>
+

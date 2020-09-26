@@ -1,6 +1,6 @@
 :host{
 
-    background-color: orange;
+    background-color:var(--panelsColor);
     display: flex;
     width: 100%;
     height: auto;
@@ -11,9 +11,82 @@
 }
 .teamPanel{
 
-    background: aquamarine;
+    
     width: 80%;
     min-height: 90%;
-    border-radius: 10px;
+    
+
+}.container{
+
+    background: var(--panelsColor);
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 10px 10px 10px;
+    padding: 5px;
+}
+.tagContainer{
+
+    display: grid;
+    gap:2px;
+
+}
+.tag{
+
+    background: var(--panelsColor);
+    height: 30px;
+    min-width: 60px;
+    border: 0px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    padding: 2px;
+    grid-row: 1;
+
+}
+.tagLabel{
+
+    color: white;
+    background: none;
+    border: none;
+    text-align: center;
+    outline: none;
+
+
+}
+.tagButton{
+
+    min-height: 16px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.selectIcon{
+    color: grey;
+    width: 80%;
+    border: solid thin;
+    height: 0px;
+}
+.teamSelected{
+
+    height: 3px;
+    color: white;
+
+}
+.characterContainer{
+
+    padding: 10px;
+    background: white;
+    margin: 5px;
 
 }

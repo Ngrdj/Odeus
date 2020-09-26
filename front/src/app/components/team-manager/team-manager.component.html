@@ -1,5 +1,25 @@
 <div class="teamPanel">
+    <div class ="tagContainer">
+        <label class="tag">
+            <input class='tagLabel' #tagName value="HEROES" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length" readonly><br>
+            <button class="tagButton" (click)="selectedTag = 0"><div [ngClass]="{teamSelected:selectedTag === 0}" class="selectIcon"></div></button>
+        </label>
+        <label *ngFor="let team of teams;let i = index" class="tag">
+            <input class='tagLabel' #tagName [value]="team.name" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length"><br>
+            <button class="tagButton" (click)="selectedTag = i+1;onSelectTeam(i)"><div [ngClass]="{teamSelected:selectedTag === i+1}" class="selectIcon"></div></button>
+        </label>
+        <label class="tag">
+            <button class="tagButton">+</button>
+        </label>
+    </div>
+    <div class="container">
 
+        <div class="characterContainer" *ngFor="let character of selectedTeam?.members">
 
+            <label>{{character.name}}</label>
 
+        </div>
+        
+
+    </div>
 </div>

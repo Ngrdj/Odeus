@@ -7,19 +7,59 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  displaySide:boolean;
-  displayHeader:boolean;
+  displaySide:boolean = true;
+  displayHeader:boolean = true;
+
 
   showHideSide(){
+    if(this.displaySide){
+
+      this.onHideSide()
+
+    }else{
+
+      this.onShowSide()
+
+    }
 
     this.displaySide = !this.displaySide
-    console.log(this.displaySide)
+
 
   }
   showHideHeader(){
+    if(this.displayHeader){
+
+      this.onHideHeader()
+
+    }else{
+
+      this.onShowHeader()
+
+    }
 
     this.displayHeader = !this.displayHeader
-    console.log(this.displayHeader)
+  
+
+  }
+
+  private onHideSide(){
+    
+    console.log("hiding side")
+
+  }
+  private onShowSide(){
+
+    console.log("showing side")
+
+  }
+  private onHideHeader(){
+
+    console.log("hiding header")
+
+  }
+  private onShowHeader(){
+
+    console.log("showing header")
 
   }
 
