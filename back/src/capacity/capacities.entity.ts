@@ -16,7 +16,7 @@ export class CapacitiesEntity {
 
     @JoinColumn()
     @ManyToOne(type=>ClassEntity,
-        (charactclass)=>charactclass.characters)
+        (charactclass)=>charactclass.capacity)
     class:ClassEntity;
 
     @Column()
@@ -27,7 +27,7 @@ export class CapacitiesEntity {
 
     @JoinTable()
     @OneToMany(type=>CharacterEntity,
-        (capacity)=>capacity.capacities)
+        (character)=>character.capacities)
     characters:CharacterEntity[];
 
 

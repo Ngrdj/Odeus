@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CharacterEntity } from './character.entity';
 import { CharacterService } from './character.service';
 import { CharacterDto } from './DTOs/character-dto';
@@ -19,7 +19,7 @@ export class CharacterController {
     }
 
     @Post()
-    async postCharacter(@Body()newCharacter:CharacterDto):Promise<CharacterEntity>{
+    async postCharacter(@Body()newCharacter:CharacterDto){
         return await this.characterService.createCharacter(newCharacter);
     }
 

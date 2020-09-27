@@ -1,6 +1,6 @@
 import { CharacteristicsDto } from 'src/characteristic/characteristics-dto';
-import{Class}from 'src/class/class.enum'
-import{Race}from 'src/race/race.enum'
+import{Class}from 'src/class/DTOs/class.enum'
+import{Race}from 'src/race/DTOs/race.enum'
 import { SkillDto } from 'src/skill/skill-dto';
 import { UserDto } from 'src/user/DTOs/user-dto';
 import { Behavior } from './behavior.enum';

@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CharacterEntity } from './character.entity';
+import { CharacterDto } from './DTOs/character-dto';
 
 
 @Injectable()
@@ -39,5 +40,8 @@ export class CharacterService {
             this.characterRepository.softRemove(Character)
 
         }
+    }
+    async createCharacter(character:CharacterDto){
+        return await character
     }
 }
