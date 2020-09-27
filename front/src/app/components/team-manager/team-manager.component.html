@@ -1,22 +1,35 @@
 <div class="teamPanel">
-    <div class ="tagContainer">
-        <label class="tag">
-            <input class='tagLabel' #tagName value="HEROES" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length" readonly><br>
-            <button class="tagButton" (click)="selectedTag = 0"><div [ngClass]="{teamSelected:selectedTag === 0}" class="selectIcon"></div></button>
-        </label>
-        <label *ngFor="let team of teams;let i = index" class="tag">
-            <input class='tagLabel' #tagName [value]="team.name" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length"><br>
-            <button class="tagButton" (click)="selectedTag = i+1;onSelectTeam(i)"><div [ngClass]="{teamSelected:selectedTag === i+1}" class="selectIcon"></div></button>
-        </label>
-        <label class="tag">
-            <button class="tagButton">+</button>
+    <div class ="panelHeader">
+        <div class ="tagContainer">
+
+            <label class="tag">
+                <input class='tagLabel' #tagName value="HEROES" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length" readonly><br>
+                <button class="tagButton" (click)="selectedTag = 0; onSelectHeroes()"><div class="tagIconSelection" [ngClass]="{teamSelected:selectedTag === 0}" ></div></button>
+            </label>
+            <label *ngFor="let team of teams;let i = index" class="tag">
+                <input class='tagLabel' #tagName [value]="team.name" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length"><br>
+                <button class="tagButton" (click)="selectedTag = i+1; onSelectTeam(i)"><div class="tagIconSelection" [ngClass]="{teamSelected:selectedTag === i+1}"></div></button>
+            </label>
+
+        </div>      
+        <label class="tag addTag">
+            <button class="tagButton addTagButton">+</button>
         </label>
     </div>
+   
     <div class="container">
+        <div class="containerHeader">
 
+            <h2>{{selectedTeam?.name}}</h2>
+
+        </div>
         <div class="characterContainer" *ngFor="let character of selectedTeam?.members">
 
             <label>{{character.name}}</label>
+
+        </div>
+        <div class="containerFooter">
+
 
         </div>
         

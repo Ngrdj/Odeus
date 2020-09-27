@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Team } from 'src/app/models/interfaces/team';
+import { CharactersService } from 'src/app/services/characters.service';
 
 @Component({
   selector: 'team-manager',
@@ -9,18 +10,29 @@ import { Team } from 'src/app/models/interfaces/team';
 export class TeamManagerComponent implements OnInit {
 
 
-  teams:Team[] = [{members:[{name:"Namas"},{name:"Lyre"},{name:"Kyra"}],name:"embuscade"},{members:[],name:"embuscade"},{members:[],name:"embuscade"},{members:[],name:"embuscade"}];
+  heroes:Team
+  teams:Team[];
   selectedTag:number=0;
   selectedTeam:Team;
 
-  constructor() { }
+  constructor(private charactersService:CharactersService) { }
 
   ngOnInit(): void {
+
+    this.teams = this.charactersService.getTeams()
+    this.heroes = this.charactersService.getHeroes()
+    this.selectedTeam = this.heroes
+
   }
 
   onSelectTeam(teamIndex){
 
     this.selectedTeam = this.teams[teamIndex]
+
+  }
+  onSelectHeroes(){
+
+    this.selectedTeam = this.heroes
 
   }
 

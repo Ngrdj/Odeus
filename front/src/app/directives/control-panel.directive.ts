@@ -1,16 +1,16 @@
-import { Directive, ElementRef, ɵ_sanitizeStyle } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appControlPanel]'
+  selector: '[ControlPanel]'
 })
 export class ControlPanelDirective {
 
 private element;
 private elementStyle;
 
-  constructor(elmt:ElementRef) {
+  constructor(private elementRef:ElementRef) {
 
-    this.element = elmt.nativeElement;
+    this.element = elementRef.nativeElement;
     this.elementStyle = this.element.style;
 
     this.setStyle()
@@ -19,6 +19,8 @@ private elementStyle;
 
    private setStyle(){
 
+    this.elementStyle.backgroundColor="rgba(0,0,0,0.8)"
+    console.log(this.element)
 
    }
 

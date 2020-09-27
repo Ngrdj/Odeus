@@ -21,20 +21,39 @@
     background: var(--panelsColor);
     width: 100%;
     height: 100%;
-    border-radius: 0px 10px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
     padding: 5px;
+    box-sizing: border-box;
+}
+.containerHeader{
+
+    text-align: center;
+    color: white;
+
+}
+.containerFooter{}
+.panelHeader{
+
+    display: grid;
+    gap:2px;
+    grid-template-columns: 80% auto;
+    align-items: end;
+
 }
 .tagContainer{
 
     display: grid;
     gap:2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+
 
 }
 .tag{
 
     background: var(--panelsColor);
     height: 30px;
-    min-width: 60px;
     border: 0px;
     border-radius: 10px 10px 0 0;
     display: flex;
@@ -42,6 +61,11 @@
     outline: none;
     padding: 2px;
     grid-row: 1;
+
+}
+.addTag{
+
+    grid-column: 2;
 
 }
 .tagLabel{
@@ -71,15 +95,28 @@
     align-items: center;
 
 }
-.selectIcon{
+.addTagButton{
+
+    display: block;
+
+}
+.tagIconSelection{
+
     color: grey;
     width: 80%;
     border: solid thin;
     height: 0px;
+
+}
+
+.tagButton:hover .tagIconSelection{
+    height: 3px;
+    color: white;
 }
 .teamSelected{
 
     height: 3px;
+    background-color: white;
     color: white;
 
 }

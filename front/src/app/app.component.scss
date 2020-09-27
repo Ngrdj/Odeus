@@ -59,7 +59,11 @@ $side-button-width:30px;
     outline: none;
     cursor: pointer;
 }
+.headerButton:hover{
 
+    filter:invert(100%);
+
+}
 .main{
 
     grid-area: main;
@@ -82,7 +86,11 @@ $side-button-width:30px;
     cursor: pointer;
 
 }
+.sideButton:hover{
 
+    filter:invert(100%);
+
+}
 .deploySide{
 
     --sideAnimation:deploySide;
