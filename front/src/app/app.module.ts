@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {DragDropModule} from '@angular/cdk/drag-drop/';
 import { SettingsPanelComponent } from './components/settings-panel/settings-panel.component';
-import { ControlPanelDirective } from './directives/control-panel.directive'
+import { FormButtonDirective } from './directives/form-button.directive';
+import { ControlPanelComponent } from './components/control-panel/control-panel.component'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ControlPanelDirective } from './directives/control-panel.directive'
     OptionsBarComponent,
     TeamManagerComponent,
     SettingsPanelComponent,
-    ControlPanelDirective,
+    FormButtonDirective,
+    ControlPanelComponent,
     
   ],
   imports: [

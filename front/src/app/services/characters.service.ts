@@ -11,7 +11,7 @@ export class CharactersService {
 
     {name:"Embuscade de la forêt",members:[{name:"Loup"},{name:"Loup"},{name:"Loup Alpha"},{name:"Nymphe"},{name:"Essaim d'abeilles"}]},
     {name:"Monstres infernaux",members:[{name:"Lyche"},{name:"Demon"},{name:"Demon"},{name:"Mort-vivant"},{name:"Mort-vivant"}]},
-    {name:"Rencontre en montagne",members:[{name:"Troll"},{name:"Troll"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"}]},
+    {name:"Rencontre en montagne",members:[{name:"Troll"},{name:"Troll"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"},{name:"Goblin"}]},
 
   ]
 

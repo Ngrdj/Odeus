@@ -35,5 +35,10 @@ export class TeamManagerComponent implements OnInit {
     this.selectedTeam = this.heroes
 
   }
+  onChangeTagName(teamIndex,newName){
+
+    this.teams[teamIndex].name = newName;
+
+  }
 
 }

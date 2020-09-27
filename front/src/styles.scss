@@ -34,11 +34,9 @@ $odeus-theme: mat-light-theme($odeus-primary, $odeus-accent, $odeus-warn);
 
 body{
 
-    margin: 0px;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 
 }
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
