@@ -41,6 +41,8 @@ export class CharacterService {
 
         }
     }
+
+    // Ajout des caracterCapacities
     async createCharacter(character:CharacterDto){
         return await character
     }

@@ -12,14 +12,16 @@ export class ClassEntity {
     @Column()
     label:string;
 
-    @JoinColumn()
-    @OneToMany(type=>CharacterEntity,
+    @JoinTable()
+    @ManyToMany(type=>CharacterEntity,
         (charact)=>charact.characterClass)
     characters:CharacterEntity[];
+
+
 
     @JoinColumn()
     @OneToMany(type=>CapacitiesEntity,
         (capacity)=>capacity.class)
-    capacity:CapacitiesEntity;
+    capacity:CapacitiesEntity[];
 
 }

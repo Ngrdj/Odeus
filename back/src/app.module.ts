@@ -1,3 +1,6 @@
+import { CharacterCapacitiesModule } from './CharacterCapacities/charactercapacities.module';
+import { CharacterCapacitiesService } from './CharacterCapacities/charactercapacities.service';
+import { CharacterCapacitiesController } from './CharacterCapacities/charactercapacities.controller';
 import { UserModule } from './user/user.module';
 import { SkillModule } from './skill/skill.module';
 import { RaceModule } from './race/race.module';
@@ -15,6 +18,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
+    CharacterCapacitiesModule,
     UserModule,
     SkillModule,
     RaceModule,
@@ -33,7 +37,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,    //Changement auto de la base de donnée
 
     })],
-  controllers: [AppController],
+  controllers: [ AppController],
   providers: [AppService],
 })
 export class AppModule { }

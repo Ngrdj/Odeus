@@ -6,6 +6,8 @@ import { CapacitiesEntity } from "src/capacity/capacities.entity";
 import { SkillEntity } from "src/skill/skill.entity";
 import { CharacteristicsEntity } from "src/characteristic/characteristics.entity";
 import { UserEntity } from "src/user/user.entity";
+import { CharacterCapacitiesEntity } from "src/CharacterCapacities/characterCapacities.entity";
+import { CapacitiesDto } from "src/capacity/capacities-dto";
 
 @Entity('character')
 export class CharacterEntity {
@@ -26,7 +28,7 @@ export class CharacterEntity {
         charactclass => charactclass.characters,{
             eager:true,
         })
-    characterClass:ClassEntity;
+    characterClass:ClassEntity[];
 
     @Column()
     level:number;
@@ -34,10 +36,9 @@ export class CharacterEntity {
     @Column()
     masteryBonus:number;
 
-    @JoinTable()
-    @ManyToMany(type=>CapacitiesEntity,
-        (capacity)=>capacity.characters)
-    capacities:CapacitiesEntity[];
+    @OneToMany(type=>CharacterCapacitiesEntity,
+        (characterCapacity)=>characterCapacity.character)
+    characterCapacity:CharacterCapacitiesEntity[];
 
     @JoinTable()
     @ManyToMany(type=>SkillEntity,

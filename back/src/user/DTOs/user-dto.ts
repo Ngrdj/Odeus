@@ -1,3 +1,4 @@
 export class UserDto {
-    login:string
+    login:string;
+    password:string;
 }

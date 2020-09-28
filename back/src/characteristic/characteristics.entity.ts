@@ -1,7 +1,7 @@
 import { CharacterEntity } from "src/character/character.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-
+@Entity('characteristic')
 export class CharacteristicsEntity {
 
     @PrimaryGeneratedColumn({type:"int"})
