@@ -43,14 +43,15 @@ export class ControlPanelDirective implements OnChanges {
 
       this.elementStyle.position = "absolute";
       this.elementStyle.backgroundColor = "rgba(0,0,0,0.8)";
-      this.elementStyle.width = "20vw";
-      this.elementStyle.height = "20vh";
-      this.elementStyle.maxWidth = "40vw";
-      this.elementStyle.maxheight = "100vh";
+      this.elementStyle.maxWidth = "50vw";
+      this.elementStyle.maxHeight = "80vh";
       this.elementStyle.color = "white";
+      this.elementStyle.overflow = "hidden";
       this.elementStyle.border = "rgba(255,255,255,0.3) solid";
       this.elementStyle.borderRadius = "10px 0px 10px 10px";
       this.elementStyle.boxShadow = "black 0px 8px 10px";
+      this.elementStyle.display = "flex";
+      this.elementStyle.flexDirection = "column";
       
       this.renderer.listen(this.document,'click',()=>{
         if(!this.mouseIn){

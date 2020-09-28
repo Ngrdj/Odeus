@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterDetailsComponent implements OnInit {
 
+statsArray:string[]=["Force","Dextérité","Intelligence","Charisme"]
+
   constructor() {
 
   }

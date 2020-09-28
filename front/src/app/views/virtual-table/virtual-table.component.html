@@ -1,11 +1,11 @@
 <div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
     <options-bar [ngClass]="{hidden:!displayHeader}" class="header"></options-bar>
-    <button (click)="showHideHeader()" class="headerButton">Show/Hide header</button>
+    <button (click)="showHideHeader()" class="headerButton">{{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}</button>
   
     <fight-tracker class="main"></fight-tracker>
   
-    <button (click)="showHideSide()" class="sideButton">TEAMS</button>
+    <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
     <team-manager [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
       
   

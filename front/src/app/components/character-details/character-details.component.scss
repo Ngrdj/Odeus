@@ -1,0 +1,68 @@
+.container{
+
+    height: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-areas:
+    "portrait stats"
+    "name stats"
+    "description description";
+    max-width: (125vh/2) ;
+    max-height: 50vw;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 40% 8% 50%;
+    padding: 10px;
+    gap: 5px;
+    font-size: 2vh;
+
+}
+.portrait{
+
+    height: 100%;
+    grid-area: portrait;
+    justify-self: center;
+    overflow-x: auto;
+
+}
+.stats{
+
+    grid-area: stats;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    padding: 10%;
+    border: solid;
+    margin:10%;
+
+}
+.stat{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:5px;
+    flex-grow: 50% 50%;
+}
+.statInput{
+
+    width: 20px;
+
+}
+.description{
+
+    grid-area: description;
+    overflow-y: auto;
+
+}
+.name{
+
+    grid-area: name;
+    background-color: white;
+    color: black;
+    text-align: center;
+    align-self: center;
+    padding: 4%;
+    margin: 0px;
+
+}
