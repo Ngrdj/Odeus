@@ -1,0 +1,35 @@
+<form [formGroup]="capacitiesForm" (ngSubmit)="onSubmitForm()">
+  <div>
+    <label>
+      Nom :
+    </label>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <label>
+      Description :
+    </label>
+    <input type="text" formControlName="description">
+  </div>
+  <div>
+    <label>
+      Classe :
+    </label>
+    <input type="radio" formControlName="class">
+  </div>
+  <div>
+    <label>
+      Type :
+    </label>
+    <input type="radio" formControlName="type">
+  </div>
+  <div>
+    <label>
+      Niveaux :
+    </label>
+    <input type="number" formControlName="level">
+  </div>
+
+  <button type="submit">Valider</button>
+
+</form>

@@ -1,4 +1,5 @@
 import { CharacterEntity } from "src/character/character.entity";
+import { TeamEntity } from "src/team/team.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('user')
@@ -26,5 +27,9 @@ export class UserEntity {
     @OneToMany(type=>CharacterEntity,
         (character)=>character.user)
     characters:CharacterEntity;
+
+    @OneToMany(type=>TeamEntity,
+        (team)=>team.owner)
+    teams:TeamEntity[];
 
 }

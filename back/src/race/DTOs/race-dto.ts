@@ -1,7 +1,7 @@
-import { CharacteristicsDto } from "src/characteristic/characteristics-dto";
+import { CharacteristicDto } from "src/characteristic/characteristic-dto";
 
 export class RaceDto {
     id:number;
     label:string;
-    characteristics:CharacteristicsDto[]
+    characteristics:CharacteristicDto[]
 }

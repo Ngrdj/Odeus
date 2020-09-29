@@ -1,0 +1,23 @@
+<form [formGroup]="characteristicForm" (ngSubmit)="onSubmitForm()">
+  <div>
+    <label>
+      Nom :
+    </label>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <label>
+      Valeur :
+    </label>
+    <input type="number" formControlName="value">
+  </div>
+  <div>
+    <label>
+      Bonus :
+    </label>
+    <input type="number" formControlName="bonus">
+  </div>
+
+  <button type="submit">Valider</button>
+  
+</form>>

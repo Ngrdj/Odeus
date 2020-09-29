@@ -2,7 +2,7 @@ import { CharacterEntity } from "src/character/character.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('characteristic')
-export class CharacteristicsEntity {
+export class CharacteristicEntity {
 
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
@@ -20,4 +20,13 @@ export class CharacteristicsEntity {
     @ManyToMany(type=>CharacterEntity,
         (Character)=>Character.characteristics)
     characters:CharacterEntity;
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

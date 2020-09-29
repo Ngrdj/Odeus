@@ -11,7 +11,7 @@ export class SkillEntity {
     name:string;
 
     @Column()
-    value:string;
+    value:number;
 
     @Column()
     isChecked:boolean;
@@ -23,4 +23,13 @@ export class SkillEntity {
     @ManyToMany(type=>CharacterEntity,
         (character)=>character.skill)
     characters:CharacterEntity[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }
