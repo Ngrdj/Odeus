@@ -11,7 +11,7 @@ export class SkillEntity {
     name:string;
 
     @Column()
-    value:string;
+    value:number;
 
     @Column()
     isChecked:boolean;

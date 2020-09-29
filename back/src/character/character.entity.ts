@@ -8,6 +8,7 @@ import { CharacteristicsEntity } from "src/characteristic/characteristics.entity
 import { UserEntity } from "src/user/user.entity";
 import { CharacterCapacitiesEntity } from "src/CharacterCapacities/characterCapacities.entity";
 import { CapacitiesDto } from "src/capacity/capacities-dto";
+import { TeamEntity } from "src/team/team.entity";
 
 @Entity('character')
 export class CharacterEntity {
@@ -63,6 +64,11 @@ export class CharacterEntity {
     @ManyToOne(type=>UserEntity,
         (user)=>user.characters)
     user:UserEntity[]
+
+    @JoinTable()
+    @ManyToMany(type=>TeamEntity,
+        (team)=>team.characters)
+    teams:TeamEntity[];
 
     @CreateDateColumn()
     createdAt: Date;

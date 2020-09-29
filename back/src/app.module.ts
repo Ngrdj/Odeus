@@ -1,3 +1,6 @@
+import { TeamModule } from './team/team.module';
+import { TeamService } from './team/team.service';
+import { TeamController } from './team/team.controller';
 import { CharacterCapacitiesModule } from './CharacterCapacities/charactercapacities.module';
 import { CharacterCapacitiesService } from './CharacterCapacities/charactercapacities.service';
 import { CharacterCapacitiesController } from './CharacterCapacities/charactercapacities.controller';
@@ -18,6 +21,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
+    TeamModule,
     CharacterCapacitiesModule,
     UserModule,
     SkillModule,
@@ -37,7 +41,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,    //Changement auto de la base de donnée
 
     })],
-  controllers: [ AppController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule { }

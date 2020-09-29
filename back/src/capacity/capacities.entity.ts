@@ -29,4 +29,13 @@ export class CapacitiesEntity {
     @OneToMany(type=>CharacterCapacitiesEntity,
         (characterCapacity)=>characterCapacity.capacities)
     characterCapacity:CharacterCapacitiesEntity[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }
