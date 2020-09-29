@@ -13,6 +13,14 @@ export class VirtualTableComponent implements OnInit {
 
   displaySide:boolean = false;
   displayHeader:boolean = false;
+  displayOptions:boolean = false;
+
+  displayCharacterDetails:boolean = false;
+  displaySound:boolean = false;
+  displayBackgroundSettings:boolean = false;
+  displayDices:boolean = false;
+  displayMap:boolean = false;
+  displaySettings:boolean = false;
 
   selectedCharacter:Character;
 
@@ -82,6 +90,11 @@ export class VirtualTableComponent implements OnInit {
 
       this.displayHeader = !this.displayHeader
     
+
+    }
+    showHideOptions(){
+
+      this.displayOptions = !this.displayOptions
 
     }
 

@@ -1,9 +1,18 @@
+<options-bar [ngClass]="{hideOptions:!displayOptions, deployOptions:displayOptions}" class="options"
+      (characterDetailClick)="displayCharacterDetails = !displayCharacterDetails"
+      (soundClick)="displaySound = !displaySound"
+      (backgroundClick)="displayBackgroundSettings = !displayBackgroundSettings"
+      (diceClick)="displayDices = !displayDices"
+      (mapClick)="displayMap = !displayMap"
+      (settingsClick)="displaySettings = !displaySettings"
+  ></options-bar>
 <div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
-    <header-bar [ngClass]="{hidden:!displayHeader}" class="header"></header-bar>
+    <header-bar (optionsButtonClick)="showHideOptions()" [ngClass]="{hidden:!displayHeader}" class="header"></header-bar>
     <button (click)="showHideHeader()" class="headerButton">{{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}</button>
 
-    <options-bar></options-bar>
+    
+
   
     <fight-tracker class="main"></fight-tracker>
   
@@ -11,8 +20,8 @@
     <team-manager [characters] = "userCharacters" (characterSelected)="onCharacterSelected($event)" [teams]="teams" [heroes]="heroes" [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
       
   
-    <settings-panel display="none" controlPanel="Options" cdkDragBoundary=".boundary" cdkDrag></settings-panel>
-    <character-details [character]="selectedCharacter" controlPanel="Détails de personnage" cdkDragBoundary=".boundary" cdkDrag></character-details>
+    <settings-panel [display]="displaySettings?'block':'none'" controlPanel="Options" cdkDragBoundary=".boundary" cdkDrag></settings-panel>
+    <character-details [display]="displayCharacterDetails?'flex':'none'" [character]="selectedCharacter" controlPanel="Détails de personnage" cdkDragBoundary=".boundary" cdkDrag></character-details>
   
   </div>
   

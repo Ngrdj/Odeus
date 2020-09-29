@@ -19,5 +19,12 @@
     background: none;
     color: white;
     border: none;
+    cursor: pointer;
+
+}
+.optionsButton:hover{
+
+    filter: invert(100%);
+    background-color: black;
 
 }

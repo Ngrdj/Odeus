@@ -33,11 +33,12 @@ export class ControlPanelDirective implements OnChanges {
     }
     ngOnChanges(changes){
       console.log(changes)
-      if(this.panelTitle){
+      if(this.panelTitle && changes.panelTitle){
 
-        this.createTitle()
-        this.renderer.appendChild(this.headerBar,this.titleElement);
+          this.createTitle()
+          this.renderer.appendChild(this.headerBar,this.titleElement);
 
+        
       }
       if(this.panelDisplay){
 

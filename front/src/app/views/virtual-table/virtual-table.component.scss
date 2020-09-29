@@ -1,19 +1,24 @@
 $header-height:70px;
 $header-button-height:30px;
+$side-width:30%;
 $side-button-width:30px;
+$options-width:50px;
 
 :root{
     --headerAnimation:hideHeader;
     --sideAnimation:hideSide;
+    --optionsAnimation:hideOptions;
+
     --headerAnimationDuration:1s;
     --sideAnimationDuration:0.5s;
+    --optionsAnimationDuration:0.5s;
 }
-
 
 
 :host{
 
     height: 100%;
+    display: flex;
 
 }
 .boundary{
@@ -30,7 +35,7 @@ $side-button-width:30px;
 .container{
 
     display: grid;
-    grid-template-columns: auto $side-button-width 30%;
+    grid-template-columns: auto $side-button-width $side-width;
     grid-template-areas:
         "header header header"
         "headerButton headerButton headerButton"
@@ -71,6 +76,13 @@ $side-button-width:30px;
     grid-area: main;
 
 }
+.options{
+
+   animation-name: var(--optionsAnimation);
+   animation-duration: var(--optionsAnimationDuration);
+   animation-fill-mode: forwards;
+
+}
 .side{
 
     grid-area: side;
@@ -104,6 +116,19 @@ $side-button-width:30px;
 
     --sideAnimation:hideSide;
     --sideAnimationDuration:0.5s;
+
+}
+.deployOptions{
+
+    --optionsAnimation:deployOptions;
+    --optionsAnimationDuration:0.5s;
+
+
+}
+.hideOptions{
+
+    --optionsAnimation:hideOptions;
+    --optionsAnimationDuration:0.3s;
 
 }
 .deployHeader{
@@ -154,18 +179,37 @@ $side-button-width:30px;
     }
   
     to {
-        grid-template-columns: auto $side-button-width 30%;
+        grid-template-columns:  auto $side-button-width $side-width;
     }
 }
 
 @keyframes hideSide {
     from {
-        grid-template-columns: auto $side-button-width 30%;
+        grid-template-columns:  auto $side-button-width $side-width;
     }
   
     to {
         grid-template-columns: auto $side-button-width 0%;
 
+    }
+}
+@keyframes deployOptions {
+    from {
+        width: 0;
+    }
+  
+    to {
+        width: $options-width;
+    }
+}
+
+@keyframes hideOptions {
+    from {
+        width: $options-width;
+    }
+  
+    to {
+        width: 0;
     }
 }
 .panel{
