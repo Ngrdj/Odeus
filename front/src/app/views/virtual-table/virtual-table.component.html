@@ -1,8 +1,9 @@
 <div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
     <header-bar [ngClass]="{hidden:!displayHeader}" class="header"></header-bar>
-    <options-bar></options-bar>
     <button (click)="showHideHeader()" class="headerButton">{{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}</button>
+
+    <options-bar></options-bar>
   
     <fight-tracker class="main"></fight-tracker>
   
