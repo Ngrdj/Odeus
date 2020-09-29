@@ -6,7 +6,7 @@
     <fight-tracker class="main"></fight-tracker>
   
     <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
-    <team-manager (characterSelected)="onCharacterSelected($event)" [teams]="teams" [heroes]="heroes" [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
+    <team-manager [characters] = "userCharacters" (characterSelected)="onCharacterSelected($event)" [teams]="teams" [heroes]="heroes" [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
       
   
     <settings-panel display="none" controlPanel="Options" cdkDragBoundary=".boundary" cdkDrag></settings-panel>

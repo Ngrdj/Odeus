@@ -30,6 +30,7 @@ $odeus-theme: mat-light-theme($odeus-primary, $odeus-accent, $odeus-warn);
 :root{
     --panelsColor:rgba(0,0,0,0.5);
     --darkerPanelsColor:rgba(0,0,0,0.8);
+    --lighterPanelsColor:rgba(255,255,255,0.5);
 }
 
 body{
@@ -40,3 +41,13 @@ body{
 
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.panelDialog{
+
+    mat-dialog-container {
+        background-color: var(--lighterPanelsColor);
+        padding: 10px;
+        border-radius: 10px;
+    
+    }
+
+}

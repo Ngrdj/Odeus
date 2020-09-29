@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
-import { Team } from 'src/app/models/interfaces/team';
+import { Team } from 'src/app/models/team';
 import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
 
@@ -16,6 +16,7 @@ export class VirtualTableComponent implements OnInit {
 
   selectedCharacter:Character;
 
+  userCharacters:Character[]=[];
   teams:Team[];
   heroes:Team;
 
@@ -26,17 +27,20 @@ export class VirtualTableComponent implements OnInit {
 
       this.teams = this.charactService.getTeams();
       this.heroes = this.charactService.getHeroes();
-
+       
   // authService.addUser("currentUser",{name:"coucou"})
-  console.log(localStorage)
-
 
   }
 
   ngOnInit(){
 
+      this.teams.forEach(team => {
+        team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
+      })
+
     this.selectedCharacter={
 
+      id:0,
       name:"Nom de personnage",
       portrait:"https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg"
 
