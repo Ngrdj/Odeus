@@ -1,5 +1,5 @@
 import { CapacitiesDto } from 'src/capacity/capacities-dto';
-import { CharacteristicsDto } from 'src/characteristic/characteristics-dto';
+import { CharacteristicDto } from 'src/characteristic/characteristic-dto';
 import{Class}from 'src/class/DTOs/class.enum'
 import{Race}from 'src/race/DTOs/race.enum'
 import { SkillDto } from 'src/skill/skill-dto';

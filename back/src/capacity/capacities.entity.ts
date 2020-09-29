@@ -1,6 +1,6 @@
 import { CharacterEntity } from "src/character/character.entity";
 import { CharacterCapacitiesEntity } from "src/CharacterCapacities/characterCapacities.entity";
-import { ClassEntity } from "src/class/class.entity";
+import { ClassEntity } from "src/class/classCharacter.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('capacity')

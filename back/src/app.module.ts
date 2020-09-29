@@ -7,7 +7,7 @@ import { CharacterCapacitiesController } from './CharacterCapacities/characterca
 import { UserModule } from './user/user.module';
 import { SkillModule } from './skill/skill.module';
 import { RaceModule } from './race/race.module';
-import { ClassModule } from './class/class.module';
+import { ClassModule } from './class/classCharacter.module';
 import { CharacteristicModule } from './characteristic/characteristic.module';
 import { CharacteristicService } from './characteristic/characteristic.service';
 import { CharacteristicController } from './characteristic/characteristic.controller';

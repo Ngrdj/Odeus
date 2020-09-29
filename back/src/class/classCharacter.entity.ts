@@ -4,7 +4,7 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTab
 
 
 @Entity('class')
-export class ClassEntity {
+export class ClassCharacterEntity {
 
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
@@ -23,5 +23,15 @@ export class ClassEntity {
     @OneToMany(type=>CapacitiesEntity,
         (capacity)=>capacity.class)
     capacity:CapacitiesEntity[];
+
+    
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 
 }

@@ -1,10 +1,10 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import {ClassEntity} from 'src/class/class.entity';
+import {ClassEntity} from 'src/class/classCharacter.entity';
 import {RaceEntity} from 'src/race/race.entity'
 import { Behavior } from "./DTOs/behavior.enum";
 import { CapacitiesEntity } from "src/capacity/capacities.entity";
 import { SkillEntity } from "src/skill/skill.entity";
-import { CharacteristicsEntity } from "src/characteristic/characteristics.entity";
+import { CharacteristicsEntity } from "src/characteristic/characteristic.entity";
 import { UserEntity } from "src/user/user.entity";
 import { CharacterCapacitiesEntity } from "src/CharacterCapacities/characterCapacities.entity";
 import { CapacitiesDto } from "src/capacity/capacities-dto";

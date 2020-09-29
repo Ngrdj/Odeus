@@ -12,6 +12,15 @@ export class RaceEntity {
 
     @ManyToMany(type=>CharacterEntity,
         (charact)=>charact.race)
-    characters:CharacterEntity[]
+    characters:CharacterEntity[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }
 

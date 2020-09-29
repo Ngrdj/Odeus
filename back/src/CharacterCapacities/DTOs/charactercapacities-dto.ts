@@ -1,6 +1,6 @@
 export class CharacterCapacitiesDto {
 
-    idCapacity:number;
+    id:number;
     label:string;
     value:number;
 }

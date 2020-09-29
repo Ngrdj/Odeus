@@ -1,6 +1,6 @@
 import { CharacterEntity } from "src/character/character.entity";
 import { UserEntity } from "src/user/user.entity";
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 @Entity('team')
@@ -20,7 +20,16 @@ export class TeamEntity {
     @JoinTable()
     @ManyToMany(type=>CharacterEntity,
         (character)=>character.teams)
-    characters:CharacterEntity[]
+    characters:CharacterEntity[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 
     
 }

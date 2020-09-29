@@ -1,4 +1,4 @@
-export class CharacteristicsDto {
+export class CharacteristicDto {
 
     label:string;
     value:number;
