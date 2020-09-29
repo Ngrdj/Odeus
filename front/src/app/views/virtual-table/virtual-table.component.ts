@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/models/character';
+import { Team } from 'src/app/models/interfaces/team';
 import { AuthentificationsService } from 'src/app/services/authentifications.service';
+import { CharactersService } from 'src/app/services/characters.service';
 
 @Component({
   selector: 'app-virtual-table',
@@ -7,18 +10,45 @@ import { AuthentificationsService } from 'src/app/services/authentifications.ser
   styleUrls: ['./virtual-table.component.scss']
 })
 export class VirtualTableComponent implements OnInit {
-  displaySide:boolean = true;
-  displayHeader:boolean = true;
 
-  constructor(authService:AuthentificationsService){
+  displaySide:boolean = false;
+  displayHeader:boolean = false;
 
-    console.log(localStorage)
-    authService.addUser("currentUser",{name:"coucou"})
+  selectedCharacter:Character;
+
+  teams:Team[];
+  heroes:Team;
+
+  constructor(
+    private authService:AuthentificationsService,
+    private charactService:CharactersService
+    ){
+
+      this.teams = this.charactService.getTeams();
+      this.heroes = this.charactService.getHeroes();
+
+  // authService.addUser("currentUser",{name:"coucou"})
+  console.log(localStorage)
 
 
   }
 
-  ngOnInit(){}
+  ngOnInit(){
+
+    this.selectedCharacter={
+
+      name:"Nom de personnage",
+      portrait:"https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg"
+
+    }
+
+  }
+
+  onCharacterSelected(character:Character){
+
+    this.selectedCharacter = character;
+
+  }
 
     showHideSide(){
       if(this.displaySide){

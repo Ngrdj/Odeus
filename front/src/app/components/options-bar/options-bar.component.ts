@@ -12,4 +12,11 @@ export class OptionsBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogoutClick(){
+
+    localStorage.removeItem("currentUser")
+    console.log(localStorage)
+
+  }
+
 }

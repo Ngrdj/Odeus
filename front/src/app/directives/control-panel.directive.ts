@@ -7,6 +7,8 @@ import { Directive, ElementRef, Inject, Input, OnChanges, Renderer2} from '@angu
 export class ControlPanelDirective implements OnChanges {
 
   @Input('controlPanel') panelTitle: string;
+  @Input('display') panelDisplay: string;
+
 
  private elementStyle;
  private mouseIn:boolean;
@@ -35,6 +37,11 @@ export class ControlPanelDirective implements OnChanges {
 
         this.createTitle()
         this.renderer.appendChild(this.headerBar,this.titleElement);
+
+      }
+      if(this.panelDisplay){
+
+        this.elementStyle.display = this.panelDisplay;
 
       }
 

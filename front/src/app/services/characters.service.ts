@@ -6,7 +6,16 @@ import { Team } from '../models/interfaces/team';
 })
 export class CharactersService {
 
-  private heroes:Team = {name:"Héros",members:[{name:"Namas"},{name:"Kyra"},{name:"Grudu"},{name:"Lyre"},{name:"Esus"}]};
+  private heroes:Team = {name:"Héros",
+  members:[
+
+    {name:"Namas",portrait:"assets/portraits/Namas.jpg"},
+    {name:"Kyra",portrait:"assets/portraits/ky_yra.jpg"},
+    {name:"Grudu",portrait:"assets/portraits/grudu.jpg"},
+    {name:"Lyre",portrait:"assets/portraits/lyra.jpg"},
+    {name:"Esus",portrait:"assets/portraits/esus.jpg"}
+  
+  ]};
   private teams:Team[]=[
 
     {name:"Embuscade de la forêt",members:[{name:"Loup"},{name:"Loup"},{name:"Loup Alpha"},{name:"Nymphe"},{name:"Essaim d'abeilles"}]},

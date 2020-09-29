@@ -25,7 +25,7 @@
         </div> 
         <div class="containerMain">
 
-            <div class="characterContainer" *ngFor="let character of selectedTeam?.members">
+            <div (click)="onSelectCharacter(character)" class="characterContainer" *ngFor="let character of selectedTeam?.members">
 
                 <label>{{character.name}}</label>
     

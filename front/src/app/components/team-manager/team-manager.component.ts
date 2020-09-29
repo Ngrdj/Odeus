@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Character } from 'src/app/models/character';
 import { Team } from 'src/app/models/interfaces/team';
 import { CharactersService } from 'src/app/services/characters.service';
 
@@ -10,17 +11,20 @@ import { CharactersService } from 'src/app/services/characters.service';
 export class TeamManagerComponent implements OnInit {
 
 
-  heroes:Team
-  teams:Team[];
+  @Input() heroes:Team;
+  @Input() teams:Team[];
+
   selectedTag:number=0;
   selectedTeam:Team;
 
-  constructor(private charactersService:CharactersService) { }
+  selectedCharacter:Character
+
+  @Output() characterSelected:EventEmitter<Character> = new EventEmitter();
+
+  constructor() { }
 
   ngOnInit(): void {
 
-    this.teams = this.charactersService.getTeams()
-    this.heroes = this.charactersService.getHeroes()
     this.selectedTeam = this.heroes
 
   }
@@ -33,6 +37,11 @@ export class TeamManagerComponent implements OnInit {
   onSelectHeroes(){
 
     this.selectedTeam = this.heroes
+
+  }
+  onSelectCharacter(character:Character){
+
+    this.characterSelected.emit(character)
 
   }
   onChangeTagName(teamIndex,newName){

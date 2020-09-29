@@ -6,11 +6,11 @@
     <fight-tracker class="main"></fight-tracker>
   
     <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
-    <team-manager [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
+    <team-manager (characterSelected)="onCharacterSelected($event)" [teams]="teams" [heroes]="heroes" [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
       
   
-    <settings-panel controlPanel="Options" cdkDragBoundary=".boundary" cdkDrag></settings-panel>
-    <character-details controlPanel="Détails de personnage" cdkDragBoundary=".boundary" cdkDrag></character-details>
+    <settings-panel display="none" controlPanel="Options" cdkDragBoundary=".boundary" cdkDrag></settings-panel>
+    <character-details [character]="selectedCharacter" controlPanel="Détails de personnage" cdkDragBoundary=".boundary" cdkDrag></character-details>
   
   </div>
   
