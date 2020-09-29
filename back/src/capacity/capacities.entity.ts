@@ -1,6 +1,6 @@
 import { CharacterEntity } from "src/character/character.entity";
 import { CharacterCapacitiesEntity } from "src/CharacterCapacities/characterCapacities.entity";
-import { ClassEntity } from "src/class/classCharacter.entity";
+import { ClassCharacterEntity } from "src/class/classCharacter.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('capacity')
@@ -16,9 +16,9 @@ export class CapacitiesEntity {
     description:string;
 
    
-    @ManyToOne(type=>ClassEntity,
+    @ManyToOne(type=>ClassCharacterEntity,
         (charactclass)=>charactclass.capacity)
-    class:ClassEntity;
+    class:ClassCharacterEntity;
 
     @Column()
     type:string;
