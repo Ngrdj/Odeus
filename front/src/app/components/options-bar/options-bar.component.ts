@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'options-bar',
@@ -7,16 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsBarComponent implements OnInit {
 
+  faCoffee = faCoffee;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onLogoutClick(){
-
-    localStorage.removeItem("currentUser")
-    console.log(localStorage)
-
-  }
+ 
 
 }

@@ -31,6 +31,7 @@ $odeus-theme: mat-light-theme($odeus-primary, $odeus-accent, $odeus-warn);
     --panelsColor:rgba(0,0,0,0.5);
     --darkerPanelsColor:rgba(0,0,0,0.8);
     --lighterPanelsColor:rgba(255,255,255,0.5);
+    --headerFrontier:0px;
 }
 
 body{

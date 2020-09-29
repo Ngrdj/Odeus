@@ -65,7 +65,11 @@ export class TeamManagerComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(datas =>{
 
-      this.teams.push(datas)
+      if(datas){
+
+        this.teams.push(datas)
+
+      }
 
     })
 
