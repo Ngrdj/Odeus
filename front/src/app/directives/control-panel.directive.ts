@@ -1,14 +1,15 @@
 import { DOCUMENT } from '@angular/common';
-import { Directive, ElementRef, Inject, Input, OnChanges, Renderer2} from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Inject, Input, OnChanges, Output, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[controlPanel]'
 })
 export class ControlPanelDirective implements OnChanges {
 
-  @Input('controlPanel') panelTitle: string;
+  @Input('panelTitle') panelTitle: string;
   @Input('display') panelDisplay: string;
 
+  @Output() closePanel:EventEmitter<any>=new EventEmitter();
 
  private elementStyle;
  private mouseIn:boolean;
@@ -89,7 +90,7 @@ export class ControlPanelDirective implements OnChanges {
 
       this.renderer.listen(this.deleteButton,"click",() => {
 
-        this.elementStyle.display = "none";
+        this.closePanel.emit()
       
       })
 

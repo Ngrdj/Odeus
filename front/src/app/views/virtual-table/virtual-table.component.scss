@@ -34,6 +34,8 @@ $options-width:50px;
 }
 .container{
 
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: auto $side-button-width $side-width;
     grid-template-areas:
@@ -41,7 +43,6 @@ $options-width:50px;
         "headerButton headerButton headerButton"
         "main sideButton side";
     grid-template-rows: $header-height $header-button-height auto;
-    height: 100%;
     animation: var(--headerAnimation) var(--headerAnimationDuration),var(--sideAnimation) var(--sideAnimationDuration);
     animation-fill-mode: forwards;
     background: url("https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1558559745443-KM38DVM6H0AIJWVJNT1H/ke17ZwdGBToddI8pDm48kJe8VwonRcYgr7f_0UVbdhh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UbHrcextDeErdIU23wx0_6BTOY9zQNi_nItQjMEsHFYhlvkRmRO1_mFZFNCn67QdSw/ghosts_saltmarsh.jpg?format=2500w");
