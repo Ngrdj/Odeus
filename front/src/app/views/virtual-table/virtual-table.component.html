@@ -1,17 +1,59 @@
+<options-bar 
+    [ngClass]="{hideOptions:!displayOptions, deployOptions:displayOptions}" 
+    class="options"
+    (characterDetailClick)="displayCharacterDetails = !displayCharacterDetails"
+    (soundClick)="displaySound = !displaySound"
+    (backgroundClick)="displayBackgroundSettings = !displayBackgroundSettings"
+    (diceClick)="displayDices = !displayDices"
+    (mapClick)="displayMap = !displayMap"
+    (settingsClick)="displaySettings = !displaySettings"
+></options-bar>
+
+
 <div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
-    <header-bar [ngClass]="{hidden:!displayHeader}" class="header"></header-bar>
-    <options-bar></options-bar>
-    <button (click)="showHideHeader()" class="headerButton">{{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}</button>
+    <header-bar
+      (optionsButtonClick)="showHideOptions()"
+      [ngClass]="{hidden:!displayHeader}"
+      class="header">
+    </header-bar>
+    <button
+      (click)="showHideHeader()"
+      class="headerButton">
+      {{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}
+    </button>
   
     <fight-tracker class="main"></fight-tracker>
   
     <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
-    <team-manager [characters] = "userCharacters" (characterSelected)="onCharacterSelected($event)" [teams]="teams" [heroes]="heroes" [ngClass]="{hidden:!displaySide}" class="side" (showHideClick)="showHideSide()"></team-manager>
+    <team-manager
+      [characters] = "userCharacters"
+      (characterSelected)="onCharacterSelected($event)"
+      [teams]="teams"
+      [heroes]="heroes"
+      [ngClass]="{hidden:!displaySide}"
+      class="side"
+      (showHideClick)="showHideSide()">
+    </team-manager>
       
-  
-    <settings-panel display="none" controlPanel="Options" cdkDragBoundary=".boundary" cdkDrag></settings-panel>
-    <character-details [character]="selectedCharacter" controlPanel="Détails de personnage" cdkDragBoundary=".boundary" cdkDrag></character-details>
+    <settings-panel 
+      controlPanel
+      (closePanel)="displaySettings = false"
+      [display]="displaySettings?'block':'none'"
+      panelTitle="Options"
+      cdkDragBoundary=".boundary"
+      cdkDrag>
+    </settings-panel>
+
+    <character-details
+      controlPanel
+      (closePanel)="displayCharacterDetails = false"
+      [display]="displayCharacterDetails?'flex':'none'"
+      panelTitle="Détails de personnage"
+      [character]="selectedCharacter"
+      cdkDragBoundary=".boundary"
+      cdkDrag>
+   </character-details>
   
   </div>
   

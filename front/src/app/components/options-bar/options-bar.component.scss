@@ -1,7 +1,6 @@
 :host{
 
     height: 100vh;
-    width: 5vw;
     background-color: var(--darkerPanelsColor);
     display: flex;
     flex-direction: column;
@@ -13,7 +12,7 @@
 }
 .buttonIcon{
 
-    height: 5vw;
+    height: 50px;
     font-size: 1.5em;
     background: none;
     color: white;
