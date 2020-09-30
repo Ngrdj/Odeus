@@ -41,16 +41,6 @@ export class CharactersService {
 
   addCharacter(character:Character){
 
-    const currentUser = localStorage.getItem("currentUser");
-    if(currentUser){
-
-      const params = new HttpParams().set("access_token",currentUser);
-      return this.http.post("localhost:3000/user",character,{params})
-
-    }
-
-    return this.http.post("localhost:3000/user",character)
-
   }
 
 }
