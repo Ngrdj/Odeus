@@ -3,7 +3,7 @@ import { CharacterCapacitiesEntity } from './characterCapacities.entity';
 import { CharacterCapacitiesService } from './charactercapacities.service';
 import { CharacterCapacitiesDto } from './DTOs/charactercapacities-dto';
 
-@Controller()
+@Controller('characterCapacities')
 export class CharacterCapacitiesController { 
     constructor(private readonly characterCapacitiesService:CharacterCapacitiesService){
 

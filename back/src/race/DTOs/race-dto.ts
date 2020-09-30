@@ -1,7 +1,20 @@
-import { CharacteristicDto } from "src/characteristic/characteristic-dto";
 
 export class RaceDto {
-    id:number;
+
+
+
     label:string;
-    characteristics:CharacteristicDto[]
+
+    strBonus:number;
+
+    dexBonus:number;
+
+    constBonus:number;
+
+    intBonus:number;
+
+    charBonus:number;
+
+    wisBonus:number;
+    
 }

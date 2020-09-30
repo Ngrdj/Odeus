@@ -6,9 +6,10 @@ import { SkillDto } from 'src/skill/skill-dto';
 import { UserDto } from 'src/user/DTOs/user-dto';
 import { Behavior } from './behavior.enum';
 import{IsNotEmpty, IsString, IsNumber} from 'class-validator'
+import { CharacterCapacitiesDto } from 'src/CharacterCapacities/DTOs/charactercapacities-dto';
+
 
 export class CharacterDto {
-    id:number;
 
     @IsString()
     @IsNotEmpty()
@@ -23,7 +24,7 @@ export class CharacterDto {
     class:Class;
 
     @IsNotEmpty()
-    characterCapacities:CapacitiesDto[];
+    characterCapacities:CharacterCapacitiesDto[];
 
     @IsNumber()
     @IsNotEmpty()
@@ -74,4 +75,27 @@ export class CharacterDto {
     userId:number;
 
 
+}
+
+export interface CharacterGet{
+
+    id:number;
+    name:string;
+    race:Race;
+    class:Class;
+    characterCapacities:CapacitiesDto[];
+    level:number;
+    masteryBonus:number;
+    skills:SkillDto[];
+    portrait:string;
+    strenghtValue:number;
+    dexterityValue:number;
+    intelligenceValue:number;
+    charismeValue:number;
+    wisdomValue:number;
+    constitutionValue:number;
+    resume:string;
+    behavior:Behavior;
+    userId:number;
+    
 }

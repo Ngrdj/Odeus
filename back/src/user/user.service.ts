@@ -12,6 +12,9 @@ export class UserService {
     async getAllUsers():Promise<UserEntity[]>{
         return await this.userRepository.find()
     }
+    async getUserByName(userName:string){
+        return await this.userRepository.findOne({login:userName})
+    }
 
     async createUser(userDto:UserDto){
 
@@ -28,12 +31,5 @@ export class UserService {
 
     }
 
-    validateUser(login,password){
-        const foundUser=this.userRepository.findOne({login,password}
-        )
-        if(!foundUser){
-            throw new UnauthorizedException()
-        }
-        return foundUser;
-    }
+    
  }

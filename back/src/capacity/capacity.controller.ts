@@ -12,12 +12,17 @@ export class CapacityController {
 
     @Get()
     async getAllCapacities():Promise<CapacitiesEntity[]>{
+        console.log('coucou')
         return await this.capacityService.getAllCapacities();
     }
 
     @Get('/:id')
     async getCapacityById(@Param('id',ParseIntPipe)id:number):Promise<CapacitiesEntity>{
         return this.capacityService.getCapacityById(id)
+    }
+    @Get('/:classCharacter')
+    async getCapacityByClass(@Param('classCharacter')classCharacter:string):Promise<CapacitiesEntity[]>{
+        return this.capacityService.getCapacityByClass(classCharacter);
     }
 
     @UsePipes(new ValidationPipe({transform:true}))

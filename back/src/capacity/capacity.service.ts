@@ -27,6 +27,14 @@ export class CapacityService {
         }
     }
 
+    async getCapacityByClass(classCharacter):Promise<CapacitiesEntity[]>{
+        return await this.capacitiesRepository.find({
+            where:{
+                class:classCharacter
+            }
+        })
+    }
+
     async softDeleteCapacity(id:number){
         const Capacity= await this.getCapacityById(id)
 
