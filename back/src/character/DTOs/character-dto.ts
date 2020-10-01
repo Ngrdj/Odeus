@@ -1,8 +1,8 @@
-import { CapacitiesDto } from 'src/capacity/capacities-dto';
-import { CharacteristicDto } from 'src/characteristic/characteristic-dto';
+import { CapacitiesDto } from 'src/Static/capacity/capacities-dto';
+import { CharacteristicDto } from 'src/Static/characteristic/characteristic-dto';
 import{Class}from 'src/class/DTOs/class.enum'
 import{Race}from 'src/race/DTOs/race.enum'
-import { SkillDto } from 'src/skill/skill-dto';
+import { SkillDto } from 'src/Static/skill/skill-dto';
 import { UserDto } from 'src/user/DTOs/user-dto';
 import { Behavior } from './behavior.enum';
 import{IsNotEmpty, IsString, IsNumber} from 'class-validator'

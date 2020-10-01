@@ -25,11 +25,11 @@ export class CapacityController {
         return this.capacityService.getCapacityByClass(classCharacter);
     }
 
-    @UsePipes(new ValidationPipe({transform:true}))
+    /*@UsePipes(new ValidationPipe({transform:true}))
     @Post()
     async postCapacity(@Body()newCapacity:CapacitiesDto):Promise<CapacitiesEntity>{
         return await this.capacityService.createCapacity(newCapacity);
-    }
+    }*/
 
     @Delete()
     async deleteCapacity(@Param('id',ParseIntPipe)id:number){

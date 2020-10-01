@@ -1,7 +1,5 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport/dist/auth.guard';
-import { throws } from 'assert';
-import { BasicGuard } from 'src/guards/basic.guard';
+import { JwtGuard } from 'src/guards/jwt.guard';
 import { UserDto } from './DTOs/user-dto';
 import { UserEntity } from './user.entity';
 import { UserService } from './user.service';
@@ -10,12 +8,13 @@ import { UserService } from './user.service';
 export class UserController {
     constructor(private userService:UserService){}
 
-    @UseGuards(BasicGuard)
+    @UseGuards(JwtGuard)
     @Get()
     async getAllUsers(@Req() req):Promise<UserEntity[]>{
         return await req.user;
     }
 
+    //@UseGuards(JwtGuard)
     @Post()
     postUser(@Body() newUser:UserDto){
         console.log(newUser)

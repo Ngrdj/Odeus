@@ -5,13 +5,13 @@ import { CharacterCapacitiesModule } from './CharacterCapacities/charactercapaci
 import { CharacterCapacitiesService } from './CharacterCapacities/charactercapacities.service';
 import { CharacterCapacitiesController } from './CharacterCapacities/charactercapacities.controller';
 import { UserModule } from './user/user.module';
-import { SkillModule } from './skill/skill.module';
+import { SkillModule } from './Static/skill/skill.module';
 import { RaceModule } from './race/race.module';
 import { ClassModule } from './class/classCharacter.module';
-import { CharacteristicModule } from './characteristic/characteristic.module';
-import { CharacteristicService } from './characteristic/characteristic.service';
-import { CharacteristicController } from './characteristic/characteristic.controller';
-import { CapacityModule } from './capacity/capacity.module';
+import { CharacteristicModule } from './Static/characteristic/characteristic.module';
+import { CharacteristicService } from './Static/characteristic/characteristic.service';
+import { CharacteristicController } from './Static/characteristic/characteristic.controller';
+import { CapacityModule } from './Static/capacity/capacity.module';
 import { CharacterModule } from './character/character.module';
 import { CharacterController } from './character/character.controller';
 import { CharacterService } from './character/character.service';
@@ -19,10 +19,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './authentication/auth.module';
 
 @Module({
   imports: [
-  
+    AuthModule,
     TeamModule,
     CharacterCapacitiesModule,
     UserModule,

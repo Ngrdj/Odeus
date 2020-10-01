@@ -49,10 +49,10 @@ export class CapacityService {
         }
     }
 
-    createCapacity(newCapacity:CapacitiesDto){
+    /*createCapacity(newCapacity:CapacitiesDto){
 
         return this.capacitiesRepository.save(newCapacity)
-    }
+    }*/
 
     
  }

@@ -1,5 +1,5 @@
-import { CapacitiesDto } from "src/capacity/capacities-dto";
-import { CharacteristicDto } from "src/characteristic/characteristic-dto";
+import { CapacitiesDto } from "src/Static/capacity/capacities-dto";
+import { CharacteristicDto } from "src/Static/characteristic/characteristic-dto";
 
 export class ClassCharacterDto {
     id:number;

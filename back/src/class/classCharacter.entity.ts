@@ -1,4 +1,4 @@
-import { CapacitiesEntity } from "src/capacity/capacities.entity";
+import { CapacitiesEntity } from "src/Static/capacity/capacities.entity";
 import { CharacterEntity } from "src/character/character.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
