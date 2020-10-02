@@ -1,31 +1,34 @@
-import { Controller } from '@nestjs/common';
-import { Body, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CharacterEntity } from './character.entity';
+import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { CharacterService } from './character.service';
-import { CharacterDto } from './DTOs/character-dto';
+import { CreateCharacterDto } from './dto/create-character.dto';
+import { UpdateCharacterDto } from './dto/update-character.dto';
 
 @Controller('character')
 export class CharacterController {
-    constructor(private readonly characterService:CharacterService){}
+  constructor(private readonly characterService: CharacterService) {}
+  
+  @Post()
+  create(@Body() createCharacterDto: CreateCharacterDto) {
+    return this.characterService.create(createCharacterDto);
+  }
 
-    @Get()  //verbe
-    async getAllCharacters():Promise<CharacterEntity[]>{
-        return await this.characterService.getAllCharacters();
-    }
+  @Get()
+  findAll() {
+    return this.characterService.findAll();
+  }
 
-    @Get('/:id')
-    async getCharacterById(@Param('id',ParseIntPipe)id:number){
-        return await this.characterService.getCharacterById(id);
-    }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.characterService.findOne(+id);
+  }
 
-    @Post()
-    async postCharacter(@Body()newCharacter:CharacterDto){
-        return await this.characterService.createCharacter(newCharacter);
-    }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateCharacterDto: UpdateCharacterDto) {
+    return this.characterService.update(+id, updateCharacterDto);
+  }
 
-    @Delete('/id')
-    async deleteCharacter(@Param('id',ParseIntPipe)id:number){
-        await this.characterService.softDeleteCharacter(id);
-    }
-
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.characterService.remove(+id);
+  }
 }

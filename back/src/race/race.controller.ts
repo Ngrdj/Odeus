@@ -1,32 +1,34 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { RaceDto } from './DTOs/race-dto';
-import { RaceEntity } from './race.entity';
+import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { RaceService } from './race.service';
+import { CreateRaceDto } from './dto/create-race.dto';
+import { UpdateRaceDto } from './dto/update-race.dto';
 
 @Controller('race')
 export class RaceController {
-    constructor(private readonly raceService:RaceService){
+  constructor(private readonly raceService: RaceService) {}
+  
+  @Post()
+  create(@Body() createRaceDto: CreateRaceDto) {
+    return this.raceService.create(createRaceDto);
+  }
 
-    }
-    @Get()
-    async getAllRace():Promise<RaceEntity[]>{
-        return await this.raceService.getAllRaces();
-    }
+  @Get()
+  findAll() {
+    return this.raceService.findAll();
+  }
 
-    @Get('/:id')
-    async getRaceById(@Param('id',ParseIntPipe)id:number):Promise<RaceEntity>{
-        return this.raceService.getRaceById(id)
-    }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.raceService.findOne(+id);
+  }
 
-    @UsePipes(new ValidationPipe({transform:true}))
-    @Post()
-    async postRace(@Body()newRace:RaceDto):Promise<RaceEntity>{
-        console.log(newRace)
-        return await this.raceService.createRace(newRace);
-    }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateRaceDto: UpdateRaceDto) {
+    return this.raceService.update(+id, updateRaceDto);
+  }
 
-    @Delete()
-    async deleteRace(@Param('id',ParseIntPipe)id:number){
-        await this.raceService.softDeleteRace(id)
-    }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.raceService.remove(+id);
+  }
 }

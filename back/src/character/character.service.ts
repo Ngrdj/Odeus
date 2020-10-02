@@ -1,49 +1,26 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { CharacterEntity } from './character.entity';
-import { CharacterDto } from './DTOs/character-dto';
-
+import { Injectable } from '@nestjs/common';
+import { CreateCharacterDto } from './dto/create-character.dto';
+import { UpdateCharacterDto } from './dto/update-character.dto';
 
 @Injectable()
 export class CharacterService {
-    constructor(
-        @InjectRepository(CharacterEntity)
-        private characterRepository:Repository<CharacterEntity>
-    ){}
+  create(createCharacterDto: CreateCharacterDto) {
+    return 'This action adds a new character';
+  }
 
-    async getAllCharacters():Promise<CharacterEntity[]>{ 
-        return await this.characterRepository.find()
-    }
+  findAll() {
+    return `This action returns all character`;
+  }
 
-    async getCharacterById(id:number):Promise<CharacterEntity>{   
-        const character= await this.characterRepository.findOne(id)
-        
-        if(character){  
+  findOne(id: number) {
+    return `This action returns a #${id} character`;
+  }
 
-            return character
+  update(id: number, updateCharacterDto: UpdateCharacterDto) {
+    return `This action updates a #${id} character`;
+  }
 
-        }else{
-             throw new NotFoundException('Character Introuvable')
-        }
-    }
-
-    async softDeleteCharacter(id:number){                    
-        const Character= await this.getCharacterById(id)
-
-        if(Character.deletedAt){                             
-
-            throw new Error('Character Déja Supprimé'); 
-
-        }else{
-
-            this.characterRepository.softRemove(Character)
-
-        }
-    }
-
-    // Ajout des caracterCapacities
-    async createCharacter(character:CharacterDto){
-        return await character
-    }
+  remove(id: number) {
+    return `This action removes a #${id} character`;
+  }
 }

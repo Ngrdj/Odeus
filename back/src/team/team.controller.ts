@@ -1,32 +1,34 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { TeamDto } from './DTOs/team-dto';
-import { TeamEntity } from './team.entity';
+import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { TeamService } from './team.service';
+import { CreateTeamDto } from './dto/create-team.dto';
+import { UpdateTeamDto } from './dto/update-team.dto';
 
 @Controller('team')
 export class TeamController {
-    constructor(private readonly teamService:TeamService){
+  constructor(private readonly teamService: TeamService) {}
+  
+  @Post()
+  create(@Body() createTeamDto: CreateTeamDto) {
+    return this.teamService.create(createTeamDto);
+  }
 
-    }
+  @Get()
+  findAll() {
+    return this.teamService.findAll();
+  }
 
-    @Get()
-    async getAllTeam():Promise<TeamEntity[]>{
-        return await this.teamService.getAllTeam();
-    }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.teamService.findOne(+id);
+  }
 
-    @Get('/:id')
-    async getTeamById(@Param('id',ParseIntPipe)id:number):Promise<TeamEntity>{
-        return this.teamService.getTeamById(id)
-    }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateTeamDto: UpdateTeamDto) {
+    return this.teamService.update(+id, updateTeamDto);
+  }
 
-    @UsePipes(new ValidationPipe({transform:true}))
-    @Post()
-    async postTeam(@Body()newTeam:TeamDto):Promise<TeamEntity>{
-        return await this.teamService.createTeam(newTeam);
-    }
-
-    @Delete()
-    async deleteTeam(@Param('id',ParseIntPipe)id:number){
-        await this.teamService.softDeleteTeam(id)
-    }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.teamService.remove(+id);
+  }
 }
