@@ -8,12 +8,9 @@ export class UsersService {
   constructor() { }
 
 
-  addUser(name:string,user:any){
+  addUser(){
 
-    localStorage.setItem(name,JSON.stringify(user))
-
-    console.log(localStorage)
-
+  
 
   }
 

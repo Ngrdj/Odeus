@@ -16,8 +16,8 @@ export class HeaderBarComponent implements OnInit {
 
   onLogoutClick(){
 
-    localStorage.removeItem("currentUser")
-    console.log(localStorage)
+    sessionStorage.removeItem("currentUser")
+    console.log(sessionStorage)
 
   }
   onOptionsButtonClick(){

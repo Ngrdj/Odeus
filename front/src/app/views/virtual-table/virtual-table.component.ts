@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { Team } from 'src/app/models/team';
-import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
 
 @Component({
@@ -29,14 +28,12 @@ export class VirtualTableComponent implements OnInit {
   heroes:Team;
 
   constructor(
-    private authService:AuthentificationsService,
     private charactService:CharactersService
     ){
 
       this.teams = this.charactService.getTeams();
       this.heroes = this.charactService.getHeroes();
        
-  // authService.addUser("currentUser",{name:"coucou"})
 
   }
 
