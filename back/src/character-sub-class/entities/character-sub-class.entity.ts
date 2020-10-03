@@ -12,11 +12,11 @@ export class CharacterSubClass {
 
     @ManyToOne(type=>SubClass,
         (subClass)=>subClass.characterSubClass)
-    subClass:SubClass[];
+    subClass:SubClass;
 
     @ManyToOne(type=>CharacterClass,
         (characterClass)=>characterClass.characterSubClass)
-    characterClass:CharacterClass[];
+    characterClass:CharacterClass;
 
     
 }

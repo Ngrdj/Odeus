@@ -1,5 +1,5 @@
 import { Character } from "src/character/entities/character.entity";
-import { Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export class Race {
    
@@ -27,7 +27,7 @@ export class Race {
     @Column()
     chaBonus:number;
 
-    @ManyToOne(type=>Character,
+    @OneToMany(type=>Character,
         (character)=>character.race)
     characters:Character[];
 }

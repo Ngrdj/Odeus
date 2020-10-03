@@ -11,11 +11,11 @@ export class CharacterClass {
     @JoinColumn()
     @OneToMany(type=>CharacterSubClass,
         (characterSubClass)=>characterSubClass.characterClass)
-    characterSubClass:CharacterSubClass;
+    characterSubClass:CharacterSubClass[];
 
     @ManyToOne(type=>Class,
         (classChar)=>classChar.characterClass)
-    class:Class[];
+    class:Class;
     
     @ManyToOne(type=>Character,
         (character)=>character.characterClass)

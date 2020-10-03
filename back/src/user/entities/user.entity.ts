@@ -1,4 +1,5 @@
 import { Character } from "src/character/entities/character.entity";
+import { Team } from "src/team/entities/team.entity";
 import { Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export class User {
@@ -18,5 +19,9 @@ export class User {
     @OneToMany(type=>Character,
         (character)=>character.user)
     characters:Character[];
+
+    @OneToMany(type=>Team,
+        (team)=>team.user)
+    team:Team[];
 
 }

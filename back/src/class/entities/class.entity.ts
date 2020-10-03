@@ -13,10 +13,10 @@ export class Class {
     @JoinColumn()
     @OneToMany(type=>SubClass,
         (subClass)=>subClass.class)
-    subClass:SubClass;
+    subClass:SubClass[];
 
     @JoinColumn()
     @OneToMany(type=>CharacterClass,
         (characterClass)=>characterClass.class)
-    characterClass:SubClass;
+    characterClass:CharacterClass[];
 }

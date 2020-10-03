@@ -1,6 +1,6 @@
 import { Character } from "src/character/entities/character.entity";
 import { Skill } from "src/skill/entities/skill.entity";
-import { Column, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export class Story {
 
@@ -13,7 +13,7 @@ export class Story {
     @Column()
     description:string;
 
-    @ManyToOne(type=>Character,
+    @OneToMany(type=>Character,
         (character)=>character.story)
     characters:Character[];
 
