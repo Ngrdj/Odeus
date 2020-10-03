@@ -18,7 +18,23 @@ import { StoryModule } from './story/story.module';
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [CharacterModule, RaceModule, ClassModule, SkillModule, SubClassModule, CapacityModule, CharacterSubClassModule, CharacterClassModule, CharacterSkillModule, TeamCharacterModule, TeamModule, CharacteristicModule, CharacterCharacteristicModule, StoryModule, UserModule],
+  imports: [
+            CharacterModule,
+            RaceModule,
+            ClassModule,
+            SkillModule,
+            SubClassModule,
+            CapacityModule, 
+            CharacterSubClassModule, 
+            CharacterClassModule, 
+            CharacterSkillModule, 
+            TeamCharacterModule, 
+            TeamModule, 
+            CharacteristicModule, 
+            CharacterCharacteristicModule, 
+            StoryModule, 
+            UserModule
+          ],
   controllers: [AppController],
   providers: [AppService],
 })
