@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateCharacteristicDto } from './dto/create-characteristic.dto';
 import { UpdateCharacteristicDto } from './dto/update-characteristic.dto';
+import { Characteristic } from './entities/characteristic.entity';
 
 @Injectable()
 export class CharacteristicService {
+  constructor(@InjectRepository(Characteristic) private readonly characteristicRepository:Repository<Characteristic>){}
+
   create(createCharacteristicDto: CreateCharacteristicDto) {
     return 'This action adds a new characteristic';
   }

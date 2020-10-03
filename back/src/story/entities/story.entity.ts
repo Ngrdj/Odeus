@@ -1,7 +1,8 @@
 import { Character } from "src/character/entities/character.entity";
 import { Skill } from "src/skill/entities/skill.entity";
-import { Column, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity('story')
 export class Story {
 
     @PrimaryGeneratedColumn({type:"int"})

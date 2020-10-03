@@ -1,7 +1,7 @@
 import { CharacterClass } from "src/character-class/entities/character-class.entity";
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
-import { Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+@Entity('characterSubClass')
 export class CharacterSubClass {
 
     @PrimaryGeneratedColumn({type:"int"})

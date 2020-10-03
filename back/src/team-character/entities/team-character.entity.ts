@@ -1,7 +1,7 @@
 import { Character } from "src/character/entities/character.entity";
 import { Team } from "src/team/entities/team.entity";
-import { ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-
+import { Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+@Entity('teamCharacter')
 export class TeamCharacter {
 
     @PrimaryGeneratedColumn({type:"int"})

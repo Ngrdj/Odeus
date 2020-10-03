@@ -16,9 +16,12 @@ import { CharacteristicModule } from './characteristic/characteristic.module';
 import { CharacterCharacteristicModule } from './character-characteristic/character-characteristic.module';
 import { StoryModule } from './story/story.module';
 import { UserModule } from './user/user.module';
+import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
+import { AuthModule } from './authentication/auth.module';
 
 @Module({
   imports: [
+            AuthModule,
             CharacterModule,
             RaceModule,
             ClassModule,
@@ -33,7 +36,18 @@ import { UserModule } from './user/user.module';
             CharacteristicModule, 
             CharacterCharacteristicModule, 
             StoryModule, 
-            UserModule
+            UserModule,
+            TypeOrmModule.forRoot({                         //Connection Avec La Base De Données sur Postgres
+              type: 'postgres',
+              host: 'localhost',
+              port: 5432,
+              username: 'postgres',
+              password: 'admin',
+              database: 'odeus',
+              entities: ["dist/**/*.entity{.ts,.js}"],
+              synchronize: true,    //Changement auto de la base de donnée
+        
+            })
           ],
   controllers: [AppController],
   providers: [AppService],

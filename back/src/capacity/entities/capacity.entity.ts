@@ -1,6 +1,6 @@
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
-import { Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+@Entity('capacity')
 export class Capacity {
 
     @PrimaryGeneratedColumn({type:"int"})

@@ -5,9 +5,10 @@ import { Race } from "src/race/entities/race.entity";
 import { Story } from "src/story/entities/story.entity";
 import { TeamCharacter } from "src/team-character/entities/team-character.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column,CreateDateColumn,DeleteDateColumn,JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column,CreateDateColumn,DeleteDateColumn,Entity,JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Alignement } from "../dto/alignement.enum";
 
+@Entity('character')
 export class Character {
     
     @PrimaryGeneratedColumn({type:"int"})

@@ -1,9 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateCharacterClassDto } from './dto/create-character-class.dto';
 import { UpdateCharacterClassDto } from './dto/update-character-class.dto';
+import { CharacterClass } from './entities/character-class.entity';
 
 @Injectable()
 export class CharacterClassService {
+  constructor(@InjectRepository(CharacterClass) private readonly characterClassRepository:Repository<CharacterClass>){}
   create(createCharacterClassDto: CreateCharacterClassDto) {
     return 'This action adds a new characterClass';
   }

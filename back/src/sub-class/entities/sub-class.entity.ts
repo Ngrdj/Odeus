@@ -1,8 +1,8 @@
 import { Capacity } from "src/capacity/entities/capacity.entity";
 import { CharacterSubClass } from "src/character-sub-class/entities/character-sub-class.entity";
 import { Class } from "src/class/entities/class.entity";
-import { Column, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+@Entity('subClass')
 export class SubClass {
 
     @PrimaryGeneratedColumn({type:"int"})

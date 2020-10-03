@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateCharacterSubClassDto } from './dto/create-character-sub-class.dto';
 import { UpdateCharacterSubClassDto } from './dto/update-character-sub-class.dto';
+import { CharacterSubClass } from './entities/character-sub-class.entity';
 
 @Injectable()
 export class CharacterSubClassService {
+  constructor(@InjectRepository(CharacterSubClass) private readonly CharacterSubClassRepository:Repository<CharacterSubClass>){}
+
   create(createCharacterSubClassDto: CreateCharacterSubClassDto) {
     return 'This action adds a new characterSubClass';
   }

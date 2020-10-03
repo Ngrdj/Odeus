@@ -30,8 +30,15 @@ export class CapacityService {
     return await this.capacityRepository.findOne(id);
   }
 
-  update(id: number, updateCapacityDto: UpdateCapacityDto) {
-    return this.capacityRepository.update(id,updateCapacityDto);
+  async update(id: number, updateCapacityDto: UpdateCapacityDto) {
+    const capacity=await this.findOne(id);
+    const subClassCapacity= await this.subClassService.findOneByName(updateCapacityDto.subClass)
+    capacity.name=updateCapacityDto.name;
+    capacity.level=updateCapacityDto.level;
+    capacity.description=updateCapacityDto.description;
+    capacity.subClass=subClassCapacity;
+
+    return await this.capacityRepository.save(capacity);
   }
 
  async remove(id: number) {

@@ -1,6 +1,6 @@
 import { Character } from "src/character/entities/character.entity";
-import { Column, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+@Entity('race')
 export class Race {
    
     @PrimaryGeneratedColumn({type:"int"})

@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateRaceDto } from './dto/create-race.dto';
 import { UpdateRaceDto } from './dto/update-race.dto';
+import { Race } from './entities/race.entity';
 
 @Injectable()
 export class RaceService {
+  constructor(@InjectRepository(Race) private readonly raceRepository:Repository<Race>){}
+
   create(createRaceDto: CreateRaceDto) {
     return 'This action adds a new race';
   }

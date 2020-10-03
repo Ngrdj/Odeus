@@ -1,16 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm/dist/common';
+import { ClassService } from 'src/class/class.service';
 import { Repository } from 'typeorm';
+import { CreateSubClassDto } from './dto/create-sub-class.dto';
 import { UpdateSubClassDto } from './dto/update-sub-class.dto';
 import { SubClass } from './entities/sub-class.entity';
 
 @Injectable()
 export class SubClassService {
 
-  constructor(@InjectRepository(SubClass) private readonly subClassRepository:Repository<SubClass>){}
+  constructor(@InjectRepository(SubClass) private readonly subClassRepository:Repository<SubClass>,private classService:ClassService){}
   
-  create() {
-    return 'This action adds a new subClass';
+async create(createSubClassDto:CreateSubClassDto) {
+    const className= await this.classService.findOneByName(createSubClassDto.class)
+    const newSubClass=new SubClass();
+    newSubClass.name=createSubClassDto.name;
+    newSubClass.class=className;
+    
+
+    return this.subClassRepository.save(newSubClass);
   }
 
   findAll() {
