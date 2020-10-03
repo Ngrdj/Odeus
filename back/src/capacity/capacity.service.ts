@@ -15,11 +15,11 @@ export class CapacityService {
   }
 
   findAll() {
-    return `This action returns all capacity`;
+    return this.capacityRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} capacity`;
+    return this.capacityRepository.findOne(id);
   }
 
   update(id: number, updateCapacityDto: UpdateCapacityDto) {
