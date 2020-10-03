@@ -1,10 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSubClassDto } from './dto/create-sub-class.dto';
+import { InjectRepository } from '@nestjs/typeorm/dist/common';
+import { Repository } from 'typeorm';
 import { UpdateSubClassDto } from './dto/update-sub-class.dto';
+import { SubClass } from './entities/sub-class.entity';
 
 @Injectable()
 export class SubClassService {
-  create(createSubClassDto: CreateSubClassDto) {
+
+  constructor(@InjectRepository(SubClass) private readonly subClassRepository:Repository<SubClass>){}
+  
+  create() {
     return 'This action adds a new subClass';
   }
 
@@ -14,6 +19,10 @@ export class SubClassService {
 
   findOne(id: number) {
     return `This action returns a #${id} subClass`;
+  }
+
+  async findOneByName(name:string){
+    return await this.subClassRepository.findOne({name})
   }
 
   update(id: number, updateSubClassDto: UpdateSubClassDto) {

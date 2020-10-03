@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { CapacityService } from './capacity.service';
 import { CreateCapacityDto } from './dto/create-capacity.dto';
 import { UpdateCapacityDto } from './dto/update-capacity.dto';
@@ -18,17 +18,17 @@ export class CapacityController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.capacityService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.capacityService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCapacityDto: UpdateCapacityDto) {
-    return this.capacityService.update(+id, updateCapacityDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateCapacityDto: UpdateCapacityDto) {
+    return this.capacityService.update(id, updateCapacityDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.capacityService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.capacityService.remove(id);
   }
 }
