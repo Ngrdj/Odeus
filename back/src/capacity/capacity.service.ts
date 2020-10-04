@@ -23,8 +23,8 @@ export class CapacityService {
     return this.capacityRepository.save(newCapacity);
   }
 
-  findAll() {
-    return this.capacityRepository.find();
+  async findAll() {
+    return await this.capacityRepository.find();
   }
 
   async findOne(id: number) {

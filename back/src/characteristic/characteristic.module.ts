@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [TypeOrmModule.forFeature([Characteristic])],
   controllers: [CharacteristicController],
-  providers: [CharacteristicService]
+  providers: [CharacteristicService],
+  exports:[CharacteristicService]
 })
 export class CharacteristicModule {}
