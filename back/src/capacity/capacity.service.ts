@@ -18,6 +18,7 @@ export class CapacityService {
     newCapacity.level=createCapacityDto.level;
     newCapacity.description=createCapacityDto.description;
     newCapacity.subClass=subClassCapacity;
+    
 
     return this.capacityRepository.save(newCapacity);
   }
