@@ -15,8 +15,11 @@ constructor(private http:HttpClient) { }
   public getAllClasses():Observable<ClassModel[]>{
     return this.http.get<ClassDto[]>('http://localhost:3000/class')
     .pipe(
-      map((arrayClass:ClassDto[])=>arrayClass
-      .map((classfound:ClassDto)=>ClassModel.fromClassDto(classfound)))
+      map((classes:ClassDto[]) => {
+
+        return classes.map(classDto => ClassModel.fromClassDto(classDto))
+
+      })
     )
   }
 }

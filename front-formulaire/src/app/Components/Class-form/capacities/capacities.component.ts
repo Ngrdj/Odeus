@@ -36,8 +36,6 @@ export class CapacitiesComponent implements OnInit {
 
       });
 
-
-
   }
 
     
@@ -45,41 +43,36 @@ export class CapacitiesComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getAllClasses().subscribe((classes)=>{
-      classes.forEach((classFound)=>{
-        this.classes.push(classFound)
-      })
-    });
-    this.getAllSubClasses().subscribe((subClasses)=>{
-      subClasses.forEach((subClassFound)=>{
-        this.subClasses.push(subClassFound)
-      })
-    })
+    this.getAllClasses()
+    this.getAllSubClasses()
   }
 
-  private getAllClasses():Observable<ClassModel[]>{
+  private getAllClasses():void{
 
-    return this.classService.getAllClasses().pipe(
-      map((classes:ClassModel[])=>{
+    this.classService.getAllClasses().subscribe(
+      classes => {
+
+        this.classes = classes
         classes.forEach(()=>{
           (this.capacitiesForm.get('classes')as FormArray).controls.push(new FormControl(false))
         });
-        return classes
-      })
+      }
     )
+    
     
   }
 
-  private getAllSubClasses():Observable<SubClassModel[]>{
+  private getAllSubClasses(){
 
-    return this.subClassService.getAllSubClasses().pipe(
-      map((subClasses:SubClassModel[])=>{
+    this.subClassService.getAllSubClasses().subscribe(
+      subClasses=>{
+        this.subClasses = subClasses
         subClasses.forEach(()=>{
           (this.capacitiesForm.get('type')as FormArray).controls.push(new FormControl(false))
         });
-        return subClasses
-      })
+      }
     )
+    
     
   }
 
