@@ -1,2 +1,27 @@
+   
+    <div class="ft-container"  [ngClass]="{hideFt: !visibility, showFt:visibility}">
 
-  
+        <button [ngClass]="{hiddenModeButton: !visibility}" class="ft-showHideButton" (click)="onShowHideButtonClick()">show/hide FT</button>
+        <div *ngIf="visibility" class="fight-tracker" >
+
+            <div class="ft-header"></div>
+            <div class="ft-main">
+
+                <div class="allyContainer">
+
+                </div>
+                <div class="enemyContainer">
+                    
+                </div>
+
+            </div>
+            <div class="ft-footer">
+
+                <img src="https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg">
+
+            </div>
+            
+        </div>
+
+    </div>
+    

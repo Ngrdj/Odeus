@@ -11,7 +11,7 @@
     box-sizing: border-box;
 
 }
-.optionsButton{
+.optionsButton,.searchButton{
 
     height: 100%;
     width: 45px;
@@ -22,6 +22,20 @@
     cursor: pointer;
 
 }
+.searchButton{
+
+    font-size: 1em;
+    margin: 5px;
+    padding: 0;
+    width: auto;
+
+}
+.searchBar{
+
+    border-radius: 10px;
+    border: none;
+}
+
 .optionsButton:hover{
 
     filter: invert(100%);

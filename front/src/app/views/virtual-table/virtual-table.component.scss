@@ -54,7 +54,7 @@ $options-width:50px;
 .header{
 
     grid-area: header;
-    background-color:var(--darkerPanelsColor);
+    background-color:var(--panelsColor);
 
 }
 .headerButton{
@@ -62,7 +62,7 @@ $options-width:50px;
     grid-area: headerButton;
     font-size: $header-button-height/2;
     border: none;
-    background-color:var(--darkerPanelsColor);
+    background-color:var(--panelsColor);
     color: white;
     outline: none;
     cursor: pointer;
@@ -87,7 +87,7 @@ $options-width:50px;
 .side{
 
     grid-area: side;
-    background-color: rgba(0,0,0,0.02);
+    background-color: var(--panelsColor);
 
 }
 .sideButton{
@@ -95,7 +95,7 @@ $options-width:50px;
     grid-area: sideButton;
     writing-mode: sideways-lr;
     border: none;
-    background-color:var(--darkerPanelsColor);
+    background-color:var(--panelsColor);
     color: white;
     outline: none;
     cursor: pointer;
