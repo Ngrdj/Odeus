@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-Class-form',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassFormComponent implements OnInit {
 
+public classCharacterForm:FormGroup;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmitForm(){
+
+    console.log("submitForm")
+
   }
 
 }
