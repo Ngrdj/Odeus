@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { RaceService } from './race.service';
 import { CreateRaceDto } from './dto/create-race.dto';
 import { UpdateRaceDto } from './dto/update-race.dto';
@@ -18,17 +18,17 @@ export class RaceController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.raceService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.raceService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateRaceDto: UpdateRaceDto) {
-    return this.raceService.update(+id, updateRaceDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateRaceDto: UpdateRaceDto) {
+    return this.raceService.update(id, updateRaceDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.raceService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.raceService.remove(id);
   }
 }

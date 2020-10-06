@@ -9,8 +9,8 @@ import { CharacterSkill } from './entities/character-skill.entity';
 export class CharacterSkillService {
   constructor(@InjectRepository(CharacterSkill) private readonly characterSkillRepository:Repository<CharacterSkill>){}
 
-  create(createCharacterSkillDto: CreateCharacterSkillDto) {
-    return 'This action adds a new characterSkill';
+  create(characterSkill: CharacterSkill) {
+    return this.characterSkillRepository.save(characterSkill);
   }
 
   findAll() {

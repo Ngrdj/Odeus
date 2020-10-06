@@ -8,6 +8,7 @@ import { SubClassModule } from 'src/sub-class/sub-class.module';
 @Module({
   imports: [TypeOrmModule.forFeature([Capacity]),SubClassModule],
   controllers: [CapacityController],
-  providers: [CapacityService]
+  providers: [CapacityService],
+  exports:[CapacityService]
 })
 export class CapacityModule {}

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { CharacteristicService } from './characteristic.service';
 import { CreateCharacteristicDto } from './dto/create-characteristic.dto';
 import { UpdateCharacteristicDto } from './dto/update-characteristic.dto';
@@ -18,17 +18,17 @@ export class CharacteristicController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.characteristicService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.characteristicService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCharacteristicDto: UpdateCharacteristicDto) {
-    return this.characteristicService.update(+id, updateCharacteristicDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateCharacteristicDto: UpdateCharacteristicDto) {
+    return this.characteristicService.update(id, updateCharacteristicDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.characteristicService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.characteristicService.remove(id);
   }
 }

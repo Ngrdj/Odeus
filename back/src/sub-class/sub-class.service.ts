@@ -16,28 +16,31 @@ async create(createSubClassDto:CreateSubClassDto) {
     const newSubClass=new SubClass();
     newSubClass.name=createSubClassDto.name;
     newSubClass.class=className;
-    
-
     return this.subClassRepository.save(newSubClass);
   }
 
-  findAll() {
-    return `This action returns all subClass`;
+  async findAll() {
+    return await this.subClassRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} subClass`;
+  async findOne(id: number) {
+    return await this.subClassRepository.findOne(id);
   }
 
   async findOneByName(name:string){
-    return await this.subClassRepository.findOne({name})
+    return await this.subClassRepository.findOne({name:name})
   }
 
-  update(id: number, updateSubClassDto: UpdateSubClassDto) {
-    return `This action updates a #${id} subClass`;
+  async update(id: number, updateSubClassDto: UpdateSubClassDto) {
+    const subClass= await this.findOne(id);
+    const className= await this.classService.findOneByName(updateSubClassDto.class)
+    subClass.name=updateSubClassDto.name;
+    subClass.class=className;
+    return this.subClassRepository.save(subClass);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} subClass`;
+  async remove(id: number) {
+    const subClass= await this.findOne(id)
+    return this.subClassRepository.save(subClass);
   }
 }

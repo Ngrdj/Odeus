@@ -7,10 +7,7 @@ import { UpdateCharacterSkillDto } from './dto/update-character-skill.dto';
 export class CharacterSkillController {
   constructor(private readonly characterSkillService: CharacterSkillService) {}
   
-  @Post()
-  create(@Body() createCharacterSkillDto: CreateCharacterSkillDto) {
-    return this.characterSkillService.create(createCharacterSkillDto);
-  }
+  
 
   @Get()
   findAll() {

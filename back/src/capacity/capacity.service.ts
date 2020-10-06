@@ -18,12 +18,13 @@ export class CapacityService {
     newCapacity.level=createCapacityDto.level;
     newCapacity.description=createCapacityDto.description;
     newCapacity.subClass=subClassCapacity;
+    
 
     return this.capacityRepository.save(newCapacity);
   }
 
-  findAll() {
-    return this.capacityRepository.find();
+  async findAll() {
+    return await this.capacityRepository.find();
   }
 
   async findOne(id: number) {

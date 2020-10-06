@@ -7,10 +7,7 @@ import { UpdateCharacterSubClassDto } from './dto/update-character-sub-class.dto
 export class CharacterSubClassController {
   constructor(private readonly characterSubClassService: CharacterSubClassService) {}
   
-  @Post()
-  create(@Body() createCharacterSubClassDto: CreateCharacterSubClassDto) {
-    return this.characterSubClassService.create(createCharacterSubClassDto);
-  }
+  
 
   @Get()
   findAll() {

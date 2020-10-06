@@ -7,10 +7,6 @@ import { UpdateCharacterCharacteristicDto } from './dto/update-character-charact
 export class CharacterCharacteristicController {
   constructor(private readonly characterCharacteristicService: CharacterCharacteristicService) {}
   
-  @Post()
-  create(@Body() createCharacterCharacteristicDto: CreateCharacterCharacteristicDto) {
-    return this.characterCharacteristicService.create(createCharacterCharacteristicDto);
-  }
 
   @Get()
   findAll() {

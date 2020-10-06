@@ -10,22 +10,31 @@ export class CharacteristicService {
   constructor(@InjectRepository(Characteristic) private readonly characteristicRepository:Repository<Characteristic>){}
 
   create(createCharacteristicDto: CreateCharacteristicDto) {
-    return 'This action adds a new characteristic';
+    const characteristic= new Characteristic();
+    characteristic.name=createCharacteristicDto.name;
+    return this.characteristicRepository.save(characteristic);
   }
 
-  findAll() {
-    return `This action returns all characteristic`;
+  async findAll() {
+    return await this.characteristicRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} characteristic`;
+  async findOne(id: number) {
+    return await this.characteristicRepository.findOne(id);
   }
 
-  update(id: number, updateCharacteristicDto: UpdateCharacteristicDto) {
-    return `This action updates a #${id} characteristic`;
+  async findOneByName(name:string){
+    return await this.characteristicRepository.findOne({name}) 
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} characteristic`;
+  async update(id: number, updateCharacteristicDto: UpdateCharacteristicDto) {
+    const characteristic= await this.findOne(id);
+    characteristic.name=updateCharacteristicDto.name;
+    return this.characteristicRepository.save(characteristic);
+  }
+
+  async remove(id: number) {
+    const characteristic= await this.findOne(id);
+    return this.characteristicRepository.softDelete(characteristic);
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ClassEnum } from './class.enum';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
 import { Class } from './entities/class.entity';
@@ -8,26 +9,32 @@ import { Class } from './entities/class.entity';
 @Injectable()
 export class ClassService {
   constructor(@InjectRepository(Class) private readonly classRepository:Repository<Class>){}
-  create(createClassDto: CreateClassDto) {
-    return 'This action adds a new class';
+  
+  async create(createClassDto: CreateClassDto) {
+    const newClass= new Class();
+    newClass.name=createClassDto.name;
+    return await this.classRepository.save(newClass) ;
   }
 
-  findAll() {
-    return `This action returns all class`;
+  async findAll() {
+    return await this.classRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} class`;
+  async findOne(id: number) {
+    return await this.classRepository.findOne(id);
   }
-  findOneByName(name:string){
-    return this.classRepository.findOne(name)
-  }
-
-  update(id: number, updateClassDto: UpdateClassDto) {
-    return `This action updates a #${id} class`;
+  async findOneByName(name:ClassEnum){
+    return await this.classRepository.findOne({name:name})
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} class`;
+  async update(id: number, updateClassDto: UpdateClassDto) {
+    const classchar= await this.findOne(id)
+    classchar.name=updateClassDto.name;
+    return await this.classRepository.save(classchar);
+  }
+
+  async remove(id: number) {
+    const classchar = await this.findOne(id)
+    return this.classRepository.softRemove(classchar);
   }
 }

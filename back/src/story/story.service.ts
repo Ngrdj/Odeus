@@ -20,6 +20,9 @@ export class StoryService {
   findOne(id: number) {
     return `This action returns a #${id} story`;
   }
+  async findOneByName(name:string){
+    return this.storyRepository.findOne({name:name})
+  }
 
   update(id: number, updateStoryDto: UpdateStoryDto) {
     return `This action updates a #${id} story`;

@@ -10,9 +10,6 @@ export class Characteristic {
     @Column()
     name:string;
 
-    @OneToMany(type=>Skill,
-        (skill)=>skill.characteristic)
-    skills:Skill[];
 
     @JoinColumn()
     @OneToMany(type=>CharacterCharacteristic,

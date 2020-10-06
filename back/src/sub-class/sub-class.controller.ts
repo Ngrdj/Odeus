@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { SubClassService } from './sub-class.service';
 import { CreateSubClassDto } from './dto/create-sub-class.dto';
 import { UpdateSubClassDto } from './dto/update-sub-class.dto';
@@ -18,17 +18,17 @@ export class SubClassController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.subClassService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.subClassService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateSubClassDto: UpdateSubClassDto) {
-    return this.subClassService.update(+id, updateSubClassDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateSubClassDto: UpdateSubClassDto) {
+    return this.subClassService.update(id, updateSubClassDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.subClassService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.subClassService.remove(id);
   }
 }

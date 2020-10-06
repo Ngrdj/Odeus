@@ -1,7 +1,8 @@
 import { ClassEnum } from "src/class/class.enum";
+import { SubClassEnum } from "../subClass.enum";
 
 export class CreateSubClassDto {
-    name:string;
+    name:SubClassEnum;
     class:ClassEnum;
     
 }
