@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CharacteristicService } from 'src/characteristic/characteristic.service';
 import { Repository } from 'typeorm';
 import { CreateSkillDto } from './dto/create-skill.dto';
 import { UpdateSkillDto } from './dto/update-skill.dto';
@@ -8,13 +7,12 @@ import { Skill } from './entities/skill.entity';
 
 @Injectable()
 export class SkillService {
-  constructor(@InjectRepository(Skill) private readonly skillRepository:Repository<Skill>, private characteristicService:CharacteristicService){}
+  constructor(@InjectRepository(Skill) private readonly skillRepository:Repository<Skill>){}
 
   async create(createSkillDto: CreateSkillDto) {
-    const characteristic= await this.characteristicService.findOneByName(createSkillDto.type)
     const newSkill= new Skill();
     newSkill.name=createSkillDto.name;
-    newSkill.characteristic=characteristic;
+    newSkill.type=createSkillDto.type;
     return this.skillRepository.save(newSkill);
   }
 

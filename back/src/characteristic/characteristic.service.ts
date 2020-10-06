@@ -24,7 +24,7 @@ export class CharacteristicService {
   }
 
   async findOneByName(name:string){
-    return await this.characteristicRepository.findOne(name) 
+    return await this.characteristicRepository.findOne({name}) 
   }
 
   async update(id: number, updateCharacteristicDto: UpdateCharacteristicDto) {

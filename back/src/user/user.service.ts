@@ -1,19 +1,32 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
-
+import * as bcrypt from 'bcrypt';
+import { RoleEnum } from './role.enum';
 @Injectable()
 export class UserService {
 
   constructor(@InjectRepository(User)
-  private userRepository:Repository<User>){}
+  private userRepository:Repository<User>,){}
 
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
-  }
+  async create(createUserDto: CreateUserDto) {
+    const user = new User();
+    user.name=createUserDto.name;
+    user.role=RoleEnum.USER;
+    user.login=createUserDto.login;
+    user.password = await bcrypt.hash(createUserDto.password,bcrypt.genSalt(10))
+        try{
+            await this.userRepository.save(user)
+        }catch(e){
+            throw new ConflictException();
+        }
+        
+        return user
+
+    }
 
   findAll() {
     return `This action returns all user`;

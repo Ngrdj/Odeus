@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CharacterService } from 'src/character/character.service';
+import { Character } from 'src/character/entities/character.entity';
+import { CharacteristicService } from 'src/characteristic/characteristic.service';
 import { Repository } from 'typeorm';
 import { CreateCharacterCharacteristicDto } from './dto/create-character-characteristic.dto';
 import { UpdateCharacterCharacteristicDto } from './dto/update-character-characteristic.dto';
@@ -7,17 +10,27 @@ import { CharacterCharacteristic } from './entities/character-characteristic.ent
 
 @Injectable()
 export class CharacterCharacteristicService {
-  constructor(@InjectRepository(CharacterCharacteristic) private readonly characterCharacteristicRepository:Repository<CharacterCharacteristic>){}
-  create(createCharacterCharacteristicDto: CreateCharacterCharacteristicDto) {
-    return 'This action adds a new characterCharacteristic';
+  constructor(@InjectRepository(CharacterCharacteristic)
+   private readonly characterCharacteristicRepository:Repository<CharacterCharacteristic>,
+   private characteristicService:CharacteristicService
+   ){}
+  async create(createCharacterCharacteristicDto: CreateCharacterCharacteristicDto,character:Character) {
+    const characteristic= await this.characteristicService.findOne(createCharacterCharacteristicDto.characteristicId);
+    const newCharacterCharacteristic= new CharacterCharacteristic();
+    newCharacterCharacteristic.value=createCharacterCharacteristicDto.value;
+    newCharacterCharacteristic.character=character;
+    newCharacterCharacteristic.characteristic=characteristic;
+    newCharacterCharacteristic.bonus= Math.floor((createCharacterCharacteristicDto.value-10)/2);
+
+    return this.characterCharacteristicRepository.save(newCharacterCharacteristic);
   }
 
   findAll() {
-    return `This action returns all characterCharacteristic`;
+    return this.characterCharacteristicRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} characterCharacteristic`;
+    return this.characterCharacteristicRepository.findOne(id);
   }
 
   update(id: number, updateCharacterCharacteristicDto: UpdateCharacterCharacteristicDto) {
@@ -27,4 +40,5 @@ export class CharacterCharacteristicService {
   remove(id: number) {
     return `This action removes a #${id} characterCharacteristic`;
   }
+
 }

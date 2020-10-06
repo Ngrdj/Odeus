@@ -1,4 +1,4 @@
-import { CharacterClass } from "src/character-class/entities/character-class.entity";
+import { Character } from "src/character/entities/character.entity";
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 @Entity('characterSubClass')
@@ -14,9 +14,9 @@ export class CharacterSubClass {
         (subClass)=>subClass.characterSubClass)
     subClass:SubClass;
 
-    @ManyToOne(type=>CharacterClass,
-        (characterClass)=>characterClass.characterSubClass)
-    characterClass:CharacterClass;
+    @ManyToOne(type=>Character,
+        (character)=>character.characterSubClass)
+    character:Character;
 
     
 }

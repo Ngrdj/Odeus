@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ClassEnum } from './class.enum';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
 import { Class } from './entities/class.entity';
@@ -22,8 +23,8 @@ export class ClassService {
   async findOne(id: number) {
     return await this.classRepository.findOne(id);
   }
-  async findOneByName(name:string){
-    return await this.classRepository.findOne(name)
+  async findOneByName(name:ClassEnum){
+    return await this.classRepository.findOne({name:name})
   }
 
   async update(id: number, updateClassDto: UpdateClassDto) {

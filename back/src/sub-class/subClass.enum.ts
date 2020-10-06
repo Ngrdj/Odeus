@@ -1,4 +1,3 @@
-import { AfterInsert } from "typeorm";
 
 export enum SubClassEnum{
     FIRE="FIRE",
