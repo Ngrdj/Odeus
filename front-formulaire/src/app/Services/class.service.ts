@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ClassDto } from '../DTOs/create-class.dto';
+import { ClassDto } from '../DTOs/class.dto';
 import { ClassModel } from '../Models/class.model';
 import { catchError, map, tap } from 'rxjs/operators';
 

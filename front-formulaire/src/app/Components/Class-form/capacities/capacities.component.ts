@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CapacityModel } from 'src/app/Models/capacity.model';
 import { ClassModel } from 'src/app/Models/class.model';
 import { SubClassModel } from 'src/app/Models/subClass.model';
 import { CapacityService } from 'src/app/Services/capacity.service';
@@ -87,9 +86,7 @@ export class CapacitiesComponent implements OnInit {
 
 
   onSubmitForm(){
-    if(this.capacitiesForm.valid){
-
-    }
+    
   }
 
 }

@@ -5,28 +5,32 @@
     </label>
     <input type="text" formControlName="name">
   </div>
+
   <div>
     <label>
       Description :
     </label>
     <input type="text" formControlName="description">
   </div>
+
   <div>
     <label>
       Classe :
     </label>
-    <input type="select">
-      <option *ngFor=(let class of classes) valeur={{class.name}}>{{class.name}}</option>
-    </input>
+    <select >
+      <option *ngFor="let class of classes;let index=index">{{class.name}}</option>
+    </select>
   </div>
+
   <div>
     <label>
       Type :
     </label>
-    <input type="select" >
-      <option *ngFor=(let subClass of subClasses) valeur={{subClass.name}}>{{subClass.name}}</option>
-    </input>
+    <select >
+      <option *ngFor="let subClass of subClasses;let index=index">{{subClass.name}}</option>
+    </select>
   </div>
+
   <div>
     <label>
       Niveaux :

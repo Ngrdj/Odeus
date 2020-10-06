@@ -1,8 +1,9 @@
-import { ClassDto } from '../DTOs/create-class.dto'
+import { ClassDto } from '../DTOs/class.dto'
+import { ClassEnum } from '../Enum/class.enum'
 
 export class ClassModel{
     constructor(
-        public name:string
+        public name:ClassEnum
     ){}
 
 
