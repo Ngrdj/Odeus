@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'fight-tracker',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FightTrackerComponent implements OnInit {
 
+  visibility:boolean=false;
+  @Input() fighterList:Character[]
+  selectedCharacter:Character
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onShowHideButtonClick(){
+
+    this.visibility = !this.visibility
+
   }
 
 }

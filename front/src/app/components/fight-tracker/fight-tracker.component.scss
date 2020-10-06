@@ -1,9 +1,120 @@
+@keyframes deployContainer {
+
+    from{
+        height: 0%;
+
+    }
+    to{
+        height: 80%;
+    }
+
+}
+@keyframes hideContainer {
+
+    from{
+        height: 80%;
+    }
+    to{
+        height: 0%;
+    }
+
+}
+
 :host{
 
-    background-color:var(--panelsColor);
-    display:block;
+    display:flex;
     width: 100%;
     height:auto;
     overflow: hidden;
+    justify-content: center;
+    margin-top: 5%;
+
+}
+.ft-showHideButton{
+
+    font-size: 15px;
+    border: none;
+    background-color: var(--panelsColor);
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+
+}
+.hiddenModeButton{
+
+    border-radius: 10px;
+
+}
+.ft-showHideButton:hover{
+
+    filter:invert(100%)
+
+}
+.ft-container{
+
+    display: flex;
+    flex-direction: column;
+    background-color:var(--panelsColor);
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+
+}
+.hideFt{
+
+    animation-name: hideContainer;
+    animation-fill-mode: forwards;
+    animation-duration: 0.3s;
+
+}
+.showFt{
+
+    animation-name: deployContainer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+}
+.fight-tracker{
+
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 1%;
+    gap:0.5%;
+    grid-template-rows: 10% 70% auto;
+    box-sizing: border-box;
+
+}
+
+.ft-header{
+
+    grid-area: header;
+    background-color:var(--panelsColor);
+    width: auto;
+    height: 100%;
+    border-radius: 10px 10px 0px 0px;
+
+}
+.ft-main{
+
+    grid-area: main;
+    background-color:var(--panelsColor);
+    width: auto;
+    height: 100%;
+
+}
+.ft-footer{
+
+    grid-area: footer;
+    background-color:var(--panelsColor);
+    width: auto;
+    height: 100%;
+    border-radius: 0px 0px 10px 10px;
 
 }

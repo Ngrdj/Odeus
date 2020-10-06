@@ -1,10 +1,15 @@
 <button (click)="onOptionsButtonClick()" class="optionsButton">&#x2630;</button>
-<button routerLink="/login">login</button>
-<button (click)="onLogoutClick()">logout</button>
 
 <label>
 
-    <input>
-    <button>search</button>
+    <input class="searchBar">
+    <button class="searchButton"><fa-icon [icon]="faSearch"></fa-icon></button>
 
 </label>
+
+<div>
+
+    <button routerLink="/login">login</button>
+    <button (click)="onLogoutClick()">logout</button>
+            
+</div>
