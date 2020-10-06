@@ -5,26 +5,30 @@ import { Character } from './entities/character.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CharacterSubClassService } from '../character-sub-class/character-sub-class.service';
 import { CharacterCharacteristicService } from '../character-characteristic/character-characteristic.service';
-import { CharacteristicService } from '../characteristic/characteristic.service';
-import { ClassService } from '../class/class.service';
 import { CharacterSkill } from '../character-skill/entities/character-skill.entity';
 import { TeamCharacter } from '../team-character/entities/team-character.entity';
-import { SubClassService } from 'src/sub-class/sub-class.service';
+import { ClassModule } from 'src/class/class.module';
+import { SubClassModule } from 'src/sub-class/sub-class.module';
+import { CharacteristicModule } from 'src/characteristic/characteristic.module';
+import { CharacterSubClass } from 'src/character-sub-class/entities/character-sub-class.entity';
+import { CharacterCharacteristic } from 'src/character-characteristic/entities/character-characteristic.entity';
+import { CharacterSkillService } from 'src/character-skill/character-skill.service';
+import { TeamCharacterService } from 'src/team-character/team-character.service';
+import { StoryModule } from 'src/story/story.module';
+import { SkillModule } from 'src/skill/skill.module';
+import { RaceModule } from 'src/race/race.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Character])],
+  imports: [TypeOrmModule.forFeature([Character,CharacterSubClass,CharacterCharacteristic,CharacterSkill,TeamCharacter]),ClassModule,SubClassModule,CharacteristicModule,StoryModule,SkillModule,RaceModule],
   controllers: [
     CharacterController
   ],
   providers: [
     CharacterService,
-    ClassService,
-    SubClassService,
-    CharacteristicService,
     CharacterSubClassService,
     CharacterCharacteristicService,
-    CharacterSkill,
-    TeamCharacter
+    CharacterSkillService,
+    TeamCharacterService
   ]
 })
 export class CharacterModule {}

@@ -32,6 +32,9 @@ export class CharacterCharacteristicService {
   findOne(id: number) {
     return this.characterCharacteristicRepository.findOne(id);
   }
+  async findAllByCharacter(character:Character){
+    return await this.characterCharacteristicRepository.find({character:character})
+  }
 
   update(id: number, updateCharacterCharacteristicDto: UpdateCharacterCharacteristicDto) {
     return `This action updates a #${id} characterCharacteristic`;

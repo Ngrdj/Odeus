@@ -29,6 +29,9 @@ export class RaceService {
   async findOne(id: number) {
     return await this.raceRepository.findOne(id);
   }
+  async findOneByName(name:string){
+    return await this.raceRepository.findOne({name:name})
+  }
 
   async update(id: number, updateRaceDto: UpdateRaceDto) {
     const race= await this.findOne(id);

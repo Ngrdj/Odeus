@@ -1,6 +1,6 @@
 import { CharacteristicModule } from './characteristic/characteristic.module';
 import { ClassModule } from './class/class.module';
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CharacterModule } from './character/character.module';
@@ -13,8 +13,10 @@ import { StoryModule } from './story/story.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AuthModule } from './authentication/auth.module';
+import { ClassService } from './class/class.service';
 
 
+@Global()
 @Module({
   imports: [
     CharacteristicModule,
@@ -41,6 +43,6 @@ import { AuthModule } from './authentication/auth.module';
     })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule { }
