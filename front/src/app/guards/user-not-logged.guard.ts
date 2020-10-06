@@ -13,7 +13,7 @@ export class UserNotLoggedGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if(localStorage.getItem('currentUser')){
+    if(sessionStorage.getItem('currentUser')){
 
       return this.router.parseUrl('');
 

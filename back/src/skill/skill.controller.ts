@@ -1,32 +1,34 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { SkillDto } from './skill-dto';
-import { SkillEntity } from './skill.entity';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { SkillService } from './skill.service';
+import { CreateSkillDto } from './dto/create-skill.dto';
+import { UpdateSkillDto } from './dto/update-skill.dto';
 
 @Controller('skill')
 export class SkillController {
-    constructor(private readonly skillService:SkillService){
+  constructor(private readonly skillService: SkillService) {}
+  
+  @Post()
+  create(@Body() createSkillDto: CreateSkillDto) {
+    return this.skillService.create(createSkillDto);
+  }
 
-    }
+  @Get()
+  findAll() {
+    return this.skillService.findAll();
+  }
 
-    @Get()
-    async getAllSkill():Promise<SkillEntity[]>{
-        return await this.skillService.getAllSkills();
-    }
+  @Get(':id')
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.skillService.findOne(id);
+  }
 
-    @Get('/:id')
-    async getSkillById(@Param('id',ParseIntPipe)id:number):Promise<SkillEntity>{
-        return this.skillService.getSkillById(id)
-    }
+  @Put(':id')
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateSkillDto: UpdateSkillDto) {
+    return this.skillService.update(id, updateSkillDto);
+  }
 
-    @UsePipes(new ValidationPipe({transform:true}))
-    @Post()
-    async postSkill(@Body()newSkill:SkillDto):Promise<SkillEntity>{
-        return await this.skillService.createSkill(newSkill);
-    }
-
-    @Delete()
-    async deleteSkill(@Param('id',ParseIntPipe)id:number){
-        await this.skillService.softDeleteSkill(id)
-    }
- }
+  @Delete(':id')
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.skillService.remove(id);
+  }
+}

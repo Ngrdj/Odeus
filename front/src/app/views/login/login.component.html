@@ -1,1 +1,18 @@
-<p>login works!</p>
+<form [formGroup]="userForm">
+
+    <label>
+
+        login :
+        <input formControlName="login">
+    
+    </label>
+    <br>
+    <label>
+        password :
+        <input formControlName="password">
+    
+    </label>
+    <br>
+    <button [disabled]="!userForm.valid" (click)="onLoginClick()">Login</button>
+
+</form>

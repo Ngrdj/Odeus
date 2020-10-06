@@ -1,32 +1,34 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CharacteristicDto } from './characteristic-dto';
-import { CharacteristicEntity } from './characteristic.entity';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { CharacteristicService } from './characteristic.service';
+import { CreateCharacteristicDto } from './dto/create-characteristic.dto';
+import { UpdateCharacteristicDto } from './dto/update-characteristic.dto';
 
 @Controller('characteristic')
 export class CharacteristicController {
-    constructor(private readonly characteristicService:CharacteristicService){
+  constructor(private readonly characteristicService: CharacteristicService) {}
+  
+  @Post()
+  create(@Body() createCharacteristicDto: CreateCharacteristicDto) {
+    return this.characteristicService.create(createCharacteristicDto);
+  }
 
-    }
+  @Get()
+  findAll() {
+    return this.characteristicService.findAll();
+  }
 
-    @Get()
-    async getAllCharacteristic():Promise<CharacteristicEntity[]>{
-        return await this.characteristicService.getAllCharacteristics();
-    }
+  @Get(':id')
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.characteristicService.findOne(id);
+  }
 
-    @Get('/:id')
-    async getCharacteristicById(@Param('id',ParseIntPipe)id:number):Promise<CharacteristicEntity>{
-        return this.characteristicService.getCharacteristicById(id)
-    }
+  @Put(':id')
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateCharacteristicDto: UpdateCharacteristicDto) {
+    return this.characteristicService.update(id, updateCharacteristicDto);
+  }
 
-    @UsePipes(new ValidationPipe({transform:true}))
-    @Post()
-    async postCharacteristic(@Body()newCharacteristic:CharacteristicDto):Promise<CharacteristicEntity>{
-        return await this.characteristicService.createCharacteristic(newCharacteristic);
-    }
-
-    @Delete()
-    async deleteCharacteristic(@Param('id',ParseIntPipe)id:number){
-        await this.characteristicService.softDeleteCharacteristic(id)
-    }
+  @Delete(':id')
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.characteristicService.remove(id);
+  }
 }

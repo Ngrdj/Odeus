@@ -1,23 +1,35 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { encode } from "js-base64"
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationsService {
 
-  constructor( ) { }
+  constructor(private http:HttpClient ) { }
 
-  userLogged(){
+  loginUser(login,password):Observable<any> | null{
 
+    const currentUser = sessionStorage.getItem("currentUser");
 
+    if(!currentUser){
 
+      const datas = encode(login + ":" + password);
+
+      const headers = new HttpHeaders()
+        .set('Authorization', 'Basic ' + datas)
+
+      return this.http.get<any>("http://localhost:3000/login",{headers:headers})
+        .pipe(
+          tap(value => sessionStorage.setItem('currentUser',value))
+        )
+
+    }
+    return of(null)
   }
-  addUser(name:string,user:any){
 
-    localStorage.setItem(name,JSON.stringify(user))
-    console.log(localStorage)
-
-
-  }
 
 }

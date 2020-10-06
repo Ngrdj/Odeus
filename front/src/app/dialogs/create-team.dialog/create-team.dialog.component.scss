@@ -1,0 +1,39 @@
+.teamMembersList{
+
+    height: 200px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0px;
+
+
+}
+.characterItem{
+
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    color: black;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+
+}
+.characterItem > div > span{
+
+    margin-right: 20px;
+
+}
+.main{
+
+    background-color: rgba(0,0,0,0.8);
+    padding: 10px;
+    color: white;
+
+}
+.footer{
+
+    display:flex;
+    align-items: center;
+    height: 50px;
+
+}

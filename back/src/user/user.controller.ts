@@ -1,25 +1,43 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
-import { throws } from 'assert';
-import { BasicGuard } from 'src/guards/basic.guard';
-import { UserDto } from './DTOs/user-dto';
-import { UserEntity } from './user.entity';
+import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, SetMetadata } from '@nestjs/common';
 import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { JwtGuard } from 'src/guards/jwt.guard';
+import { RoleGuard } from 'src/guards/role.guard';
+import { Roles } from 'src/decorators/role.decorator';
 
 @Controller('user')
+@UseGuards(RoleGuard)
 export class UserController {
-    constructor(private userService:UserService){}
+  constructor(private readonly userService: UserService) {}
+  
+  @Post()
+  @Roles('user')
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.userService.create(createUserDto);
+  }
 
-    @UseGuards(BasicGuard)
-    @Get()
-    async getAllUsers(@Req() req):Promise<UserEntity[]>{
-        return await req.user;
-    }
+  @Get()
+  findAll() {
+    return this.userService.findAll();
+  }
+  @UseGuards(JwtGuard)
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.userService.findOne(+id);
+  }
+  @Get()
+  findOneByLogin(login:string){
+    return this.userService.findOneByLogin(login);
+  }
 
-    @Post()
-    postUser(@Body() newUser:UserDto){
-        console.log(newUser)
-        return this.userService.createUser(newUser)
-    }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.update(+id, updateUserDto);
+  }
 
-
- }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.userService.remove(+id);
+  }
+}

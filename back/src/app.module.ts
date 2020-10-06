@@ -1,35 +1,35 @@
-import { TeamModule } from './team/team.module';
-import { TeamService } from './team/team.service';
-import { TeamController } from './team/team.controller';
-import { CharacterCapacitiesModule } from './CharacterCapacities/charactercapacities.module';
-import { CharacterCapacitiesService } from './CharacterCapacities/charactercapacities.service';
-import { CharacterCapacitiesController } from './CharacterCapacities/charactercapacities.controller';
-import { UserModule } from './user/user.module';
-import { SkillModule } from './skill/skill.module';
-import { RaceModule } from './race/race.module';
-import { ClassModule } from './class/classCharacter.module';
 import { CharacteristicModule } from './characteristic/characteristic.module';
-import { CharacteristicService } from './characteristic/characteristic.service';
-import { CharacteristicController } from './characteristic/characteristic.controller';
-import { CapacityModule } from './capacity/capacity.module';
-import { CharacterModule } from './character/character.module';
-import { CharacterController } from './character/character.controller';
-import { CharacterService } from './character/character.service';
-import { Module } from '@nestjs/common';
+import { ClassModule } from './class/class.module';
+import { Global, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { CharacterModule } from './character/character.module';
+import { RaceModule } from './race/race.module';
+import { SkillModule } from './skill/skill.module';
+import { SubClassModule } from './sub-class/sub-class.module';
+import { CapacityModule } from './capacity/capacity.module';
+import { TeamModule } from './team/team.module';
+import { StoryModule } from './story/story.module';
+import { UserModule } from './user/user.module';
+import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
+import { AuthModule } from './authentication/auth.module';
+import { ClassService } from './class/class.service';
+
+
+@Global()
 @Module({
   imports: [
-    TeamModule,
-    CharacterCapacitiesModule,
-    UserModule,
-    SkillModule,
-    RaceModule,
-    ClassModule,
-    CapacityModule,
-    CharacterModule,
     CharacteristicModule,
+    ClassModule,
+    AuthModule,
+    RaceModule,
+    SkillModule,
+    SubClassModule,
+    CapacityModule,
+    TeamModule,
+    StoryModule,
+    UserModule,
+    CharacterModule,
     TypeOrmModule.forRoot({                         //Connection Avec La Base De Données sur Postgres
       type: 'postgres',
       host: 'localhost',
@@ -40,8 +40,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,    //Changement auto de la base de donnée
 
-    })],
+    })
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule { }

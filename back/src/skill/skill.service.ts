@@ -1,50 +1,35 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { SkillDto } from './skill-dto';
-import { SkillEntity } from './skill.entity';
+import { CreateSkillDto } from './dto/create-skill.dto';
+import { UpdateSkillDto } from './dto/update-skill.dto';
+import { Skill } from './entities/skill.entity';
 
 @Injectable()
 export class SkillService {
-    constructor(
-        @InjectRepository(SkillEntity)
-        private skillRepository:Repository<SkillEntity>
-    ){}
+  constructor(@InjectRepository(Skill) private readonly skillRepository:Repository<Skill>){}
 
-    async getAllSkills():Promise<SkillEntity[]>{
-        return await this.skillRepository.find()
-    }
+  async create(createSkillDto: CreateSkillDto) {
+    const newSkill= new Skill();
+    newSkill.name=createSkillDto.name;
+    newSkill.type=createSkillDto.type;
+    return this.skillRepository.save(newSkill);
+  }
 
-    async getSkillById(id:number):Promise<SkillEntity>{
-        const Skill = await this.skillRepository.findOne(id)
+  async findAll() {
+    return await this.skillRepository.find();
+  }
 
-        if(Skill){  
+  async findOne(id: number) {
+    return await this.skillRepository.findOne(id);
+  }
 
-            return Skill
+  update(id: number, updateSkillDto: UpdateSkillDto) {
+    return `This action updates a #${id} skill`;
+  }
 
-        }else{
-             throw new NotFoundException('Skill Introuvable')
-        }
-    }
-
-    async softDeleteSkill(id:number){
-        const skill= await this.getSkillById(id)
-
-        if(skill.deletedAt){                             
-
-            throw new Error('Skill Déja Supprimé'); 
-
-        }else{
-
-            this.skillRepository.softRemove(skill)
-
-        }
-    }
-
-    createSkill(newSkill:SkillDto){
-
-        return this.skillRepository.save(newSkill)
-    }
-
-    
- }
+  async remove(id: number) {
+    const skill= await this.findOne(id)
+    return this.skillRepository.softRemove(skill);
+  }
+}

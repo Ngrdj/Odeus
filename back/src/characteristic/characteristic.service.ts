@@ -1,48 +1,40 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CharacteristicDto } from './characteristic-dto';
-import { CharacteristicEntity } from './characteristic.entity';
+import { CreateCharacteristicDto } from './dto/create-characteristic.dto';
+import { UpdateCharacteristicDto } from './dto/update-characteristic.dto';
+import { Characteristic } from './entities/characteristic.entity';
 
 @Injectable()
 export class CharacteristicService {
-    constructor(
-        @InjectRepository(CharacteristicEntity)
-        private characteristicRepository:Repository<CharacteristicEntity>
-    ){}
+  constructor(@InjectRepository(Characteristic) private readonly characteristicRepository:Repository<Characteristic>){}
 
-    async getAllCharacteristics():Promise<CharacteristicEntity[]>{
-        return await this.characteristicRepository.find()
-    }
+  create(createCharacteristicDto: CreateCharacteristicDto) {
+    const characteristic= new Characteristic();
+    characteristic.name=createCharacteristicDto.name;
+    return this.characteristicRepository.save(characteristic);
+  }
 
-    async getCharacteristicById(id:number):Promise<CharacteristicEntity>{
-        const characteristic = await this.characteristicRepository.findOne(id)
+  async findAll() {
+    return await this.characteristicRepository.find();
+  }
 
-        if(characteristic){  
+  async findOne(id: number) {
+    return await this.characteristicRepository.findOne(id);
+  }
 
-            return characteristic
+  async findOneByName(name:string){
+    return await this.characteristicRepository.findOne({name}) 
+  }
 
-        }else{
-             throw new NotFoundException('Characteristic Introuvable')
-        }
-    }
+  async update(id: number, updateCharacteristicDto: UpdateCharacteristicDto) {
+    const characteristic= await this.findOne(id);
+    characteristic.name=updateCharacteristicDto.name;
+    return this.characteristicRepository.save(characteristic);
+  }
 
-    async softDeleteCharacteristic(id:number){
-        const characteristic= await this.getCharacteristicById(id)
-
-        if(characteristic.deletedAt){                             
-
-            throw new Error('Characteristic Déja Supprimé'); 
-
-        }else{
-
-            this.characteristicRepository.softRemove(characteristic)
-
-        }
-    }
-
-    createCharacteristic(newCharacteristic:CharacteristicDto){
-
-        return this.characteristicRepository.save(newCharacteristic)
-    }
+  async remove(id: number) {
+    const characteristic= await this.findOne(id);
+    return this.characteristicRepository.softDelete(characteristic);
+  }
 }

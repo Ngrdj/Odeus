@@ -15,13 +15,17 @@
     <label>
       Classe :
     </label>
-    <input type="radio" formControlName="class">
+    <input type="select">
+      <option *ngFor=(let class of classes) valeur={{class.name}}>{{class.name}}</option>
+    </input>
   </div>
   <div>
     <label>
       Type :
     </label>
-    <input type="radio" formControlName="type">
+    <input type="select" >
+      <option *ngFor=(let subClass of subClasses) valeur={{subClass.name}}>{{subClass.name}}</option>
+    </input>
   </div>
   <div>
     <label>

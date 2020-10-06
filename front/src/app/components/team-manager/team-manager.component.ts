@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTeamDialog } from 'src/app/dialogs/create-team.dialog/create-team.dialog.component';
 import { Character } from 'src/app/models/character';
-import { Team } from 'src/app/models/interfaces/team';
-import { CharactersService } from 'src/app/services/characters.service';
+import { Team } from 'src/app/models/team';
+
 
 @Component({
   selector: 'team-manager',
@@ -10,7 +12,7 @@ import { CharactersService } from 'src/app/services/characters.service';
 })
 export class TeamManagerComponent implements OnInit {
 
-
+  @Input() characters:Character[]
   @Input() heroes:Team;
   @Input() teams:Team[];
 
@@ -21,7 +23,7 @@ export class TeamManagerComponent implements OnInit {
 
   @Output() characterSelected:EventEmitter<Character> = new EventEmitter();
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -47,6 +49,29 @@ export class TeamManagerComponent implements OnInit {
   onChangeTagName(teamIndex,newName){
 
     this.teams[teamIndex].name = newName;
+
+  }
+  onAddTeamClick(){
+
+    this.openDialog()
+
+  }
+  openDialog(){
+
+    const dialogRef = this.dialog.open(CreateTeamDialog, {
+      width: '250px',
+      data:{characters:this.characters},
+      panelClass:'panelDialog'
+    });
+    dialogRef.afterClosed().subscribe(datas =>{
+
+      if(datas){
+
+        this.teams.push(datas)
+
+      }
+
+    })
 
   }
 

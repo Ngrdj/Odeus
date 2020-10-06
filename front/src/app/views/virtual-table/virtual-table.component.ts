@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
-import { Team } from 'src/app/models/interfaces/team';
-import { AuthentificationsService } from 'src/app/services/authentifications.service';
+import { Team } from 'src/app/models/team';
 import { CharactersService } from 'src/app/services/characters.service';
 
 @Component({
@@ -13,30 +12,40 @@ export class VirtualTableComponent implements OnInit {
 
   displaySide:boolean = false;
   displayHeader:boolean = false;
+  displayOptions:boolean = false;
+
+  displayCharacterDetails:boolean = false;
+  displaySound:boolean = false;
+  displayBackgroundSettings:boolean = false;
+  displayDices:boolean = false;
+  displayMap:boolean = false;
+  displaySettings:boolean = false;
 
   selectedCharacter:Character;
 
+  userCharacters:Character[]=[];
   teams:Team[];
   heroes:Team;
 
   constructor(
-    private authService:AuthentificationsService,
     private charactService:CharactersService
     ){
 
       this.teams = this.charactService.getTeams();
       this.heroes = this.charactService.getHeroes();
-
-  // authService.addUser("currentUser",{name:"coucou"})
-  console.log(localStorage)
-
+       
 
   }
 
   ngOnInit(){
 
+      this.teams.forEach(team => {
+        team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
+      })
+
     this.selectedCharacter={
 
+      id:0,
       name:"Nom de personnage",
       portrait:"https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg"
 
@@ -78,6 +87,11 @@ export class VirtualTableComponent implements OnInit {
 
       this.displayHeader = !this.displayHeader
     
+
+    }
+    showHideOptions(){
+
+      this.displayOptions = !this.displayOptions
 
     }
 
