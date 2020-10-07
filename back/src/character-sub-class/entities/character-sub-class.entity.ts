@@ -11,7 +11,9 @@ export class CharacterSubClass {
     value:number;
 
     @ManyToOne(type=>SubClass,
-        (subClass)=>subClass.characterSubClass)
+        (subClass)=>subClass.characterSubClass,{
+            eager:true
+        })
     subClass:SubClass;
 
     @ManyToOne(type=>Character,

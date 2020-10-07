@@ -56,7 +56,7 @@ export class CharacterService {
     }
     character.masteryBonus=masteryBonus;
     
-    const newCharacter=await this.characterRepository.save(character);
+    const newCharacter=await this.characterRepository.create(character);
 
 
 
@@ -93,15 +93,18 @@ export class CharacterService {
 
     
     /*Gestion skill/Story*/
+    newCharacter.characterSkills=[];
     const story= await this.storyService.findOneByName(createCharacterDto.story);
     const skills= await this.skillService.findAll();
+    console.log(skills);
     const newCharacterCharacteristics= await this.characterCharacteristicService.findAllByCharacter(newCharacter)
-
+    console.log(newCharacterCharacteristics)
+    newCharacter.story=story
 
     skills.forEach((skill)=>{
 
       const characterSkill=new CharacterSkill();
-
+      
       newCharacterCharacteristics.forEach((newCharacterCharacteristic)=>{
 
         if(skill.type===newCharacterCharacteristic.characteristic.name){
@@ -124,10 +127,10 @@ export class CharacterService {
         }
       })
       this.characterSkillService.create(characterSkill)
+      newCharacter.characterSkills.push(characterSkill)
     })
     /*Gestion User/Team*/ 
     const user= await this.userService.findOneByLogin(login);
-    console.log(user)
     newCharacter.user=user;
     
 
@@ -136,9 +139,10 @@ export class CharacterService {
 
 
     
-
+    console.log(newCharacter)
 
     return await this.characterRepository.save(newCharacter);
+
   }
 
   findAll() {
