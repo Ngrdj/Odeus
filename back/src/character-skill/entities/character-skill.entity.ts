@@ -14,7 +14,9 @@ export class CharacterSkill {
     isChecked:boolean;
 
     @ManyToOne(type=>Skill,
-        (skill)=>skill.characterSkills)
+        (skill)=>skill.characterSkills,{
+            eager:true
+        })
     skill:Skill;
 
     @ManyToOne(type=>Character,

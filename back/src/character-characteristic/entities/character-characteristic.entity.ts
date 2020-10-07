@@ -18,6 +18,8 @@ export class CharacterCharacteristic {
     character:Character;
 
     @ManyToOne(type=>Characteristic,
-        (characteristic)=>characteristic.characterCharacteristics)
+        (characteristic)=>characteristic.characterCharacteristics,{
+            eager:true
+        })
     characteristic:Characteristic;
 }

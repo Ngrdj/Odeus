@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { SkillService } from 'src/skill/skill.service';
 import { Repository } from 'typeorm';
 import { CreateStoryDto } from './dto/create-story.dto';
 import { UpdateStoryDto } from './dto/update-story.dto';
@@ -7,10 +8,18 @@ import { Story } from './entities/story.entity';
 
 @Injectable()
 export class StoryService {
-  constructor(@InjectRepository(Story) private readonly storyRepository:Repository<Story>){}
+  constructor(@InjectRepository(Story) private readonly storyRepository:Repository<Story>,private skillService:SkillService){}
 
-  create(createStoryDto: CreateStoryDto) {
-    return 'This action adds a new story';
+  async create(createStoryDto: CreateStoryDto) {
+    const story= new Story();
+    story.name=createStoryDto.name;
+    story.description=createStoryDto.description;
+   createStoryDto.skills.forEach(async (skill)=>{
+      const skillEntity = await this.skillService.findOneByName(skill);
+      story.skills= skillEntity
+    })
+    console.log(story)
+    return await this.storyRepository.save(story);
   }
 
   findAll() {
@@ -21,7 +30,7 @@ export class StoryService {
     return `This action returns a #${id} story`;
   }
   async findOneByName(name:string){
-    return this.storyRepository.findOne({name:name})
+    return await this.storyRepository.findOne({name:name})
   }
 
   update(id: number, updateStoryDto: UpdateStoryDto) {

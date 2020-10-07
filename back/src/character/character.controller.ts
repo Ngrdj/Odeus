@@ -11,9 +11,9 @@ import { UpdateCharacterDto } from './dto/update-character.dto';
 export class CharacterController {
   constructor(private readonly characterService: CharacterService) {}
 
-  @UseGuards(JwtGuard,RoleGuard)
+  @UseGuards(JwtGuard)
   @Post()
-  @Roles("USER","ADMIN")
+  
   create(@Body() createCharacterDto: CreateCharacterDto,@Req()request) {
     return this.characterService.create(createCharacterDto,request.user.userlogin);
   }

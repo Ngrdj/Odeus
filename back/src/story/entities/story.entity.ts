@@ -20,7 +20,9 @@ export class Story {
 
     @JoinTable()
     @ManyToMany(type=>Skill,
-        (skill)=>skill.stories)
+        (skill)=>skill.stories,{
+            eager:true
+        })
     skills:Skill[];
     
 }

@@ -23,6 +23,9 @@ export class SkillService {
   async findOne(id: number) {
     return await this.skillRepository.findOne(id);
   }
+  async findOneByName(name:string){
+    return await this.skillRepository.find({name:name})
+  }
 
   update(id: number, updateSkillDto: UpdateSkillDto) {
     return `This action updates a #${id} skill`;

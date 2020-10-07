@@ -1,3 +1,13 @@
 export enum AlignmentEnum{
+
+    LAWFULGOOD="LG",
+    NEUTRALGOOD="NG",
+    CHAOTICGOOD="CG",
+    LAWFULNEUTRAL="LN",
+    NEUTRAL="N",
+    CHAOTICNEUTRAL="CN",
+    LAWFULEVIL="LE",
+    NEUTRALEVIL="NE",
+    CHAOTICEVIL="CE"
     
 }

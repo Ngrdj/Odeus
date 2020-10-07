@@ -21,7 +21,9 @@ export class Character {
 
     @JoinColumn()
     @ManyToOne(type=>Race,
-        (race)=>race.characters)
+        (race)=>race.characters,{
+            eager:true
+        })
     race:Race;
 
     @Column()
@@ -47,31 +49,43 @@ export class Character {
 
     @JoinColumn()
     @ManyToOne(type=>User,
-        (user)=>user.characters)
+        (user)=>user.characters,{
+            eager:true
+        })
     user:User;
 
     @JoinColumn()
     @ManyToOne(type=>Story,
-        (story)=>story.characters)
+        (story)=>story.characters,{
+            eager:true
+        })
     story:Story;
 
     @OneToMany(type=>CharacterCharacteristic,
-        (characterCharacteristic)=>characterCharacteristic.character)
+        (characterCharacteristic)=>characterCharacteristic.character,{
+            eager:true
+        })
     characterCharacteristics:CharacterCharacteristic[];
 
     @JoinColumn()
     @OneToMany(type=>CharacterSubClass,
-        (characterClass)=>characterClass.character)
+        (characterClass)=>characterClass.character,{
+            eager:true
+        })
     characterSubClass:CharacterSubClass;
 
     @JoinColumn()
     @OneToMany(type=>CharacterSkill,
-        (characterSkill)=>characterSkill.character)
+        (characterSkill)=>characterSkill.character,{
+            eager:true
+        })
     characterSkills:CharacterSkill[];
 
     @JoinColumn()
     @OneToMany(type=>TeamCharacter,
-        (teamCharacter)=>teamCharacter.character)
+        (teamCharacter)=>teamCharacter.character,{
+            eager:true
+        })
     teamCharacters:TeamCharacter[];
 
     @CreateDateColumn()

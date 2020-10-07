@@ -37,4 +37,7 @@ export class CharacteristicService {
     const characteristic= await this.findOne(id);
     return this.characteristicRepository.softDelete(characteristic);
   }
+  async delete (id:number){
+    return this.characteristicRepository.delete(id)
+  }
 }

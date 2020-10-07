@@ -39,7 +39,27 @@ export class CharacterService {
     character.alignment=createCharacterDto.alignment;
     character.gender=createCharacterDto.gender;
     character.age=createCharacterDto.age;
+    /*Gestion masteryBonus/Level*/
+    let masteryBonus=2;
+    const level=createCharacterDto.level;
+    
+    if(level<5){
+      masteryBonus=2;
+    }else if(level>4&&level<9){
+      masteryBonus=3;
+    }else if(level>8&&level<13){
+      masteryBonus=4;
+    }else if(level>12&&level<17){
+      masteryBonus=5;
+    }else if(level>16){
+      masteryBonus=6;
+    }
+    character.masteryBonus=masteryBonus;
+    
     const newCharacter=await this.characterRepository.save(character);
+
+
+
     /*Gestion de la class/SubClass*/
     createCharacterDto.subClasses.forEach((subClass)=>{
       this.characterSubClassService.create(subClass,newCharacter)
@@ -47,6 +67,7 @@ export class CharacterService {
     /*Gestion Characteristic/Race*/
     const characteristics= await this.characteristicService.findAll();
     const race=await this.raceService.findOneByName(createCharacterDto.race);
+    newCharacter.race=race;
     const raceBonus=[
       race.strBonus,
       race.dexBonus,
@@ -70,45 +91,43 @@ export class CharacterService {
       },newCharacter)
     })
 
-    /*Gestion masteryBonus/Level*/
-    let masteryBonus=2;
-    const level=createCharacterDto.level;
-    
-    if(level<5){
-      masteryBonus=2;
-    }else if(level>4&&level<9){
-      masteryBonus=3;
-    }else if(level>8&&level<13){
-      masteryBonus=4;
-    }else if(level>12&&level<17){
-      masteryBonus=5;
-    }else if(level>16){
-      masteryBonus=6;
-    }
     
     /*Gestion skill/Story*/
     const story= await this.storyService.findOneByName(createCharacterDto.story);
     const skills= await this.skillService.findAll();
     const newCharacterCharacteristics= await this.characterCharacteristicService.findAllByCharacter(newCharacter)
+
+
     skills.forEach((skill)=>{
+
       const characterSkill=new CharacterSkill();
+
       newCharacterCharacteristics.forEach((newCharacterCharacteristic)=>{
+
         if(skill.type===newCharacterCharacteristic.characteristic.name){
           characterSkill.bonus=newCharacterCharacteristic.bonus
         }
+
       })
+     
       story.skills.forEach((skillStory)=>{
+
         if(skillStory.name===skill.name){
+
           characterSkill.isChecked=true;
           characterSkill.bonus+=masteryBonus;
+
         }else{
+
           characterSkill.isChecked=false;
+
         }
       })
       this.characterSkillService.create(characterSkill)
     })
     /*Gestion User/Team*/ 
     const user= await this.userService.findOneByLogin(login);
+    console.log(user)
     newCharacter.user=user;
     
 
@@ -119,7 +138,7 @@ export class CharacterService {
     
 
 
-    return newCharacter;
+    return await this.characterRepository.save(newCharacter);
   }
 
   findAll() {
