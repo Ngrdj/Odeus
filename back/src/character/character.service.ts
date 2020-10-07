@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CharacterCharacteristicService } from 'src/character-characteristic/character-characteristic.service';
 import { CharacterSkillService } from 'src/character-skill/character-skill.service';
@@ -9,6 +10,7 @@ import { ClassService } from 'src/class/class.service';
 import { RaceService } from 'src/race/race.service';
 import { SkillService } from 'src/skill/skill.service';
 import { StoryService } from 'src/story/story.service';
+import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
 import { CreateCharacterDto } from './dto/create-character.dto';
 import { UpdateCharacterDto } from './dto/update-character.dto';
@@ -26,8 +28,9 @@ export class CharacterService {
       private skillService:SkillService,
       private characterSkillService:CharacterSkillService,
       private raceService:RaceService,
+      private userService:UserService,
     ){}
-  async create(createCharacterDto: CreateCharacterDto) {
+  async create(createCharacterDto: CreateCharacterDto, login) {
     const character= new Character();
     character.name=createCharacterDto.name;
     character.level=createCharacterDto.level;
@@ -105,6 +108,11 @@ export class CharacterService {
       this.characterSkillService.create(characterSkill)
     })
     /*Gestion User/Team*/ 
+    const user= await this.userService.findOneByLogin(login);
+    newCharacter.user=user;
+    
+
+
     
 
 

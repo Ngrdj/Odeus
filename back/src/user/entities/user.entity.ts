@@ -20,6 +20,9 @@ export class User {
     @Column()
     role:RoleEnum;
 
+    @Column()
+    email:string;
+
     @OneToMany(type=>Character,
         (character)=>character.user)
     characters:Character[];

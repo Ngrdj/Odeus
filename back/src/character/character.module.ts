@@ -17,9 +17,10 @@ import { TeamCharacterService } from 'src/team-character/team-character.service'
 import { StoryModule } from 'src/story/story.module';
 import { SkillModule } from 'src/skill/skill.module';
 import { RaceModule } from 'src/race/race.module';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Character,CharacterSubClass,CharacterCharacteristic,CharacterSkill,TeamCharacter]),ClassModule,SubClassModule,CharacteristicModule,StoryModule,SkillModule,RaceModule],
+  imports: [TypeOrmModule.forFeature([Character,CharacterSubClass,CharacterCharacteristic,CharacterSkill,TeamCharacter]),ClassModule,SubClassModule,CharacteristicModule,StoryModule,SkillModule,RaceModule,UserModule],
   controllers: [
     CharacterController
   ],

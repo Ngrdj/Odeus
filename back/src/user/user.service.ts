@@ -15,6 +15,7 @@ export class UserService {
   async create(createUserDto: CreateUserDto) {
     const user = new User();
     user.name=createUserDto.name;
+    user.email=createUserDto.email;
     user.role=RoleEnum.USER;
     user.login=createUserDto.login;
     user.password = await bcrypt.hash(createUserDto.password,bcrypt.genSalt(10))
@@ -29,11 +30,11 @@ export class UserService {
     }
 
   findAll() {
-    return `This action returns all user`;
+    return this.userRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.userRepository.findOne(id);
   }
 
   findOneByLogin(login:string){

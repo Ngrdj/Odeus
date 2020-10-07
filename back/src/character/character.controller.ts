@@ -1,4 +1,7 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Roles } from 'src/decorators/role.decorator';
+import { BasicGuard } from 'src/guards/basic.guard';
+import { JwtGuard } from 'src/guards/jwt.guard';
 import { CharacterService } from './character.service';
 import { CreateCharacterDto } from './dto/create-character.dto';
 import { UpdateCharacterDto } from './dto/update-character.dto';
@@ -6,10 +9,12 @@ import { UpdateCharacterDto } from './dto/update-character.dto';
 @Controller('character')
 export class CharacterController {
   constructor(private readonly characterService: CharacterService) {}
-  
+
+  @UseGuards(JwtGuard)
   @Post()
-  create(@Body() createCharacterDto: CreateCharacterDto) {
-    return this.characterService.create(createCharacterDto);
+  @Roles("USER","ADMIN")
+  create(@Body() createCharacterDto: CreateCharacterDto,@Req()request) {
+    return this.characterService.create(createCharacterDto,request.login);
   }
 
   @Get()

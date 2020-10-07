@@ -12,7 +12,6 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
   
   @Post()
-  @Roles('user')
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
@@ -32,6 +31,7 @@ export class UserController {
   }
 
   @Put(':id')
+  @Roles('user')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(+id, updateUserDto);
   }
