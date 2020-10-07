@@ -27,6 +27,7 @@ import { UserNotLoggedGuard } from './guards/user-not-logged.guard';
 import { UserLoggedGuard } from './guards/user-logged.guard';
 
 import { CreateTeamDialog } from './dialogs/create-team.dialog/create-team.dialog.component';
+import { RegisterComponent } from './views/register/register.component';
 
 
 
@@ -45,6 +46,7 @@ import { CreateTeamDialog } from './dialogs/create-team.dialog/create-team.dialo
     VirtualTableComponent,
     CreateTeamDialog,
     HeaderBarComponent,
+    RegisterComponent,
     
     
   ],

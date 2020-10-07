@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { Team } from 'src/app/models/team';
 import { CharactersService } from 'src/app/services/characters.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-virtual-table',
@@ -9,6 +10,8 @@ import { CharactersService } from 'src/app/services/characters.service';
   styleUrls: ['./virtual-table.component.scss']
 })
 export class VirtualTableComponent implements OnInit {
+
+  currentUser
 
   displaySide:boolean = false;
   displayHeader:boolean = false;
@@ -28,7 +31,8 @@ export class VirtualTableComponent implements OnInit {
   heroes:Team;
 
   constructor(
-    private charactService:CharactersService
+    private charactService:CharactersService,
+    private usersService:UsersService
     ){
 
       this.teams = this.charactService.getTeams();
@@ -39,6 +43,7 @@ export class VirtualTableComponent implements OnInit {
 
   ngOnInit(){
 
+    this.usersService.getCurrentUser()
       this.teams.forEach(team => {
         team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
       })

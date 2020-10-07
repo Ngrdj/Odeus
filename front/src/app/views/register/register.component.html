@@ -1,0 +1,28 @@
+<div class="formContainer">
+
+    <form class="userForm" [formGroup]="userForm">
+
+        <div class="formMain">
+
+            <input formControlName="name" placeholder="Nom..">
+            <input formControlName="firstName" placeholder="Prénom..">
+            <input formControlName="email" placeholder="Adresse email..">
+        
+            <input formControlName="login" placeholder="Login..">
+            <input formControlName="password" placeholder="Mot de passe.." >
+            <input formControlName="checkPassword" placeholder="Vérification du mot de passe.." >
+        
+
+        </div>
+        
+    
+        <div class="formFooter">
+
+            <button (click)="onRegisterClickButton()">register</button>
+
+        </div>
+
+    </form>
+
+
+</div>
