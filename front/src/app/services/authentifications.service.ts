@@ -24,7 +24,7 @@ export class AuthentificationsService {
 
       return this.http.get<any>("http://localhost:3000/login",{headers:headers})
         .pipe(
-          tap(value => sessionStorage.setItem('currentUser',value))
+          tap(value => sessionStorage.setItem('currentUser',value.access_token))
         )
 
     }

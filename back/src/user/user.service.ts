@@ -18,7 +18,8 @@ export class UserService {
     user.email=createUserDto.email;
     user.role=RoleEnum.USER;
     user.login=createUserDto.login;
-    user.password = await bcrypt.hash(createUserDto.password,bcrypt.genSalt(10))
+    user.salt= await bcrypt.genSalt();
+    user.password = await bcrypt.hash(createUserDto.password,user.salt)
         try{
             await this.userRepository.save(user)
         }catch(e){
@@ -37,9 +38,9 @@ export class UserService {
     return this.userRepository.findOne(id);
   }
 
-  findOneByLogin(login:string){
-
-    return this.userRepository.findOne(login)
+  async findOneByLogin(login:string){
+    const user=await this.userRepository.findOne({login:login});
+    return user
     
   }
 

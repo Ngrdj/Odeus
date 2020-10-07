@@ -10,13 +10,15 @@ export class AuthService {
         private jwtService: JwtService
       ) {}
 
-      async validateUser(login,password){
+      async validateUser(login:string,password:string){
         const foundUser= await this.userService.findOneByLogin(login)
         
         if(!foundUser){
             throw new UnauthorizedException()
         }
-        const cryptedPassword= await bcrypt.hash(password,bcrypt.genSalt(10))
+        const cryptedPassword= await bcrypt.hash(password,foundUser.salt)
+        console.log(foundUser.password)
+        console.log(cryptedPassword)
         if(foundUser.password!==cryptedPassword){
           throw new UnauthorizedException()
         }
@@ -24,7 +26,7 @@ export class AuthService {
     }
 
     async login(user: User) {
-        const payload = { username: user.login, sub: user.id, userRole: user.role };
+        const payload = { userLogin: user.login, sub: user.id, userRole: user.role };
         return {
           access_token: this.jwtService.sign(payload),
         };

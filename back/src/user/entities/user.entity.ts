@@ -18,6 +18,9 @@ export class User {
     password:string;
 
     @Column()
+    salt:string;
+
+    @Column()
     role:RoleEnum;
 
     @Column()

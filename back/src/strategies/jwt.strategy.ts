@@ -7,11 +7,11 @@ import { jwtConstants } from '../authentication/constant';
 export class Jwt extends PassportStrategy(Strategy)  {
         constructor(){
             super({jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-                ignoreExpiration: false,
+                ignoreExpiration: true,
                 secretOrKey: jwtConstants.secret,
                 session: false});
         }
         async validate(payload:any){
-            return {userid:payload.sub, userName: payload.userName, userRole: payload.userRole}
+            return {userid:payload.sub, userLogin: payload.userLogin, userRole: payload.userRole}
         }
 }
