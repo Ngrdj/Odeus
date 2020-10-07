@@ -13,8 +13,7 @@ import { StoryModule } from './story/story.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AuthModule } from './authentication/auth.module';
-import { ClassService } from './class/class.service';
-
+import {SnakeNamingStrategy } from 'typeorm-naming-strategies'
 
 @Global()
 @Module({
@@ -39,7 +38,7 @@ import { ClassService } from './class/class.service';
       database: 'odeus',
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,    //Changement auto de la base de donnée
-
+      namingStrategy:new SnakeNamingStrategy()
     })
   ],
   controllers: [AppController],

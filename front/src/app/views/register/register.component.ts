@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
+import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -12,7 +13,11 @@ export class RegisterComponent implements OnInit {
 
   userForm:FormGroup;
 
-  constructor(private formBuilder:FormBuilder,private usersService:UsersService) { }
+  constructor(
+    private formBuilder:FormBuilder,
+    private usersService:UsersService,
+    private authService:AuthentificationsService
+    ) { }
 
   ngOnInit(): void {
 
@@ -30,7 +35,11 @@ export class RegisterComponent implements OnInit {
           this.userForm.controls.login.value,
           this.userForm.controls.password.value,
           this.userForm.controls.email.value
-        )).subscribe((user)=>console.log(user));
+        )).subscribe((user)=>{
+          
+          this.authService.loginUser(this.userForm.controls.login.value,this.userForm.controls.password.value).subscribe()
+
+        });
 
     }else{
 
