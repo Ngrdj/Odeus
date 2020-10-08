@@ -34,7 +34,6 @@ userForm:FormGroup
     if(this.userForm.valid){
 
       console.log("formulaire valide")
-      console.log(this.userForm)
 
       this.authService.loginUser(this.userForm.controls.login.value,this.userForm.controls.password.value)
       .subscribe(value => {

@@ -31,6 +31,7 @@ import { RegisterComponent } from './views/register/register.component';
 
 
 
+
 @NgModule({
   declarations: [
 

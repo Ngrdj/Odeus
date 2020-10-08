@@ -7,9 +7,19 @@
 
 </label>
 
-<div>
+<div class="logContainer">
 
-    <button routerLink="/login">login</button>
-    <button (click)="onLogoutClick()">logout</button>
+    <button *ngIf="(currentUser?.name==='Anonymous')"
+    class="logButton"
+    routerLink="/login"
+    (click)="onLoginClick()">
+        login
+    </button>
+    <button
+     *ngIf="!(currentUser?.name==='Anonymous')"
+     class="logButton"
+     (click)="onLogoutClick()">
+        logout
+    </button>
             
 </div>

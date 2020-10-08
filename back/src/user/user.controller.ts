@@ -20,11 +20,11 @@ export class UserController {
     return this.userService.findAll();
   }
   @UseGuards(JwtGuard)
-  @Get(':id')
+  @Get('id/:id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }
-  @Get('login')
+  @Get('login/:login')
   findOneByLogin(@Param('login')login:string){
     return this.userService.findOneByLogin(login);
   }

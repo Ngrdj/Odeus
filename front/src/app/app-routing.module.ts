@@ -10,7 +10,7 @@ const routes: Routes = [
 
   {path:"", component:VirtualTableComponent},
   {path:"login", component:LoginComponent,canActivate:[UserNotLoggedGuard]},
-  {path:"register", component:RegisterComponent},
+  {path:"register", component:RegisterComponent,canActivate:[UserNotLoggedGuard]},
 
 
 ];

@@ -6,6 +6,7 @@ import {
   HttpInterceptor, HTTP_INTERCEPTORS, HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import jwt_decode from "jwt-decode";
 
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
