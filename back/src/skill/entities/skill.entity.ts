@@ -2,7 +2,7 @@ import { CharacterSkill } from "src/character-skill/entities/character-skill.ent
 import { CharacteristicEnum } from "src/characteristic/characteristic.enum";
 import { Characteristic } from "src/characteristic/entities/characteristic.entity";
 import { Story } from "src/story/entities/story.entity";
-import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('skill')
 export class Skill {
 
@@ -24,4 +24,13 @@ export class Skill {
     @OneToMany(type=>CharacterSkill,
         (characterSkill)=>characterSkill.skill)
     characterSkills:CharacterSkill[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

@@ -24,19 +24,25 @@ export class CharacterSubClassService {
     return this.CharacterSubClassRepository.save(characterSubClass);
   }
 
-  findAll() {
-    return `This action returns all characterSubClass`;
+  async findAll() {
+    return await this.CharacterSubClassRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} characterSubClass`;
+  async findOne(id: number) {
+    return await this.CharacterSubClassRepository.findOne(id);
   }
 
   update(id: number, updateCharacterSubClassDto: UpdateCharacterSubClassDto) {
     return `This action updates a #${id} characterSubClass`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} characterSubClass`;
+  async remove(id: number) {
+    const characterSubClass=await this.findOne(id);
+    return this.CharacterSubClassRepository.softRemove(characterSubClass);
+  }
+
+  async delete(id:number){
+    const capacity=await this.findOne(id);
+    return this.CharacterSubClassRepository.delete(capacity);
   }
 }

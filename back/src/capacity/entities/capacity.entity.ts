@@ -1,5 +1,5 @@
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('capacity')
 export class Capacity {
 
@@ -18,5 +18,14 @@ export class Capacity {
     @ManyToOne(type=>SubClass,
         (subClass)=>subClass.capacities)
     subClass:SubClass;
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 
 }

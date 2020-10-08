@@ -1,6 +1,6 @@
 import { Character } from "src/character/entities/character.entity";
 import { Characteristic } from "src/characteristic/entities/characteristic.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('characterCharacteristic')
 export class CharacterCharacteristic {
 
@@ -22,4 +22,13 @@ export class CharacterCharacteristic {
             eager:true
         })
     characteristic:Characteristic;
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

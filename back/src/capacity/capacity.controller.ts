@@ -31,4 +31,9 @@ export class CapacityController {
   remove(@Param('id',ParseIntPipe) id: number) {
     return this.capacityService.remove(id);
   }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.capacityService.delete(id);
+  }
 }

@@ -40,8 +40,14 @@ export class CharacterCharacteristicService {
     return `This action updates a #${id} characterCharacteristic`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} characterCharacteristic`;
+  async remove(id: number) {
+    const characterCharacteristic=await this.findOne(id);
+    return this.characterCharacteristicRepository.softRemove(characterCharacteristic);
+  }
+
+  async delete(id:number){
+    const characterCharacteristic=await this.findOne(id);
+    return this.characterCharacteristicRepository.delete(characterCharacteristic);
   }
 
 }

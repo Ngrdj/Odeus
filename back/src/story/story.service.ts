@@ -22,13 +22,14 @@ export class StoryService {
     return await this.storyRepository.save(story);
   }
 
-  findAll() {
-    return `This action returns all story`;
+  async findAll() {
+    return await this.storyRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} story`;
+  async findOne(id: number) {
+    return await this.storyRepository.findOne(id);
   }
+
   async findOneByName(name:string){
     return await this.storyRepository.findOne({name:name})
   }
@@ -37,7 +38,13 @@ export class StoryService {
     return `This action updates a #${id} story`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} story`;
+  async remove(id: number) {
+    const story=await this.findOne(id);
+    return this.storyRepository.softRemove(story);
+  }
+
+  async delete(id:number){
+    const story=await this.findOne(id);
+    return this.storyRepository.delete(story);
   }
 }

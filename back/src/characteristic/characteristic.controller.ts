@@ -31,4 +31,9 @@ export class CharacteristicController {
   remove(@Param('id',ParseIntPipe) id: number) {
     return this.characteristicService.delete(id);
   }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.characteristicService.delete(id);
+  }
 }

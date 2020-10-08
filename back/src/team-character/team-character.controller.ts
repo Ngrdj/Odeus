@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { TeamCharacterService } from './team-character.service';
 import { CreateTeamCharacterDto } from './dto/create-team-character.dto';
 import { UpdateTeamCharacterDto } from './dto/update-team-character.dto';
@@ -18,17 +18,22 @@ export class TeamCharacterController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.teamCharacterService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.teamCharacterService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateTeamCharacterDto: UpdateTeamCharacterDto) {
-    return this.teamCharacterService.update(+id, updateTeamCharacterDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateTeamCharacterDto: UpdateTeamCharacterDto) {
+    return this.teamCharacterService.update(id, updateTeamCharacterDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.teamCharacterService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.teamCharacterService.remove(id);
+  }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.teamCharacterService.delete(id);
   }
 }

@@ -1,6 +1,6 @@
 import { Character } from "src/character/entities/character.entity";
 import { Team } from "src/team/entities/team.entity";
-import { Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('teamCharacter')
 export class TeamCharacter {
 
@@ -14,5 +14,14 @@ export class TeamCharacter {
     @ManyToOne(type=>Character,
         (character)=>character.teamCharacters)
     character:Character;
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { CharacterSubClassService } from './character-sub-class.service';
 import { CreateCharacterSubClassDto } from './dto/create-character-sub-class.dto';
 import { UpdateCharacterSubClassDto } from './dto/update-character-sub-class.dto';
@@ -20,12 +20,17 @@ export class CharacterSubClassController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCharacterSubClassDto: UpdateCharacterSubClassDto) {
-    return this.characterSubClassService.update(+id, updateCharacterSubClassDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateCharacterSubClassDto: UpdateCharacterSubClassDto) {
+    return this.characterSubClassService.update(id, updateCharacterSubClassDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.characterSubClassService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.characterSubClassService.remove(id);
+  }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.characterSubClassService.delete(id);
   }
 }

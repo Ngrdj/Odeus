@@ -31,4 +31,9 @@ export class RaceController {
   remove(@Param('id',ParseIntPipe) id: number) {
     return this.raceService.remove(id);
   }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.raceService.delete(id);
+  }
 }

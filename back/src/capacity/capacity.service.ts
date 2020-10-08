@@ -46,4 +46,9 @@ export class CapacityService {
     const capacity=await this.findOne(id);
     return this.capacityRepository.softRemove(capacity);
   }
+
+  async delete(id:number){
+    const capacity=await this.findOne(id);
+    return this.capacityRepository.delete(capacity);
+  }
 }

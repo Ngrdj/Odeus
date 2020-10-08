@@ -1,7 +1,7 @@
 import { Capacity } from "src/capacity/entities/capacity.entity";
 import { CharacterSubClass } from "src/character-sub-class/entities/character-sub-class.entity";
 import { Class } from "src/class/entities/class.entity";
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('sub_class')
 export class SubClass {
 
@@ -24,5 +24,14 @@ export class SubClass {
     @OneToMany(type=>CharacterSubClass,
         (characterSubClass)=>characterSubClass.subClass)
     characterSubClass:CharacterSubClass[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
     
 }

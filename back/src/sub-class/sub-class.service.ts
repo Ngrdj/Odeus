@@ -41,6 +41,11 @@ async create(createSubClassDto:CreateSubClassDto) {
 
   async remove(id: number) {
     const subClass= await this.findOne(id)
-    return this.subClassRepository.save(subClass);
+    return this.subClassRepository.softRemove(subClass);
+  }
+
+  async delete(id:number){
+    const subClass=await this.findOne(id);
+    return this.subClassRepository.delete(subClass);
   }
 }

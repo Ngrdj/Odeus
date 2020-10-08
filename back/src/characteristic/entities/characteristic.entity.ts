@@ -1,6 +1,6 @@
 import { CharacterCharacteristic } from "src/character-characteristic/entities/character-characteristic.entity";
 import { Skill } from "src/skill/entities/skill.entity";
-import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('characteristic')
 export class Characteristic {
 
@@ -15,4 +15,13 @@ export class Characteristic {
     @OneToMany(type=>CharacterCharacteristic,
         (characterCharacteristic)=>characterCharacteristic.characteristic)
     characterCharacteristics:CharacterCharacteristic[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

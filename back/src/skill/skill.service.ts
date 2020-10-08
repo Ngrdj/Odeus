@@ -35,4 +35,9 @@ export class SkillService {
     const skill= await this.findOne(id)
     return this.skillRepository.softRemove(skill);
   }
+
+  async delete(id:number){
+    const skill=await this.findOne(id);
+    return this.skillRepository.delete(skill)
+  }
 }

@@ -13,19 +13,25 @@ export class TeamService {
     return 'This action adds a new team';
   }
 
-  findAll() {
-    return `This action returns all team`;
+  async findAll() {
+    return await this.teamRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} team`;
+  async findOne(id: number) {
+    return await this.teamRepository.findOne(id);
   }
 
   update(id: number, updateTeamDto: UpdateTeamDto) {
     return `This action updates a #${id} team`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} team`;
+  async remove(id: number) {
+    const team=await this.findOne(id);
+    return this.teamRepository.softRemove(team);
+  }
+
+  async delete(id:number){
+    const team=await this.findOne(id);
+    return this.teamRepository.delete(team);
   }
 }

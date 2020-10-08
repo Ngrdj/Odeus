@@ -1,6 +1,6 @@
 import { Character } from "src/character/entities/character.entity";
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('characterSubClass')
 export class CharacterSubClass {
 
@@ -19,6 +19,15 @@ export class CharacterSubClass {
     @ManyToOne(type=>Character,
         (character)=>character.characterSubClass)
     character:Character;
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 
     
 }

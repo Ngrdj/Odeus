@@ -37,4 +37,9 @@ export class ClassService {
     const classchar = await this.findOne(id)
     return this.classRepository.softRemove(classchar);
   }
+
+  async delete(id:number){
+    const classchar=await this.findOne(id);
+    return this.classRepository.delete(classchar);
+  }
 }

@@ -31,4 +31,9 @@ export class SubClassController {
   remove(@Param('id',ParseIntPipe) id: number) {
     return this.subClassService.remove(id);
   }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.subClassService.delete(id);
+  }
 }

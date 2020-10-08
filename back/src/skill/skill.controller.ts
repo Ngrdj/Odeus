@@ -31,4 +31,9 @@ export class SkillController {
   remove(@Param('id',ParseIntPipe) id: number) {
     return this.skillService.remove(id);
   }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.skillService.delete(id);
+  }
 }

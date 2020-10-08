@@ -1,5 +1,5 @@
 import { Character } from "src/character/entities/character.entity";
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('race')
 export class Race {
    
@@ -30,4 +30,13 @@ export class Race {
     @OneToMany(type=>Character,
         (character)=>character.race)
     characters:Character[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

@@ -49,4 +49,9 @@ export class RaceService {
     const race= await this.findOne(id);
     return this.raceRepository.softDelete(race);
   }
+
+  async delete(id:number){
+    const race=await this.findOne(id);
+    return this.raceRepository.delete(race);
+  }
 }

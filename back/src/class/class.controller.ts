@@ -31,4 +31,9 @@ export class ClassController {
   remove(@Param('id',ParseIntPipe) id: number) {
     return this.classService.remove(id);
   }
+
+  @Delete('delete/id')
+  delete(@Param('id',ParseIntPipe) id: number) {
+    return this.classService.delete(id);
+  }
 }
