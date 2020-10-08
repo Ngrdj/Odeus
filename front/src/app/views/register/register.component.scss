@@ -27,6 +27,9 @@
 .formMain{
 
     height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
 
 }
 .formFooter{

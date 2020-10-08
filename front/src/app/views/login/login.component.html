@@ -1,19 +1,25 @@
-<form [formGroup]="userForm">
 
-    <label>
+<div class="formContainer">
 
-        login :
-        <input formControlName="login">
+    <form [formGroup]="userForm">
+
+        <label>
     
-    </label>
-    <br>
-    <label>
-        password :
-        <input formControlName="password">
+            login :
+            <input formControlName="login">
+        
+        </label>
+        <br>
+        <label>
+            password :
+            <input formControlName="password">
+        
+        </label>
+        <br>
+        <button [disabled]="!userForm.valid" (click)="onLoginClick()">Login</button>
     
-    </label>
-    <br>
-    <button [disabled]="!userForm.valid" (click)="onLoginClick()">Login</button>
+    </form>
+    
+</div>
 
-</form>
 <p>Pas encore inscrit ? inscrivez-vous <a routerLink="../register">ici</a></p>
