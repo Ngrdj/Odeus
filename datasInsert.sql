@@ -98,7 +98,7 @@ INSERT INTO capacity (name,level,description,sub_class_id)
 	VALUES
 		('FIREBALL',1,'A ball of fire',1);
 
-INSERT INTO skill (name,type)
+INSERT INTO story (name,description)
 	VALUES
 		('ACOLYTE','storie'),
 		('CRAFTSMAN','storie'),
