@@ -14,7 +14,7 @@ export class CharacterCharacteristicService {
    private readonly characterCharacteristicRepository:Repository<CharacterCharacteristic>,
    private characteristicService:CharacteristicService
    ){}
-  async create(createCharacterCharacteristicDto: CreateCharacterCharacteristicDto,character:Character) {
+  async create(createCharacterCharacteristicDto: CreateCharacterCharacteristicDto) {
     const characteristic= await this.characteristicService.findOne(createCharacterCharacteristicDto.characteristicId);
     const newCharacterCharacteristic= new CharacterCharacteristic();
     newCharacterCharacteristic.value=createCharacterCharacteristicDto.value;
@@ -33,7 +33,7 @@ export class CharacterCharacteristicService {
     return this.characterCharacteristicRepository.findOne(id);
   }
   async findAllByCharacter(character:Character){
-    return await this.characterCharacteristicRepository.find({character:character})
+    return await this.characterCharacteristicRepository.find({where:{character:character}})
   }
 
   update(id: number, updateCharacterCharacteristicDto: UpdateCharacterCharacteristicDto) {

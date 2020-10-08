@@ -12,7 +12,6 @@ export class CharacterController {
   @Post()
   
   create(@Body() createCharacterDto: CreateCharacterDto,@Req()request) {
-    console.log(request.user)
     return this.characterService.create(createCharacterDto,request.user.userLogin);
   }
 

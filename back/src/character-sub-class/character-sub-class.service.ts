@@ -15,13 +15,12 @@ export class CharacterSubClassService {
    private subClassService:SubClassService
    ){}
 
-  async create(createCharacterSubClassDto: CreateCharacterSubClassDto,character:Character) {
+  async create(createCharacterSubClassDto: CreateCharacterSubClassDto,) {
     const subClass= await this.subClassService.findOneByName(createCharacterSubClassDto.name);
     const characterSubClass= new CharacterSubClass();
     characterSubClass.value=createCharacterSubClassDto.value;
     characterSubClass.subClass=subClass;
-    characterSubClass.character=character;
-    return this.CharacterSubClassRepository.save(characterSubClass);
+    return await this.CharacterSubClassRepository.save(characterSubClass);
   }
 
   async findAll() {

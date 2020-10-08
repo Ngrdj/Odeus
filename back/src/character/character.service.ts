@@ -57,12 +57,13 @@ export class CharacterService {
     character.masteryBonus=masteryBonus;
     
     const newCharacter=await this.characterRepository.create(character);
-
+    newCharacter.characterSubClass=[];
 
 
     /*Gestion de la class/SubClass*/
-    createCharacterDto.subClasses.forEach((subClass)=>{
-      this.characterSubClassService.create(subClass,newCharacter)
+    createCharacterDto.subClasses.forEach(async (subClass)=>{
+     const characterSubClass= await this.characterSubClassService.create(subClass)
+     newCharacter.characterSubClass.push(characterSubClass)
     })
     /*Gestion Characteristic/Race*/
     newCharacter.characterCharacteristics=[];
@@ -89,21 +90,21 @@ export class CharacterService {
       const newcharchar=await this.characterCharacteristicService.create({
         value:characteristic+raceBonus[i],
         characteristicId:characteristics[i].id
-      },newCharacter)
+      })
       newCharacter.characterCharacteristics.push(newcharchar)
     })
 
-    
+    await this.characterRepository.save(newCharacter)
     /*Gestion skill/Story*/
     newCharacter.characterSkills=[];
     const story= await this.storyService.findOneByName(createCharacterDto.story);
     const skills= await this.skillService.findAll();
-    console.log(skills);
+
     const newCharacterCharacteristics= await this.characterCharacteristicService.findAllByCharacter(newCharacter)
-    console.log(newCharacterCharacteristics)
+    console.log(newCharacter.characterCharacteristics)
     newCharacter.story=story
 
-    skills.forEach((skill)=>{
+    skills.forEach(async (skill)=>{
 
       const characterSkill=new CharacterSkill();
       characterSkill.bonus=0;
@@ -127,7 +128,7 @@ export class CharacterService {
         }
       })
       
-      this.characterSkillService.create(characterSkill)
+      await this.characterSkillService.create(characterSkill)
       newCharacter.characterSkills.push(characterSkill)
     })
     /*Gestion User/Team*/ 
