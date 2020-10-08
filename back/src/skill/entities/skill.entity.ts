@@ -15,7 +15,6 @@ export class Skill {
     @Column()
     type:CharacteristicEnum;
 
-    @JoinColumn()
     @ManyToMany(type=>Story,
         (story)=>story.skills)
     stories:Story[];

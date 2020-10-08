@@ -13,6 +13,7 @@ export class SkillService {
     const newSkill= new Skill();
     newSkill.name=createSkillDto.name;
     newSkill.type=createSkillDto.type;
+    
     return this.skillRepository.save(newSkill);
   }
 
@@ -24,7 +25,7 @@ export class SkillService {
     return await this.skillRepository.findOne(id);
   }
   async findOneByName(name:string){
-    return await this.skillRepository.find({name:name})
+    return await this.skillRepository.findOne({name:name})
   }
 
   update(id: number, updateSkillDto: UpdateSkillDto) {
