@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
+import { Behavior } from 'src/app/models/enums/behavior.enum';
+import { Fighter } from 'src/app/models/fighter';
 import { Team } from 'src/app/models/team';
 import { User } from 'src/app/models/user';
 import { CharactersService } from 'src/app/services/characters.service';
@@ -31,6 +33,8 @@ export class VirtualTableComponent implements OnInit {
   teams:Team[];
   heroes:Team;
 
+  fighterList:Fighter[]=[];
+
   constructor(
     private charactService:CharactersService,
     private usersService:UsersService
@@ -38,7 +42,21 @@ export class VirtualTableComponent implements OnInit {
 
       this.teams = this.charactService.getTeams();
       this.heroes = this.charactService.getHeroes();
-       
+      
+      this.heroes.members.forEach(member =>{ 
+        
+        const newFighter = Fighter.fromCharacter(member);
+        newFighter.behavior = Behavior.ALLY
+        this.fighterList.push(newFighter)
+      
+      })
+      this.teams[0].members.forEach(member =>{ 
+        
+        const newFighter = Fighter.fromCharacter(member);
+        newFighter.behavior = Behavior.ENEMY
+        this.fighterList.push(newFighter)
+      
+      })
 
   }
 

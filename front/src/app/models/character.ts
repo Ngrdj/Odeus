@@ -7,8 +7,9 @@ export class Character {
 
         public id:number,
         public name:string,
-        public characteristics?:Characteristics[],
-        public portrait?:string
+        public portrait?:string,
+        public characteristics?:Characteristics[]
+        
 
     ){}
 
@@ -18,8 +19,9 @@ export class Character {
 
             characterDto.id,
             characterDto.name,
-            characterDto.characteristics.map(charact => Characteristics.fromDto(charact)),
-            characterDto.portrait
+            characterDto.portrait,
+            characterDto.characteristics.map(charact => Characteristics.fromDto(charact))
+            
 
         )
 

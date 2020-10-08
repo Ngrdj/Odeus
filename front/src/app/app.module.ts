@@ -28,6 +28,8 @@ import { UserLoggedGuard } from './guards/user-logged.guard';
 
 import { CreateTeamDialog } from './dialogs/create-team.dialog/create-team.dialog.component';
 import { RegisterComponent } from './views/register/register.component';
+import { FtFighterComponent } from './components/ft-fighter/ft-fighter.component';
+import { FtInfoBoxComponent } from './components/ft-info-box/ft-info-box.component';
 
 
 
@@ -48,6 +50,8 @@ import { RegisterComponent } from './views/register/register.component';
     CreateTeamDialog,
     HeaderBarComponent,
     RegisterComponent,
+    FtFighterComponent,
+    FtInfoBoxComponent,
     
     
   ],
