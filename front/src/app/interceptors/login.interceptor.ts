@@ -6,6 +6,7 @@ import {
   HttpInterceptor, HTTP_INTERCEPTORS, HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import jwt_decode from "jwt-decode";
 
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
@@ -23,7 +24,7 @@ export class LoginInterceptor implements HttpInterceptor {
 
       const cloneReq = request.clone({
       
-        setHeaders: {Authorization:"Bearer " + currentUser}
+        setHeaders: {Authorization:"Bearer " + jwt_decode(currentUser)}
       
       })
 

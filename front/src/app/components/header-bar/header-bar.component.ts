@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'header-bar',
@@ -8,6 +9,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderBarComponent implements OnInit {
 
+  @Input() currentUser:User;
   faSearch=faSearch;
 
   @Output()optionsButtonClick:EventEmitter<any>=new EventEmitter()
@@ -21,6 +23,7 @@ export class HeaderBarComponent implements OnInit {
 
     sessionStorage.removeItem("currentUser")
     console.log(sessionStorage)
+    alert("vous vous êtes déconnecté")
 
   }
   onOptionsButtonClick(){

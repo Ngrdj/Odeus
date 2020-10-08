@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { Team } from 'src/app/models/team';
+import { User } from 'src/app/models/user';
 import { CharactersService } from 'src/app/services/characters.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -11,7 +12,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class VirtualTableComponent implements OnInit {
 
-  currentUser
+  currentUser:User
 
   displaySide:boolean = false;
   displayHeader:boolean = false;
@@ -43,7 +44,11 @@ export class VirtualTableComponent implements OnInit {
 
   ngOnInit(){
 
-    this.usersService.getCurrentUser()
+      this.usersService.getCurrentUser().subscribe(userFound =>{
+        
+          this.currentUser = userFound
+          console.log(userFound)
+        })
       this.teams.forEach(team => {
         team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
       })
