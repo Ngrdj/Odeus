@@ -38,7 +38,8 @@ import {SnakeNamingStrategy } from 'typeorm-naming-strategies'
       database: 'odeus',
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,    //Changement auto de la base de donnée
-      namingStrategy:new SnakeNamingStrategy()
+      namingStrategy:new SnakeNamingStrategy(),
+      logging:false,
     })
   ],
   controllers: [AppController],

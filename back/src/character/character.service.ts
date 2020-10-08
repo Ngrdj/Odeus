@@ -103,10 +103,9 @@ export class CharacterService {
     const newCharacterCharacteristics= await this.characterCharacteristicService.findAllByCharacter(newCharacter)
     console.log(newCharacter.characterCharacteristics)
     newCharacter.story=story
+for (const skill of skills) {
 
-    skills.forEach(async (skill)=>{
-
-      const characterSkill=new CharacterSkill();
+  const characterSkill=new CharacterSkill();
       characterSkill.bonus=0;
       characterSkill.skill=skill;
       characterSkill.isChecked=false;
@@ -119,6 +118,8 @@ export class CharacterService {
       })
      
       story.skills.forEach((skillStory)=>{
+        console.log(skillStory);
+        console.log(skill.name);
 
         if(skillStory.name===skill.name){
           
@@ -130,7 +131,9 @@ export class CharacterService {
       
       await this.characterSkillService.create(characterSkill)
       newCharacter.characterSkills.push(characterSkill)
-    })
+  
+}
+    console.log(newCharacter.characterSkills)
     /*Gestion User/Team*/ 
     const user= await this.userService.findOneByLogin(login);
     newCharacter.user=user;
