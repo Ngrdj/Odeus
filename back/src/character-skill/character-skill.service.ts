@@ -10,6 +10,7 @@ export class CharacterSkillService {
   constructor(@InjectRepository(CharacterSkill) private readonly characterSkillRepository:Repository<CharacterSkill>){}
 
   create(characterSkill: CharacterSkill) {
+
     return this.characterSkillRepository.save(characterSkill);
   }
 

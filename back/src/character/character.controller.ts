@@ -15,12 +15,13 @@ export class CharacterController {
   @Post()
   
   create(@Body() createCharacterDto: CreateCharacterDto,@Req()request) {
-    return this.characterService.create(createCharacterDto,request.user.userlogin);
+    console.log(request.user)
+    return this.characterService.create(createCharacterDto,request.user.userLogin);
   }
 
   @Get()
-  findAll() {
-    return this.characterService.findAll();
+  async findAll() {
+    return await this.characterService.findAll();
   }
 
   @Get(':id')

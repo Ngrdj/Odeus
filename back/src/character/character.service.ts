@@ -65,6 +65,7 @@ export class CharacterService {
       this.characterSubClassService.create(subClass,newCharacter)
     })
     /*Gestion Characteristic/Race*/
+    newCharacter.characterCharacteristics=[];
     const characteristics= await this.characteristicService.findAll();
     const race=await this.raceService.findOneByName(createCharacterDto.race);
     newCharacter.race=race;
@@ -84,11 +85,12 @@ export class CharacterService {
       createCharacterDto.wisdom,
       createCharacterDto.charisma
     ];
-    characterCharacteristics.forEach((characteristic,i)=>{
-      this.characterCharacteristicService.create({
+    characterCharacteristics.forEach(async (characteristic,i)=>{
+      const newcharchar=await this.characterCharacteristicService.create({
         value:characteristic+raceBonus[i],
         characteristicId:characteristics[i].id
       },newCharacter)
+      newCharacter.characterCharacteristics.push(newcharchar)
     })
 
     
@@ -104,7 +106,9 @@ export class CharacterService {
     skills.forEach((skill)=>{
 
       const characterSkill=new CharacterSkill();
-      
+      characterSkill.bonus=0;
+      characterSkill.skill=skill;
+      characterSkill.isChecked=false;
       newCharacterCharacteristics.forEach((newCharacterCharacteristic)=>{
 
         if(skill.type===newCharacterCharacteristic.characteristic.name){
@@ -116,16 +120,13 @@ export class CharacterService {
       story.skills.forEach((skillStory)=>{
 
         if(skillStory.name===skill.name){
-
+          
           characterSkill.isChecked=true;
           characterSkill.bonus+=masteryBonus;
 
-        }else{
-
-          characterSkill.isChecked=false;
-
         }
       })
+      
       this.characterSkillService.create(characterSkill)
       newCharacter.characterSkills.push(characterSkill)
     })
@@ -139,8 +140,8 @@ export class CharacterService {
 
 
     
+  
     console.log(newCharacter)
-
     return await this.characterRepository.save(newCharacter);
 
   }

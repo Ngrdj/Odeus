@@ -72,7 +72,7 @@ export class Character {
         (characterClass)=>characterClass.character,{
             eager:true
         })
-    characterSubClass:CharacterSubClass;
+    characterSubClass:CharacterSubClass[];
 
     @JoinColumn()
     @OneToMany(type=>CharacterSkill,
