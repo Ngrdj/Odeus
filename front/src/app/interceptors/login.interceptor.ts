@@ -24,7 +24,7 @@ export class LoginInterceptor implements HttpInterceptor {
 
       const cloneReq = request.clone({
       
-        setHeaders: {Authorization:"Bearer " + jwt_decode(currentUser)}
+        setHeaders: {Authorization:"Bearer " + currentUser}
       
       })
 

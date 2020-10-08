@@ -27,14 +27,14 @@ export class UsersService {
     if(currentUser){
       console.log(jwt_decode(currentUser))
 
-      return this.getUserByLogin(jwt_decode(currentUser).login)
+      return this.getUserByLogin(jwt_decode(currentUser).userLogin)
 
     }
     return of(new User("Anonymous","","",""))
   }
   private getUserByLogin(login:string):Observable<User>{
 
-    return this.http.get<UserDto>(`http://localhost:3000/user/${login}`)
+    return this.http.get<UserDto>(`http://localhost:3000/user/login/${login}`)
       .pipe(
 
         map(userFound => {return User.fromDto(userFound)})

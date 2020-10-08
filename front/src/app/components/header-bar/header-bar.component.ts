@@ -13,6 +13,8 @@ export class HeaderBarComponent implements OnInit {
   faSearch=faSearch;
 
   @Output()optionsButtonClick:EventEmitter<any>=new EventEmitter()
+  @Output()loginClick:EventEmitter<any>=new EventEmitter()
+  @Output()logoutClick:EventEmitter<any>=new EventEmitter()
 
   constructor() { }
 
@@ -21,9 +23,12 @@ export class HeaderBarComponent implements OnInit {
 
   onLogoutClick(){
 
-    sessionStorage.removeItem("currentUser")
-    console.log(sessionStorage)
-    alert("vous vous êtes déconnecté")
+    this.logoutClick.emit()
+
+  }
+  onLoginClick(){
+
+    this.loginClick.emit()
 
   }
   onOptionsButtonClick(){

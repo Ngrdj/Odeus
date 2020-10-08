@@ -44,14 +44,20 @@ export class VirtualTableComponent implements OnInit {
 
   ngOnInit(){
 
-      this.usersService.getCurrentUser().subscribe(userFound =>{
+    this.loadComponent()
+
+  }
+
+  loadComponent(){
+
+    this.usersService.getCurrentUser().subscribe(userFound =>{
         
-          this.currentUser = userFound
-          console.log(userFound)
-        })
-      this.teams.forEach(team => {
-        team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
-      })
+      this.currentUser = userFound
+      console.log(userFound)
+    })
+    this.teams.forEach(team => {
+      team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
+    })
 
     this.selectedCharacter={
 
@@ -126,4 +132,12 @@ export class VirtualTableComponent implements OnInit {
 
     }
 
+    logoutUser(){
+
+      sessionStorage.removeItem("currentUser")
+      console.log(sessionStorage)
+      alert("vous vous êtes déconnecté")
+      this.loadComponent()
+
+    }
 }
