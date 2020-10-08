@@ -13,21 +13,41 @@ export class UserService {
   private userRepository:Repository<User>,){}
 
   async create(createUserDto: CreateUserDto) {
-    const user = new User();
-    user.name=createUserDto.name;
-    user.email=createUserDto.email;
-    user.role=RoleEnum.USER;
-    user.login=createUserDto.login;
-    user.salt= await bcrypt.genSalt();
-    user.password = await bcrypt.hash(createUserDto.password,user.salt)
-        try{
-            await this.userRepository.save(user)
-        }catch(e){
-            throw new ConflictException();
-        }
-        
-        return user
+    const existingUser = await this.findOneByLogin(createUserDto.login)
+    if(existingUser){
 
+      existingUser.name = createUserDto.name;
+      existingUser.email = createUserDto.email;
+      existingUser.login = createUserDto.login;
+      existingUser.salt= await bcrypt.genSalt();
+      existingUser.password = await bcrypt.hash(createUserDto.password,existingUser.salt)
+          try{
+              await this.userRepository.save(existingUser)
+          }catch(e){
+              throw new ConflictException();
+          }
+          
+      return existingUser
+
+    }else{
+
+      const user = new User();
+      user.name=createUserDto.name;
+      user.email=createUserDto.email;
+      user.role=RoleEnum.USER;
+      user.login=createUserDto.login;
+      user.salt= await bcrypt.genSalt();
+      user.password = await bcrypt.hash(createUserDto.password,user.salt)
+          try{
+              await this.userRepository.save(user)
+          }catch(e){
+              throw new ConflictException();
+          }
+          
+      return user
+
+    }
+    
     }
 
   findAll() {
