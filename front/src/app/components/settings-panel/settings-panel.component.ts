@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPanelComponent implements OnInit {
 
+
+  optionDisplayed:number=0;
+
   constructor() { }
 
   ngOnInit(): void {
