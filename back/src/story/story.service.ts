@@ -11,16 +11,15 @@ export class StoryService {
   constructor(@InjectRepository(Story) private readonly storyRepository:Repository<Story>,private skillService:SkillService){}
 
   async create(createStoryDto: CreateStoryDto) {
-    const story= await this.storyRepository.create({...createStoryDto,skills:[]});
-    /*story.name=createStoryDto.name;
+    const story= new Story()
+    story.name=createStoryDto.name;
     story.description=createStoryDto.description;
-    story.skills=[];*/
-    for (const skill of createStoryDto.skills) {
+    story.skills=[];
+   for (const skill of createStoryDto.skills) {
 
       const skillEntity = await this.skillService.findOneByName(skill);
       story.skills.push(skillEntity)
     }
-    console.log(story.skills)
     return await this.storyRepository.save(story);
   }
 

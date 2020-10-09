@@ -18,7 +18,6 @@ export class CharacterCharacteristicService {
     const characteristic= await this.characteristicService.findOne(createCharacterCharacteristicDto.characteristicId);
     const newCharacterCharacteristic= new CharacterCharacteristic();
     newCharacterCharacteristic.value=createCharacterCharacteristicDto.value;
-    //newCharacterCharacteristic.character=character;
     newCharacterCharacteristic.characteristic=characteristic;
     newCharacterCharacteristic.bonus= Math.floor((createCharacterCharacteristicDto.value-10)/2);
 

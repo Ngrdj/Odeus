@@ -39,7 +39,7 @@ export class CharacterService {
     character.alignment=createCharacterDto.alignment;
     character.gender=createCharacterDto.gender;
     character.age=createCharacterDto.age;
-    /*Gestion masteryBonus/Level*/
+    //Gestion masteryBonus/Level-----------------------------------------------------------------------------------------------------Gestion masteryBonus/Level
     let masteryBonus=2;
     const level=createCharacterDto.level;
     
@@ -60,13 +60,13 @@ export class CharacterService {
     newCharacter.characterSubClass=[];
 
 
-    /*Gestion de la class/SubClass*/
+    //Gestion de la class/SubClass-----------------------------------------------------------------------------------------------------Gestion de la class/SubClass
 
     for (const subClass of createCharacterDto.subClasses) {
       const characterSubClass= await this.characterSubClassService.create(subClass)
      newCharacter.characterSubClass.push(characterSubClass)
     }
-    /*Gestion Characteristic/Race*/
+    //Gestion Characteristic/Race-----------------------------------------------------------------------------------------------------Gestion Characteristic/Race
     newCharacter.characterCharacteristics=[];
     const characteristics= await this.characteristicService.findAll();
     const race=await this.raceService.findOneByName(createCharacterDto.race);
@@ -97,30 +97,41 @@ export class CharacterService {
     }
 
     await this.characterRepository.save(newCharacter)
-    /*Gestion skill/Story*/
+    //Gestion skill/Story-----------------------------------------------------------------------------------------------------Gestion skill/Story
     newCharacter.characterSkills=[];
     const story= await this.storyService.findOneByName(createCharacterDto.story);
     const skills= await this.skillService.findAll();
 
     const newCharacterCharacteristics= await this.characterCharacteristicService.findAllByCharacter(newCharacter)
-    console.log(newCharacter.characterCharacteristics)
-    newCharacter.story=story
-for (const skill of skills) {
+    newCharacter.story=story;
+    
 
-  const characterSkill=new CharacterSkill();
-      characterSkill.bonus=0;
+for (let skill of skills) {
+
+      const characterSkill=new CharacterSkill();
       characterSkill.skill=skill;
       characterSkill.isChecked=false;
-      newCharacterCharacteristics.forEach((newCharacterCharacteristic)=>{
 
+      for (let newCharacterCharacteristic of newCharacterCharacteristics) {
+
+  
         if(skill.type===newCharacterCharacteristic.characteristic.name){
-          characterSkill.bonus=newCharacterCharacteristic.bonus
-        }
 
-      })
-     for (const skillStory of story.skills) {
+          console.log(newCharacterCharacteristic.bonus)
+          characterSkill.bonus=newCharacterCharacteristic.bonus
+
+        }
+      }
+      if(!characterSkill.bonus){
+        characterSkill.bonus=0;
+        
+      }
+
+     for (let skillStory of story.skills) {
+
+
        if(skillStory.name===skill.name){
-          
+          console.log('\n\n\n\n'+'ok')
           characterSkill.isChecked=true;
           characterSkill.bonus+=masteryBonus;
 
@@ -131,8 +142,7 @@ for (const skill of skills) {
       newCharacter.characterSkills.push(characterSkill)
   
 }
-    console.log(newCharacter.characterSkills)
-    /*Gestion User/Team*/ 
+    //Gestion User/Team-----------------------------------------------------------------------------------------------------Gestion User/Team
     const user= await this.userService.findOneByLogin(login);
     newCharacter.user=user;
     

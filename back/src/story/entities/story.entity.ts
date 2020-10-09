@@ -22,7 +22,6 @@ export class Story {
     @ManyToMany(type=>Skill,
         (skill)=>skill.stories,{
             eager:true,
-            cascade:true
         })
     skills:Skill[];
 
