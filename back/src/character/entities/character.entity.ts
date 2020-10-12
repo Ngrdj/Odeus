@@ -81,9 +81,8 @@ export class Character {
         })
     characterSkills:CharacterSkill[];
 
-    @JoinTable()
     @ManyToMany(type=>Team,
-        (teamCharacter)=>teamCharacter.characters)
+        (team)=>team.characters)
     teams:Team[];
 
     @CreateDateColumn()
