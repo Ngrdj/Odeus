@@ -32,8 +32,14 @@ export class AuthentificationsService {
         )
 
     }
+    
 
     return of(null)
+  }
+  loginGoogleUser(){
+
+    return  this.http.get<any>("http://localhost:3000/google")
+
   }
 
 

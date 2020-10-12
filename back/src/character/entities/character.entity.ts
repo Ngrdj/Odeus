@@ -81,7 +81,6 @@ export class Character {
         })
     characterSkills:CharacterSkill[];
 
-    
     @ManyToMany(type=>Team,
         (team)=>team.characters)
     teams:Team[];

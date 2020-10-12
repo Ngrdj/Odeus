@@ -4,6 +4,7 @@ import { Behavior } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
 import { Team } from 'src/app/models/team';
 import { User } from 'src/app/models/user';
+import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -36,6 +37,7 @@ export class VirtualTableComponent implements OnInit {
   fighterList:Fighter[]=[];
 
   constructor(
+    private authService:AuthentificationsService,
     private charactService:CharactersService,
     private usersService:UsersService
     ){
@@ -156,6 +158,11 @@ export class VirtualTableComponent implements OnInit {
       console.log(sessionStorage)
       alert("vous vous êtes déconnecté")
       this.loadComponent()
+
+    }
+    loginUser(){
+
+      this.authService.loginGoogleUser().subscribe()
 
     }
 }

@@ -16,6 +16,7 @@
     <header-bar
       (optionsButtonClick)="showHideOptions()"
       (logoutClick)="logoutUser()"
+      (loginClick)="loginUser()"
       [currentUser]="currentUser"
       [ngClass]="{hidden:!displayHeader}"
       class="header">
