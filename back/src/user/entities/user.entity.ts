@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { Team } from "src/team/entities/team.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
@@ -5,6 +6,7 @@ import { RoleEnum } from "../role.enum";
 @Entity('user')
 export class User {
 
+    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -14,9 +16,11 @@ export class User {
     @Column()
     login:string;
 
+    @Exclude()
     @Column()
     password:string;
 
+    @Exclude()
     @Column()
     salt:string;
 

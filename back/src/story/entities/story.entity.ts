@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { Skill } from "src/skill/entities/skill.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
@@ -5,6 +6,7 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMa
 @Entity('story')
 export class Story {
 
+    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -14,6 +16,7 @@ export class Story {
     @Column()
     description:string;
 
+    @Exclude()
     @OneToMany(type=>Character,
         (character)=>character.story)
     characters:Character[];
@@ -25,12 +28,15 @@ export class Story {
         })
     skills:Skill[];
 
+    @Exclude()
     @CreateDateColumn()
     createdAt: Date;
 
+    @Exclude()
     @UpdateDateColumn()
     updatedAt: Date;
 
+    @Exclude()
     @DeleteDateColumn()
     deletedAt: Date;
     
