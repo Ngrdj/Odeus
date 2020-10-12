@@ -8,7 +8,13 @@
     </ul>
     <div [ngSwitch]="optionDisplayed" class="rightPanel">
 
-        <div *ngSwitchCase="1">1</div>
+        <div *ngSwitchCase="1">
+
+            {{currentUser?.name}}
+            <p *userNotLogged >Vous n'êtes pas connecté. Connectez-vous pour voir votre profil</p>
+            <a href="http://localhost:3000/google">se connecter via google</a>
+
+        </div>
         <div *ngSwitchCase="2">2</div>
         <div *ngSwitchCase="3">3</div>
 

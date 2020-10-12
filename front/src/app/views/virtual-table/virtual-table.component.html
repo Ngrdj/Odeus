@@ -11,7 +11,7 @@
 ></options-bar>
 
 
-<div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
+<div class="container boundary" [ngStyle]="{'background-image': 'url(' + background + ')'}" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
     <header-bar
       (optionsButtonClick)="showHideOptions()"
@@ -44,6 +44,7 @@
       controlPanel
       (closePanel)="displaySettings = false"
       [display]="displaySettings?'block':'none'"
+      [currentUser]="currentUser"
       panelTitle="Options"
       cdkDragBoundary=".boundary"
       cdkDrag>
@@ -68,6 +69,18 @@
       cdkDragBoundary=".boundary"
       cdkDrag>
    </character-details>
+
+   <background-panel
+
+      (changeBackground)="onChangeBackground($event)"
+      controlPanel
+      [display]="displayBackgroundSettings?'block':'none'"
+      (closePanel)="displayBackgroundSettings = false"
+      panelTitle="paramètres de l'arrière-plan"
+      cdkDragBoundary=".boundary"
+      cdkDrag
+   >
+   </background-panel>
   
   </div>
   

@@ -25,13 +25,14 @@ export class UsersService {
 
     let currentUser = sessionStorage.getItem("currentUser")
     if(currentUser){
-      console.log(jwt_decode(currentUser))
 
       return this.getUserByLogin(jwt_decode(currentUser).userLogin)
 
     }
-    return of(new User("Anonymous","","",""))
+    console.log(currentUser)
+    return of(null)
   }
+  
   private getUserByLogin(login:string):Observable<User>{
 
     return this.http.get<UserDto>(`http://localhost:3000/user/login/${login}`)
