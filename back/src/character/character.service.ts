@@ -30,7 +30,6 @@ export class CharacterService {
       private characterSkillService:CharacterSkillService,
       private raceService:RaceService,
       private userService:UserService,
-      private teamService:TeamService,
     ){}
   async create(createCharacterDto: CreateCharacterDto, login) {
     const character= new Character();
