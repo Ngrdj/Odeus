@@ -1,7 +1,7 @@
 import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('team')
 export class Team {
     
@@ -12,9 +12,9 @@ export class Team {
     @Column()
     name:string
 
-    @JoinColumn()
+    @JoinTable()
     @ManyToMany(type=>Character,
-        (teamCharacter)=>teamCharacter.teams,{
+        (character)=>character.teams,{
             eager:true
         })
     characters:Character[];
