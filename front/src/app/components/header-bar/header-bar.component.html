@@ -1,0 +1,25 @@
+<button (click)="onOptionsButtonClick()" class="optionsButton">&#x2630;</button>
+
+<label>
+
+    <input class="searchBar">
+    <button class="searchButton"><fa-icon [icon]="faSearch"></fa-icon></button>
+
+</label>
+
+<div class="logContainer">
+
+    <button *ngIf="(currentUser?.name==='Anonymous')"
+    class="logButton"
+    routerLink="/login"
+    (click)="onLoginClick()">
+        login
+    </button>
+    <button
+     *ngIf="!(currentUser?.name==='Anonymous')"
+     class="logButton"
+     (click)="onLogoutClick()">
+        logout
+    </button>
+            
+</div>

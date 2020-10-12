@@ -1,0 +1,220 @@
+$header-height:70px;
+$header-button-height:30px;
+$side-width:30%;
+$side-button-width:30px;
+$options-width:50px;
+
+:root{
+    --headerAnimation:hideHeader;
+    --sideAnimation:hideSide;
+    --optionsAnimation:hideOptions;
+
+    --headerAnimationDuration:1s;
+    --sideAnimationDuration:0.5s;
+    --optionsAnimationDuration:0.5s;
+}
+
+
+:host{
+
+    height: 100%;
+    display: flex;
+
+}
+.boundary{
+
+    width: 100%;
+    height: 100%;
+
+}
+.hidden{
+
+    display: none;
+
+}
+.container{
+
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto $side-button-width $side-width;
+    grid-template-areas:
+        "header header header"
+        "headerButton headerButton headerButton"
+        "main sideButton side";
+    grid-template-rows: $header-height $header-button-height auto;
+    animation: var(--headerAnimation) var(--headerAnimationDuration),var(--sideAnimation) var(--sideAnimationDuration);
+    animation-fill-mode: forwards;
+    background: url("https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1558559745443-KM38DVM6H0AIJWVJNT1H/ke17ZwdGBToddI8pDm48kJe8VwonRcYgr7f_0UVbdhh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UbHrcextDeErdIU23wx0_6BTOY9zQNi_nItQjMEsHFYhlvkRmRO1_mFZFNCn67QdSw/ghosts_saltmarsh.jpg?format=2500w");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.header{
+
+    grid-area: header;
+    background-color:var(--panelsColor);
+
+}
+.headerButton{
+
+    grid-area: headerButton;
+    font-size: $header-button-height/2;
+    border: none;
+    background-color:var(--panelsColor);
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+.headerButton:hover{
+
+    filter:invert(100%);
+
+}
+.main{
+
+    grid-area: main;
+
+}
+.options{
+
+   animation-name: var(--optionsAnimation);
+   animation-duration: var(--optionsAnimationDuration);
+   animation-fill-mode: forwards;
+
+}
+.side{
+
+    grid-area: side;
+    background-color: var(--panelsColor);
+
+}
+.sideButton{
+
+    grid-area: sideButton;
+    writing-mode: sideways-lr;
+    border: none;
+    background-color:var(--panelsColor);
+    color: white;
+    outline: none;
+    cursor: pointer;
+
+}
+.sideButton:hover{
+
+    filter:invert(100%);
+
+}
+.deploySide{
+
+    --sideAnimation:deploySide;
+    --sideAnimationDuration:0.8s;
+
+
+}
+.hideSide{
+
+    --sideAnimation:hideSide;
+    --sideAnimationDuration:0.5s;
+
+}
+.deployOptions{
+
+    --optionsAnimation:deployOptions;
+    --optionsAnimationDuration:0.5s;
+
+
+}
+.hideOptions{
+
+    --optionsAnimation:hideOptions;
+    --optionsAnimationDuration:0.3s;
+
+}
+.deployHeader{
+
+    --headerAnimation:deployHeader;
+    --headerAnimationDuration:0.5s;
+
+
+}
+.hideHeader{
+
+    --headerAnimation:hideHeader;
+    --headerAnimationDuration:0.2s;
+
+
+}
+@keyframes deployHeader {
+    from {
+
+        grid-template-rows: 0 $header-button-height auto;
+
+    }
+  
+    to {
+
+        grid-template-rows: $header-height $header-button-height auto;
+
+    }
+}
+
+@keyframes hideHeader {
+    from {
+
+        grid-template-rows: $header-height $header-button-height auto;
+
+    }
+  
+    to {
+
+        grid-template-rows: 0 $header-button-height auto;
+
+    }
+}
+
+@keyframes deploySide {
+    from {
+        grid-template-columns: auto $side-button-width 0%;
+    }
+  
+    to {
+        grid-template-columns:  auto $side-button-width $side-width;
+    }
+}
+
+@keyframes hideSide {
+    from {
+        grid-template-columns:  auto $side-button-width $side-width;
+    }
+  
+    to {
+        grid-template-columns: auto $side-button-width 0%;
+
+    }
+}
+@keyframes deployOptions {
+    from {
+        width: 0;
+    }
+  
+    to {
+        width: $options-width;
+    }
+}
+
+@keyframes hideOptions {
+    from {
+        width: $options-width;
+    }
+  
+    to {
+        width: 0;
+    }
+}
+.panel{
+
+    position: absolute;
+
+}

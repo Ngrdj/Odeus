@@ -1,0 +1,40 @@
+:host{
+
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    
+
+}
+.formContainer{
+
+    background-color: var(--panelsColor);
+    height:50%;
+    width: 25%;
+    margin-top: 10%;
+    padding: 1%;
+
+
+}
+.userForm{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+.formMain{
+
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.formFooter{
+
+    height: 20%;
+    display: flex;
+
+}

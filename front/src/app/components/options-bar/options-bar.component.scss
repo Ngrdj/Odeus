@@ -1,0 +1,27 @@
+:host{
+
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    z-index: 2;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+.buttonIcon{
+
+    height: 50px;
+    font-size: 1.5em;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+.buttonIcon:hover{
+
+    filter: invert(100%);
+    background-color: black;
+}

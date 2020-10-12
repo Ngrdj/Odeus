@@ -1,0 +1,194 @@
+@keyframes deployContainer {
+
+    from{
+        height: 0%;
+
+    }
+    to{
+        height: 80%;
+    }
+
+}
+@keyframes hideContainer {
+
+    from{
+        height: 80%;
+    }
+    to{
+        height: 0%;
+    }
+
+}
+
+:host{
+
+    display:flex;
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    justify-content: center;
+
+}
+.ft-showHideButton{
+
+    font-size: 15px;
+    border: none;
+    background-color: var(--panelsColor);
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+
+}
+.hiddenModeButton{
+
+    border-radius: 10px;
+
+}
+.ft-showHideButton:hover{
+
+    filter:invert(100%)
+
+}
+.ft-container{
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 90%;
+
+    background-color:var(--panelsColor);
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    margin-top: 5%;
+
+}
+.hideFt{
+
+    animation-name: hideContainer;
+    animation-fill-mode: forwards;
+    animation-duration: 0.3s;
+
+}
+.showFt{
+
+    animation-name: deployContainer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+}
+.fight-tracker{
+
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 1%;
+    gap:0.5%;
+    grid-template-rows: 10% 70%  minmax(0px,auto);
+    grid-template-columns: 100%;
+    box-sizing: border-box;
+
+}
+.ft-headerButton{
+
+    height: 100%;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 3vh;
+
+}
+.ft-headerButton:hover{
+
+    filter:invert(100%);
+    background-color: black;
+
+}
+.ft-header{
+
+    grid-area: header;
+    background-color:var(--panelsColor);
+    width: auto;
+    height: 100%;
+    border-radius: 10px 10px 0px 0px;
+
+}
+.ft-main{
+
+    grid-area: main;
+    display: flex;
+    background-color:var(--panelsColor);
+    width: auto;
+    height: 100%;
+    padding:1%;
+    gap:5px;
+    box-sizing: border-box;
+
+}
+.allyContainer{
+
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(210,255,210,0.1);
+    padding:2%;
+    box-sizing: border-box;
+
+}
+.enemyContainer{
+
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255,210,210,0.1);
+    padding:2%;
+    box-sizing: border-box;
+
+}
+.ft-footer{
+
+    grid-area: footer;
+    background-color:var(--panelsColor);
+    width: auto;
+    height: 100%;
+    border-radius: 0px 0px 10px 10px;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100%;
+}
+.ft-footerImg{
+
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+
+}
+.revertedGrid{
+
+    grid-template-areas: "initiative fighterInfos portrait";
+
+
+}
+/*ally container , enemy container orientation*/
+.allyContainer{
+
+    transform: scaleX(-1);
+
+}
+.allyContainer > * {
+
+    transform: scaleX(-1);
+
+}
+

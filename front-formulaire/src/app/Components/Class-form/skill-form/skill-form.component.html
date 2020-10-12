@@ -1,0 +1,28 @@
+<form [formGroup]="skillForm" (ngSubmit)="onSubmitForm()">
+  <div>
+    <label>
+      Nom :
+    </label>
+    <input type="string" formControlName="name">
+  </div>
+  <div>
+    <label>
+      Valeur :
+    </label>
+    <input tpye="number" formControlName="value">
+  </div>
+  <div>
+    <label>
+      Maitrise :
+    </label>
+    <input type="checkbox" formControlName="isChecked">
+  </div>
+  <div>
+    <label>
+      Type :
+    </label>
+    <input type="radio" formControlName="type">
+  </div>
+
+  <button type="submit">Valider</button>
+</form>

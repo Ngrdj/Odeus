@@ -1,0 +1,43 @@
+<form [formGroup]="capacitiesForm" (ngSubmit)="onSubmitForm()">
+  <div>
+    <label>
+      Nom :
+    </label>
+    <input type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label>
+      Description :
+    </label>
+    <input type="text" formControlName="description">
+  </div>
+
+  <div>
+    <label>
+      Classe :
+    </label>
+    <select >
+      <option *ngFor="let class of classes;let index=index">{{class.name}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>
+      Type :
+    </label>
+    <select >
+      <option *ngFor="let subClass of subClasses;let index=index">{{subClass.name}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>
+      Niveaux :
+    </label>
+    <input type="number" formControlName="level">
+  </div>
+
+  <button type="submit">Valider</button>
+
+</form>

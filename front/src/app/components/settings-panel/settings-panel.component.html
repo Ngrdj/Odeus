@@ -1,0 +1,16 @@
+<div class="panel">
+    <ul class="leftPanel">
+
+        <li (click)="optionDisplayed=1" >Mon profil</li>
+        <li (click)="optionDisplayed=2" >Mes parties</li>
+        <li (click)="optionDisplayed=3" >Confidentialité</li>
+
+    </ul>
+    <div [ngSwitch]="optionDisplayed" class="rightPanel">
+
+        <div *ngSwitchCase="1">1</div>
+        <div *ngSwitchCase="2">2</div>
+        <div *ngSwitchCase="3">3</div>
+
+    </div>
+</div>

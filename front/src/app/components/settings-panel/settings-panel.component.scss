@@ -1,0 +1,31 @@
+.panel{
+
+   /* background-color:var(--darkerPanelsColor);*/
+    min-width: 500px;
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: 30% 70% ;
+
+}
+.rightPanel{
+
+    background-color: var(--lighterPanelsColor);
+
+}
+.leftPanel{
+
+    list-style: none;
+    padding: 0;
+    
+}
+.leftPanel > li{
+
+    cursor: pointer;
+
+}
+.leftPanel > li:hover{
+
+    filter:invert(100%);
+    background-color: black;
+
+}

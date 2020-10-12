@@ -1,0 +1,51 @@
+:host{
+
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    margin: 1%;
+    background-color: var(--lighterPanelsColor);
+    border-radius: 5px;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas: "portrait fighterInfos initiative";
+
+}
+.fighterInfos{
+
+    grid-area: fighterInfos;
+    margin:3%;
+
+}
+
+.initiative{
+
+    grid-area: initiative;
+
+    height: 100%;
+    display: flex;
+    align-self: end;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.initiative > input{
+
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+
+}
+.portrait{
+
+    grid-area: portrait;
+
+    height: 100%;
+    width: 100%;
+
+}
