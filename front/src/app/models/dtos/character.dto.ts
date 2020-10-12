@@ -1,6 +1,6 @@
 import { Behavior } from '../enums/behavior.enum';
-import { Class } from '../enums/class.enum';
-import { Race } from '../enums/race.enum';
+import { ClassEnum } from '../enums/class.enum';
+import { RaceEnum } from '../enums/race.enum';
 import {  CapacitiesGetDto, CapacitiesPostDto } from './capacities.dto';
 import { CharacteristicsDto } from './characteristics.dto';
 import { ClassDto } from './class.dto';
@@ -28,8 +28,8 @@ export interface CharacterPostDto {
 
     id:number,
     name:string,
-    race:Race,
-    class:Class,
+    race:RaceEnum,
+    class:ClassEnum,
     characterCapacities:CapacitiesPostDto[],
     level:number,
     masteryBonus:number,

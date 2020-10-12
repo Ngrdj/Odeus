@@ -1,4 +1,4 @@
-export enum Race {
+export enum RaceEnum {
     
     AARAKOCRA= 'AARAKOCRA',
     AASIMAR= 'AASIMAR',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { faAddressCard, faCogs, faDice, faImage, faMap, faMusic } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard, faCogs, faDice, faImage, faMap, faMusic, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'options-bar',
@@ -14,8 +14,10 @@ export class OptionsBarComponent implements OnInit {
   faDice = faDice;
   faMap = faMap;
   faCogs = faCogs;
+  faUsers = faUsers;
 
   @Output() characterDetailClick:EventEmitter<any>=new EventEmitter()
+  @Output() myCharactersClick:EventEmitter<any>=new EventEmitter()
   @Output() soundClick:EventEmitter<any>=new EventEmitter()
   @Output() backgroundClick:EventEmitter<any>=new EventEmitter()
   @Output() diceClick:EventEmitter<any>=new EventEmitter()
@@ -30,6 +32,11 @@ export class OptionsBarComponent implements OnInit {
   onCharacterDetailsButtonClick(){
 
     this.characterDetailClick.emit();
+
+  }
+  onMyCharactersButtonClick(){
+
+    this.myCharactersClick.emit();
 
   }
   onSoundButtonClick(){

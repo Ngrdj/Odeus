@@ -1,4 +1,4 @@
-export enum Class {
+export enum ClassEnum {
     
     ARTIFICER = 'ARTIFICER' ,
     BARBARIAN = 'BARBARIAN' ,

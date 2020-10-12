@@ -19,7 +19,7 @@ export class VirtualTableComponent implements OnInit {
   displaySide:boolean = false;
   displayHeader:boolean = false;
   displayOptions:boolean = false;
-
+  displayMyCharacters:boolean = false;
   displayCharacterDetails:boolean = false;
   displaySound:boolean = false;
   displayBackgroundSettings:boolean = false;

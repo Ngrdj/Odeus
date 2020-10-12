@@ -1,4 +1,5 @@
 import { UserDto } from './dtos/user.dto'
+import { RolesEnum } from './enums/roles.enum'
 
 export class User {
 
@@ -7,7 +8,8 @@ export class User {
         public name:string,
         public login:string,
         public password:string,
-        public email:string
+        public email:string,
+        public role?:RolesEnum
 
     ){}
 

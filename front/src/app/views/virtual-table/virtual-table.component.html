@@ -2,6 +2,7 @@
     [ngClass]="{hideOptions:!displayOptions, deployOptions:displayOptions}" 
     class="options"
     (characterDetailClick)="displayCharacterDetails = !displayCharacterDetails"
+    (myCharactersClick)="displayMyCharacters = !displayMyCharacters"
     (soundClick)="displaySound = !displaySound"
     (backgroundClick)="displayBackgroundSettings = !displayBackgroundSettings"
     (diceClick)="displayDices = !displayDices"
@@ -46,6 +47,16 @@
       cdkDragBoundary=".boundary"
       cdkDrag>
     </settings-panel>
+
+    <my-characters-panel
+      controlPanel
+      (closePanel)="displayMyCharacters = false"
+      [display]="displayMyCharacters?'block':'none'"
+      panelTitle="Mes personnages"
+      cdkDragBoundary=".boundary"
+      cdkDrag >
+    </my-characters-panel>
+
 
     <character-details
       controlPanel

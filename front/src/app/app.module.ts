@@ -30,6 +30,9 @@ import { CreateTeamDialog } from './dialogs/create-team.dialog/create-team.dialo
 import { RegisterComponent } from './views/register/register.component';
 import { FtFighterComponent } from './components/ft-fighter/ft-fighter.component';
 import { FtInfoBoxComponent } from './components/ft-info-box/ft-info-box.component';
+import { MyCharactersPanelComponent } from './components/my-characters-panel/my-characters-panel.component';
+import { UserRoleDirective } from './directives/user-role.directive';
+import { CreateCharacterComponent } from './dialogs/create-character.dialog/create-character.dialog.component';
 
 
 
@@ -52,6 +55,9 @@ import { FtInfoBoxComponent } from './components/ft-info-box/ft-info-box.compone
     RegisterComponent,
     FtFighterComponent,
     FtInfoBoxComponent,
+    MyCharactersPanelComponent,
+    UserRoleDirective,
+    CreateCharacterComponent,
     
     
   ],

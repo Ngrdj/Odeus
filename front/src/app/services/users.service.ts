@@ -18,7 +18,7 @@ export class UsersService {
 
   createUser(user:User):Observable<UserDto>{
 
-    return this.http.post<UserDto>("http://localhost:3000/user",user.toDto())
+    return this.http.post<UserDto>("https://api.grandjeannicolas.ml/user",user.toDto())
 
   }
   getCurrentUser():Observable<User>{
@@ -34,7 +34,7 @@ export class UsersService {
   }
   private getUserByLogin(login:string):Observable<User>{
 
-    return this.http.get<UserDto>(`http://localhost:3000/user/login/${login}`)
+    return this.http.get<UserDto>(`https://api.grandjeannicolas.ml/user/login/${login}`)
       .pipe(
 
         map(userFound => {return User.fromDto(userFound)})
