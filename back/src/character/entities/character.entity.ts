@@ -4,7 +4,7 @@ import { CharacterSkill } from "src/character-skill/entities/character-skill.ent
 import { CharacterSubClass } from "src/character-sub-class/entities/character-sub-class.entity";
 import { Race } from "src/race/entities/race.entity";
 import { Story } from "src/story/entities/story.entity";
-import { TeamCharacter } from "src/team-character/entities/team-character.entity";
+import { Team } from "src/team/entities/team.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column,CreateDateColumn,DeleteDateColumn,Entity,JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import {AlignmentEnum } from "../dto/alignment.enum";
@@ -81,12 +81,10 @@ export class Character {
         })
     characterSkills:CharacterSkill[];
 
-    @JoinColumn()
-    @OneToMany(type=>TeamCharacter,
-        (teamCharacter)=>teamCharacter.character,{
-            eager:true
-        })
-    teamCharacters:TeamCharacter[];
+    @JoinTable()
+    @ManyToMany(type=>Team,
+        (teamCharacter)=>teamCharacter.characters)
+    teams:Team[];
 
     @CreateDateColumn()
     createdAt: Date;

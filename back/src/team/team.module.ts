@@ -10,9 +10,9 @@ import { CharacterService } from 'src/character/character.service';
 import { Character } from 'src/character/entities/character.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Team,Character,User])],
+  imports: [TypeOrmModule.forFeature([Team,User])],
   controllers: [TeamController],
-  providers: [TeamService,CharacterService, UserService],
+  providers: [TeamService, UserService],
   exports:[TeamService]
 })
 export class TeamModule {}
