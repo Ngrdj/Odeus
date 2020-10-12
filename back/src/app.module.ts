@@ -14,6 +14,7 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AuthModule } from './authentication/auth.module';
 import {SnakeNamingStrategy } from 'typeorm-naming-strategies'
+import { GoogleOauthModule } from './google-oauth/google-oauth.module';
 
 @Global()
 @Module({
@@ -40,7 +41,8 @@ import {SnakeNamingStrategy } from 'typeorm-naming-strategies'
       synchronize: true,    //Changement auto de la base de donnée
       namingStrategy:new SnakeNamingStrategy(),
       logging:false,
-    })
+    }),
+    GoogleOauthModule
   ],
   controllers: [AppController],
   providers: [AppService]

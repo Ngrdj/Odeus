@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import { Capacity } from "src/capacity/entities/capacity.entity";
 import { CharacterSubClass } from "src/character-sub-class/entities/character-sub-class.entity";
 import { Class } from "src/class/entities/class.entity";
@@ -5,6 +6,7 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToO
 @Entity('sub_class')
 export class SubClass {
 
+    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -25,12 +27,15 @@ export class SubClass {
         (characterSubClass)=>characterSubClass.subClass)
     characterSubClass:CharacterSubClass[];
 
+    @Exclude()
     @CreateDateColumn()
     createdAt: Date;
 
+    @Exclude()
     @UpdateDateColumn()
     updatedAt: Date;
 
+    @Exclude()
     @DeleteDateColumn()
     deletedAt: Date;
     

@@ -10,6 +10,7 @@ import { ClassService } from 'src/class/class.service';
 import { RaceService } from 'src/race/race.service';
 import { SkillService } from 'src/skill/skill.service';
 import { StoryService } from 'src/story/story.service';
+import { TeamService } from 'src/team/team.service';
 import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
 import { CreateCharacterDto } from './dto/create-character.dto';
@@ -29,6 +30,7 @@ export class CharacterService {
       private characterSkillService:CharacterSkillService,
       private raceService:RaceService,
       private userService:UserService,
+      private teamService:TeamService,
     ){}
   async create(createCharacterDto: CreateCharacterDto, login) {
     const character= new Character();
@@ -145,6 +147,9 @@ for (let skill of skills) {
     //Gestion User/Team-----------------------------------------------------------------------------------------------------Gestion User/Team
     const user= await this.userService.findOneByLogin(login);
     newCharacter.user=user;
+
+
+    
     
 
 

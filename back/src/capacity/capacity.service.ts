@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { CreateCapacityDto } from './dto/create-capacity.dto';
 import { UpdateCapacityDto } from './dto/update-capacity.dto';
 import { Capacity } from './entities/capacity.entity';
-
+import {classToPlain} from 'class-transformer'
 @Injectable()
 export class CapacityService {
 
@@ -24,11 +24,12 @@ export class CapacityService {
   }
 
   async findAll() {
-    return await this.capacityRepository.find();
+    return await this.capacityRepository.find({select:[]});
   }
 
   async findOne(id: number) {
-    return await this.capacityRepository.findOne(id);
+    const capacity= await this.capacityRepository.findOne(id);
+    return classToPlain(capacity)
   }
 
   async update(id: number, updateCapacityDto: UpdateCapacityDto) {

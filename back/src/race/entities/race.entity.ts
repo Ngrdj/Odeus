@@ -1,8 +1,10 @@
+import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('race')
 export class Race {
    
+    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -27,16 +29,20 @@ export class Race {
     @Column()
     chaBonus:number;
 
+    @Exclude()
     @OneToMany(type=>Character,
         (character)=>character.race)
     characters:Character[];
 
+    @Exclude()
     @CreateDateColumn()
     createdAt: Date;
 
+    @Exclude()
     @UpdateDateColumn()
     updatedAt: Date;
 
+    @Exclude()
     @DeleteDateColumn()
     deletedAt: Date;
 }
