@@ -33,6 +33,9 @@ import { FtInfoBoxComponent } from './components/ft-info-box/ft-info-box.compone
 import { MyCharactersPanelComponent } from './components/my-characters-panel/my-characters-panel.component';
 import { UserRoleDirective } from './directives/user-role.directive';
 import { CreateCharacterComponent } from './dialogs/create-character.dialog/create-character.dialog.component';
+import { UserNotLoggedDirective } from './directives/user-not-logged.directive';
+import { UserLoggedDirective } from './directives/user-logged.directive';
+import { BackgroundPanelComponent } from './components/background-panel/background-panel.component';
 
 
 
@@ -58,6 +61,9 @@ import { CreateCharacterComponent } from './dialogs/create-character.dialog/crea
     MyCharactersPanelComponent,
     UserRoleDirective,
     CreateCharacterComponent,
+    UserNotLoggedDirective,
+    UserLoggedDirective,
+    BackgroundPanelComponent,
     
     
   ],
