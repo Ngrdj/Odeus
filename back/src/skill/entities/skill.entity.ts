@@ -8,7 +8,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToM
 @Entity('skill')
 export class Skill {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

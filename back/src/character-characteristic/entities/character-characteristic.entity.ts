@@ -5,7 +5,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryG
 @Entity('characterCharacteristic')
 export class CharacterCharacteristic {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

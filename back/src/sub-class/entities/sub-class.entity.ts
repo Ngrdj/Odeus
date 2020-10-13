@@ -6,7 +6,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToO
 @Entity('sub_class')
 export class SubClass {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

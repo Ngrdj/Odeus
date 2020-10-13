@@ -6,7 +6,6 @@ import { RoleEnum } from "../role.enum";
 @Entity('user')
 export class User {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

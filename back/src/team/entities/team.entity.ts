@@ -5,7 +5,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTab
 @Entity('team')
 export class Team {
     
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

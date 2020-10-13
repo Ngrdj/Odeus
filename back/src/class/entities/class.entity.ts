@@ -5,7 +5,6 @@ import { ClassEnum } from "../class.enum";
 @Entity('class')
 export class Class {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
