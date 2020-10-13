@@ -1,5 +1,6 @@
-import { Characteristics } from './characteristics';
-import { CharacterGetDto } from './dtos/character.dto';
+import { CharacterCharacteristic } from './characterCharacteristic';
+import { GetCharacterDto } from './dtos/character/get-character.dto';
+
 
 export class Character {
 
@@ -8,19 +9,19 @@ export class Character {
         public id:number,
         public name:string,
         public portrait?:string,
-        public characteristics?:Characteristics[]
+        public characteristics?:CharacterCharacteristic[]
         
 
     ){}
 
-    static fromDto(characterDto:CharacterGetDto){
+    static fromDto(characterDto:GetCharacterDto){
 
         return new Character(
 
             characterDto.id,
             characterDto.name,
             characterDto.portrait,
-            characterDto.characteristics.map(charact => Characteristics.fromDto(charact))
+            characterDto.characterCharacteristics.map(charact => CharacterCharacteristic.fromDto(charact))
             
 
         )

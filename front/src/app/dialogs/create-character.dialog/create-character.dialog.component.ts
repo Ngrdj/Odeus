@@ -1,10 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Character } from 'src/app/models/character';
-import { ClassEnum } from 'src/app/models/enums/class.enum';
-import { StoryEnum } from 'src/app/models/story.enum';
-import { SubClassEnum } from 'src/app/models/subClass.enum';
 import { CreateTeamDialog } from '../create-team.dialog/create-team.dialog.component';
 
 

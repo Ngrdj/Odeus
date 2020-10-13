@@ -1,6 +1,7 @@
 import { CharacteristicEnum } from '../../enums/characteristic.enum';
 import { GetCharacterSkillDto } from '../character/characterSkill/get-character-skill.dto';
-import { getStoryDto } from '../story/get-story.dto';
+import { GetPnjSkillDto } from '../pnj/pnjSkill/get-pnj-skill.dto';
+import { GetStoryDto } from '../story/get-story.dto';
 
 export interface GetSkillDto {
 

@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UserDto } from '../models/dtos/user.dto';
 import { User } from '../models/user';
 import jwt_decode from "jwt-decode";
+import { GetUserDto } from '../models/dtos/user/get-user.dto';
 
 
 
@@ -16,9 +16,9 @@ export class UsersService {
   constructor(private http:HttpClient) { }
 
 
-  createUser(user:User):Observable<UserDto>{
+  createUser(user:User):Observable<GetUserDto>{
 
-    return this.http.post<UserDto>("http://localhost:3000/user",user.toDto())
+    return this.http.post<GetUserDto>("http://localhost:3000/user",user.toDto())
 
   }
   getCurrentUser():Observable<User>{
@@ -35,7 +35,7 @@ export class UsersService {
   
   private getUserByLogin(login:string):Observable<User>{
 
-    return this.http.get<UserDto>(`http://localhost:3000/user/login/${login}`)
+    return this.http.get<GetUserDto>(`http://localhost:3000/user/login/${login}`)
       .pipe(
 
         map(userFound => {return User.fromDto(userFound)})
