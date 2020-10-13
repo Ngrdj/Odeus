@@ -90,11 +90,11 @@ export class PnjService {
   }
 
   findAll() {
-    return `This action returns all pnj`;
+    return this.pnjRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} pnj`;
+    return this.pnjRepository.findOne(id);
   }
 
   update(id: number, updatePnjDto: UpdatePnjDto) {
