@@ -1,1 +1,5 @@
-export class CreatePnjCharacteristicDto {}
+export class CreatePnjCharacteristicDto {
+
+    value:number;
+    characteristicId:number;
+}

@@ -16,8 +16,7 @@ import { AuthModule } from './authentication/auth.module';
 import {SnakeNamingStrategy } from 'typeorm-naming-strategies'
 import { GoogleOauthModule } from './google-oauth/google-oauth.module';
 import { PnjModule } from './pnj/pnj.module';
-import { PnjCharacteristicModule } from './pnj-characteristic/pnj-characteristic.module';
-import { PnjSkillModule } from './pnj-skill/pnj-skill.module';
+
 
 @Global()
 @Module({
@@ -47,8 +46,6 @@ import { PnjSkillModule } from './pnj-skill/pnj-skill.module';
     }),
     GoogleOauthModule,
     PnjModule,
-    PnjCharacteristicModule,
-    PnjSkillModule
   ],
   controllers: [AppController],
   providers: [AppService]

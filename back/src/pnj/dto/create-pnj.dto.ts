@@ -11,7 +11,7 @@ export class CreatePnjDto {
     intelligence:number;
     wisdom:number;
     charisma:number;
-    skill:Skill;
+    skills:Skill[];
     resume:string;
     portrait:string;
 }

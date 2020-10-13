@@ -21,7 +21,7 @@ export class Characteristic {
 
     @JoinColumn()
     @OneToMany(type=>PnjCharacteristic,
-        (pnjCharacteristic)=>pnjCharacteristic.characteristic)
+        (pnjCharacteristic)=>pnjCharacteristic.pnj)
     pnjCharacteristics:PnjCharacteristic[];
 
     @Exclude()

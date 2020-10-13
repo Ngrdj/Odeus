@@ -7,10 +7,7 @@ import { UpdatePnjSkillDto } from './dto/update-pnj-skill.dto';
 export class PnjSkillController {
   constructor(private readonly pnjSkillService: PnjSkillService) {}
   
-  @Post()
-  create(@Body() createPnjSkillDto: CreatePnjSkillDto) {
-    return this.pnjSkillService.create(createPnjSkillDto);
-  }
+  
 
   @Get()
   findAll() {

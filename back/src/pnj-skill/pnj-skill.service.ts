@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreatePnjSkillDto } from './dto/create-pnj-skill.dto';
 import { UpdatePnjSkillDto } from './dto/update-pnj-skill.dto';
+import { PnjSkill } from './entities/pnj-skill.entity';
 
 @Injectable()
 export class PnjSkillService {
-  create(createPnjSkillDto: CreatePnjSkillDto) {
-    return 'This action adds a new pnjSkill';
+  constructor(
+    @InjectRepository(PnjSkill) private readonly pnjSkillRepository:Repository<PnjSkill>
+  ){}
+  create(pnjSkill: PnjSkill) {
+    return this.pnjSkillRepository.save(pnjSkill);
   }
 
   findAll() {
