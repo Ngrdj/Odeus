@@ -87,9 +87,6 @@ INSERT INTO skill (id,name,type)
 		(17,'PERFORMANCE','CHARISMA'),
 		(18,'PERSUASION','CHARISMA');
 		
-INSERT INTO capacity (name,level,description,sub_class_id)
-	VALUES
-		('FIREBALL',1,'A ball of fire',1);
 
 INSERT INTO story (name,description)
 	VALUES
