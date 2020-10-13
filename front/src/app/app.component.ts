@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { User } from './models/user';
-import { AppDataService } from './services/app-data.service';
 import { UsersService } from './services/users.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { UsersService } from './services/users.service';
 export class AppComponent {
   
 
-    constructor(private dataService:AppDataService, private usersService:UsersService){
+    constructor( private usersService:UsersService){
 
       usersService.createUser(new User(
 
@@ -30,7 +29,7 @@ export class AppComponent {
 
       )).subscribe()
 
-      dataService.setAllDatas().subscribe(value => console.log(value))
+      
 
     }
 

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
+import { Characteristic } from 'src/app/models/characteristic';
 
 @Component({
   selector: 'character-details',
@@ -9,8 +10,7 @@ import { Character } from 'src/app/models/character';
 export class CharacterDetailsComponent implements OnInit {
 
   @Input() character:Character;
-  statsArray:string[]=["Force","Dextérité","Intelligence","Charisme"]
-
+  @Input() characteristics:Characteristic[];
   constructor() {
 
   }

@@ -39,6 +39,7 @@ export class AppDataService {
       this.http.get(environment.baseApiUrl + "capacity"),
       this.http.get(environment.baseApiUrl + "characteristic"),
       this.http.get(environment.baseApiUrl + "class"),
+      this.http.get(environment.baseApiUrl + "pnj"),
       this.http.get(environment.baseApiUrl + "race"),
       this.http.get(environment.baseApiUrl + "skill"),
       this.http.get(environment.baseApiUrl + "story"),

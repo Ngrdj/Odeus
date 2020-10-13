@@ -1,4 +1,5 @@
 import { GetClassDto } from './dtos/class/get-class.dto';
+import { SubClass } from './subClass';
 
 export class Class {
 
@@ -16,7 +17,7 @@ export class Class {
 
             classDto.id,
             classDto.name,
-            classDto.subClass.map(value => SubClass.fromDto(capacityDto.subClass))
+            classDto.subClass.map(value => SubClass.fromDto(value))
         
         )
 

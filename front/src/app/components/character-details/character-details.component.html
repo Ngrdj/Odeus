@@ -4,10 +4,10 @@
     <h3 class="name">{{character?character.name:"-nom de personnage-"}}</h3>
     <ul class="stats">
 
-        <li *ngFor="let stat of statsArray, let i = index">
+        <li *ngFor="let characteristic of characteristics, let i = index">
             <label class="stat">
 
-                {{character.characteristics?character.characteristics[i].name:stat}}
+                {{characteristic.name}}
                 <input class="statInput" readonly [value]="character.characteristics?character.characteristics[i].value:0">
 
             </label> 

@@ -1,4 +1,5 @@
 import { GetCapacityDto } from './dtos/capacity/get-capacity.dto';
+import { SubClass } from './subClass';
 
 export class Capacity {
 

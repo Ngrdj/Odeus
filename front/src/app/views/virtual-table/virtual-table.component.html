@@ -54,6 +54,13 @@
       controlPanel
       (closePanel)="displayMyCharacters = false"
       [display]="displayMyCharacters?'block':'none'"
+      [capacities]="capacities"
+      [characteristics]="characteristics"
+      [classes]="classes"
+      [races]="races"
+      [skills]="skills"
+      [stories]="stories"
+      [subClasses]="subClasses"
       panelTitle="Mes personnages"
       cdkDragBoundary=".boundary"
       cdkDrag >
@@ -66,6 +73,7 @@
       [display]="displayCharacterDetails?'flex':'none'"
       panelTitle="Détails de personnage"
       [character]="selectedCharacter"
+      [characteristics]="characteristics"
       cdkDragBoundary=".boundary"
       cdkDrag>
    </character-details>

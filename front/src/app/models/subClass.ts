@@ -21,7 +21,7 @@ export class SubClass {
             subClassDto.id,
             subClassDto.name,
             subClassDto.capacities.map(capacity => Capacity.fromDto(capacity)),
-            subClassDto.class
+            Class.fromDto(subClassDto.class)
 
         )
 

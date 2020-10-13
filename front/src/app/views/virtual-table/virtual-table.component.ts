@@ -1,9 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Capacity } from 'src/app/models/capacity';
 import { Character } from 'src/app/models/character';
+import { Characteristic } from 'src/app/models/characteristic';
+import { Class } from 'src/app/models/class';
 import { Behavior } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
+import { Race } from 'src/app/models/race';
+import { Skill } from 'src/app/models/skill';
+import { Story } from 'src/app/models/story';
+import { SubClass } from 'src/app/models/subClass';
 import { Team } from 'src/app/models/team';
 import { User } from 'src/app/models/user';
+import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -19,7 +27,14 @@ export class VirtualTableComponent implements OnInit {
 
   background:string="https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1558559745443-KM38DVM6H0AIJWVJNT1H/ke17ZwdGBToddI8pDm48kJe8VwonRcYgr7f_0UVbdhh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UbHrcextDeErdIU23wx0_6BTOY9zQNi_nItQjMEsHFYhlvkRmRO1_mFZFNCn67QdSw/ghosts_saltmarsh.jpg?format=2500w";
   
-  
+  capacities:Capacity[];
+  characteristics:Characteristic[];
+  classes:Class[];
+  pnjList;
+  races:Race[];
+  skills:Skill[];
+  stories:Story[];
+  subClasses:SubClass[];
 
   displaySide:boolean = false;
   displayHeader:boolean = false;
@@ -42,6 +57,7 @@ export class VirtualTableComponent implements OnInit {
 
   constructor(
     private authService:AuthentificationsService,
+    private dataService:AppDataService,
     private charactService:CharactersService,
     private usersService:UsersService,
     ){
@@ -79,6 +95,7 @@ export class VirtualTableComponent implements OnInit {
       this.currentUser = userFound
       console.log(userFound)
     })
+
     this.teams.forEach(team => {
       team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
     })
@@ -90,6 +107,27 @@ export class VirtualTableComponent implements OnInit {
       portrait:"https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg"
 
     }
+
+    this.setAllData()
+
+  }
+
+  setAllData(){
+
+    this.dataService.setAllDatas().subscribe(value => {
+      
+      console.log(value)
+      this.capacities = this.dataService.capacities;
+      this.characteristics = this.dataService.characteristics;
+      this.classes = this.dataService.classes;
+      this.pnjList = this.dataService.pnjList;
+      this.races = this.dataService.races;
+      this.skills = this.dataService.skills;
+      this.stories = this.dataService.stories;
+      this.subClasses = this.dataService.subClasses;
+
+    })
+    
 
   }
 

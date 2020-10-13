@@ -1,15 +1,65 @@
-<p>create-character.dialog works!</p>
 <form [formGroup]='character'>
 
-    <input formControlName="name" placeholder="nom de personnage">
-    <div class="classContainer">
+    <div class="formHeader">
 
-        <label>
-            
-            <input type="radio"name="class" [value]="" checked>
+        <input class="nameInput" formControlName="name" placeholder="nom de personnage">
+        <div class="characteristicsContainer">
 
-        </label>
+            <label class="characteristic" *ngFor="let characteristic of characteristics">
+
+                {{characteristic.name}}
+                <input type="number" value="0"  readonly>
+
+            </label>
+
+        </div>
+        <img (click)="browse.click()" [src]="currentPortrait" class="portrait" >
+        <input (change)="setCurrentPortrait($event.target.files[0])" accept="image/png, image/jpeg" hidden="true" type="file" #browse>
 
     </div>
+
+    <div class="formMain">
+
+        <div class="raceContainer">
+            <div  (click)="displayRaces = !displayRaces" class="raceHeader">    
+                <h3>Choisir une race</h3>
+                <span> {{displayRaces?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div class="raceGrid" [ngClass]="{closed:!displayRaces}">
+    
+                <label class="raceLabel" *ngFor="let race of races">
+                    
+                   {{race.name}}
+                    <input type="radio" name="race" [value]="" checked>
+        
+                </label>
+        
+            </div>
+    
+        </div>
+        
+        <div class="classContainer">
+    
+            <div  (click)="displayClasses = !displayClasses" class="classHeader">    
+                <h3>Choisir une classe</h3>
+                <span> {{displayClasses?"&uarr;":"&darr;"}}</span>
+            </div>
+            <div class="classGrid" [ngClass]="{closed:!displayClasses}">
+    
+                <label class="classLabel" *ngFor="let class of classes">
+                    
+                   {{class.name}}
+                    <input type="radio" name="class" [value]="" checked>
+        
+                </label>
+        
+            </div>
+    
+        </div>
+
+    </div>
+
+    <button (click)="onSubmitForm()">Create character</button>
 
 </form>
