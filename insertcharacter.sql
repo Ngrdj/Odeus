@@ -5,7 +5,7 @@ INSERT INTO character (id,name,level,mastery_bonus,portrait,resume,alignment,gen
 	(2,'Sa''we',1,2,'','Ancienne brigande de grand chemin, elle a decidée de se racheter une conduite','CG','F',145,31,6),
 	(3,'Bartol',1,2,'','Artisant magicien à la recherche de tout se qui brille, toutes actions mérite récompense','NG','M',85,8,2);
 	
-INSERT INTO characterCharacteristic(value,bonus,character_id,characteristic_id)
+INSERT INTO character_characteristic(value,bonus,character_id,characteristic_id)
 	VALUES
 	(16,3,1,1),
 	(11,0,1,2),
@@ -28,7 +28,7 @@ INSERT INTO characterCharacteristic(value,bonus,character_id,characteristic_id)
 	(8,-1,3,5),
 	(14,2,3,6);
 	
-INSERT INTO characterSubClass (value,sub_class_id,character_id)
+INSERT INTO character_sub_class (value,sub_class_id,character_id)
 	VALUES
 	(1,13,1),
 	
@@ -43,7 +43,7 @@ INSERT INTO characterSubClass (value,sub_class_id,character_id)
 	(2,4,3),
 	(1,5,3);
 	
-INSERT INTO characterSkill (bonus,is_checked,skill_id,character_id)
+INSERT INTO character_skill (bonus,is_checked,skill_id,character_id)
 	VALUES
 	(3,false,1,1),
 	(0,false,2,1),

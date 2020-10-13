@@ -3,7 +3,7 @@ import { Characteristic } from "src/characteristic/entities/characteristic.entit
 import { Pnj } from "src/pnj/entities/pnj.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity('pnjCharacteristic')
+@Entity('pnj_characteristic')
 export class PnjCharacteristic {
 
     @Exclude()

@@ -93,7 +93,7 @@ INSERT INTO capacity (name,level,description,sub_class_id)
 	('Piétinement guerrier',13,'Frappez le sol avec votre arme afin de renverser les ennemis autour de vous',13),
 	('Force du guerrier',15,'Vous pouvez soulever des objets de trois à quatre fois votre poids',13),
 	('Ange gardien',17,'Vous pouvez prendre les dégats à la place d''un autre',13),
-	('Enragement guerrier',19,'Tout vos coups sont des coups critiques pendant plusieures minutes, mais vous serez épuisé après ça',13),
+	('Enragement guerrier',19,'Tout vos coups sont des coups critiques pendant plusieures minutes, mais vous serez épuisé après ça',13);
 
 
 	

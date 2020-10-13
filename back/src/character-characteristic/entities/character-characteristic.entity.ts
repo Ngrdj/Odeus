@@ -2,7 +2,7 @@ import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { Characteristic } from "src/characteristic/entities/characteristic.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-@Entity('characterCharacteristic')
+@Entity('character_characteristic')
 export class CharacterCharacteristic {
 
     @PrimaryGeneratedColumn({type:"int"})
