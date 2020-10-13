@@ -1,9 +1,10 @@
 import { Exclude } from "class-transformer";
-import { Character } from "src/character/entities/character.entity";
 import { Characteristic } from "src/characteristic/entities/characteristic.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-@Entity('characterCharacteristic')
-export class CharacterCharacteristic {
+import { Pnj } from "src/pnj/entities/pnj.entity";
+import { Column, CreateDateColumn, DeleteDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+
+
+export class PnjCharacteristic {
 
     @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
@@ -16,18 +17,18 @@ export class CharacterCharacteristic {
     bonus:number;
 
     @Exclude()
-    @ManyToOne(type=>Character,
-        (character)=>character.characterCharacteristics)
-    character:Character;
-
+    @ManyToOne(type=>Pnj,
+        (pnj)=>pnj.pnjCharacteristics)
+    pnj:Pnj;
 
     @Exclude()
     @ManyToOne(type=>Characteristic,
-        (characteristic)=>characteristic.characterCharacteristics,{
+        (characteristic)=>characteristic.pnjCharacteristics,{
             eager:true
         })
     characteristic:Characteristic;
 
+    
     @Exclude()
     @CreateDateColumn()
     createdAt: Date;
