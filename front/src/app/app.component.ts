@@ -10,14 +10,6 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent {
   
-  capacities:[];
-  characteristics:[];
-  classes:[];
-  pnjList:[];
-  races:[];
-  skills:[];
-  stories:[];
-  subClasses:[];
 
     constructor(private dataService:AppDataService, private usersService:UsersService){
 
@@ -38,7 +30,8 @@ export class AppComponent {
 
       )).subscribe()
 
-      this.dataService.setAllDatas().subscribe(value => console.log(value))
+      dataService.setAllDatas().subscribe(value => console.log(value))
+
     }
 
 }

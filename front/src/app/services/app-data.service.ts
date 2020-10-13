@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CheckboxControlValueAccessor } from '@angular/forms';
 import { forkJoin, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -17,14 +18,14 @@ import { GetSubClassDto } from '../models/dtos/subClass/get-sub-class.dto';
 })
 export class AppDataService {
 
-  capacities:GetCapacityDto[];
-  characteristics:GetCharacteristicDto[];
-  classes:GetClassDto[];
-  pnjList:GetPnjDto[];
-  races:GetRaceDto[];
-  skills:GetSkillDto[];
-  stories:GetStoryDto[];
-  subClasses:GetSubClassDto[];
+  capacities;
+  characteristics;
+  classes;
+  pnjList;
+  races;
+  skills;
+  stories;
+  subClasses;
   
 
   constructor(private http:HttpClient) {
@@ -42,14 +43,23 @@ export class AppDataService {
       this.http.get(environment.baseApiUrl + "skill"),
       this.http.get(environment.baseApiUrl + "story"),
       this.http.get(environment.baseApiUrl + "sub-class"),
-    ])
-    
+    ]).pipe(tap(value => {
 
+        this.capacities = value[0]
+        this.characteristics = value[1]
+        this.classes = value[2]
+        this.pnjList = value[3]
+        this.races = value[4]
+        this.skills = value[5]
+        this.stories = value[6]
+        this.subClasses = value[7]
+
+    }))
   }
 
   private setAllCapacities(){
 
-    return this.http.get<GetCapacityDto[]>(environment.baseApiUrl + "capacity")
+     this.http.get<GetCapacityDto[]>(environment.baseApiUrl + "capacity")
       .pipe(
         tap(value => this.capacities = value)
       )

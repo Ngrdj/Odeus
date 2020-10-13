@@ -6,7 +6,6 @@ export interface GetStoryDto {
     id:number;
     name:string;
     description:string;
-    characters:GetCharacterDto[];
     skills:GetSkillDto[];
     
 }

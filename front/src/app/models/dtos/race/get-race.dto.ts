@@ -1,4 +1,3 @@
-import { GetCharacterDto } from '../character/get-character.dto';
 
 export interface GetRaceDto {
 
@@ -10,6 +9,5 @@ export interface GetRaceDto {
     constBonus:number;
     wisBonus:number;
     chaBonus:number;
-    characters:GetCharacterDto[];
     
 }
