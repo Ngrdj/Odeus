@@ -111,7 +111,7 @@ export class CreateCharacterComponent implements OnInit {
       console.log(newCharacter)
 
   }
-  getBase64(file) {
+  private getBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);

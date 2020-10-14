@@ -3,6 +3,29 @@
     <div class="formHeader">
 
         <input class="nameInput" formControlName="name" placeholder="nom de personnage">
+
+        <div class="levelContainer">
+
+            <span>
+
+                <button [hidden]="character.controls.level.value <= 1 " (click)="character.controls.level.setValue(character.controls.level.value-1)"  class="levelButton"><</button>
+
+
+            </span>
+            <label  class="level">
+
+                lvl:
+                <input formControlName="level" type="number" min="1" max="20" #level>
+            </label>
+            <span>
+
+                <button [hidden]="character.controls.level.value >= 20 " (click)="character.controls.level.setValue(character.controls.level.value+1)"  class="levelButton">></button>
+
+            </span>
+        </div>
+        
+        
+
         <div class="characteristicsContainer">
 
             <label class="characteristic" *ngFor="let characteristic of characteristics">
