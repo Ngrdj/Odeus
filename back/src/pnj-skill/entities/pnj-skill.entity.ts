@@ -7,7 +7,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryG
 @Entity('pnj_skill')
 export class PnjSkill {
     
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -23,7 +22,7 @@ export class PnjSkill {
         })
     skill:Skill;
 
-    @Exclude()
+    
     @ManyToOne(type=>Pnj,
         (pnj)=>pnj.pnjSkills)
     pnj:Pnj;

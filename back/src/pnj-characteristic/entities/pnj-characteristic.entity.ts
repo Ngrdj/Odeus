@@ -6,7 +6,7 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryG
 @Entity('pnj_characteristic')
 export class PnjCharacteristic {
 
-    @Exclude()
+    
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

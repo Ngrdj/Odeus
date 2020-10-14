@@ -14,7 +14,9 @@ export class SubClass {
 
     @JoinColumn()
     @OneToMany(type=>Capacity,
-        (capacity)=>capacity.subClass)
+        (capacity)=>capacity.subClass,{
+            eager:true
+        })
     capacities:Capacity[];
 
     @ManyToOne(type=>Class,

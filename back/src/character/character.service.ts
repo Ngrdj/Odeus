@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
+import { classToPlain } from 'class-transformer';
 import { CharacterCharacteristicService } from 'src/character-characteristic/character-characteristic.service';
 import { CharacterSkillService } from 'src/character-skill/character-skill.service';
 import { CharacterSkill } from 'src/character-skill/entities/character-skill.entity';
@@ -10,6 +11,7 @@ import { ClassService } from 'src/class/class.service';
 import { RaceService } from 'src/race/race.service';
 import { SkillService } from 'src/skill/skill.service';
 import { StoryService } from 'src/story/story.service';
+import { SubClassService } from 'src/sub-class/sub-class.service';
 import { TeamService } from 'src/team/team.service';
 import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
@@ -30,6 +32,7 @@ export class CharacterService {
       private characterSkillService:CharacterSkillService,
       private raceService:RaceService,
       private userService:UserService,
+      private subclassService:SubClassService
     ){}
   async create(createCharacterDto: CreateCharacterDto, login) {
     const character= new Character();
@@ -167,7 +170,33 @@ for (let skill of skills) {
   }
 
   async findOne(id: number) {
-    return await this.characterRepository.findOne(id);
+    const characterFound=await this.characterRepository.findOne(id)
+    const character= classToPlain(characterFound);
+    const subClassId=[];
+
+    character.characterSubClass.forEach((element) => {
+
+      subClassId.push(element.subClass.id)
+
+    });
+
+    const subClass= await this.subclassService.findAll(subClassId)
+    character.capacities=[];
+
+    subClass.forEach((element,i) => {
+      const capacities=element.capacities.filter((capacity)=>capacity.level<=character.characterSubClass[i].value);
+
+      capacities.forEach((capacity)=>{
+
+        character.capacities.push(capacity)
+        
+      })
+
+    });
+    console.log(character.capacity)
+
+    return character;
+
   }
 
   update(id: number, updateCharacterDto: UpdateCharacterDto) {

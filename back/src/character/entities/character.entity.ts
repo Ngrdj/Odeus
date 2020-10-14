@@ -7,8 +7,10 @@ import { Story } from "src/story/entities/story.entity";
 import { Team } from "src/team/entities/team.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column,CreateDateColumn,DeleteDateColumn,Entity,JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Serializer } from "v8";
 import {AlignmentEnum } from "../dto/alignment.enum";
 import { GenderEnum } from "../dto/gender.enum";
+
 
 @Entity('character')
 export class Character {
