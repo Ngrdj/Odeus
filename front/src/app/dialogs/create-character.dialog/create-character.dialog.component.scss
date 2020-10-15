@@ -3,7 +3,7 @@ form{
     width: 30vw;
     height: 80vh;
     display: grid;
-    grid-template-rows: 25% auto 10%;
+    grid-template-rows: 30% auto 10%;
     font-size: 2vh;
 
 }
@@ -80,10 +80,12 @@ form{
 
     grid-area: portrait;
     width: auto;
-    height: 100%;
+    height: auto;
     max-width: 100%;
     justify-self: center;
-    border:solid;
+    border: solid;
+    max-height: 100%;
+    align-self: center;
     
 }
 .characteristicsContainer{
@@ -91,7 +93,7 @@ form{
     grid-area: characteristics;
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: 15% repeat(3, auto);
     gap: 2%;
     background: var(--panelsColor);
     padding: 3%;
@@ -125,6 +127,13 @@ form{
     color: white;
 
  }
+ .pointsInfo{
+
+    margin: 0;
+    grid-column: 1/3;
+    text-align: right;
+
+ }
  .characteristicValue{
 
     display: flex;
@@ -137,7 +146,7 @@ form{
     cursor: pointer;
     filter: drop-shadow(0px 16px 8px black);
 }
-.classHeader,.raceHeader{
+.expansionPanelHeader{
 
     display: flex;
     justify-content: space-between;
@@ -145,7 +154,7 @@ form{
 
 
 }
-.classHeader:hover,.raceHeader:hover{
+.expansionPanelHeader:hover{
 
     cursor: pointer;
     background-color: black;
@@ -156,7 +165,7 @@ h3{
     margin:0;
 
 }
-.classContainer,.raceContainer{
+.expansionPanel{
 
     background-color: black;
     color: white;
@@ -166,13 +175,27 @@ h3{
 .classGrid,.raceGrid{
 
     display: grid;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(2,auto);
     grid-auto-rows: 1fr;
     align-items: center;
     padding: 6%;
-    gap: 5%;
+    gap: 0 10%;
     overflow-y: auto;
     box-sizing: border-box;
+
+}
+.specialization{
+
+    display: grid;
+
+}
+.capacity{
+
+    background: white;
+    color: black;
+    margin: 3%;
+    padding: 3%;
+    border-radius: 10px;
 
 }
 .classLabel,.raceLabel{

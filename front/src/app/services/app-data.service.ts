@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CheckboxControlValueAccessor } from '@angular/forms';
-import { forkJoin, Observable, of } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { GetCapacityDto } from '../models/dtos/capacity/get-capacity.dto';

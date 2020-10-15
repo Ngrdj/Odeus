@@ -1,5 +1,4 @@
 import { GetCapacityDto } from './dtos/capacity/get-capacity.dto';
-import { SubClass } from './subClass';
 
 export class Capacity {
 
@@ -9,7 +8,6 @@ export class Capacity {
         public name:string,
         public level:number,
         public description:string,
-        public subClass:SubClass        
 
     ){}
 
@@ -20,9 +18,7 @@ export class Capacity {
             capacityDto.id,
             capacityDto.name,
             capacityDto.level,
-            capacityDto.description,
-            SubClass.fromDto(capacityDto.subClass)
-            
+            capacityDto.description,            
 
         )
 

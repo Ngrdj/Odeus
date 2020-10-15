@@ -7,7 +7,7 @@ export class Class {
 
         public id:number,
         public name:string,
-        public subClass:SubClass[]
+        public subClasses:SubClass[]
 
     ){}
 
@@ -17,7 +17,7 @@ export class Class {
 
             classDto.id,
             classDto.name,
-            classDto.subClass.map(value => SubClass.fromDto(value))
+            classDto.subClass.map(subClass => SubClass.fromDto(subClass))
         
         )
 

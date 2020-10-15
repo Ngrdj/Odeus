@@ -25,6 +25,8 @@
         
         <div class="characteristicsContainer">
 
+            <p class="pointsInfo">Points restant : <span><input [value]="characteristicPoints" readonly> / {{maxCharacteristicPoints}}</span></p>
+
             <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                Str.
@@ -150,6 +152,8 @@
             </label>
 
         </div>
+
+
         <img (click)="browse.click()" [src]="currentPortrait" class="portrait" >
         <input (change)="setCurrentPortrait($event.target.files[0])" accept="image/png, image/jpeg" hidden="true" type="file" #browse>
 
@@ -157,9 +161,24 @@
 
     <div class="formMain">
 
-        <div class="raceContainer">
-            <div  (click)="displayRaces = !displayRaces" class="raceHeader">    
+        <div class="expansionPanel">
+            <div  (click)="displayInfos = !displayInfos" class="expansionPanelHeader">    
+                <h3>Infos</h3>
+                <span> {{displayInfos?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div class="infos" [ngClass]="{closed:!displayInfos}">
+    
+                
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displayRaces = !displayRaces" class="expansionPanelHeader">    
                 <h3>Choisir une race</h3>
+                <h3>{{character.controls.race.value}}</h3>
                 <span> {{displayRaces?"&uarr;":"&darr;"}}</span>
             </div>
            
@@ -168,7 +187,7 @@
                 <label class="raceLabel" *ngFor="let race of races">
                     
                    {{race.name}}
-                    <input type="radio" name="race" [value]="" checked>
+                    <input formControlName="race" type="radio" name="race" [value]="race.name" checked>
         
                 </label>
         
@@ -176,10 +195,11 @@
     
         </div>
         
-        <div class="classContainer">
+        <div class="expansionPanel">
     
-            <div  (click)="displayClasses = !displayClasses" class="classHeader">    
+            <div  (click)="displayClasses = !displayClasses" class="expansionPanelHeader">    
                 <h3>Choisir une classe</h3>
+                <h3>{{character.controls.class.value}}</h3>
                 <span> {{displayClasses?"&uarr;":"&darr;"}}</span>
             </div>
             <div class="classGrid" [ngClass]="{closed:!displayClasses}">
@@ -187,9 +207,32 @@
                 <label class="classLabel" *ngFor="let class of classes">
                     
                    {{class.name}}
-                    <input type="radio" name="class" [value]="" checked>
+                    <input (change)="setCurrentClass()" formControlName="class" type="radio" name="class" [value]="class.name" checked>
         
                 </label>
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displaySpecialization = !displaySpecialization" class="expansionPanelHeader">    
+                <h3>{{hasSpecialization?"Spécialisations":"Capacités"}}</h3>
+                <span> {{displaySpecialization?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div
+            [ngStyle]="{ 'grid-template-columns': 'repeat('+currentClass.subClasses.length+', 1fr)','grid-template-rows': 'repeat('+ ((character.controls.level.value/2) | ceilNumber) +', 1fr)'}"
+            class="specialization"
+            [ngClass]="{closed:!displaySpecialization}"
+            >
+    
+                <div class="capacity" *ngFor="let capacity of currentCapacities" [ngStyle]="{'grid-row': ((capacity.level/2) | ceilNumber)}" >
+
+                    <h4>{{capacity.name}}  lvl:{{capacity.level}}</h4>
+                    <p>{{capacity.description}}</p>
+
+                </div>
         
             </div>
     
