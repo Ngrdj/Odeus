@@ -89,6 +89,16 @@
       cdkDrag
    >
    </background-panel>
+
+   <dice-panel
+      controlPanel
+      [display]="displayDices?'block':'none'"
+      (closePanel)="displayDices = false"
+      panelTitle="Dés"
+      cdkDragBoundary=".boundary"
+      cdkDrag
+   >
+   </dice-panel>
   
   </div>
   

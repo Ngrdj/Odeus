@@ -36,7 +36,7 @@ import { CreateCharacterComponent } from './dialogs/create-character.dialog/crea
 import { UserNotLoggedDirective } from './directives/user-not-logged.directive';
 import { UserLoggedDirective } from './directives/user-logged.directive';
 import { BackgroundPanelComponent } from './components/background-panel/background-panel.component';
-
+import { DicePanelComponent } from './components/dice-panel/dice-panel.component'
 
 
 
@@ -64,6 +64,7 @@ import { BackgroundPanelComponent } from './components/background-panel/backgrou
     UserNotLoggedDirective,
     UserLoggedDirective,
     BackgroundPanelComponent,
+    DicePanelComponent
     
     
   ],
