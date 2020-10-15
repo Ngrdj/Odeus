@@ -151,13 +151,19 @@ export class CreateCharacterComponent implements OnInit {
 
     ]
 
-    if(characteristicsValues.every(char => char!=10)){
+    if(characteristicsValues.some(char => char!=10)){
 
       const confirmChange = confirm("réduire le niveau ? (ceci réinitialisera les caractéristiques du personnage)")
 
       if(confirmChange){
 
         this.character.controls.level.setValue(this.character.controls.level.value-1)
+        this.character.controls.strength.setValue(10);
+        this.character.controls.dexterity.setValue(10);
+        this.character.controls.constitution.setValue(10);
+        this.character.controls.intelligence.setValue(10);
+        this.character.controls.wisdom.setValue(10);
+        this.character.controls.charisma.setValue(10);
 
       }
 
