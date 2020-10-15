@@ -62,7 +62,7 @@ export class FightTrackerComponent implements OnInit, OnChanges {
 
     this.fighterList.forEach(fighter =>{
 
-      fighter.initiative = this.randomNumber(0,20)
+      fighter.initiative = this.randomNumber(1,20)
 
     })
 
