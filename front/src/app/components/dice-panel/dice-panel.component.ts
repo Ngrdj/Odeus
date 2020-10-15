@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DicePanelComponent implements OnInit {
 
+  dices:number[]=[4,6,8,10,12,20,100];
+
   public diceResult:number=1;
   public diceValue:number=20;
 
@@ -15,9 +17,9 @@ export class DicePanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  lancerDe(value:string){
+  lancerDe(value:number){
     
-    this.diceResult=this.randomNumber(1,parseInt(value));
+    this.diceResult=this.randomNumber(1,value);
 
   }
 
