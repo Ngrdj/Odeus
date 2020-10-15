@@ -25,11 +25,11 @@
         
         <div class="characteristicsContainer">
 
-            <label class="characteristic">
+            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                Str.
 
-                <span (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristicValue">
+                <span class="characteristicValue">
 
                     <span><button  *ngIf="character.controls.strength.value > 1 " (click)="onCharactLessClick('strength')"  class="levelButton"><</button></span>
 
@@ -46,10 +46,10 @@
                 </span>
 
             </label>
-            <label class="characteristic">
+            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                 Dex.
-                <span (click)="$event.stopPropagation();$event.preventDefault()" class="characteristicValue">
+                <span class="characteristicValue">
 
                     <span><button *ngIf="character.controls.dexterity.value > 1 " (click)="onCharactLessClick('dexterity')"  class="charactButton"><</button></span>
 
@@ -66,11 +66,11 @@
                 </span>
 
             </label>
-            <label class="characteristic">
+            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                 Con.
 
-                <span (click)="$event.stopPropagation();$event.preventDefault()" class="characteristicValue">
+                <span class="characteristicValue">
 
                     <span><button *ngIf="character.controls.constitution.value > 1 " (click)="onCharactLessClick('constitution')"  class="charactButton"><</button></span>
 
@@ -87,11 +87,11 @@
                 </span>
 
             </label>
-            <label class="characteristic">
+            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                 Int.
 
-                <span (click)="$event.stopPropagation();$event.preventDefault()" class="characteristicValue">
+                <span class="characteristicValue">
 
                     <span><button *ngIf="character.controls.intelligence.value > 1 " (click)="onCharactLessClick('intelligence')"  class="charactButton"><</button></span>
 
@@ -108,10 +108,10 @@
                 </span>
 
             </label>
-            <label class="characteristic">
+            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                 Wis.
-                <span (click)="$event.stopPropagation();$event.preventDefault()" class="characteristicValue">
+                <span class="characteristicValue">
 
                     <span><button *ngIf="character.controls.wisdom.value > 1 " (click)="onCharactLessClick('wisdom')"  class="charactButton"><</button></span>
 
@@ -128,10 +128,10 @@
                 </span>
 
             </label>
-            <label  class="characteristic">
+            <label  (click)="$event.stopPropagation();$event.preventDefault()"   class="characteristic">
 
                 Cha.
-                <span (click)="$event.stopPropagation();$event.preventDefault()" class="characteristicValue">
+                <span class="characteristicValue">
 
                     <span><button *ngIf="character.controls.charisma.value > 1 " (click)="onCharactLessClick('charisma')"  class="charactButton"><</button></span>
 
