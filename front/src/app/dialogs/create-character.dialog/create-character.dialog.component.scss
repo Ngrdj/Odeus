@@ -37,17 +37,17 @@ form{
     grid-template-columns: 15% auto 15%;
 
 }
-.levelButton{
+.levelButton,.charactButton{
 
     margin: 0px;
     padding: 0px;
-    background: no-repeat;
+    background: none;
     border: none;
     font-size: 1em;
     height: 100%;
 
 }
-.levelButton:hover{
+.charactButton:hover,.levelButton:hover{
 
     
     cursor: pointer;
@@ -100,7 +100,7 @@ form{
 }
 .characteristicsContainer input{
 
-    width: 5ex;
+    width: 2ex;
     border: none;
     font-size: 1em;
     background: none;
@@ -109,15 +109,20 @@ form{
  }
  .characteristic{
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
+    grid-template-columns: 30% auto auto;
+    background: black;
+    padding: 2%;
+    color: white;
 
- }
+}
+
  .characteristic *{
 
     height: 100%;
     text-align: center;
+    color: white;
 
  }
 .portrait:hover{
@@ -183,5 +188,15 @@ h3{
 .closed{
 
     display:none;
+
+}
+.positive *{
+
+    color:green
+
+}
+.negative *{
+
+    color:red
 
 }

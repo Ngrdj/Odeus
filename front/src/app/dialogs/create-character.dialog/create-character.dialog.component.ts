@@ -5,6 +5,7 @@ import { Capacity } from 'src/app/models/capacity';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
+import { CharacteristicEnum } from 'src/app/models/enums/characteristic.enum';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -31,9 +32,18 @@ export interface DialogData {
 })
 export class CreateCharacterComponent implements OnInit {
 
-  character:FormGroup
+  character:FormGroup;
+
+  characteristicPoints:number = 0;
 
   currentPortrait:string = "https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg";
+
+  strengthBonus:number = 0;
+  dexterityBonus:number = 0;
+  constitutionBonus:number = 0;
+  intelligenceBonus:number = 0;
+  wisdomBonus:number = 0;
+  charismaBonus:number = 0;
 
   capacities:Capacity[];
   characteristics:Characteristic[];
@@ -76,7 +86,7 @@ export class CreateCharacterComponent implements OnInit {
       dexterity:this.formBuilder.control(10,Validators.required),
       constitution:this.formBuilder.control(10,Validators.required),
       intelligence:this.formBuilder.control(10,Validators.required),
-      wisdow:this.formBuilder.control(10,Validators.required),
+      wisdom:this.formBuilder.control(10,Validators.required),
       charisma:this.formBuilder.control(10,Validators.required),
       resume:this.formBuilder.control("",Validators.required),
       portrait:this.formBuilder.control(""),
@@ -127,6 +137,75 @@ export class CreateCharacterComponent implements OnInit {
       data => {this.currentPortrait = data.toString()}
 
     )
+  }
+  onLevelLessClick(){
+
+    const characteristicsValues = [
+
+      this.character.controls.strength.value,
+      this.character.controls.dexterity.value,
+      this.character.controls.constitution.value,
+      this.character.controls.intelligence.value,
+      this.character.controls.wisdom.value,
+      this.character.controls.charisma.value,
+
+    ]
+
+    if(characteristicsValues.every(char => char!=10)){
+
+      const confirmChange = confirm("réduire le niveau ? (ceci réinitialisera les caractéristiques du personnage)")
+
+      if(confirmChange){
+
+        this.character.controls.level.setValue(this.character.controls.level.value-1)
+
+      }
+
+    }else(this.character.controls.level.setValue(this.character.controls.level.value-1))
+
+  }
+  onLevelPlusClick(){
+
+    const addPointLevel=[4,8,12,16,20]
+    if(addPointLevel.includes(this.character.controls.level.value+1)){
+
+      this.characteristicPoints+=1
+
+    }
+    this.character.controls.level.setValue(this.character.controls.level.value+1)
+
+  }
+
+  onCharactLessClick(characteristic:string){
+
+    this.character.controls[characteristic].setValue(this.character.controls[characteristic].value-1)
+    this.refreshCharactBonus(characteristic)
+
+  }
+  onCharactPlusClick(characteristic:string){
+
+    this.character.controls[characteristic].setValue(this.character.controls[characteristic].value+1)
+    this.refreshCharactBonus(characteristic)
+
+  }
+  private refreshCharactBonus(characteristic:string){
+
+    switch(characteristic){
+
+      case 'strength': this.strengthBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+      case 'dexterity': this.dexterityBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+      case 'intelligence': this.intelligenceBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+      case 'constitution': this.constitutionBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+      case 'wisdom': this.wisdomBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+      case 'charisma': this.charismaBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+
+    }
+
+  }
+  private getCharactBonus(value:number){
+
+    return Math.floor((value-10)/2)
+
   }
 
 }

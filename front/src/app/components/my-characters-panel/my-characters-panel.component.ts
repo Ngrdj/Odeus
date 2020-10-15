@@ -34,6 +34,7 @@ export class MyCharactersPanelComponent implements OnInit {
 
     this.dialog.open(CreateCharacterComponent,{
 
+      position:{right:'10%'},
       data:{
 
         capacities:this.capacities,
