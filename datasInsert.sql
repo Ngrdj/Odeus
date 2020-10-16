@@ -1,4 +1,4 @@
-INSERT INTO race (name,str_bonus,dex_bonus,const_bonus,int_bonus,wis_bonus,cha_bonus)
+INSERT INTO race (id,name,str_bonus,dex_bonus,const_bonus,int_bonus,wis_bonus,cha_bonus)
 	VALUES
 		(1,'AARAKOCRA',0,2,0,0,1,0),
 		(2,'PROTECTORAASIMAR',0,0,0,0,1,2),
