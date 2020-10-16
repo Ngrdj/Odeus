@@ -1,3 +1,4 @@
+import { Capacity } from './capacity';
 import { Character } from './character';
 import { CharacterCharacteristic } from './characterCharacteristic';
 import { CharacterSkill } from './characterSkill';
@@ -34,15 +35,13 @@ export class Pnj extends Character {
 
     static fromDto(pnjDto:GetPnjDto):Pnj{
 
-
-
         return new Pnj(
 
             pnjDto.id,
             pnjDto.name,
             pnjDto.portrait,
             pnjDto.pnjCharacteristics.map(charact => CharacterCharacteristic.fromDto(charact) ),
-            characterCapacities,
+            pnjDto.pnjCapacities.map(capacity => Capacity.fromDto(capacity)),
             pnjDto.pnjSkills.map(pnjSkill => CharacterSkill.fromDto(pnjSkill)),
             pnjDto.resume
             

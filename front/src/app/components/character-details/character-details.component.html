@@ -1,6 +1,6 @@
 <div class='container'>
 
-    <img class="portrait" [src]="character.portrait?character.portrait:'https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg'">
+    <img class="portrait" [src]="character?.portrait?character.portrait:'https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg'">
     <h3 class="name">{{character?character.name:"-nom de personnage-"}}</h3>
     <ul class="stats">
 
@@ -8,7 +8,7 @@
             <label class="stat">
 
                 {{characteristic.name}}
-                <input class="statInput" readonly [value]="character.characteristics?character.characteristics[i].value:0">
+                <input class="statInput" readonly [value]="character?.characteristics?character.characteristics[i].value:0">
 
             </label> 
         </li>

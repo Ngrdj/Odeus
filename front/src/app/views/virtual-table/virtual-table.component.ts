@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Capacity } from 'src/app/models/capacity';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
@@ -8,7 +7,6 @@ import { Fighter } from 'src/app/models/fighter';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
-import { SubClass } from 'src/app/models/subClass';
 import { Team } from 'src/app/models/team';
 import { User } from 'src/app/models/user';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -66,14 +64,14 @@ export class VirtualTableComponent implements OnInit {
       
       this.heroes.members.forEach(member =>{ 
         
-        const newFighter = Fighter.fromCharacter(member);
+        const newFighter = new Fighter(member);
         newFighter.behavior = Behavior.ALLY
         this.fighterList.push(newFighter)
       
       })
       this.teams[0].members.forEach(member =>{ 
         
-        const newFighter = Fighter.fromCharacter(member);
+        const newFighter = new Fighter(member);
         newFighter.behavior = Behavior.ENEMY
         this.fighterList.push(newFighter)
       
@@ -98,14 +96,6 @@ export class VirtualTableComponent implements OnInit {
     this.teams.forEach(team => {
       team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
     })
-
-    this.selectedCharacter={
-
-      id:0,
-      name:"Nom de personnage",
-      portrait:"https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg"
-
-    }
 
     this.setAllData()
 
