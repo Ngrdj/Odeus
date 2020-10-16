@@ -6,6 +6,5 @@ export interface GetCharacterSubClassDto {
     id:number;
     value:number;
     subClass:GetSubClassDto;
-    character:GetCharacterDto;
     
 }

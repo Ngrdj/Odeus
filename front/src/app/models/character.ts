@@ -1,31 +1,19 @@
+import { Capacity } from './capacity';
 import { CharacterCharacteristic } from './characterCharacteristic';
-import { GetCharacterDto } from './dtos/character/get-character.dto';
+import { CharacterSkill } from './characterSkill';
 
-
-export class Character {
+export abstract class Character {
 
     constructor(
 
         public id:number,
         public name:string,
-        public portrait?:string,
-        public characteristics?:CharacterCharacteristic[]
-        
+        public portrait:string,
+        public resume:string,
+        public capacities:Capacity[],
+        public characteristics:CharacterCharacteristic[],
+        public skills:CharacterSkill[]
 
     ){}
-
-    static fromDto(characterDto:GetCharacterDto){
-
-        return new Character(
-
-            characterDto.id,
-            characterDto.name,
-            characterDto.portrait,
-            characterDto.characterCharacteristics.map(charact => CharacterCharacteristic.fromDto(charact))
-            
-
-        )
-
-    }
 
 }

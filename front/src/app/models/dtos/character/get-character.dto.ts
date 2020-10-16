@@ -1,4 +1,5 @@
 import { AlignmentEnum } from '../../enums/alignment.enum';
+import { ClassEnum } from '../../enums/class.enum';
 import { GenderEnum } from '../../enums/gender.enum';
 import { GetRaceDto } from '../race/get-race.dto';
 import { GetStoryDto } from '../story/get-story.dto';
@@ -12,6 +13,7 @@ export interface GetCharacterDto {
 
     id:number;
     name:string;
+    className:ClassEnum;
     race:GetRaceDto;
     level:number;
     masteryBonus:number;
