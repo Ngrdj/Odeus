@@ -4,6 +4,7 @@ import { PnjCharacteristic } from "src/pnj-characteristic/entities/pnj-character
 import { PnjSkill } from "src/pnj-skill/entities/pnj-skill.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { SizeEnum } from "../size.enum";
+import { TypeEnum } from "../type.enum";
 
 @Entity('pnj')
 export class Pnj {
@@ -22,6 +23,9 @@ export class Pnj {
 
     @Column()
     portrait:string;
+
+    @Column()
+    type:TypeEnum;
 
     @OneToMany(type=>PnjCharacteristic,
         (pnjCharacteristic)=>pnjCharacteristic.pnj,{

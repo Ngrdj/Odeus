@@ -1,36 +1,36 @@
 INSERT INTO race (name,str_bonus,dex_bonus,const_bonus,int_bonus,wis_bonus,cha_bonus)
 	VALUES
-		('AARAKOCRA',0,2,0,0,1,0),
-		('PROTECTORAASIMAR',0,0,0,0,1,2),
-		('SCOURGEAASIMAR',0,0,1,0,0,2),
-		('FALLENAASIMAR',1,0,0,0,0,2),
-		('CHANGELING',0,0,0,0,0,2),
-		('DRAGONBORN',2,0,0,0,0,1),
-		('DROW',0,2,0,0,0,1),
-		('MOUNTAINDWARF',2,0,2,0,0,0),
-		('KENKU',0,2,0,0,1,0),
-		('GOBLIN',0,2,1,0,0,0),
-		('HILLDWARF',0,0,2,0,1,0),
-		('FIRBOLG',1,0,0,0,2,0),
-		('AIRGENASI',0,1,2,0,0,0),
-		('WATERGENASI',0,0,2,0,1,0),
-		('FIREGENASI',0,0,2,1,0,0),
-		('EARTHGENASI',1,0,2,0,0,0),	
-		('FORESTGNOME',0,1,0,2,0,0),	
-		('ROCKGNOME',0,0,1,2,0,0),
-		('GOLIATH',2,0,1,0,0,0),
-		('HALF-ELF',0,0,0,0,0,2),
-		('HALF-ORC',2,0,1,0,0,0),
-		('LIGHTFOOTHALFLING',0,2,0,0,0,1),
-		('STOUTHALFLING',0,2,1,0,0,0),
-		('GHOSTWISEHALFLING',0,2,0,0,1,0),
-		('HIGH-ELF',0,2,0,1,0,0),
-		('HUMAN',1,1,1,1,1,1),
-		('LIZARDFOLK',0,0,2,0,1,0),
-		('TABAXI',0,2,0,0,0,1),
-		('TIEFLING',0,0,0,1,0,2),
-		('WARFORGED',0,0,2,0,0,0),
-		('WOOD-ELF',0,2,0,0,1,0);
+		(1,'AARAKOCRA',0,2,0,0,1,0),
+		(2,'PROTECTORAASIMAR',0,0,0,0,1,2),
+		(3,'SCOURGEAASIMAR',0,0,1,0,0,2),
+		(4,'FALLENAASIMAR',1,0,0,0,0,2),
+		(5,'CHANGELING',0,0,0,0,0,2),
+		(6,'DRAGONBORN',2,0,0,0,0,1),
+		(7,'DROW',0,2,0,0,0,1),
+		(8,'MOUNTAINDWARF',2,0,2,0,0,0),
+		(9,'KENKU',0,2,0,0,1,0),
+		(10,'GOBLIN',0,2,1,0,0,0),
+		(11,'HILLDWARF',0,0,2,0,1,0),
+		(12,'FIRBOLG',1,0,0,0,2,0),
+		(13,'AIRGENASI',0,1,2,0,0,0),
+		(14,'WATERGENASI',0,0,2,0,1,0),
+		(15,'FIREGENASI',0,0,2,1,0,0),
+		(16,'EARTHGENASI',1,0,2,0,0,0),	
+		(17,'FORESTGNOME',0,1,0,2,0,0),	
+		(18,'ROCKGNOME',0,0,1,2,0,0),
+		(19,'GOLIATH',2,0,1,0,0,0),
+		(20,'HALF-ELF',0,0,0,0,0,2),
+		(21,'HALF-ORC',2,0,1,0,0,0),
+		(22,'LIGHTFOOTHALFLING',0,2,0,0,0,1),
+		(23,'STOUTHALFLING',0,2,1,0,0,0),
+		(24,'GHOSTWISEHALFLING',0,2,0,0,1,0),
+		(25,'HIGH-ELF',0,2,0,1,0,0),
+		(26,'HUMAN',1,1,1,1,1,1),
+		(27,'LIZARDFOLK',0,0,2,0,1,0),
+		(28,'TABAXI',0,2,0,0,0,1),
+		(29,'TIEFLING',0,0,0,1,0,2),
+		(30,'WARFORGED',0,0,2,0,0,0),
+		(31,'WOOD-ELF',0,2,0,0,1,0);
 		
 
 INSERT INTO class (id,name)
@@ -88,27 +88,27 @@ INSERT INTO skill (id,name,type)
 		(18,'PERSUASION','CHARISMA');
 		
 
-INSERT INTO story (name,description)
+INSERT INTO story (id,name,description)
 	VALUES
-		('ACOLYTE','storie'),
-		('CRAFTSMAN','storie'),
-		('ARTIST','storie'),
-		('CHARLATAN','storie'),
-		('KNIGHT','storie'),
-		('CRIMINAL','storie'),
-		('STREETCHILD','storie'),
-		('ERMIT','storie'),
-		('HERO','storie'),
-		('SAILOR','storie'),
-		('NOBLE','storie'),
-		('SAGE','storie'),
-		('SAVAGE','storie'),
-		('SOLDIER','storie'),
-		('MANHUNTER','storie'),
-		('MERCENARY','storie'),
-		('CAPTIVE','storie'),
-		('IDIOT','storie'),
-		('TRAVELE','storie');
+		(1,'ACOLYTE','storie'),
+		(2,'CRAFTSMAN','storie'),
+		(3,'ARTIST','storie'),
+		(4,'CHARLATAN','storie'),
+		(5,'KNIGHT','storie'),
+		(6,'CRIMINAL','storie'),
+		(7,'STREETCHILD','storie'),
+		(8,'ERMIT','storie'),
+		(9,'HERO','storie'),
+		(10,'SAILOR','storie'),
+		(11,'NOBLE','storie'),
+		(12,'SAGE','storie'),
+		(13,'SAVAGE','storie'),
+		(14,'SOLDIER','storie'),
+		(15,'MANHUNTER','storie'),
+		(16,'MERCENARY','storie'),
+		(17,'CAPTIVE','storie'),
+		(18,'IDIOT','storie'),
+		(19,'TRAVELE','storie');
 		
 INSERT INTO story_skills_skill (story_id,skill_id)
 	VALUES
@@ -133,14 +133,14 @@ INSERT INTO story_skills_skill (story_id,skill_id)
 		(19,14),(19,18);
 
 		
-INSERT INTO characteristic (name)
+INSERT INTO characteristic (id,name)
 	VALUES
-		('STRENGTH'),
-		('DEXTERITY'),
-		('CONSTITUTION'),
-		('INTELLIGENCE'),
-		('WISDOM'),
-		('CHARISMA');
+		(1,'STRENGTH'),
+		(2,'DEXTERITY'),
+		(3,'CONSTITUTION'),
+		(4,'INTELLIGENCE'),
+		(5,'WISDOM'),
+		(6,'CHARISMA');
 
 
 INSERT INTO capacity (id,name,level,description,sub_class_id)

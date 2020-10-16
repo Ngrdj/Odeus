@@ -1,5 +1,6 @@
 import { Skill } from "src/skill/entities/skill.entity";
 import { SizeEnum } from "../size.enum";
+import { TypeEnum } from "../type.enum";
 
 export class CreatePnjDto {
 
@@ -14,4 +15,5 @@ export class CreatePnjDto {
     skills:Skill[];
     resume:string;
     portrait:string;
+    type:TypeEnum;
 }

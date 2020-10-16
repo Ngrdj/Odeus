@@ -29,6 +29,7 @@ export class PnjService {
     newPnj.size=createPnjDto.size;
     newPnj.resume=createPnjDto.resume;
     newPnj.portrait=createPnjDto.portrait;
+    newPnj.type=createPnjDto.type;
 
 
     const createPnjCharacteristics=[
