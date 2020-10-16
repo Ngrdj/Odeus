@@ -1,15 +1,17 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe, Req, UseGuards } from '@nestjs/common';
 import { TeamService } from './team.service';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
+import { JwtGuard } from 'src/guards/jwt.guard';
 
 @Controller('team')
 export class TeamController {
   constructor(private readonly teamService: TeamService) {}
   
+  @UseGuards(JwtGuard)
   @Post()
   create(@Body() createTeamDto: CreateTeamDto,@Req()request) {
-    return this.teamService.create(createTeamDto,request.user.userLogin);
+    return this.teamService.create(createTeamDto,request.user.sub);
   }
 
   @Get()

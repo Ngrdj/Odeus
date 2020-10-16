@@ -8,7 +8,6 @@ import { RaceModule } from './race/race.module';
 import { SkillModule } from './skill/skill.module';
 import { SubClassModule } from './sub-class/sub-class.module';
 import { CapacityModule } from './capacity/capacity.module';
-import { TeamModule } from './team/team.module';
 import { StoryModule } from './story/story.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
@@ -28,10 +27,10 @@ import { PnjModule } from './pnj/pnj.module';
     SkillModule,
     SubClassModule,
     CapacityModule,
-    TeamModule,
     StoryModule,
     UserModule,
     CharacterModule,
+    
     TypeOrmModule.forRoot({                         //Connection Avec La Base De Données sur Postgres
       type: 'postgres',
       host: 'localhost',

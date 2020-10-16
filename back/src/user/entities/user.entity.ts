@@ -34,7 +34,7 @@ export class User {
     characters:Character[];
 
     @OneToMany(type=>Team,
-        (team)=>team.user)
+        (team)=>team.userId)
     team:Team[];
 
 }

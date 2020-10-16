@@ -20,7 +20,7 @@ export class Team {
 
     @ManyToOne(type=>User,
         (user)=>user.team)
-    user:User;
+    userId:number;
 
     @Exclude()
     @CreateDateColumn()
