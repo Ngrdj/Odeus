@@ -1,17 +1,19 @@
-import { GetCharacterCharacteristicDto } from './dtos/character/characterCharacteristic/get-character-characteristic.dto';
 import { GetCharacterSubClassDto } from './dtos/character/characterSubClass/get-character-sub-class.dto';
-import { GetPnjCharacteristicDto } from './dtos/pnj/pnjCharacteristic/get-pnj-characteristic.dto';
+import { SubClass } from './subClass';
 
 export class PjSubClass{
 
     constructor(
 
+       public id:number,
+       public value:number,
+       public subClass:SubClass
 
     ){}
 
     static fromDto(characterSubClass:GetCharacterSubClassDto):PjSubClass{
 
-        return new PjSubClass()
+        return new PjSubClass(characterSubClass.id,characterSubClass.value,characterSubClass.subClass)
 
     }
 }

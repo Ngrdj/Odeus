@@ -6,6 +6,7 @@ import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
 import { ClassEnum } from 'src/app/models/enums/class.enum';
+import { Pj } from 'src/app/models/pj';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -119,14 +120,7 @@ export class CreateCharacterComponent implements OnInit {
   }
   onSubmitForm(){
 
-      const newCharacter = new Character(
-
-        0,
-        this.character.controls.name.value,
-        this.character.controls.portrait.value,
-
-      )
-      console.log(newCharacter)
+      console.log(this.character)
 
   }
   private getBase64(file) {

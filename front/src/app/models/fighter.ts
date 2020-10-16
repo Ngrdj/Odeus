@@ -1,10 +1,7 @@
 import { Character } from './character';
-import { Class } from './class';
 import { Behavior } from './enums/behavior.enum';
-import { GenderEnum } from './enums/gender.enum';
 import { Pj } from './pj';
 import { Pnj } from './pnj';
-import { Story } from './story';
 
 export class Fighter extends Character{
 
