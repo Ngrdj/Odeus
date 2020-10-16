@@ -110,7 +110,7 @@ INSERT INTO story (name,description)
 		('IDIOT','storie'),
 		('TRAVELE','storie');
 		
-INSERT story_skills_skill (story_id,skill_id)
+INSERT INTO story_skills_skill (story_id,skill_id)
 	VALUES
 		(1,9),(1,11),
 		(2,9),(2,18),
@@ -130,7 +130,7 @@ INSERT story_skills_skill (story_id,skill_id)
 		(16,8),(16,14),
 		(17,9),(17,11),
 		(18,4),(18,17),
-		(19,14),(19,18),
+		(19,14),(19,18);
 
 		
 INSERT INTO characteristic (name)

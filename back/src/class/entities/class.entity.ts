@@ -13,7 +13,7 @@ export class Class {
 
     @JoinColumn()
     @OneToMany(type=>SubClass,
-        (subClass)=>subClass.class)
+        (subClass)=>subClass.class,{eager:true})
     subClass:SubClass[];
 
     @Exclude()

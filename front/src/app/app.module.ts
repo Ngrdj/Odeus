@@ -66,6 +66,7 @@ import { CeilNumberPipe } from './pipes/ceil-number.pipe'
     UserLoggedDirective,
     BackgroundPanelComponent,
     DicePanelComponent,
+    CeilNumberPipe
 
     
   ],
