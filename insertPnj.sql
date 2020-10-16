@@ -1,8 +1,8 @@
-INSERT INTO pnj (name,size,resume,portrait)
+INSERT INTO pnj (id,name,size,resume,portrait)
 	VALUES
-		('Loup','M','C''est un loup','https://www.aidedd.org/dnd/images/dire-wolf.jpg'),
-		('Gobelin','P','Les gobelins sont de petits humanoïdes malveillants qui vivent dans des donjons abandonnés ou dans des taudis lugubres. Individuellement faibles, ils se rassemblent en grand nombre pour tourmenter les autres créatures.','https://www.aidedd.org/dnd/images/goblin.jpg'),
-		('Orque','M','Les orques sont des humanoïdes sauvages qui ont une posture voutée, des visages grossiers et des dents proéminentes qui ressemblent à des défenses. Ils se rassemblent en tribus qui étanchent leur soif de sang en attaquant tous les humanoïdes qu''ils croisent.','https://www.aidedd.org/dnd/images/orc.jpg');
+		(1,'Loup','M','C''est un loup','https://www.aidedd.org/dnd/images/dire-wolf.jpg'),
+		(2,'Gobelin','P','Les gobelins sont de petits humanoïdes malveillants qui vivent dans des donjons abandonnés ou dans des taudis lugubres. Individuellement faibles, ils se rassemblent en grand nombre pour tourmenter les autres créatures.','https://www.aidedd.org/dnd/images/goblin.jpg'),
+		(3,'Orque','M','Les orques sont des humanoïdes sauvages qui ont une posture voutée, des visages grossiers et des dents proéminentes qui ressemblent à des défenses. Ils se rassemblent en tribus qui étanchent leur soif de sang en attaquant tous les humanoïdes qu''ils croisent.','https://www.aidedd.org/dnd/images/orc.jpg');
 		
 INSERT INTO pnj_characteristic (value,bonus,pnj_id,characteristic_id)
 	VALUES
@@ -27,7 +27,7 @@ INSERT INTO pnj_characteristic (value,bonus,pnj_id,characteristic_id)
 		(11,0,3,5),
 		(10,0,3,6);
 		
-INSERT INTO pnj_characteristic (bonus,is_checked,pnj_id,skill_id)
+INSERT INTO pnj_skill (bonus,is_checked,pnj_id,skill_id)
 	VALUES
 		(6,true,1,4),
 		(4,true,2,4),
