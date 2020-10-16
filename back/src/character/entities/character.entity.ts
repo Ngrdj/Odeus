@@ -2,6 +2,8 @@
 import { CharacterCharacteristic } from "src/character-characteristic/entities/character-characteristic.entity";
 import { CharacterSkill } from "src/character-skill/entities/character-skill.entity";
 import { CharacterSubClass } from "src/character-sub-class/entities/character-sub-class.entity";
+import { ClassEnum } from "src/class/class.enum";
+import { SizeEnum } from "src/pnj/size.enum";
 import { Race } from "src/race/entities/race.entity";
 import { Story } from "src/story/entities/story.entity";
 import { Team } from "src/team/entities/team.entity";
@@ -29,6 +31,9 @@ export class Character {
     race:Race;
 
     @Column()
+    className:ClassEnum;
+
+    @Column()
     level:number;
 
     @Column()
@@ -48,6 +53,9 @@ export class Character {
 
     @Column()
     age:number;
+
+    @Column()
+    size:SizeEnum;
 
     @JoinColumn()
     @ManyToOne(type=>User,
