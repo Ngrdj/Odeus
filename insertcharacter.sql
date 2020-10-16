@@ -1,9 +1,11 @@
-INSERT INTO character (id,name,class_name,level,mastery_bonus,portrait,resume,alignment,gender,age,race_id,story_id)
+
+INSERT INTO character (id,name,class_name,level,mastery_bonus,portrait,resume,alignment,gender,age,size,race_id,story_id)
 	VALUES
 	
-	(1,'Sir Galadone','',1,2,'','Chevalier d''experience, ancien commandant d''un bataillon','LG','M',45,26,5),
-	(2,'Sa''we','',1,2,'','Ancienne brigande de grand chemin, elle a decidée de se racheter une conduite','CG','F',145,31,6),
-	(3,'Bartol','',1,2,'','Artisant magicien à la recherche de tout se qui brille, toutes actions mérite récompense','NG','M',85,8,2);
+	(1,'Sir Galadone','',1,2,'','Chevalier d''experience, ancien commandant d''un bataillon','LG','M',45,'M',26,5),
+	(2,'Sa''we','',1,2,'','Ancienne brigande de grand chemin, elle a decidée de se racheter une conduite','CG','F',145,'M',31,6),
+	(3,'Bartol','',1,2,'','Artisant magicien à la recherche de tout se qui brille, toutes actions mérite récompense','NG','M',85,'P',8,2);
+
 	
 INSERT INTO character_characteristic(value,bonus,character_id,characteristic_id)
 	VALUES
