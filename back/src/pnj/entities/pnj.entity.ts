@@ -1,7 +1,8 @@
 import { Exclude } from "class-transformer";
+import { Capacity } from "src/capacity/entities/capacity.entity";
 import { PnjCharacteristic } from "src/pnj-characteristic/entities/pnj-characteristic.entity";
 import { PnjSkill } from "src/pnj-skill/entities/pnj-skill.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { SizeEnum } from "../size.enum";
 
 @Entity('pnj')
@@ -34,6 +35,13 @@ export class Pnj {
             eager:true
         })
     pnjSkills:PnjSkill[];
+
+    @JoinTable()
+    @ManyToMany(type=>Capacity,
+        (capacity)=>capacity.pnjs,{
+            eager:true
+        })
+    pnjCapacities:Capacity[];
 
     @Exclude()
     @CreateDateColumn()

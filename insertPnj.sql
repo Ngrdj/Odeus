@@ -30,9 +30,18 @@ INSERT INTO pnj_characteristic (value,bonus,pnj_id,characteristic_id)
 INSERT INTO pnj_skill (bonus,is_checked,pnj_id,skill_id)
 	VALUES
 		(6,true,1,4),
-		(4,true,2,4),
-		(3,true,2,13),
+		(4,true,1,13),
+		(3,true,2,4),
 		(2,true,3,16);
+		
+INSERT INTO pnj_pnj_capacities_capacity(pnj_id,capacity_id)
+	VALUES
+		(1,95),
+		(1,96),
+		(2,97),
+		(2,98),
+		(3,97),
+		(3,98);
 		
 		
 		
