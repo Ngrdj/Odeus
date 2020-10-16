@@ -5,7 +5,7 @@ import { Capacity } from 'src/app/models/capacity';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
-import { CharacteristicEnum } from 'src/app/models/enums/characteristic.enum';
+import { ClassEnum } from 'src/app/models/enums/class.enum';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -15,13 +15,11 @@ import { CreateTeamDialog } from '../create-team.dialog/create-team.dialog.compo
 
 export interface DialogData {
 
-  capacities:Capacity[];
   characteristics:Characteristic[];
   classes:Class[];
   races:Race[];
   skills:Skill[];
   stories:Story[];
-  subClasses:SubClass[];
 
 }
 
@@ -34,9 +32,13 @@ export class CreateCharacterComponent implements OnInit {
 
   character:FormGroup;
 
+  maxCharacteristicPoints:number = 27;
   characteristicPoints:number = 0;
 
   currentPortrait:string = "https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg";
+
+  currentClass:Class;
+  currentCapacities:Capacity[]=[];
 
   strengthBonus:number = 0;
   dexterityBonus:number = 0;
@@ -51,10 +53,15 @@ export class CreateCharacterComponent implements OnInit {
   races:Race[];
   skills:Skill[];
   stories:Story[];
-  subClasses:SubClass[];
+
+  specializedClasses = [ClassEnum.WIZARD]
+
+  hasSpecialization:boolean=false;
   
+  displayInfos:boolean=false;
   displayRaces:boolean=false;
   displayClasses:boolean=false;
+  displaySpecialization:boolean=false;
 
   constructor(
     private formBuilder:FormBuilder,
@@ -64,8 +71,11 @@ export class CreateCharacterComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
     this.setDatas()
     this.generateForm()
+    this.setCurrentClass()
+
   }
 
   generateForm(){
@@ -73,14 +83,14 @@ export class CreateCharacterComponent implements OnInit {
     this.character = this.formBuilder.group({
 
       name:this.formBuilder.control("",Validators.required),
-      class:this.formBuilder.control("",Validators.required),
+      class:this.formBuilder.control("WARRIOR",Validators.required),
       subClass:this.formBuilder.array([
         {
           name:this.formBuilder.control("",Validators.required),
           value:this.formBuilder.control(0,Validators.required), 
         }
       ]),
-      race:this.formBuilder.control("",Validators.required),
+      race:this.formBuilder.control("HUMAN",Validators.required),
       level:this.formBuilder.control(1,Validators.required),
       strength:this.formBuilder.control(10,Validators.required),
       dexterity:this.formBuilder.control(10,Validators.required),
@@ -100,13 +110,11 @@ export class CreateCharacterComponent implements OnInit {
   }
   setDatas(){
 
-    this.capacities = this.data.capacities;
     this.characteristics = this.data.characteristics;
     this.classes = this.data.classes;
     this.races = this.data.races;
     this.skills = this.data.skills;
     this.stories = this.data.stories;
-    this.subClasses = this.data.subClasses;
 
   }
   onSubmitForm(){
@@ -158,16 +166,31 @@ export class CreateCharacterComponent implements OnInit {
       if(confirmChange){
 
         this.character.controls.level.setValue(this.character.controls.level.value-1)
-        this.character.controls.strength.setValue(10);
-        this.character.controls.dexterity.setValue(10);
-        this.character.controls.constitution.setValue(10);
-        this.character.controls.intelligence.setValue(10);
-        this.character.controls.wisdom.setValue(10);
-        this.character.controls.charisma.setValue(10);
 
+        const charactControls = [
+
+          this.character.controls.strength,
+          this.character.controls.dexterity,
+          this.character.controls.constitution,
+          this.character.controls.intelligence,
+          this.character.controls.wisdom,
+          this.character.controls.charisma
+
+        ]
+
+        charactControls.forEach(charact => {
+
+          charact.setValue(10);
+
+        })
+
+        this.refreshAllCharactBonus()
+        
       }
 
     }else(this.character.controls.level.setValue(this.character.controls.level.value-1))
+    this.setCurrentCapacities()
+
 
   }
   onLevelPlusClick(){
@@ -179,6 +202,7 @@ export class CreateCharacterComponent implements OnInit {
 
     }
     this.character.controls.level.setValue(this.character.controls.level.value+1)
+    this.setCurrentCapacities()
 
   }
 
@@ -208,9 +232,37 @@ export class CreateCharacterComponent implements OnInit {
     }
 
   }
+  private refreshAllCharactBonus(){
+
+      this.strengthBonus = this.getCharactBonus(this.character.controls['strength'].value)
+      this.dexterityBonus = this.getCharactBonus(this.character.controls['dexterity'].value)
+      this.intelligenceBonus = this.getCharactBonus(this.character.controls['intelligence'].value)
+      this.constitutionBonus = this.getCharactBonus(this.character.controls['constitution'].value)
+      this.wisdomBonus = this.getCharactBonus(this.character.controls['wisdom'].value)
+      this.charismaBonus = this.getCharactBonus(this.character.controls['charisma'].value);
+
+
+  }
   private getCharactBonus(value:number){
 
     return Math.floor((value-10)/2)
+
+  }
+  setCurrentClass(){
+
+    this.currentClass = this.classes.find(charClass => charClass.name === this.character.controls.class.value)
+    this.setCurrentCapacities()
+
+  }
+
+  setCurrentCapacities(){
+
+    const capacities = []
+
+    this.currentClass
+    .subClasses.forEach(subClass => capacities.push(...subClass.capacities.filter(capacity => capacity.level <= this.character.controls.level.value)))
+    this.currentCapacities = capacities
+    console.log(this.currentCapacities)
 
   }
 

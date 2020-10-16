@@ -1,10 +1,11 @@
-<div>
-  <button (click)="lancerDe($event.target.value)" value="4">4</button>
-  <button (click)="lancerDe($event.target.value)" value="6">6</button>
-  <button (click)="lancerDe($event.target.value)" value="8">8</button>
-  <button (click)="lancerDe($event.target.value)" value="10">10</button>
-  <button (click)="lancerDe($event.target.value)" value="12">12</button>
-  <button (click)="lancerDe($event.target.value)" value="20">20</button>
-  <button (click)="lancerDe($event.target.value)" value="100">100</button>
-  <input type="number" size="5" [value]="diceResult"  readonly>
+<div class="diceButtonContainer">
+
+  <button *ngFor="let dice of dices" class="diceButton"  (click)="lancerDe(dice)">
+
+    <img class="diceImg" [src]="'../../../assets/icons/dices/d'+ dice + '.png'">
+    <span class="diceLabel" >D{{dice}}</span>
+
+  </button>
+  
 </div>
+<input class="diceResult" type="number" size="5" [value]="diceResult"  readonly>

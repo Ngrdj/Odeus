@@ -1,4 +1,3 @@
-import { GetSubClassDto } from '../subClass/get-sub-class.dto';
 
 export interface GetCapacityDto {
 
@@ -6,6 +5,5 @@ export interface GetCapacityDto {
     name:string;
     level:number;
     description:string;
-    subClass:GetSubClassDto;
 
 }

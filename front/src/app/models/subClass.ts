@@ -9,8 +9,6 @@ export class SubClass {
         public id:number,
         public name:string,
         public capacities:Capacity[],
-        public classInfos:Class,
-
 
     ){}
 
@@ -21,7 +19,6 @@ export class SubClass {
             subClassDto.id,
             subClassDto.name,
             subClassDto.capacities.map(capacity => Capacity.fromDto(capacity)),
-            Class.fromDto(subClassDto.class)
 
         )
 
