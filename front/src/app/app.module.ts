@@ -64,7 +64,7 @@ import { DicePanelComponent } from './components/dice-panel/dice-panel.component
     UserNotLoggedDirective,
     UserLoggedDirective,
     BackgroundPanelComponent,
-    DicePanelComponent
+    DicePanelComponent,
     
     
   ],
