@@ -4,6 +4,7 @@ import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
 import { Behavior } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
+import { Pnj } from 'src/app/models/pnj';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -27,7 +28,7 @@ export class VirtualTableComponent implements OnInit {
   
   characteristics:Characteristic[];
   classes:Class[];
-  pnjList;
+  pnjList:Pnj[];
   races:Race[];
   skills:Skill[];
   stories:Story[];
@@ -47,7 +48,7 @@ export class VirtualTableComponent implements OnInit {
   selectedCharacter:Character;
 
   userCharacters:Character[]=[];
-  teams:Team[];
+  teams:Team[]=[];
   heroes:Team;
 
   fighterList:Fighter[]=[];
@@ -59,7 +60,7 @@ export class VirtualTableComponent implements OnInit {
     private usersService:UsersService,
     ){
 
-      this.teams = this.charactService.getTeams();
+      
       this.heroes = this.charactService.getHeroes();
       
       this.heroes.members.forEach(member =>{ 
@@ -69,14 +70,6 @@ export class VirtualTableComponent implements OnInit {
         this.fighterList.push(newFighter)
       
       })
-      this.teams[0].members.forEach(member =>{ 
-        
-        const newFighter = new Fighter(member);
-        newFighter.behavior = Behavior.ENEMY
-        this.fighterList.push(newFighter)
-      
-      })
-
   }
 
   ngOnInit(){
@@ -93,10 +86,6 @@ export class VirtualTableComponent implements OnInit {
       console.log(userFound)
     })
 
-    this.teams.forEach(team => {
-      team.getUniqueMembers().forEach(member => this.userCharacters.push(member))
-    })
-
     this.setAllData()
 
   }
@@ -104,13 +93,15 @@ export class VirtualTableComponent implements OnInit {
   setAllData(){
 
     this.dataService.setAllDatas().subscribe(value => {
-      
-      this.characteristics = this.dataService.characteristics.map(element => Characteristic.fromDto(element));
-      this.classes = this.dataService.classes.map(element => Class.fromDto(element));
-      this.pnjList = this.dataService.pnjList
-      this.races = this.dataService.races.map(element => Race.fromDto(element));
-      this.skills = this.dataService.skills.map(element => Skill.fromDto(element));
-      this.stories = this.dataService.stories.map(element => Story.fromDto(element));
+      console.log("value 2" ,value)
+      this.characteristics = this.dataService.characteristics;
+      this.classes = this.dataService.classes;
+      this.pnjList = this.dataService.pnjList;
+      this.races = this.dataService.races;
+      this.skills = this.dataService.skills;
+      this.stories = this.dataService.stories;
+      this.userCharacters=this.dataService.userCharacters;
+
 
     })
     

@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Capacity } from '../models/capacity';
+import { Characteristic } from '../models/characteristic';
+import { Class } from '../models/class';
 import { GetCapacityDto } from '../models/dtos/capacity/get-capacity.dto';
 import { GetCharacteristicDto } from '../models/dtos/characteristic/get-characteristic.dto';
 import { GetClassDto } from '../models/dtos/class/get-class.dto';
@@ -11,6 +14,12 @@ import { GetRaceDto } from '../models/dtos/race/get-race.dto';
 import { GetSkillDto } from '../models/dtos/skill/get-skill.dto';
 import { GetStoryDto } from '../models/dtos/story/get-story.dto';
 import { GetSubClassDto } from '../models/dtos/subClass/get-sub-class.dto';
+import { Pnj } from '../models/pnj';
+import { Race } from '../models/race';
+import { Skill } from '../models/skill';
+import { Story } from '../models/story';
+import { SubClass } from '../models/subClass';
+import { CharactersService } from './characters.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +34,10 @@ export class AppDataService {
   skills;
   stories;
   subClasses;
+  userCharacters;
   
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private characterService:CharactersService) {
 
 
   }
@@ -35,16 +45,17 @@ export class AppDataService {
   setAllDatas(){
 
     return forkJoin([
-      this.http.get(environment.baseApiUrl + "capacity"),
-      this.http.get(environment.baseApiUrl + "characteristic"),
-      this.http.get(environment.baseApiUrl + "class"),
-      this.http.get(environment.baseApiUrl + "pnj"),
-      this.http.get(environment.baseApiUrl + "race"),
-      this.http.get(environment.baseApiUrl + "skill"),
-      this.http.get(environment.baseApiUrl + "story"),
-      this.http.get(environment.baseApiUrl + "sub-class"),
+      this.http.get(environment.baseApiUrl + "capacity").pipe(map((capacities:GetCapacityDto[])=>capacities.map(element => Capacity.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "characteristic").pipe(map((characteristic:GetCharacteristicDto[])=>characteristic.map(element => Characteristic.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "class").pipe(map((classChar:GetClassDto[])=>classChar.map(element => Class.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "pnj").pipe(map((pnj:GetPnjDto[])=>pnj.map(element => Pnj.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "race").pipe(map((race:GetRaceDto[])=>race.map(element => Race.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "skill").pipe(map((skill:GetSkillDto[])=>skill.map(element => Skill.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "story").pipe(map((story:GetStoryDto[])=>story.map(element => Story.fromDto(element)))),
+      this.http.get(environment.baseApiUrl + "sub-class").pipe(map((subClass:GetSubClassDto[])=>subClass.map(element => SubClass.fromDto(element)))),
+      this.characterService.getCharacterByUser()
     ]).pipe(tap(value => {
-
+      console.log("value", value)
         this.capacities = value[0]
         this.characteristics = value[1]
         this.classes = value[2]
@@ -53,6 +64,7 @@ export class AppDataService {
         this.skills = value[5]
         this.stories = value[6]
         this.subClasses = value[7]
+        this.userCharacters=value[8]
 
     }))
   }

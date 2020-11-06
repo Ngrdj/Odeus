@@ -37,7 +37,8 @@
       [heroes]="heroes"
       [ngClass]="{hidden:!displaySide}"
       class="side"
-      (showHideClick)="showHideSide()">
+      (showHideClick)="showHideSide()"
+      [pnjList]='pnjList'>
     </team-manager>
       
     <settings-panel 

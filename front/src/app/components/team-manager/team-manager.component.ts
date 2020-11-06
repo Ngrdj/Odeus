@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTeamDialog } from 'src/app/dialogs/create-team.dialog/create-team.dialog.component';
 import { Character } from 'src/app/models/character';
+import { Pnj } from 'src/app/models/pnj';
 import { Team } from 'src/app/models/team';
 
 
@@ -15,6 +16,7 @@ export class TeamManagerComponent implements OnInit {
   @Input() characters:Character[]
   @Input() heroes:Team;
   @Input() teams:Team[];
+  @Input() pnjList:Pnj[];
 
   selectedTag:number=0;
   selectedTeam:Team;
@@ -60,7 +62,7 @@ export class TeamManagerComponent implements OnInit {
 
     const dialogRef = this.dialog.open(CreateTeamDialog, {
       width: '250px',
-      data:{characters:this.characters},
+      data:{characters:this.characters.concat(this.pnjList)},
       panelClass:'panelDialog'
     });
     dialogRef.afterClosed().subscribe(datas =>{
