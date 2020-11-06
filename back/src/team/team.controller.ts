@@ -14,9 +14,12 @@ export class TeamController {
     return this.teamService.create(createTeamDto,request.user.sub);
   }
 
+  @UseGuards(JwtGuard)
   @Get()
-  findAll() {
-    return this.teamService.findAll();
+  findAll(@Req()request) {
+   
+    return this.teamService.findAll(request.user.sub);
+    
   }
 
   @Get(':id')

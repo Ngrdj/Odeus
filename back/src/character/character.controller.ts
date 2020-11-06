@@ -15,9 +15,10 @@ export class CharacterController {
     return this.characterService.create(createCharacterDto,request.user.userLogin);
   }
 
+  @UseGuards(JwtGuard)
   @Get()
-  async findAll() {
-    return await this.characterService.findAll();
+  async findAll(@Req()request) {
+    return await this.characterService.findAll(request.user.userLogin);
   }
 
   @Get(':id')

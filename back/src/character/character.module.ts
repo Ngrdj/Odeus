@@ -16,6 +16,7 @@ import { StoryModule } from 'src/story/story.module';
 import { SkillModule } from 'src/skill/skill.module';
 import { RaceModule } from 'src/race/race.module';
 import { UserModule } from 'src/user/user.module';
+import { TeamModule } from 'src/team/team.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Character,CharacterSubClass,CharacterCharacteristic,CharacterSkill]),ClassModule,SubClassModule,CharacteristicModule,StoryModule,SkillModule,RaceModule,UserModule],

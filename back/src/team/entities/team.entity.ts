@@ -1,5 +1,6 @@
 import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
+import { Pnj } from "src/pnj/entities/pnj.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('team')
@@ -17,6 +18,13 @@ export class Team {
             eager:true
         })
     characters:Character[];
+
+    @JoinTable()
+    @ManyToMany(type=>Pnj,
+        (pnj)=>pnj.teams,{
+            eager:true
+        })
+        pnjs:Pnj[];
 
     @ManyToOne(type=>User,
         (user)=>user.team)

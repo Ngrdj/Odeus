@@ -1,6 +1,7 @@
 import { Capacity } from './capacity';
 import { CharacterCharacteristic } from './characterCharacteristic';
 import { CharacterSkill } from './characterSkill';
+import { GetCharacterDto } from './dtos/character/get-character.dto';
 
 export abstract class Character {
 
@@ -15,5 +16,5 @@ export abstract class Character {
         public skills:CharacterSkill[]
 
     ){}
-
+        
 }

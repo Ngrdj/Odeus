@@ -27,8 +27,9 @@ export class TeamService {
     return this.teamRepository.save(newTeam);
   }
 
-  async findAll() {
-    return await this.teamRepository.find();
+  async findAll(id) {
+    
+    return await this.teamRepository.find({userId:id});
   }
 
   async findOne(id: number) {

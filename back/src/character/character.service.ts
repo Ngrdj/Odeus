@@ -166,8 +166,9 @@ for (let skill of skills) {
 
   }
 
-  findAll() {
-    return this.characterRepository.find();
+  async findAll(login) {
+    const user= await this.userService.findOneByLogin(login);
+    return this.characterRepository.find({user});
   }
 
   async findOne(id: number) {

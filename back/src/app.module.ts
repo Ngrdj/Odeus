@@ -15,6 +15,7 @@ import { AuthModule } from './authentication/auth.module';
 import {SnakeNamingStrategy } from 'typeorm-naming-strategies'
 import { GoogleOauthModule } from './google-oauth/google-oauth.module';
 import { PnjModule } from './pnj/pnj.module';
+import { TeamModule } from './team/team.module';
 
 
 @Global()
@@ -29,7 +30,9 @@ import { PnjModule } from './pnj/pnj.module';
     CapacityModule,
     StoryModule,
     UserModule,
-    CharacterModule,
+    TeamModule,
+  
+    
     
     TypeOrmModule.forRoot({                         //Connection Avec La Base De Données sur Postgres
       type: 'postgres',

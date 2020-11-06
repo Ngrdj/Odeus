@@ -21,30 +21,9 @@ import { Team } from '../models/team';
 export class CharactersService {
 
 
-  private heroes:Team = new Team("Héros",
-  [
-
-  
-  ]);
-
-  private teams:Team[]=[
-
-    new Team("Equipe 1 ",[]),
-
-  ]
 
   constructor(private http:HttpClient) { }
 
-  getTeams():Team[]{
-
-    return this.teams
-
-  }
-  getHeroes():Team{
-
-    return this.heroes
-
-  }
 
   getCharacterByUser():Observable<Pj[]>{
     return this.http.get<GetCharacterDto[]>(environment.baseApiUrl + 'character')

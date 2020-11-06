@@ -14,12 +14,15 @@ import { GetRaceDto } from '../models/dtos/race/get-race.dto';
 import { GetSkillDto } from '../models/dtos/skill/get-skill.dto';
 import { GetStoryDto } from '../models/dtos/story/get-story.dto';
 import { GetSubClassDto } from '../models/dtos/subClass/get-sub-class.dto';
+import { GetTeamDto } from '../models/dtos/team/get-team.dto';
 import { Pnj } from '../models/pnj';
 import { Race } from '../models/race';
 import { Skill } from '../models/skill';
 import { Story } from '../models/story';
 import { SubClass } from '../models/subClass';
+import { Team } from '../models/team';
 import { CharactersService } from './characters.service';
+import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +38,10 @@ export class AppDataService {
   stories;
   subClasses;
   userCharacters;
+  userTeams;
   
 
-  constructor(private http:HttpClient, private characterService:CharactersService) {
+  constructor(private http:HttpClient, private characterService:CharactersService, private userService:UsersService) {
 
 
   }
@@ -53,9 +57,9 @@ export class AppDataService {
       this.http.get(environment.baseApiUrl + "skill").pipe(map((skill:GetSkillDto[])=>skill.map(element => Skill.fromDto(element)))),
       this.http.get(environment.baseApiUrl + "story").pipe(map((story:GetStoryDto[])=>story.map(element => Story.fromDto(element)))),
       this.http.get(environment.baseApiUrl + "sub-class").pipe(map((subClass:GetSubClassDto[])=>subClass.map(element => SubClass.fromDto(element)))),
-      this.characterService.getCharacterByUser()
+      this.characterService.getCharacterByUser(),
+      this.http.get(environment.baseApiUrl + "team").pipe(map((team:GetTeamDto[])=>team.map(element => Team.fromDto(element)))),
     ]).pipe(tap(value => {
-      console.log("value", value)
         this.capacities = value[0]
         this.characteristics = value[1]
         this.classes = value[2]
@@ -65,6 +69,7 @@ export class AppDataService {
         this.stories = value[6]
         this.subClasses = value[7]
         this.userCharacters=value[8]
+        this.userTeams=value[9]
 
     }))
   }
