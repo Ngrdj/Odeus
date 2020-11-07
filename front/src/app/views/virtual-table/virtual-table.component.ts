@@ -13,6 +13,7 @@ import { User } from 'src/app/models/user';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
+import { GoogleService } from 'src/app/services/google.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -47,6 +48,8 @@ export class VirtualTableComponent implements OnInit {
 
   selectedCharacter:Character;
 
+  userPlaylist;
+
   userCharacters:Character[]=[];
   teams:Team[]=[];
   heroes:Team;
@@ -58,6 +61,7 @@ export class VirtualTableComponent implements OnInit {
     private dataService:AppDataService,
     private charactService:CharactersService,
     private usersService:UsersService,
+    private googleService:GoogleService
     ){
   }
 
@@ -76,6 +80,7 @@ export class VirtualTableComponent implements OnInit {
     })
 
     this.setAllData()
+    this.loadPlaylist()
 
   }
 
@@ -188,5 +193,9 @@ export class VirtualTableComponent implements OnInit {
       this.background = newBackground
       console.log(this.background)
 
+    }
+
+    loadPlaylist(){
+      this.googleService.loadPlaylist()
     }
 }

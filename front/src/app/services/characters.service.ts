@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Capacity } from '../models/capacity';
 import { Character } from '../models/character';
 import { CharacterCharacteristic } from '../models/characterCharacteristic';
+import { CreateCharacterDto } from '../models/dtos/character/create-character.dto';
 import { GetCharacterDto } from '../models/dtos/character/get-character.dto';
 import { ClassEnum } from '../models/enums/class.enum';
 import { Pj } from '../models/pj';
@@ -40,8 +41,8 @@ export class CharactersService {
   }
 
 
-  addCharacter(character:Character){
-
+  addCharacter(character:CreateCharacterDto){
+    return this.http.post<CreateCharacterDto>(environment.baseApiUrl + `character`,character)
   }
 
 }
