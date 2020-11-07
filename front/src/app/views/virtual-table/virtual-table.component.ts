@@ -82,7 +82,7 @@ export class VirtualTableComponent implements OnInit {
   setAllData(){
 
     this.dataService.setAllDatas().subscribe(value => {
-      console.log("value 2" ,value)
+      const pjTeam:Character[]=[];
       this.characteristics = this.dataService.characteristics;
       this.classes = this.dataService.classes;
       this.pnjList = this.dataService.pnjList;
@@ -91,6 +91,16 @@ export class VirtualTableComponent implements OnInit {
       this.stories = this.dataService.stories;
       this.userCharacters=this.dataService.userCharacters;
       this.teams=this.dataService.userTeams;
+      this.userCharacters.forEach((character)=>{
+        pjTeam.push(character);
+        
+      })
+      this.heroes=new Team(
+        'heroes',
+        pjTeam,
+
+      )
+      console.log(this.heroes)
 
 
     })

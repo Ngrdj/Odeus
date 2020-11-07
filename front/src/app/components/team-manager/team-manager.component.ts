@@ -28,8 +28,8 @@ export class TeamManagerComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-
     this.selectedTeam = this.heroes
+    console.log(this.selectedTeam)
 
   }
 
