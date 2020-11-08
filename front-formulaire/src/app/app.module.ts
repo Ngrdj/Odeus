@@ -12,6 +12,7 @@ import { CharacteristicsComponent } from './Components/Class-form/characteristic
 import { ClassFormComponent } from './Components/Class-form/class-form/Class-form.component';
 import { RaceFormComponent } from './Components/Class-form/race-form/race-form.component';
 import { SkillFormComponent } from './Components/Class-form/skill-form/skill-form.component';
+import { PnjComponent } from './Components/Class-form/Pnj/Pnj.component';
 
 
 
@@ -24,7 +25,8 @@ import { SkillFormComponent } from './Components/Class-form/skill-form/skill-for
     CharacteristicsComponent,
     ClassFormComponent,
     RaceFormComponent,
-    SkillFormComponent    
+    SkillFormComponent,
+    PnjComponent   
   ],
   imports: [
     BrowserModule,

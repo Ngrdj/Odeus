@@ -27,7 +27,8 @@ export class Pnj extends Character {
             resume,
             capacities,
             characteristics,
-            skills
+            skills,
+            false
 
         )
 

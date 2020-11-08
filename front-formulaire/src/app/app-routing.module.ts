@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CapacitiesComponent } from './Components/Class-form/capacities/capacities.component';
+import { PnjComponent } from './Components/Class-form/Pnj/Pnj.component';
 import { HomeComponent } from './Views/home/home.component';
 
 
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'newCapacity',
     component:CapacitiesComponent
+  },
+  {
+    path:'newPnj',
+    component:PnjComponent
   },
   {
     path:'**',

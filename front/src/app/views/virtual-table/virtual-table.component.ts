@@ -196,6 +196,6 @@ export class VirtualTableComponent implements OnInit {
     }
 
     loadPlaylist(){
-      this.googleService.loadPlaylist()
+      this.googleService.loadPlaylist().subscribe((value)=>console.log(value))
     }
 }

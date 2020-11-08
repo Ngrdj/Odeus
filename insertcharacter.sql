@@ -35,9 +35,9 @@ INSERT INTO character_sub_class (value,sub_class_id,character_id)
 	(1,13,1),
 	
 	
-	(1,13,2),
-	(1,13,2),
-	(1,13,2),
+	(1,10,2),
+	(1,11,2),
+	(1,12,2),
 	
 	(1,1,3),
 	(2,2,3),

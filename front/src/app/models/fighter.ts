@@ -25,7 +25,8 @@ export class Fighter extends Character{
             character.resume,
             character.capacities,
             character.characteristics,
-            character.skills
+            character.skills,
+            character.isPlayable,
 
         )
 

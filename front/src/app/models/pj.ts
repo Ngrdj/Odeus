@@ -3,9 +3,12 @@ import { Character } from './character';
 import { CharacterCharacteristic } from './characterCharacteristic';
 import { CharacterSkill } from './characterSkill';
 import { GetCharacterDto } from './dtos/character/get-character.dto';
+import { GetRaceDto } from './dtos/race/get-race.dto';
 import { ClassEnum } from './enums/class.enum';
 import { GenderEnum } from './enums/gender.enum';
+import { RaceEnum } from './enums/race.enum';
 import { PjSubClass } from './pjSubClass';
+import { Race } from './race';
 import { Story } from './story';
 import { User } from './user';
 
@@ -17,6 +20,7 @@ export class Pj extends Character {
         public id:number,
         public name:string,
         public portrait:string,
+        public race:Race,
         public level:number,
         public characteristics:CharacterCharacteristic[],
         public className:ClassEnum,
@@ -39,7 +43,8 @@ export class Pj extends Character {
             resume,
             capacities,
             characteristics,
-            skills
+            skills,
+            true
 
         )
 
@@ -50,7 +55,11 @@ export class Pj extends Character {
         const characterCapacities=[];
         characterDto.characterSubClass
         .forEach(charSubClass => charSubClass.subClass.capacities
-            .forEach(capacity => characterCapacities.push(Capacity.fromDto(capacity)))
+            .forEach(capacity =>{
+                if(capacity.level===characterDto.level){
+                    characterCapacities.push(Capacity.fromDto(capacity))
+                }
+            })
         )
 
         return new Pj(
@@ -58,6 +67,7 @@ export class Pj extends Character {
             characterDto.id,
             characterDto.name,
             characterDto.portrait,
+            Race.fromDto(characterDto.race),
             characterDto.level,
             characterDto.characterCharacteristics.map(charact => CharacterCharacteristic.fromDto(charact) ),
             characterDto.className,

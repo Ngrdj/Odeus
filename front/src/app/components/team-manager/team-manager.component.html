@@ -1,7 +1,10 @@
 <div class="teamPanel">
     <div class ="panelHeader">
         <div class ="tagContainer">
-
+            <label class="tag">
+                <input class='tagLabel' #tagName value="Characters" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length" readonly><br>
+                <button class="tagButton" (click)="selectedTag = 0; onSelectHeroes()"><div class="tagIconSelection" [ngClass]="{teamSelected:selectedTag === 0}" ></div></button>
+            </label>
             <label class="tag">
                 <input class='tagLabel' #tagName value="HEROES" (input)="tagName.size = tagName.value.length +'ch'" [size]="tagName.value.length" readonly><br>
                 <button class="tagButton" (click)="selectedTag = 0; onSelectHeroes()"><div class="tagIconSelection" [ngClass]="{teamSelected:selectedTag === 0}" ></div></button>

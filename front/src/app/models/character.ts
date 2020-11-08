@@ -13,7 +13,8 @@ export abstract class Character {
         public resume:string,
         public capacities:Capacity[],
         public characteristics:CharacterCharacteristic[],
-        public skills:CharacterSkill[]
+        public skills:CharacterSkill[],
+        public isPlayable:boolean
 
     ){}
         

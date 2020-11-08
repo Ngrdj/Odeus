@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,11 @@ export class GoogleService {
   loadPlaylist(){
     //snippet,contentDetails
     //snippet.author
-      /*let part= [
-        "snippet,contentDetails"
-      ]
-    return this.http.get(`https://www.googleapis.com/youtube/v3/playlists/${part}`)*/
+
+    const header= new HttpHeaders();
+    let apiKey='102685677072-pkqruls9lqlhvfdhhov8ftmotcog2nlc.apps.googleusercontent.com';
+    return this.http.get(`https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&maxResults=25&mine=true&key=${apiKey}`)
+
+
   }
 }
