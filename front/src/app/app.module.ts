@@ -38,7 +38,8 @@ import { UserLoggedDirective } from './directives/user-logged.directive';
 import { BackgroundPanelComponent } from './components/background-panel/background-panel.component';
 import { DicePanelComponent } from './components/dice-panel/dice-panel.component';
 import { CeilNumberPipe } from './pipes/ceil-number.pipe';
-import { SoundPanelComponent } from './components/sound-panel/sound-panel.component'
+import { SoundPanelComponent } from './components/sound-panel/sound-panel.component';
+import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component'
 
 
 
@@ -68,7 +69,8 @@ import { SoundPanelComponent } from './components/sound-panel/sound-panel.compon
     BackgroundPanelComponent,
     DicePanelComponent,
     CeilNumberPipe,
-    SoundPanelComponent
+    SoundPanelComponent,
+    CreateCategoryDialog,
 
     
   ],

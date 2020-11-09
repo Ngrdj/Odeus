@@ -12,7 +12,7 @@
       Taille :
     </label>
     <select>
-      <option *ngFor="let size of sizes" formControlName="size">{{size}}</option>
+      <option *ngFor="let size of sizes" value="{{size}}" formControlName="size">{{size}}</option>
     </select>
   </div>
 
@@ -62,9 +62,10 @@
     <label>
       Skills :
     </label>
-    <select>
-      <option *ngFor="let skill of skills" formControlName="skills">{{skill.name}}</option>
-    </select>
+    <div *ngFor='let skill of skills'>
+      <input type='checkbox' name='{{skill.name}}'>
+      <label>{{skill.name}}</label>
+    </div>
   </div>
 
   <div>
@@ -86,7 +87,7 @@
       Type :
     </label>
     <select>
-      <option *ngFor="let type of types" formControlName="type">{{type.name}}</option>
+      <option *ngFor="let type of types" formControlName="type">{{type}}</option>
     </select>
   </div>
 </form>
