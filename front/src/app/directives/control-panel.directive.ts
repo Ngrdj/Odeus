@@ -1,3 +1,4 @@
+import { CdkDrag, DragDrop } from '@angular/cdk/drag-drop';
 import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, EventEmitter, Inject, Input, OnChanges, Output, Renderer2} from '@angular/core';
 
@@ -6,14 +7,23 @@ import { Directive, ElementRef, EventEmitter, Inject, Input, OnChanges, Output, 
 })
 export class ControlPanelDirective implements OnChanges {
 
-  @Input('panelTitle') panelTitle: string;
-  @Input('display') panelDisplay: string;
+  @Input('panelTitle')
+  panelTitle: string;
 
-  @Output() closePanel:EventEmitter<any>=new EventEmitter();
+  @Input('display')
+  panelDisplay: string;
+
+  @Input('resizable')
+  resizable: boolean;
+
+
+  @Output()
+  closePanel:EventEmitter<any>=new EventEmitter();
 
  private elementStyle;
  private mouseIn:boolean;
 
+ private panel;
  private headerBar;
  private deleteButton;
  private titleElement;
@@ -23,13 +33,15 @@ export class ControlPanelDirective implements OnChanges {
     
     private elementRef: ElementRef,
     private renderer: Renderer2,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private dragDrop:DragDrop
 
   ) { 
 
       this.elementStyle = elementRef.nativeElement.style
-      this.createHeader()
-      this.setStyle()
+      this.createPanel()
+     // this.setStyle()
+      this.setPanelStyle()
 
     }
     ngOnChanges(changes){
@@ -42,9 +54,10 @@ export class ControlPanelDirective implements OnChanges {
       }
       if(this.panelDisplay){
 
-        this.elementStyle.display = this.panelDisplay;
+        this.panel.style.display = this.panelDisplay;
 
       }
+      if(this.resizable){this.panel.style.resize = "both";}
 
     }
     private setStyle(){
@@ -70,7 +83,22 @@ export class ControlPanelDirective implements OnChanges {
       })
 
     }
+    private setPanelStyle(){
 
+      this.panel.style.position = "absolute";
+      this.panel.style.backgroundColor = "rgba(0,0,0,0.8)";
+      this.panel.style.maxWidth = "50vw";
+      this.panel.style.maxHeight = "80vh";
+      this.panel.style.color = "white";
+      this.panel.style.overflow = "hidden";
+      this.panel.style.border = "rgba(255,255,255,0.3) solid";
+      this.panel.style.borderRadius = "10px 0px 10px 10px";
+      this.panel.style.boxShadow = "black 0px 8px 10px";
+      this.panel.style.display = "flex";
+      this.panel.style.flexDirection = "column";
+      
+
+    }
 
     private createHeader(){
 
@@ -79,7 +107,7 @@ export class ControlPanelDirective implements OnChanges {
       this.headerBar = this.renderer.createElement("div");
 
       this.renderer.appendChild(this.headerBar,this.deleteButton);
-      this.renderer.appendChild(this.elementRef.nativeElement, this.headerBar);
+      this.renderer.appendChild(this.panel, this.headerBar);
 
       this.headerBar.style.backgroundColor="rgba(255,255,255,0.3)";
       this.headerBar.style.padding="2px";
@@ -116,8 +144,25 @@ export class ControlPanelDirective implements OnChanges {
       
       })
 
+    }
+
+    private createPanel(){
+
+      this.panel = this.renderer.createElement("div");
+      const parentNode = this.renderer.parentNode(this.elementRef.nativeElement);
+
+      this.createHeader()
+
+      this.renderer.appendChild(parentNode,this.panel);
+      this.renderer.appendChild(this.panel,this.elementRef.nativeElement);
+
+      const dragPanel = this.dragDrop.createDrag(this.panel)
+      dragPanel.withHandles([this.headerBar])
+      dragPanel.withBoundaryElement(parentNode)
+      
 
     }
+
     private createDeleteButton(){
 
       this.deleteButton = this.renderer.createElement("button");
@@ -130,6 +175,7 @@ export class ControlPanelDirective implements OnChanges {
       this.deleteButton.style.display="block";
 
     }
+
     private createTitle(){
 
       this.titleElement = this.renderer.createElement("h3");

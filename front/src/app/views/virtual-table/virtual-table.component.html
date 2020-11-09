@@ -49,8 +49,7 @@
       [display]="displaySettings?'block':'none'"
       [currentUser]="currentUser"
       panelTitle="Options"
-      cdkDragBoundary=".boundary"
-      cdkDrag>
+    >
     </settings-panel>
 
     <my-characters-panel
@@ -63,8 +62,8 @@
       [skills]="skills"
       [stories]="stories"
       panelTitle="Mes personnages"
-      cdkDragBoundary=".boundary"
-      cdkDrag >
+      [resizable]="true"
+      >
     </my-characters-panel>
 
 
@@ -75,8 +74,8 @@
       panelTitle="Détails de personnage"
       [character]="selectedCharacter"
       [characteristics]="characteristics"
-      cdkDragBoundary=".boundary"
-      cdkDrag>
+      [resizable]="true"
+    >
    </character-details>
 
    <background-panel
@@ -86,8 +85,7 @@
       [display]="displayBackgroundSettings?'block':'none'"
       (closePanel)="displayBackgroundSettings = false"
       panelTitle="paramètres de l'arrière-plan"
-      cdkDragBoundary=".boundary"
-      cdkDrag
+      [resizable]="true"
    >
    </background-panel>
 
@@ -96,8 +94,7 @@
       [display]="displayDices?'block':'none'"
       (closePanel)="displayDices = false"
       panelTitle="Dés"
-      cdkDragBoundary=".boundary"
-      cdkDrag
+      [resizable]="true"     
    >
    </dice-panel>
 
