@@ -140,6 +140,10 @@
     background: white;
     margin: 5px;
     cursor: pointer;
+    display: grid;
+    grid-template-columns: 10% auto 25%;
+    align-items: center;
+    justify-items: center;
 
 }
 .characterContainer:hover{

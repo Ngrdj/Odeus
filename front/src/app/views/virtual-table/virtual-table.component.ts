@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
-import { Behavior } from 'src/app/models/enums/behavior.enum';
+import { BehaviorEnum } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
 import { Pnj } from 'src/app/models/pnj';
 import { Race } from 'src/app/models/race';
@@ -24,6 +24,8 @@ import { UsersService } from 'src/app/services/users.service';
 export class VirtualTableComponent implements OnInit {
 
   currentUser:User
+
+  behaviorEnum = BehaviorEnum;
 
   background:string="https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1558559745443-KM38DVM6H0AIJWVJNT1H/ke17ZwdGBToddI8pDm48kJe8VwonRcYgr7f_0UVbdhh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UbHrcextDeErdIU23wx0_6BTOY9zQNi_nItQjMEsHFYhlvkRmRO1_mFZFNCn67QdSw/ghosts_saltmarsh.jpg?format=2500w";
   
@@ -113,11 +115,11 @@ export class VirtualTableComponent implements OnInit {
 
   }
 
-  onCharacterSelected(character:Character){
+    onCharacterSelected(character:Character){
 
     this.selectedCharacter = character;
 
-  }
+    }
 
     showHideSide(){
       if(this.displaySide){
@@ -192,6 +194,20 @@ export class VirtualTableComponent implements OnInit {
 
       this.background = newBackground
       console.log(this.background)
+
+    }
+
+    addCharacterToFighterList(character:Character,behavior:BehaviorEnum){
+
+      const fighterListCopy = [...this.fighterList]
+      fighterListCopy.push(new Fighter(
+
+        character,
+        behavior,
+        0
+
+      ))
+      this.fighterList = fighterListCopy;
 
     }
 

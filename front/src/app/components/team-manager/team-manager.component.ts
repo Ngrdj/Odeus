@@ -24,6 +24,9 @@ export class TeamManagerComponent implements OnInit {
   selectedCharacter:Character
 
   @Output() characterSelected:EventEmitter<Character> = new EventEmitter();
+  @Output() addCharacterToAllies:EventEmitter<Character> = new EventEmitter();
+  @Output() addCharacterToEnemies:EventEmitter<Character> = new EventEmitter();
+
 
   constructor(private dialog: MatDialog) { }
 
@@ -55,10 +58,10 @@ export class TeamManagerComponent implements OnInit {
   }
   onAddTeamClick(){
 
-    this.openDialog()
+    this.openCreateTeamDialog()
 
   }
-  openDialog(){
+  openCreateTeamDialog(){
 
     const dialogRef = this.dialog.open(CreateTeamDialog, {
       width: '250px',
@@ -74,6 +77,29 @@ export class TeamManagerComponent implements OnInit {
       }
 
     })
+
+  }
+
+  onAddCharacterToAllies(character:Character){
+
+    this.addCharacterToAllies.emit(character)
+
+  }
+
+  onAddCharacterToEnemies(character:Character){
+
+    this.addCharacterToEnemies.emit(character)
+
+
+  }
+  onAddTeamToAllies(){
+
+    this.selectedTeam.members.forEach(member => this.addCharacterToAllies.emit(member))
+
+  }
+  onAddTeamToEnemies(){
+
+    this.selectedTeam.members.forEach(member => this.addCharacterToEnemies.emit(member))
 
   }
 

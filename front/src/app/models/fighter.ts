@@ -1,5 +1,5 @@
 import { Character } from './character';
-import { Behavior } from './enums/behavior.enum';
+import { BehaviorEnum } from './enums/behavior.enum';
 import { Pj } from './pj';
 import { Pnj } from './pnj';
 
@@ -10,12 +10,12 @@ export class Fighter extends Character{
     public character:Pj|Pnj
 
     public initiative:number=0;
-    public behavior:Behavior = Behavior.NEUTRAL;
+    public behavior:BehaviorEnum = BehaviorEnum.NEUTRAL;
 
     
  
 
-    constructor(character:Pnj|Pj ,behavior?:Behavior, initiative?:Number){
+    constructor(character:Pnj|Pj ,behavior?:BehaviorEnum, initiative?:Number){
 
         super(
 
@@ -29,7 +29,7 @@ export class Fighter extends Character{
             character.isPlayable,
 
         )
-
+        this.behavior = behavior;
         if(character instanceof Pnj){
 
             this.playable = false;

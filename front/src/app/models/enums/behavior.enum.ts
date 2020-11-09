@@ -1,5 +1,5 @@
-export enum Behavior {
-    ALLY="ALLY",
-    ENEMY="ENEMY",
-    NEUTRAL="NEUTRAL"
+export enum BehaviorEnum {
+  ENEMY = "ENEMY",
+  NEUTRAL = "NEUTRAL",
+  ALLY = "ALLY"
 }

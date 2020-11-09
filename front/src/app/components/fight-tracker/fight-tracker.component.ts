@@ -10,7 +10,7 @@ import { Fighter } from 'src/app/models/fighter';
 export class FightTrackerComponent implements OnInit, OnChanges {
 
   visibility:boolean=false;
-  @Input() fighterList:Fighter[]=[]
+  @Input() fighterList:Fighter[]=[];
   selectedFighter:Fighter;
   enemyList:Fighter[]=[];
   allyList:Fighter[]=[];
@@ -29,10 +29,10 @@ export class FightTrackerComponent implements OnInit, OnChanges {
     console.log(changes)
     if(this.fighterList && changes.fighterList){
 
-      const allyList= []
-      const enemyList = []
+      const allyList= [];
+      const enemyList = [];
 
-      this.fighterList.forEach(fighter =>{
+      changes.fighterList.currentValue.forEach(fighter =>{
 
         if(fighter.behavior === "ALLY"){
 
@@ -47,9 +47,9 @@ export class FightTrackerComponent implements OnInit, OnChanges {
       })
       this.allyList = allyList;
       this.enemyList = enemyList;
+      console.log(this.allyList,this.enemyList)
 
     }
-    console.log(this.allyList,this.enemyList)
 
   }
 

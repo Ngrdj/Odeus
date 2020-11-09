@@ -11,16 +11,7 @@ export class Team {
                 public members:Character[]
                 ){}
 
-    public getUniqueMembers():Character[]{
-
-        return this.members.filter((element, index) => {
-            const _element = JSON.stringify(element);
-            return index === this.members.findIndex(obj => {
-              return JSON.stringify(obj) === _element;
-            });
-        });
     
-    }
     static fromDto(teamDto:GetTeamDto):Team{
         const membersPj=teamDto.characters.map(pj => Pj.fromDto(pj));
         const membersPnj=teamDto.pnjs.map(pnj => Pnj.fromDto(pnj));
@@ -33,6 +24,23 @@ export class Team {
             teamDto.name,
             members
         )
+    }
+
+    public getUniqueMembers():Character[]{
+
+        return this.members.filter((element, index) => {
+            const _element = JSON.stringify(element);
+            return index === this.members.findIndex(obj => {
+              return JSON.stringify(obj) === _element;
+            });
+        });
+    
+    }
+
+    public getNumberOfMember(member:Character):number{
+
+        return this.members.filter(element => element === member).length;
+    
     }
 
 }

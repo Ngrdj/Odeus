@@ -33,6 +33,8 @@
     <team-manager
       [characters] = "userCharacters"
       (characterSelected)="onCharacterSelected($event)"
+      (addCharacterToAllies)="addCharacterToFighterList($event,behaviorEnum.ALLY)"
+      (addCharacterToEnemies)="addCharacterToFighterList($event,behaviorEnum.ENEMY)"
       [teams]="teams"
       [heroes]="heroes"
       [ngClass]="{hidden:!displaySide}"
