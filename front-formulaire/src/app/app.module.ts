@@ -13,6 +13,7 @@ import { ClassFormComponent } from './Components/Class-form/class-form/Class-for
 import { RaceFormComponent } from './Components/Class-form/race-form/race-form.component';
 import { SkillFormComponent } from './Components/Class-form/skill-form/skill-form.component';
 import { PnjComponent } from './Components/Class-form/Pnj/Pnj.component';
+import { CreateCategory } from './create-category.dialog/create-category.dialog/create-category.dialog.component';
 
 
 
@@ -26,7 +27,8 @@ import { PnjComponent } from './Components/Class-form/Pnj/Pnj.component';
     ClassFormComponent,
     RaceFormComponent,
     SkillFormComponent,
-    PnjComponent   
+    PnjComponent,
+    CreateCategory.DialogComponent   
   ],
   imports: [
     BrowserModule,

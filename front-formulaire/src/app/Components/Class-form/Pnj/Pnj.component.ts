@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { SizeEnum } from 'src/app/Enum/size.enum';
 import { TypeEnum } from 'src/app/Enum/type.enum';
 import { Skill } from 'src/app/Models/skill.model';
 import { SkillService } from 'src/app/Services/skill.service';
@@ -14,16 +13,34 @@ export class PnjComponent implements OnInit {
 
   public pnjForm:FormGroup;
   public skills:Skill[]=[];
-  public sizes:SizeEnum;
-  public types:TypeEnum;
+  public sizes:string[];
+  public types:string[];
 
   constructor(private formBuilder:FormBuilder,
               private skillService:SkillService) { 
 
+    this.sizes=["TP","P",'M','G','TG','GiG'];
+    this.types=[
+      'HUMANOID',
+      'ABERRATION',
+      'BEAST',
+      'CELESTIAL',
+      'CONSTRUCT',
+      'DRAGON',
+      'ELEMENTAL',
+      'FEY',
+      'FIEND',
+      'GIANT',
+      'MONSTROSITY',
+      'OOZE',
+      'PLANT',
+      'UNDEAD'
+    ];
+
     this.pnjForm=formBuilder.group({
       name:formBuilder.control(''),
       size:formBuilder.control(''),
-      strenght:formBuilder.control(''),
+      strength:formBuilder.control(''),
       dexterity:formBuilder.control(''),
       constitution:formBuilder.control(''),
       intelligence:formBuilder.control(''),
@@ -34,6 +51,7 @@ export class PnjComponent implements OnInit {
       portrait:formBuilder.control(''),
       type:formBuilder.control('')
     })
+
   }
 
   ngOnInit() {

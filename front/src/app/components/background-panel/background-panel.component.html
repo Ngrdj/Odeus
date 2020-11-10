@@ -1,25 +1,23 @@
-<select>
+<select (select)='selectedCategory=$event.target.value'>
 
-    <option>cavernes</option>
-    <option>sous-terrain</option>
-    <option>montagne</option>
-    <option>céleste</option>
-    <option>enfer</option>
+    <option *ngFor='let category of categories' value="{{category}}">{{category}}</option>
+
 
 </select>
+<input type="file" value='Upload Image' (change)="getPicture($event.target.files)">
 
 <div class="backgroundsContainer">
 
-    <div (click)="onBackgroundClick(background)" *ngFor="let background of picturesList" class="backgroundItem">
+    <div (click)="onBackgroundClick(background.src)" *ngFor="let background of getPictureListFilter()" class="backgroundItem">
 
         <label>
             <input class="backgroundButton" type="radio" name="background">
-            <img [src]="background">
+            <img [src]='background.src'>
         </label>
         
     </div>
 
 </div>
-
 <button (click)="onChangeBackgroundClick()" formButton>changer l'arrière-plan</button>
+<button (click)="onAddCategoryClick()" formButton>Ajouter Une Categorie</button>
 
