@@ -1,13 +1,11 @@
 <div>
 
-    <select (select)='selectedCategory=$event.target.value'>
+    <select #categorySelected (select)='selectedCategory=$event.target.value'>
 
         <option *ngFor='let category of categories' value="{{category}}">{{category}}</option>
     
     
     </select>
-    <input type="file" value='Upload Image' (change)="getPicture($event.target.files)">
-
 </div>
 
 
@@ -27,6 +25,8 @@
 
     <button (click)="onChangeBackgroundClick()" formButton>changer l'arrière-plan</button>
     <button (click)="onAddCategoryClick()" formButton>Ajouter Une Categorie</button>
-    
+    <button (click)="modifyCategoryClick(picturesList,categorySelected.value)" formButton>Modifier La Categorie</button>
+    <button (click)="deleteCategoryClick(picturesList,categorySelected.value)" formButton>Supprimer La Categorie</button>
+
 </div>
 

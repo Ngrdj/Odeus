@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateCategoryDialog } from 'src/app/dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component';
 import { Picture } from 'src/app/models/picture';
 
+
 @Component({
   selector: 'background-panel',
   templateUrl: './background-panel.component.html',
@@ -38,40 +39,30 @@ export class BackgroundPanelComponent implements OnInit {
 
   }
 
-  private getBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    });
-  }
-
-  getPicture(filesArray:FileList){
-    for (let i = 0; i < filesArray.length; i++) {
-      this.getBase64(filesArray.item(i)).then(
-
-        data => { this.picturesList.push(new Picture(data.toString(),[this.selectedCategory]));console.log(this.selectedCategory);}
-
-      )
-    }
-    
-  }
 
   onAddCategoryClick(){
-    this.openCreateCategoryDialog()
+    this.openCreateCategoryDialog(this.picturesList,this.selectedCategory)
   }
 
-  openCreateCategoryDialog(){
+  openCreateCategoryDialog(picturesList:Picture[],category:string){
+
+    console.log('avant dialogue',picturesList)
     const dialogRef = this.dialog.open(CreateCategoryDialog, {
       width: '250px',
-      panelClass:'panelDialog'
+      panelClass:'panelDialog',
+      data:{
+            picturesList:picturesList,
+            category:category
+          }
     });
-    dialogRef.afterClosed().subscribe(datas =>{
-
+    dialogRef.afterClosed().subscribe((datas:Picture[]) =>{
+      console.log(datas)
       if(datas){
 
-        this.categories.push(datas)
+        datas.forEach((data)=>{ 
+          this.picturesList.push(data);
+        })
+        this.categories.push(datas[0].categories[0])
 
       }
 
@@ -82,6 +73,16 @@ export class BackgroundPanelComponent implements OnInit {
 
   getPictureListFilter(){
     return this.picturesList.filter((picture)=>picture.categories.some(category=>category===this.selectedCategory))
+  }
+
+  modifyCategoryClick(picturesList:Picture[],category:string){
+
+    this.openCreateCategoryDialog(picturesList,category)
+
+  }
+
+  deleteCategoryClick(picturesList:Picture[],category:string){
+    
   }
 
 }

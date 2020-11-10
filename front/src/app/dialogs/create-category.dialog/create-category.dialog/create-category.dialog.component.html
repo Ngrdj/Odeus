@@ -1,4 +1,18 @@
 <div>
-    <input type="text" #category>
-    <button (click)="addCategoryClick(category.value)">Valider</button>
+    <input type="text" value='{{selectedCategory}}' #category>
+    <input type="file" value='Upload Image' (change)="getPicture($event.target.files[0],category.value)">
+
+    <div class="backgroundsContainer">
+
+        <div *ngFor="let background of picturesList" class="backgroundItem">
+    
+            <label>
+                <span (click)='deletePictureClick(background)' class="backgroundButton" name="background">X</span>
+                <img [src]='background.src'>
+            </label>
+            
+        </div>
+    
+    </div>
+    <button (click)="addCategoryClick()">Valider</button>
 </div>
