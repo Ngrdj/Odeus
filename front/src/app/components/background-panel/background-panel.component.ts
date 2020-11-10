@@ -15,6 +15,7 @@ export class BackgroundPanelComponent implements OnInit {
   picturesList:Picture[]=[];
   selectedBackground:string;
   categories:string[]=[];
+  filterPicturesList:Picture[]=[];
   public selectedCategory:string;
 
   @Output() changeBackground:EventEmitter<string>=new EventEmitter()
@@ -41,7 +42,7 @@ export class BackgroundPanelComponent implements OnInit {
 
 
   onAddCategoryClick(){
-    this.openCreateCategoryDialog(this.picturesList,this.selectedCategory)
+    this.openCreateCategoryDialog([],"")
   }
 
   openCreateCategoryDialog(picturesList:Picture[],category:string){
@@ -56,12 +57,13 @@ export class BackgroundPanelComponent implements OnInit {
           }
     });
     dialogRef.afterClosed().subscribe((datas:Picture[]) =>{
-      console.log(datas)
+      
       if(datas){
-
+        
         datas.forEach((data)=>{ 
           this.picturesList.push(data);
         })
+        this.setFilterPictureList(datas[0].categories[0]);
         this.categories.push(datas[0].categories[0])
 
       }
@@ -71,8 +73,11 @@ export class BackgroundPanelComponent implements OnInit {
   
   }
 
-  getPictureListFilter(){
-    return this.picturesList.filter((picture)=>picture.categories.some(category=>category===this.selectedCategory))
+  setFilterPictureList(category:string){
+    
+    this.selectedCategory=category;
+    this.filterPicturesList = this.picturesList.filter((picture)=>picture.categories.includes(category))
+    console.log('coucou',this.filterPicturesList)
   }
 
   modifyCategoryClick(picturesList:Picture[],category:string){
