@@ -40,6 +40,7 @@ import { DicePanelComponent } from './components/dice-panel/dice-panel.component
 import { CeilNumberPipe } from './pipes/ceil-number.pipe';
 import { SoundPanelComponent } from './components/sound-panel/sound-panel.component';
 import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component'
+import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fontSize';
 
 
 
@@ -66,6 +67,7 @@ import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-ca
     CreateCharacterComponent,
     UserNotLoggedDirective,
     UserLoggedDirective,
+    ParentRelativeFontSizeDirective,
     BackgroundPanelComponent,
     DicePanelComponent,
     CeilNumberPipe,
