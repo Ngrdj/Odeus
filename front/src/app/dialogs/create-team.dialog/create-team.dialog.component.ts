@@ -97,7 +97,7 @@ teamForm:FormGroup;
   }
   numberOfChar(character:Character){
 
-    return this.teamMembers.filter(element => element.id === character.id).length
+    return this.teamMembers.filter(element => element.name === character.name).length
 
   }
   getUniqueMembers(){
