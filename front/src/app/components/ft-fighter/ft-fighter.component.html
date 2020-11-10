@@ -1,11 +1,16 @@
-<img class="portrait" [src]="fighter?.portrait">
-<div class="fighterInfos">
-    
-    <span>{{fighter.name}}</span>
+<div class="container" [ngClass]="{'reverted':orientation === 'reverted'}">
+
+    <img class="portrait" [src]="fighter?.portrait">
+    <div class="fighterInfos">
+        
+        <span>{{fighter.name}}</span>
+
+    </div>
+    <span class='initiative'>
+
+        <input [value]="fighter.initiative" readonly>
+
+    </span>
+    <button (click)="onDeleteButtonClick(fighter)" class="deleteButton">X</button>
 
 </div>
-<span class='initiative'>
-
-    <input [value]="fighter.initiative" readonly>
-
-</span>

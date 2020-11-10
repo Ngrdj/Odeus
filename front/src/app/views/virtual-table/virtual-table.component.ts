@@ -84,6 +84,7 @@ export class VirtualTableComponent implements OnInit {
     })
 
     this.setAllBasicData()
+
     if(this.authService.userLogged()){
 
       this.setAllUserData()
@@ -104,11 +105,19 @@ export class VirtualTableComponent implements OnInit {
       this.races = this.dataService.races;
       this.skills = this.dataService.skills;
       this.stories = this.dataService.stories;
+
+      //temp fighter
+      this.pnjList.forEach(pnj => {
+
+        this.fighterList = [...this.fighterList,new Fighter(pnj,BehaviorEnum.ALLY),new Fighter(pnj,BehaviorEnum.ENEMY)]
+
+      })
      
     })
     
 
   }
+
   setAllUserData(){
 
 
@@ -141,13 +150,19 @@ export class VirtualTableComponent implements OnInit {
 
   }
 
-    onCharacterSelected(character:Character){
+  onCharacterSelected(character:Character){
 
       this.selectedCharacter = character;
 
-    }
+  }
 
-    showHideSide(){
+  onRemoveFighter(fighterToRemove:Fighter){
+
+    this.fighterList = this.fighterList.filter(fighter => fighter !== fighterToRemove)
+
+  }
+
+  showHideSide(){
       if(this.displaySide){
 
         this.onHideSide()
@@ -161,8 +176,8 @@ export class VirtualTableComponent implements OnInit {
       this.displaySide = !this.displaySide
 
 
-    }
-    showHideHeader(){
+  }
+  showHideHeader(){
       if(this.displayHeader){
 
         this.onHideHeader()
@@ -176,12 +191,12 @@ export class VirtualTableComponent implements OnInit {
       this.displayHeader = !this.displayHeader
     
 
-    }
-    showHideOptions(){
+  }
+  showHideOptions(){
 
       this.displayOptions = !this.displayOptions
 
-    }
+  }
 
     private onHideSide(){
       

@@ -12,10 +12,10 @@
             <div class="ft-main">
 
                 <div class="allyContainer">
-                    <ft-fighter [fighter]="fighter" *ngFor="let fighter of allyList"></ft-fighter>
+                    <ft-fighter (removeFighter)='onRemoveFighter(fighter)' [fighter]="fighter" *ngFor="let fighter of allyList"></ft-fighter>
                 </div>
                 <div class="enemyContainer">
-                    <ft-fighter class="revertedGrid" [fighter]="fighter" *ngFor="let fighter of enemyList"></ft-fighter>
+                    <ft-fighter  (removeFighter)='onRemoveFighter(fighter)' orientation="reverted" [fighter]="fighter" *ngFor="let fighter of enemyList"></ft-fighter>
                 </div>
 
             </div>

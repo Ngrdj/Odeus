@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { faRunning } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorEnum } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
 
 @Component({
@@ -15,6 +16,9 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   enemyList:Fighter[]=[];
   allyList:Fighter[]=[];
 
+  @Output() removeFighter:EventEmitter<any> = new EventEmitter();
+
+
   faRunning=faRunning;
 
   constructor() { }
@@ -26,28 +30,38 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes:SimpleChanges):void{
 
-    if(this.fighterList && changes.fighterList){
+    if(changes.fighterList){
+
+
+      const fighterList = changes.fighterList.currentValue
 
       const allyList= [];
       const enemyList = [];
 
-      changes.fighterList.currentValue.forEach(fighter =>{
+      fighterList.forEach(fighter => {
 
-        if(fighter.behavior === "ALLY"){
+        if(fighter.behavior === BehaviorEnum.ALLY){
 
           allyList.push(fighter)
 
         }else{
 
           enemyList.push(fighter)
-
+          
         }
 
       })
+
       this.allyList = allyList;
       this.enemyList = enemyList;
 
     }
+
+  }
+
+  onRemoveFighter(fighter:Fighter){
+
+    this.removeFighter.emit(fighter)
 
   }
 

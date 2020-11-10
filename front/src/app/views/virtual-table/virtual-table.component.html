@@ -27,7 +27,7 @@
       {{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}
     </button>
   
-    <fight-tracker [fighterList]="fighterList" class="main"></fight-tracker>
+    <fight-tracker (removeFighter)="onRemoveFighter($event)" [fighterList]="fighterList" class="main"></fight-tracker>
   
     <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
     <team-manager
