@@ -35,8 +35,7 @@
 .stats{
 
     grid-area: stats;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     justify-content: space-around;
     list-style: none;
     padding: 10px;
@@ -44,6 +43,8 @@
     margin: 10%;
     overflow: hidden;
     gap: 2px;
+    grid-template-columns: 100%;
+    grid-auto-rows:calc(90%/6);
 
 }
 .stat{
@@ -53,7 +54,7 @@
     gap: 10px;
     grid-template-columns: 50% 20% auto;
     justify-items: center;
-
+    height: 100%;
 }
 .statInput{
 
