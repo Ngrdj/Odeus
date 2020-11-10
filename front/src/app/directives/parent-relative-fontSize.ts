@@ -10,6 +10,12 @@ export class ParentRelativeFontSizeDirective implements AfterViewChecked,OnChang
 @Input('parentRelativeFontSize')
 ratio:number
 
+@Input('maxSize')
+maxSize:number
+
+@Input('minSize')
+minSize:number
+
 @Input('parent')
 private parent:string | Element;
 
@@ -49,7 +55,13 @@ private elementStyle;
     const parentWidth = this.parent.clientWidth;
     const parentHeight = this.parent.clientHeight;
 
-   if(this.ratio){ this.elementStyle.fontSize = (parentHeight*this.ratio)/100 + "px";}
+   if(this.ratio){
+     
+    this.elementStyle.fontSize = (parentHeight*this.ratio)/100 + "px";
+    if(this.elementStyle.fontSize >= this.maxSize){this.elementStyle.fontSize = this.maxSize}
+    if(this.elementStyle.fontSize <= this.minSize){this.elementStyle.fontSize = this.minSize}
+
+  }
 
   }
 

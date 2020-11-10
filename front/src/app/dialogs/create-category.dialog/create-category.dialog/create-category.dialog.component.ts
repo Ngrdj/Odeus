@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnChanges, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Picture } from 'src/app/models/picture';
 
@@ -11,26 +11,36 @@ export interface DialogDataBackground {
   templateUrl: './create-category.dialog.component.html',
   styleUrls: ['./create-category.dialog.component.scss']
 })
-export class CreateCategoryDialog implements OnInit {
+export class CreateCategoryDialog implements OnInit,OnChanges {
+
   public picturesList:Picture[]=[];
   public selectedCategory:string;
+
   constructor(public dialogRef: MatDialogRef<CreateCategoryDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogDataBackground) {
 
       if(data){
-        console.log('data',data)
+        
         this.picturesList=[...data.picturesList];
         this.selectedCategory=data.category;
       }
      }
 
   ngOnInit(): void {
+
+  }
+
+  ngOnChanges(changes){
+
+    console.log('change',changes);
+
+
   }
 
   addCategoryClick(){
-    console.log('add',this.picturesList);
+
     this.dialogRef.close(this.picturesList);
-    this.picturesList=[]
+
   }
 
   private getBase64(file) {
@@ -42,14 +52,13 @@ export class CreateCategoryDialog implements OnInit {
     });
   }
 
-  getPicture(file:FileList,category:string){
+  getPicture(file:File,category:string){
     
-      this.getBase64(file).then(
-
-        data => { this.picturesList.push(new Picture(data.toString(),[category]));}
+      this.getBase64(file).then(data => { 
         
-      )
-    
+        this.picturesList =[...this.picturesList, new Picture(data.toString(),[category])];
+
+      })
     
   }
 

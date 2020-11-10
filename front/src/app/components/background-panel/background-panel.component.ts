@@ -48,16 +48,18 @@ export class BackgroundPanelComponent implements OnInit {
   openCreateCategoryDialog(picturesList:Picture[],category:string){
 
     console.log('avant dialogue',picturesList)
+
     const dialogRef = this.dialog.open(CreateCategoryDialog, {
       width: '250px',
       panelClass:'panelDialog',
       data:{
-            picturesList:picturesList,
+            picturesList,
             category:category
           }
-    });
-    dialogRef.afterClosed().subscribe((datas:Picture[]) =>{
-      
+    })
+    .afterClosed()
+    .subscribe((datas:Picture[]) =>{
+
       if(datas){
         
         datas.forEach((data)=>{ 
