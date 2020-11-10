@@ -26,7 +26,6 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes:SimpleChanges):void{
 
-    console.log(changes)
     if(this.fighterList && changes.fighterList){
 
       const allyList= [];
@@ -47,7 +46,6 @@ export class FightTrackerComponent implements OnInit, OnChanges {
       })
       this.allyList = allyList;
       this.enemyList = enemyList;
-      console.log(this.allyList,this.enemyList)
 
     }
 

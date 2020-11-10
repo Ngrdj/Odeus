@@ -32,7 +32,6 @@ export class TeamManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedTeam = this.heroes
-    console.log(this.selectedTeam)
 
   }
 

@@ -29,7 +29,6 @@ export class UsersService {
       return this.getUserByLogin(jwt_decode(currentUser).userLogin)
 
     }
-    console.log(currentUser)
     return of(null)
   }
   

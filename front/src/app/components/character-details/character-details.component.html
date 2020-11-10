@@ -9,9 +9,9 @@
         <li *ngFor="let characteristic of characteristics, let i = index">
             <label class="stat">
 
-                {{characteristic.name}}
+                <span class="statName">{{characteristic.name}}</span>
                 <input class="statInput" readonly [value]="character?.characteristics?character.characteristics[i].value:0">
-                <span>{{character?.characteristics?character.characteristics[i].bonus:0}}</span>
+                <span [ngClass]="{'statBonus':character?.characteristics[i].bonus > 0, 'statMalus':character?.characteristics[i].bonus < 0}" class="statBonus">{{character?.characteristics?character.characteristics[i].bonus:0}}</span>
 
             </label> 
         </li>

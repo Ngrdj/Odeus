@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
@@ -14,6 +15,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
 import { GoogleService } from 'src/app/services/google.service';
+import { TeamsService } from 'src/app/services/teams.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -62,6 +64,7 @@ export class VirtualTableComponent implements OnInit {
     private authService:AuthentificationsService,
     private dataService:AppDataService,
     private charactService:CharactersService,
+    private teamService:TeamsService,
     private usersService:UsersService,
     private googleService:GoogleService
     ){
@@ -78,46 +81,69 @@ export class VirtualTableComponent implements OnInit {
     this.usersService.getCurrentUser().subscribe(userFound =>{
         
       this.currentUser = userFound
-      console.log(userFound)
     })
 
-    this.setAllData()
-    this.loadPlaylist()
+    this.setAllBasicData()
+    if(this.authService.userLogged()){
+
+      this.setAllUserData()
+
+    }
+
+    //this.loadPlaylist()
 
   }
 
-  setAllData(){
+  setAllBasicData(){
 
     this.dataService.setAllDatas().subscribe(value => {
-      const pjTeam:Character[]=[];
+
       this.characteristics = this.dataService.characteristics;
       this.classes = this.dataService.classes;
       this.pnjList = this.dataService.pnjList;
       this.races = this.dataService.races;
       this.skills = this.dataService.skills;
       this.stories = this.dataService.stories;
-      this.userCharacters=this.dataService.userCharacters;
-      this.teams=this.dataService.userTeams;
-      this.userCharacters.forEach((character)=>{
-        pjTeam.push(character);
-        
-      })
-      this.heroes=new Team(
-        'heroes',
-        pjTeam,
-
-      )
-      console.log(this.heroes)
-
-
+     
     })
     
+
+  }
+  setAllUserData(){
+
+
+      forkJoin([
+
+        this.charactService.getCharactersByUser(),
+        this.teamService.getTeamsByUser()
+
+      ]).subscribe(join => {
+
+        this.userCharacters = join[0];
+        this.teams = join[1];
+
+      } )
+
+
+    const pjTeam:Character[]=[];
+
+    this.userCharacters.forEach((character)=>{
+
+      pjTeam.push(character);
+      
+    })
+    this.heroes=new Team(
+
+      'heroes',
+      pjTeam,
+
+    )
 
   }
 
     onCharacterSelected(character:Character){
 
-    this.selectedCharacter = character;
+      this.selectedCharacter = character;
 
     }
 

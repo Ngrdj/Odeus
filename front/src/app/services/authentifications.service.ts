@@ -42,5 +42,10 @@ export class AuthentificationsService {
 
   }
 
+  userLogged(){
+
+    return !!sessionStorage.getItem("currentUser");
+
+  }
 
 }

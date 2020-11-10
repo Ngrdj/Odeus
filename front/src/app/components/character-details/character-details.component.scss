@@ -1,27 +1,35 @@
-.container{
+:host{
 
     height: 100%;
-    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 2vh;
+    width: 100%;
+    box-sizing: border-box;
+
+
+}
+.container{
+
     display: grid;
-    grid-template-areas:
-    "portrait stats"
-    "name stats"
-    "description description";
-    max-width: (125vh/2) ;
-    max-height: 50vw;
+    grid-template-areas: "portrait stats" "name stats" "description description";
     grid-template-columns: 40% 60%;
     grid-template-rows: 40% 8% 50%;
-    padding: 10px;
+    max-width: 500px;
     gap: 5px;
-    font-size: 2vh;
+    box-sizing: border-box;
+    border: solid;
+    padding: 10px;
 
 }
 .portrait{
 
-    height: 100%;
     grid-area: portrait;
+    height: 100%;
+    width: 100%;
     justify-self: center;
-    overflow-x: auto;
+    object-fit: contain;
 
 }
 .stats{
@@ -31,23 +39,47 @@
     flex-direction: column;
     justify-content: space-around;
     list-style: none;
-    padding: 10%;
+    padding: 10px;
     border: solid;
-    margin:10%;
+    margin: 10%;
     overflow: hidden;
+    gap: 2px;
 
 }
 .stat{
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
-    gap:5px;
-    flex-grow: 50% 50%;
+    gap: 10px;
+    grid-template-columns: 50% 20% auto;
+    justify-items: center;
+
 }
 .statInput{
 
-    width: 20px;
+    width: 100%;
+    background: none;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+
+}
+.statName{
+
+    justify-self:flex-end;
+
+}
+.statBonus{
+
+    color: green;
+
+}.statBonus::before{
+    content: '+';
+
+}
+.statMalus{
+
+    color: red;
 
 }
 .description{
@@ -61,10 +93,14 @@
     grid-area: name;
     background-color: white;
     color: black;
-    text-align: center;
-    align-self: center;
     padding: 4%;
     margin: 0px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 
 }
 .race{

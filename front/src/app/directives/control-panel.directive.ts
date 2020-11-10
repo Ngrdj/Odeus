@@ -10,17 +10,22 @@ export class ControlPanelDirective implements OnChanges {
   @Input('panelTitle')
   panelTitle: string;
 
-  @Input('display')
-  panelDisplay: string;
+  @Input('visible')
+  visible: boolean;
 
   @Input('resizable')
   resizable: boolean;
+
+  @Input('initWidth')
+  initWidth: string;
+
+  @Input('initHeight')
+  initHeight: string;
 
 
   @Output()
   closePanel:EventEmitter<any>=new EventEmitter();
 
- private elementStyle;
  private mouseIn:boolean;
 
  private panel;
@@ -38,10 +43,7 @@ export class ControlPanelDirective implements OnChanges {
 
   ) { 
 
-      this.elementStyle = elementRef.nativeElement.style
       this.createPanel()
-     // this.setStyle()
-      this.setPanelStyle()
 
     }
     ngOnChanges(changes){
@@ -52,51 +54,42 @@ export class ControlPanelDirective implements OnChanges {
 
         
       }
-      if(this.panelDisplay){
+      if(this.visible){
 
-        this.panel.style.display = this.panelDisplay;
+        this.panel.style.display = "grid";
+        
 
-      }
+      }else{this.panel.style.display = "none";}
+
       if(this.resizable){this.panel.style.resize = "both";}
+      if(this.initHeight){this.panel.style.height = this.initHeight;}
+      if(this.initWidth){this.panel.style.width = this.initWidth;}
+
 
     }
-    private setStyle(){
-
-      this.elementStyle.position = "absolute";
-      this.elementStyle.backgroundColor = "rgba(0,0,0,0.8)";
-      this.elementStyle.maxWidth = "50vw";
-      this.elementStyle.maxHeight = "80vh";
-      this.elementStyle.color = "white";
-      this.elementStyle.overflow = "hidden";
-      this.elementStyle.border = "rgba(255,255,255,0.3) solid";
-      this.elementStyle.borderRadius = "10px 0px 10px 10px";
-      this.elementStyle.boxShadow = "black 0px 8px 10px";
-      this.elementStyle.display = "flex";
-      this.elementStyle.flexDirection = "column";
-      
-      this.renderer.listen(this.document,'click',()=>{
-        if(!this.mouseIn){
-
-          this.elementStyle.zIndex = "1";
-
-        }   
-      })
-
-    }
+    
     private setPanelStyle(){
 
       this.panel.style.position = "absolute";
       this.panel.style.backgroundColor = "rgba(0,0,0,0.8)";
-      this.panel.style.maxWidth = "50vw";
-      this.panel.style.maxHeight = "80vh";
+      this.panel.style.maxWidth = "60vw";
+      this.panel.style.maxHeight = "95vh";
       this.panel.style.color = "white";
       this.panel.style.overflow = "hidden";
       this.panel.style.border = "rgba(255,255,255,0.3) solid";
       this.panel.style.borderRadius = "10px 0px 10px 10px";
       this.panel.style.boxShadow = "black 0px 8px 10px";
-      this.panel.style.display = "flex";
-      this.panel.style.flexDirection = "column";
+      this.panel.style.display = "grid";
+      this.panel.style.gridTemplateRows = "min-content minmax(90%, auto)";
+
       
+      this.renderer.listen(this.document,'click',()=>{
+        if(!this.mouseIn){
+
+          this.panel.style.zIndex = "1";
+
+        }   
+      })
 
     }
 
@@ -114,6 +107,7 @@ export class ControlPanelDirective implements OnChanges {
       this.headerBar.style.borderRadius = "7px 0px 0px 0px";
       this.headerBar.style.display = "flex";
       this.headerBar.style.flexDirection = "row-reverse";
+      this.headerBar.style.height = "max-content";
 
       this.renderer.listen(this.deleteButton,"click",() => {
 
@@ -140,7 +134,7 @@ export class ControlPanelDirective implements OnChanges {
       this.renderer.listen(this.headerBar,"mousedown",() => {
 
         this.headerBar.style.cursor = "grabbing";
-        this.elementStyle.zIndex = "2"
+        this.panel.style.zIndex = "2"
       
       })
 
@@ -159,7 +153,7 @@ export class ControlPanelDirective implements OnChanges {
       const dragPanel = this.dragDrop.createDrag(this.panel)
       dragPanel.withHandles([this.headerBar])
       dragPanel.withBoundaryElement(parentNode)
-      
+      this.setPanelStyle()
 
     }
 

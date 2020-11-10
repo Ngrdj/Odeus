@@ -37,8 +37,7 @@ export class AppDataService {
   skills;
   stories;
   subClasses;
-  userCharacters;
-  userTeams;
+
   
 
   constructor(private http:HttpClient, private characterService:CharactersService, private userService:UsersService) {
@@ -57,8 +56,6 @@ export class AppDataService {
       this.http.get(environment.baseApiUrl + "skill").pipe(map((skill:GetSkillDto[])=>skill.map(element => Skill.fromDto(element)))),
       this.http.get(environment.baseApiUrl + "story").pipe(map((story:GetStoryDto[])=>story.map(element => Story.fromDto(element)))),
       this.http.get(environment.baseApiUrl + "sub-class").pipe(map((subClass:GetSubClassDto[])=>subClass.map(element => SubClass.fromDto(element)))),
-      this.characterService.getCharacterByUser(),
-      this.http.get(environment.baseApiUrl + "team").pipe(map((team:GetTeamDto[])=>team.map(element => Team.fromDto(element)))),
     ]).pipe(tap(value => {
         this.capacities = value[0]
         this.characteristics = value[1]
@@ -68,9 +65,6 @@ export class AppDataService {
         this.skills = value[5]
         this.stories = value[6]
         this.subClasses = value[7]
-        this.userCharacters=value[8]
-        this.userTeams=value[9]
-
     }))
   }
 

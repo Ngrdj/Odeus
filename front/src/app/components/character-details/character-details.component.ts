@@ -21,7 +21,6 @@ export class CharacterDetailsComponent implements OnInit,OnChanges {
   }
 
   ngOnChanges(){
-    console.log(this.character)
   }
 
 }

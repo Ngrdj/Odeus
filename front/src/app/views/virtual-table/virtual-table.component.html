@@ -46,7 +46,7 @@
     <settings-panel 
       controlPanel
       (closePanel)="displaySettings = false"
-      [display]="displaySettings?'block':'none'"
+      [visible]="displaySettings"
       [currentUser]="currentUser"
       panelTitle="Options"
     >
@@ -55,7 +55,7 @@
     <my-characters-panel
       controlPanel
       (closePanel)="displayMyCharacters = false"
-      [display]="displayMyCharacters?'block':'none'"
+      [visible]="displayMyCharacters"
       [characteristics]="characteristics"
       [classes]="classes"
       [races]="races"
@@ -70,7 +70,7 @@
     <character-details
       controlPanel
       (closePanel)="displayCharacterDetails = false"
-      [display]="displayCharacterDetails?'flex':'none'"
+      [visible]="displayCharacterDetails"
       panelTitle="Détails de personnage"
       [character]="selectedCharacter"
       [characteristics]="characteristics"
@@ -82,19 +82,20 @@
 
       (changeBackground)="onChangeBackground($event)"
       controlPanel
-      [display]="displayBackgroundSettings?'block':'none'"
+      [visible]="displayBackgroundSettings"
       (closePanel)="displayBackgroundSettings = false"
       panelTitle="paramètres de l'arrière-plan"
       [resizable]="true"
+      initWidth="20%"
+      initHeight="50%"
    >
    </background-panel>
 
    <dice-panel
       controlPanel
-      [display]="displayDices?'block':'none'"
+      [visible]="displayDices"
       (closePanel)="displayDices = false"
       panelTitle="Dés"
-      [resizable]="true"     
    >
    </dice-panel>
 
