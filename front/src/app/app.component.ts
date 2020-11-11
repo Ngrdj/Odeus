@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { User } from './models/user';
 import { UsersService } from './services/users.service';
 
@@ -10,8 +11,9 @@ import { UsersService } from './services/users.service';
 export class AppComponent {
   
 
-    constructor( private usersService:UsersService){
-
+    constructor( private usersService:UsersService,translate: TranslateService){
+      translate.setDefaultLang('fr');
+      translate.use('fr');
       usersService.createUser(new User(
 
         "Nicolas",

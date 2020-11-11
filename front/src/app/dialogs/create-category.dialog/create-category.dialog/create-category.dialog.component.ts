@@ -37,8 +37,12 @@ export class CreateCategoryDialog implements OnInit,OnChanges {
 
   }
 
-  addCategoryClick(){
+  addCategoryClick(category:string){
+    this.picturesList.forEach((picture)=>{
 
+      picture.categories[picture.categories.indexOf(this.selectedCategory)]=category;
+
+    })
     this.dialogRef.close(this.picturesList);
 
   }
@@ -53,7 +57,7 @@ export class CreateCategoryDialog implements OnInit,OnChanges {
   }
 
   getPicture(file:File,category:string){
-    
+      console.log("category dialog",category)
       this.getBase64(file).then(data => { 
         
         this.picturesList =[...this.picturesList, new Picture(data.toString(),[category])];

@@ -42,14 +42,24 @@ export class BackgroundPanelComponent implements OnInit {
 
 
   onAddCategoryClick(){
-    this.openCreateCategoryDialog([],"")
+    this.openCreateCategoryDialog([],"").subscribe((datas:Picture[]) =>{
+      if(datas){
+        
+        datas.forEach((data)=>{ 
+          this.picturesList.push(data);
+
+        })
+        this.setFilterPictureList(datas[0].categories[0]);
+        this.categories.push(datas[0].categories[0]);
+      }
+    })
   }
 
   openCreateCategoryDialog(picturesList:Picture[],category:string){
 
     console.log('avant dialogue',picturesList)
 
-    const dialogRef = this.dialog.open(CreateCategoryDialog, {
+   return this.dialog.open(CreateCategoryDialog, {
       width: '250px',
       panelClass:'panelDialog',
       data:{
@@ -58,19 +68,8 @@ export class BackgroundPanelComponent implements OnInit {
           }
     })
     .afterClosed()
-    .subscribe((datas:Picture[]) =>{
-
-      if(datas){
-        
-        datas.forEach((data)=>{ 
-          this.picturesList.push(data);
-        })
-        this.setFilterPictureList(datas[0].categories[0]);
-        this.categories.push(datas[0].categories[0])
-
-      }
-
-    })
+    
+    
 
   
   }
@@ -79,17 +78,27 @@ export class BackgroundPanelComponent implements OnInit {
     
     this.selectedCategory=category;
     this.filterPicturesList = this.picturesList.filter((picture)=>picture.categories.includes(category))
-    console.log('coucou',this.filterPicturesList)
   }
 
   modifyCategoryClick(picturesList:Picture[],category:string){
 
-    this.openCreateCategoryDialog(picturesList,category)
+    this.openCreateCategoryDialog(picturesList,category).subscribe((datas: Picture[])=>{
+      console.log("apres dialogu", datas)
+      this.picturesList=this.picturesList.filter((picture)=>!picture.categories.includes(category));
+      this.categories[this.categories.indexOf(category)]=datas[0].categories[0];
+      this.selectedCategory=datas[0].categories[0];
+      this.categories.push(this.selectedCategory)
+      datas.forEach((data)=>{
+        this.picturesList.push(data)
+      })
+      this.setFilterPictureList(datas[0].categories[0]);
 
+    })
   }
 
-  deleteCategoryClick(picturesList:Picture[],category:string){
-    
+  deleteCategoryClick(picturesList:Picture[],categorySelected:string){
+    this.categories=this.categories.filter((category)=>categorySelected!==category);
+    picturesList=[];
   }
 
 }

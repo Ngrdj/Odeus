@@ -41,8 +41,13 @@ import { CeilNumberPipe } from './pipes/ceil-number.pipe';
 import { SoundPanelComponent } from './components/sound-panel/sound-panel.component';
 import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component'
 import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fontSize';
-
-
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader/lib/http-loader';
+import { TranslateLoader } from '@ngx-translate/core/lib/translate.loader';
+import { TranslateModule } from '@ngx-translate/core';
+export function CreateTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -84,7 +89,15 @@ import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fo
     DragDropModule,
     MatDialogModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule.forRoot({
+      defaultLanguage:'fr',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: CreateTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
 
   ],
   providers: [
