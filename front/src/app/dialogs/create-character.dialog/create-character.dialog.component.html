@@ -187,7 +187,7 @@
                 <label class="raceLabel" *ngFor="let race of races">
                     
                    {{race.name}}
-                    <input formControlName="race" type="radio" name="race" [value]="race.name" checked>
+                    <input formControlName="race" type="radio" name="race" [value]="race.name | lowercase | translate" checked>
         
                 </label>
         
@@ -207,7 +207,7 @@
                 <label class="classLabel" *ngFor="let class of classes">
                     
                    {{class.name}}
-                    <input (change)="setCurrentClass()" formControlName="class" type="radio" name="class" [value]="class.name" checked>
+                    <input (change)="setCurrentClass()" formControlName="class" type="radio" name="class" [value]="class.name  | lowercase | translate" checked>
         
                 </label>
         

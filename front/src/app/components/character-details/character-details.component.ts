@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Pj } from 'src/app/models/pj';
@@ -13,7 +14,9 @@ export class CharacterDetailsComponent implements OnInit,OnChanges {
 
   @Input() character:Character;
   @Input() characteristics:Characteristic[];
-  constructor() {
+  constructor(translate:TranslateService) {
+    translate.setDefaultLang('fr');
+      translate.use('fr');
   }
 
   ngOnInit(): void {

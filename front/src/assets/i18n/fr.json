@@ -5,5 +5,50 @@
     "constitution":"constitution",
     "intelligence":"intelligence",
     "wisdom":"sagesse",
-    "charisma":"charisme"
+    "charisma":"charisme",
+
+    "skills":"compétences",
+    "athletics":"athlétisme",
+    "acrobatics":"acrobaties",
+    "sleightofhand":"escamotage",
+    "stealth":"discrétion",
+    "arcana":"arcanes",
+    "history":"histoire",
+    "investigation":"investigation",
+    "nature":"nature",
+    "religion":"religion",
+    "animalhandling":"dressage",
+    "insight":"perspicacité",
+    "medecine":"médecine",
+    "perception":"perception",
+    "survival":"survie",
+    "deception":"tromperie",
+    "intimidation":"intimidation",
+    "performance":"représentation",
+    "persuasion":"persuasion",
+
+    "story":"historique",
+    "acolyte":"acolyte",
+    "craftsman":"artisan de guilde",
+    "artist":"artiste",
+    "charlatan":"charlatan",
+    "knight":"chevalier",
+    "criminal":"criminel",
+    "streetchild":"enfant des rues",
+    "ermit":"ermite",
+    "hero":"héros du peuple",
+    "sailor":"marin",
+    "noble":"noble",
+    "sage":"sage",
+    "savage":"sauvageon",
+    "soldier":"soldat",
+    "manhunter":"chasseur de primes urbain",
+    "mercenary":"mercenaire vétéran",
+    "captive":"captif",
+    "idiot":"idiot du village",
+    "travele":"voyageur"
+
+
+
+
 }
