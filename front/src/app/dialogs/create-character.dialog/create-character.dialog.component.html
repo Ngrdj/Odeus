@@ -1,4 +1,4 @@
-<form [formGroup]='character'>
+<form [formGroup]='characterForm'>
 
     <div class="formHeader">
 
@@ -8,7 +8,7 @@
 
             <span>
 
-                <button *ngIf="character.controls.level.value > 1 " (click)="onLevelLessClick()"  class="levelButton"><</button>
+                <button *ngIf="characterForm.controls.level.value > 1 " (click)="onLevelLessClick()"  class="levelButton"><</button>
 
             </span>
             <label  class="level">
@@ -18,7 +18,7 @@
             </label>
             <span>
 
-                <button *ngIf="character.controls.level.value < 20 " (click)="onLevelPlusClick()"  class="levelButton">></button>
+                <button *ngIf="characterForm.controls.level.value < 20 " (click)="onLevelPlusClick()"  class="levelButton">></button>
 
             </span>
         </div>
@@ -33,11 +33,11 @@
 
                 <span class="characteristicValue">
 
-                    <span><button  *ngIf="character.controls.strength.value > 1 " (click)="onCharactLessClick('strength')"  class="levelButton"><</button></span>
+                    <span><button  *ngIf="characterForm.controls.strength.value > 1 " (click)="onCharactLessClick('strength')"  class="levelButton"><</button></span>
 
                     <input formControlName="strength" type="number" readonly>
 
-                    <span><button *ngIf="character.controls.strength.value < 20 " (click)="onCharactPlusClick('strength')"  class="levelButton">></button></span>
+                    <span><button *ngIf="characterForm.controls.strength.value < 20 " (click)="onCharactPlusClick('strength')"  class="levelButton">></button></span>
 
                 </span>
 
@@ -53,11 +53,11 @@
                 Dex.
                 <span class="characteristicValue">
 
-                    <span><button *ngIf="character.controls.dexterity.value > 1 " (click)="onCharactLessClick('dexterity')"  class="charactButton"><</button></span>
+                    <span><button *ngIf="characterForm.controls.dexterity.value > 1 " (click)="onCharactLessClick('dexterity')"  class="charactButton"><</button></span>
 
                     <input formControlName="dexterity" type="number" readonly>
 
-                    <span><button *ngIf="character.controls.dexterity.value < 20 " (click)="onCharactPlusClick('dexterity')"  class="charactButton">></button></span>
+                    <span><button *ngIf="characterForm.controls.dexterity.value < 20 " (click)="onCharactPlusClick('dexterity')"  class="charactButton">></button></span>
 
                 </span>
 
@@ -74,11 +74,11 @@
 
                 <span class="characteristicValue">
 
-                    <span><button *ngIf="character.controls.constitution.value > 1 " (click)="onCharactLessClick('constitution')"  class="charactButton"><</button></span>
+                    <span><button *ngIf="characterForm.controls.constitution.value > 1 " (click)="onCharactLessClick('constitution')"  class="charactButton"><</button></span>
 
                     <input formControlName="constitution" type="number" readonly>
 
-                    <span><button *ngIf="character.controls.constitution.value < 20 " (click)="onCharactPlusClick('constitution')"  class="charactButton">></button></span>
+                    <span><button *ngIf="characterForm.controls.constitution.value < 20 " (click)="onCharactPlusClick('constitution')"  class="charactButton">></button></span>
 
                 </span>
                 
@@ -95,11 +95,11 @@
 
                 <span class="characteristicValue">
 
-                    <span><button *ngIf="character.controls.intelligence.value > 1 " (click)="onCharactLessClick('intelligence')"  class="charactButton"><</button></span>
+                    <span><button *ngIf="characterForm.controls.intelligence.value > 1 " (click)="onCharactLessClick('intelligence')"  class="charactButton"><</button></span>
 
                     <input formControlName="intelligence" type="number" readonly>
 
-                    <span><button *ngIf="character.controls.intelligence.value < 20 " (click)="onCharactPlusClick('intelligence')"  class="charactButton">></button></span>
+                    <span><button *ngIf="characterForm.controls.intelligence.value < 20 " (click)="onCharactPlusClick('intelligence')"  class="charactButton">></button></span>
 
                 </span>
                 
@@ -115,11 +115,11 @@
                 Wis.
                 <span class="characteristicValue">
 
-                    <span><button *ngIf="character.controls.wisdom.value > 1 " (click)="onCharactLessClick('wisdom')"  class="charactButton"><</button></span>
+                    <span><button *ngIf="characterForm.controls.wisdom.value > 1 " (click)="onCharactLessClick('wisdom')"  class="charactButton"><</button></span>
 
                     <input formControlName="wisdom" type="number" readonly>
 
-                    <span><button *ngIf="character.controls.wisdom.value < 20 " (click)="onCharactPlusClick('wisdom')"  class="charactButton">></button></span>
+                    <span><button *ngIf="characterForm.controls.wisdom.value < 20 " (click)="onCharactPlusClick('wisdom')"  class="charactButton">></button></span>
 
                 </span>
                 
@@ -135,11 +135,11 @@
                 Cha.
                 <span class="characteristicValue">
 
-                    <span><button *ngIf="character.controls.charisma.value > 1 " (click)="onCharactLessClick('charisma')"  class="charactButton"><</button></span>
+                    <span><button *ngIf="characterForm.controls.charisma.value > 1 " (click)="onCharactLessClick('charisma')"  class="charactButton"><</button></span>
 
                     <input formControlName="charisma" type="number" readonly>
 
-                    <span><button *ngIf="character.controls.charisma.value < 20 " (click)="onCharactPlusClick('charisma')"  class="charactButton">></button></span>
+                    <span><button *ngIf="characterForm.controls.charisma.value < 20 " (click)="onCharactPlusClick('charisma')"  class="charactButton">></button></span>
 
                 </span>
 
@@ -169,7 +169,21 @@
            
             <div class="infos" [ngClass]="{closed:!displayInfos}">
     
-                
+                <input type="number" value="age">
+
+                <select value="gender">
+
+                    <option *ngFor="let gender of genderEnumValues">{{gender}}</option>
+
+                </select>
+
+                <select value="alignment">
+
+                    <option *ngFor="let alignment of alignmentEnumValues">{{alignment}}</option>
+
+                </select>
+
+                <textarea [ngStyle]="{'resize':'none'}"></textarea>
         
             </div>
     
@@ -178,7 +192,7 @@
         <div class="expansionPanel">
             <div  (click)="displayRaces = !displayRaces" class="expansionPanelHeader">    
                 <h3>Choisir une race</h3>
-                <h3>{{character.controls.race.value}}</h3>
+                <h3>{{characterForm.controls.race.value}}</h3>
                 <span> {{displayRaces?"&uarr;":"&darr;"}}</span>
             </div>
            
@@ -199,15 +213,16 @@
     
             <div  (click)="displayClasses = !displayClasses" class="expansionPanelHeader">    
                 <h3>Choisir une classe</h3>
-                <h3>{{character.controls.class.value}}</h3>
+                <h3>{{characterForm.controls.class.value}}</h3>
                 <span> {{displayClasses?"&uarr;":"&darr;"}}</span>
             </div>
             <div class="classGrid" [ngClass]="{closed:!displayClasses}">
     
                 <label class="classLabel" *ngFor="let class of classes">
                     
-                   {{class.name}}
-                    <input (change)="setCurrentClass()" formControlName="class" type="radio" name="class" [value]="class.name  | lowercase | translate" checked>
+                   {{class.name | lowercase | translate}}
+
+                    <input (change)="setCurrentClass()" formControlName="class" type="radio" name="class" [value]="class.name" checked>
         
                 </label>
         
@@ -222,7 +237,7 @@
             </div>
            
             <div
-            [ngStyle]="{ 'grid-template-columns': 'repeat('+currentClass.subClasses.length+', 1fr)','grid-template-rows': 'repeat('+ ((character.controls.level.value/2) | ceilNumber) +', 1fr)'}"
+            [ngStyle]="{ 'grid-template-columns': 'repeat('+currentClass.subClasses.length+', 1fr)','grid-template-rows': 'repeat('+ ((characterForm.controls.level.value/2) | ceilNumber) +', 1fr)'}"
             class="specialization"
             [ngClass]="{closed:!displaySpecialization}"
             >
@@ -233,6 +248,28 @@
                     <p>{{capacity.description}}</p>
 
                 </div>
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displayStory = !displayStory" class="expansionPanelHeader">    
+                <h3>Story</h3>
+                <span> {{displayStory?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div
+            class="story"
+            [ngClass]="{closed:!displayStory}"
+            >
+                <label *ngFor="let story of stories">
+
+                    {{story.name}}
+                    <input  type="radio" name="story">
+
+
+                </label>
         
             </div>
     

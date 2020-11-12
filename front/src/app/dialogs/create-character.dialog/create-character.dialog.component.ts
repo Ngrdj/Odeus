@@ -2,15 +2,14 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Capacity } from 'src/app/models/capacity';
-import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
+import { AlignmentEnum } from 'src/app/models/enums/alignment.enum';
 import { ClassEnum } from 'src/app/models/enums/class.enum';
-import { Pj } from 'src/app/models/pj';
+import { GenderEnum } from 'src/app/models/enums/gender.enum';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
-import { SubClass } from 'src/app/models/subClass';
 import { CreateTeamDialog } from '../create-team.dialog/create-team.dialog.component';
 
 
@@ -31,7 +30,13 @@ export interface DialogData {
 })
 export class CreateCharacterComponent implements OnInit {
 
-  character:FormGroup;
+  characterForm:FormGroup;
+
+  genderEnum = GenderEnum;
+  genderEnumValues=Object.values(GenderEnum);
+
+  alignmentEnum = AlignmentEnum;
+  alignmentEnumValues = Object.values(AlignmentEnum);
 
   maxCharacteristicPoints:number = 27;
   characteristicPoints:number = 0;
@@ -63,13 +68,18 @@ export class CreateCharacterComponent implements OnInit {
   displayRaces:boolean=false;
   displayClasses:boolean=false;
   displaySpecialization:boolean=false;
+  displayStory:boolean=false;
+
+
+
 
   constructor(
     private formBuilder:FormBuilder,
     public dialogRef: MatDialogRef<CreateTeamDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
 
-    ) { }
+    ) {console.log(this.genderEnum) }
+
 
   ngOnInit(): void {
 
@@ -81,7 +91,7 @@ export class CreateCharacterComponent implements OnInit {
 
   generateForm(){
 
-    this.character = this.formBuilder.group({
+    this.characterForm = this.formBuilder.group({
 
       name:this.formBuilder.control("",Validators.required),
       class:this.formBuilder.control("WARRIOR",Validators.required),
@@ -120,7 +130,7 @@ export class CreateCharacterComponent implements OnInit {
   }
   onSubmitForm(){
 
-      console.log(this.character)
+      console.log(this.characterForm)
 
   }
   private getBase64(file) {
@@ -144,12 +154,12 @@ export class CreateCharacterComponent implements OnInit {
 
     const characteristicsValues = [
 
-      this.character.controls.strength.value,
-      this.character.controls.dexterity.value,
-      this.character.controls.constitution.value,
-      this.character.controls.intelligence.value,
-      this.character.controls.wisdom.value,
-      this.character.controls.charisma.value,
+      this.characterForm.controls.strength.value,
+      this.characterForm.controls.dexterity.value,
+      this.characterForm.controls.constitution.value,
+      this.characterForm.controls.intelligence.value,
+      this.characterForm.controls.wisdom.value,
+      this.characterForm.controls.charisma.value,
 
     ]
 
@@ -159,16 +169,16 @@ export class CreateCharacterComponent implements OnInit {
 
       if(confirmChange){
 
-        this.character.controls.level.setValue(this.character.controls.level.value-1)
+        this.characterForm.controls.level.setValue(this.characterForm.controls.level.value-1)
 
         const charactControls = [
 
-          this.character.controls.strength,
-          this.character.controls.dexterity,
-          this.character.controls.constitution,
-          this.character.controls.intelligence,
-          this.character.controls.wisdom,
-          this.character.controls.charisma
+          this.characterForm.controls.strength,
+          this.characterForm.controls.dexterity,
+          this.characterForm.controls.constitution,
+          this.characterForm.controls.intelligence,
+          this.characterForm.controls.wisdom,
+          this.characterForm.controls.charisma
 
         ]
 
@@ -182,7 +192,7 @@ export class CreateCharacterComponent implements OnInit {
         
       }
 
-    }else(this.character.controls.level.setValue(this.character.controls.level.value-1))
+    }else(this.characterForm.controls.level.setValue(this.characterForm.controls.level.value-1))
     this.setCurrentCapacities()
 
 
@@ -190,25 +200,25 @@ export class CreateCharacterComponent implements OnInit {
   onLevelPlusClick(){
 
     const addPointLevel=[4,8,12,16,20]
-    if(addPointLevel.includes(this.character.controls.level.value+1)){
+    if(addPointLevel.includes(this.characterForm.controls.level.value+1)){
 
       this.characteristicPoints+=1
 
     }
-    this.character.controls.level.setValue(this.character.controls.level.value+1)
+    this.characterForm.controls.level.setValue(this.characterForm.controls.level.value+1)
     this.setCurrentCapacities()
 
   }
 
   onCharactLessClick(characteristic:string){
 
-    this.character.controls[characteristic].setValue(this.character.controls[characteristic].value-1)
+    this.characterForm.controls[characteristic].setValue(this.characterForm.controls[characteristic].value-1)
     this.refreshCharactBonus(characteristic)
 
   }
   onCharactPlusClick(characteristic:string){
 
-    this.character.controls[characteristic].setValue(this.character.controls[characteristic].value+1)
+    this.characterForm.controls[characteristic].setValue(this.characterForm.controls[characteristic].value+1)
     this.refreshCharactBonus(characteristic)
 
   }
@@ -216,24 +226,24 @@ export class CreateCharacterComponent implements OnInit {
 
     switch(characteristic){
 
-      case 'strength': this.strengthBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
-      case 'dexterity': this.dexterityBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
-      case 'intelligence': this.intelligenceBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
-      case 'constitution': this.constitutionBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
-      case 'wisdom': this.wisdomBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
-      case 'charisma': this.charismaBonus = this.getCharactBonus(this.character.controls[characteristic].value);break;
+      case 'strength': this.strengthBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
+      case 'dexterity': this.dexterityBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
+      case 'intelligence': this.intelligenceBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
+      case 'constitution': this.constitutionBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
+      case 'wisdom': this.wisdomBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
+      case 'charisma': this.charismaBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
 
     }
 
   }
   private refreshAllCharactBonus(){
 
-      this.strengthBonus = this.getCharactBonus(this.character.controls['strength'].value)
-      this.dexterityBonus = this.getCharactBonus(this.character.controls['dexterity'].value)
-      this.intelligenceBonus = this.getCharactBonus(this.character.controls['intelligence'].value)
-      this.constitutionBonus = this.getCharactBonus(this.character.controls['constitution'].value)
-      this.wisdomBonus = this.getCharactBonus(this.character.controls['wisdom'].value)
-      this.charismaBonus = this.getCharactBonus(this.character.controls['charisma'].value);
+      this.strengthBonus = this.getCharactBonus(this.characterForm.controls['strength'].value)
+      this.dexterityBonus = this.getCharactBonus(this.characterForm.controls['dexterity'].value)
+      this.intelligenceBonus = this.getCharactBonus(this.characterForm.controls['intelligence'].value)
+      this.constitutionBonus = this.getCharactBonus(this.characterForm.controls['constitution'].value)
+      this.wisdomBonus = this.getCharactBonus(this.characterForm.controls['wisdom'].value)
+      this.charismaBonus = this.getCharactBonus(this.characterForm.controls['charisma'].value);
 
 
   }
@@ -244,7 +254,8 @@ export class CreateCharacterComponent implements OnInit {
   }
   setCurrentClass(){
 
-    this.currentClass = this.classes.find(charClass => charClass.name === this.character.controls.class.value)
+    this.currentClass = this.classes.find(charClass => charClass.name === this.characterForm.controls.class.value)
+
     this.setCurrentCapacities()
 
   }
@@ -254,7 +265,7 @@ export class CreateCharacterComponent implements OnInit {
     const capacities = []
 
     this.currentClass
-    .subClasses.forEach(subClass => capacities.push(...subClass.capacities.filter(capacity => capacity.level <= this.character.controls.level.value)))
+    .subClasses.forEach(subClass => capacities.push(...subClass.capacities.filter(capacity => capacity.level <= this.characterForm.controls.level.value)))
     this.currentCapacities = capacities
     console.log(this.currentCapacities)
 
