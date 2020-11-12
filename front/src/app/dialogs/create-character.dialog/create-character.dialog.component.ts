@@ -7,6 +7,8 @@ import { Class } from 'src/app/models/class';
 import { AlignmentEnum } from 'src/app/models/enums/alignment.enum';
 import { ClassEnum } from 'src/app/models/enums/class.enum';
 import { GenderEnum } from 'src/app/models/enums/gender.enum';
+import { RaceEnum } from 'src/app/models/enums/race.enum';
+import { StoryEnum } from 'src/app/models/enums/story.enum';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -94,14 +96,14 @@ export class CreateCharacterComponent implements OnInit {
     this.characterForm = this.formBuilder.group({
 
       name:this.formBuilder.control("",Validators.required),
-      class:this.formBuilder.control("WARRIOR",Validators.required),
+      class:this.formBuilder.control(ClassEnum.WARRIOR,Validators.required),
       subClass:this.formBuilder.array([
         {
           name:this.formBuilder.control("",Validators.required),
           value:this.formBuilder.control(0,Validators.required), 
         }
       ]),
-      race:this.formBuilder.control("HUMAN",Validators.required),
+      race:this.formBuilder.control(RaceEnum.HUMAN,Validators.required),
       level:this.formBuilder.control(1,Validators.required),
       strength:this.formBuilder.control(10,Validators.required),
       dexterity:this.formBuilder.control(10,Validators.required),
@@ -109,12 +111,12 @@ export class CreateCharacterComponent implements OnInit {
       intelligence:this.formBuilder.control(10,Validators.required),
       wisdom:this.formBuilder.control(10,Validators.required),
       charisma:this.formBuilder.control(10,Validators.required),
-      resume:this.formBuilder.control("",Validators.required),
+      resume:this.formBuilder.control("Description du personnage ",Validators.required),
       portrait:this.formBuilder.control(""),
-      alignment:this.formBuilder.control(""),
-      story:this.formBuilder.control("",Validators.required),
-      gender:this.formBuilder.control("",Validators.required),
-      age:this.formBuilder.control(0,Validators.required),
+      alignment:this.formBuilder.control(AlignmentEnum.NEUTRAL),
+      story:this.formBuilder.control(StoryEnum.HERO,Validators.required),
+      gender:this.formBuilder.control(GenderEnum.OTHERS,Validators.required),
+      age:this.formBuilder.control(18,Validators.required),
 
     })
 
@@ -140,7 +142,7 @@ export class CreateCharacterComponent implements OnInit {
       })
       
     });
-      console.log(values)
+      console.log(this.characterForm.controls)
 
   }
   private getBase64(file) {

@@ -217,26 +217,15 @@ h3{
 
 .closed{
 
-   // display:none;
-    animation-name: close;
-animation-fill-mode: forwards;
-animation-duration:2s ;
+    display:none;
 }
 .positive *{
 
-    color:green
+    color:green;
 
 }
 .negative *{
 
-    color:red
-
-}
-
-@keyframes close {
-
-    0% {height: 100%;}
-    99% {height: 0px;}
-    100%{display: none;}
+    color:red;
 
 }
