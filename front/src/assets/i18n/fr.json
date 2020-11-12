@@ -102,21 +102,21 @@
 
 
     "alignment":"Alignement",
-    "LG":"Bon Loyal",
-    "NG":"Bon Neutre",
-    "CG":"Bon Chaotique",
-    "LN":"Neutre Loyal",
-    "N":"Neutre",
-    "CN":"Neutre Chaotique",
-    "LE":"Mauvais Loyal",
-    "NE":"Mauvais Neutre",
-    "CE":"Mauvais Chaotique",
+    "lg":"Bon Loyal",
+    "ng":"Bon Neutre",
+    "cg":"Bon Chaotique",
+    "ln":"Neutre Loyal",
+    "n":"Neutre",
+    "cn":"Neutre Chaotique",
+    "le":"Mauvais Loyal",
+    "ne":"Mauvais Neutre",
+    "ce":"Mauvais Chaotique",
 
 
     "genres":"genres",
-    "M":"Masculin",
-    "F":"Feminin",
-    "O":"Autre"
+    "m":"Masculin",
+    "f":"Feminin",
+    "o":"Autre"
 
 
 
