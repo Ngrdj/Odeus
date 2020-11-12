@@ -42,10 +42,11 @@ import { SoundPanelComponent } from './components/sound-panel/sound-panel.compon
 import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component'
 import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fontSize';
 import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader/lib/http-loader';
-import { TranslateLoader } from '@ngx-translate/core/lib/translate.loader';
-import { TranslateModule } from '@ngx-translate/core';
-export function CreateTranslateLoader(http: HttpClient) {
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
+
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
 }
 
@@ -90,12 +91,13 @@ export function CreateTranslateLoader(http: HttpClient) {
     MatDialogModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    
     TranslateModule.forRoot({
       defaultLanguage:'fr',
       loader: {
         provide: TranslateLoader,
-        useFactory: CreateTranslateLoader,
-        deps: [HttpClient]
+        useFactory: createTranslateLoader,
+      deps: [HttpClient]
       }
     })
 
