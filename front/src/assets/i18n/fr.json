@@ -7,6 +7,7 @@
     "wisdom":"sagesse",
     "charisma":"charisme",
 
+
     "skills":"compétences",
     "athletics":"athlétisme",
     "acrobatics":"acrobaties",
@@ -27,6 +28,7 @@
     "performance":"représentation",
     "persuasion":"persuasion",
 
+
     "story":"historique",
     "acolyte":"acolyte",
     "craftsman":"artisan de guilde",
@@ -46,7 +48,60 @@
     "mercenary":"mercenaire vétéran",
     "captive":"captif",
     "idiot":"idiot du village",
-    "travele":"voyageur"
+    "travele":"voyageur",
+
+
+    "races":"races",
+    "aarakocra":"aarakocra",
+    "protectoraasimar":"aasimar protecteur",
+    "scourgeaasimar":"aasimar fléau",
+    "fallenaasimar":"aasimar déchu",
+    "changeling":"changelin",
+    "dragonborn":"drakéide",
+    "drow":"elfe noir",
+    "mountaindwarf":"nain des montagnes",
+    "kenku":"kenku",
+    "goblin":"gobelin",
+    "hilldwarf":"nain des collines",
+    "firbolg":"firbolg",
+    "airgenasi":"génasi de l'air",
+    "watergenasi":"génasi de l'eau",
+    "firegenasi":"génasi du feu",
+    "earthgenasi":"génasi de la terre",
+    "forestgnome":"gnome des forêts",
+    "rockgnome":"gnome des roches",
+    "goliath":"goliath",
+    "half-elf":"demi-elfe",
+    "half-orc":"demi-orque",
+    "lightfoothalfling":"halfelin pied-léger",
+    "stouthalfling":"halfelin robuste",
+    "ghostwisehalfling":"halfelin sagespectre",
+    "high-elf":"haut-elfe",
+    "human":"humain ",
+    "lizardfolk":"homme-lézard",
+    "tabaxi":"tabaxi",
+    "tiefling":"tieffelin",
+    "warforged":"forgelier",
+    "wood-elf":"elfe des bois",
+
+
+    "classes":"classes",
+    "artificer":"artificier",
+    "barbarian":"barbare",
+    "bard":"barde",
+    "cleric":"clerc",
+    "druid":"druide",
+    "fighter":"guerrier",
+    "monk":"moine",
+    "paladin":"paladin",
+    "ranger":"rôdeur",
+    "rogue":"roublard",
+    "sorcerer":"ensorceleur",
+    "warlock":"sorcier",
+    "wizard":"magicien"
+
+
+
 
 
 
