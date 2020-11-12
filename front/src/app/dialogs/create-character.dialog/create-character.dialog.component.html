@@ -173,13 +173,13 @@
 
                 <select value="gender">
 
-                    <option *ngFor="let gender of genderEnumValues">{{gender}}</option>
+                    <option *ngFor="let gender of genderEnumValues">{{gender | lowercase | translate}}</option>
 
                 </select>
 
                 <select value="alignment">
 
-                    <option *ngFor="let alignment of alignmentEnumValues">{{alignment}}</option>
+                    <option *ngFor="let alignment of alignmentEnumValues">{{alignment | lowercase | translate}}</option>
 
                 </select>
 
@@ -200,8 +200,8 @@
     
                 <label class="raceLabel" *ngFor="let race of races">
                     
-                   {{race.name}}
-                    <input formControlName="race" type="radio" name="race" [value]="race.name | lowercase | translate" checked>
+                   {{race.name | lowercase | translate}}
+                    <input formControlName="race" type="radio" name="race" [value]="race.name" checked>
         
                 </label>
         
@@ -265,7 +265,7 @@
             >
                 <label *ngFor="let story of stories">
 
-                    {{story.name}}
+                    {{story.name | lowercase | translate}}
                     <input  type="radio" name="story">
 
 
