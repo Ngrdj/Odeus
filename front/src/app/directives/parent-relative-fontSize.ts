@@ -57,7 +57,13 @@ private elementStyle;
 
    if(this.ratio){
      
-    this.elementStyle.fontSize = (parentHeight*this.ratio)/100 + "px";
+
+    const elmtSize = `calc(${parentWidth}px/${this.element.textContent.length})`
+
+    this.elementStyle.fontSize = elmtSize ;
+    console.log(elmtSize)
+
+   // this.elementStyle.fontSize = (parentHeight*this.ratio)/100 + "px";
     if(this.elementStyle.fontSize >= this.maxSize){this.elementStyle.fontSize = this.maxSize}
     if(this.elementStyle.fontSize <= this.minSize){this.elementStyle.fontSize = this.minSize}
 

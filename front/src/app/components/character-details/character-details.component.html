@@ -9,7 +9,7 @@
         <li *ngFor="let characteristic of characteristics, let i = index">
             <label class="stat">
 
-                <span class="statName" parentRelativeFontSize="80" parent=".stat">{{characteristic.name}}</span>
+                <span class="statName" parentRelativeFontSize="60" parent=".stat">{{characteristic.name}}</span>
                 <input class="statInput" parentRelativeFontSize="80" parent=".stat" readonly [value]="character?.characteristics?character.characteristics[i].value:0">
                 <span parentRelativeFontSize="80" parent=".stat" [ngClass]="{'statBonus':character?.characteristics[i].bonus > 0, 'statMalus':character?.characteristics[i].bonus < 0}" class="statBonus">{{character?.characteristics?character.characteristics[i].bonus:0}}</span>
 
