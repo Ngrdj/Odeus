@@ -98,7 +98,25 @@
     "rogue":"roublard",
     "sorcerer":"ensorceleur",
     "warlock":"sorcier",
-    "wizard":"magicien"
+    "wizard":"magicien",
+
+
+    "alignment":"Alignement",
+    "LG":"Bon Loyal",
+    "NG":"Bon Neutre",
+    "CG":"Bon Chaotique",
+    "LN":"Neutre Loyal",
+    "N":"Neutre",
+    "CN":"Neutre Chaotique",
+    "LE":"Mauvais Loyal",
+    "NE":"Mauvais Neutre",
+    "CE":"Mauvais Chaotique",
+
+
+    "genres":"genres",
+    "M":"Masculin",
+    "F":"Feminin",
+    "O":"Autre"
 
 
 
