@@ -130,7 +130,17 @@ export class CreateCharacterComponent implements OnInit {
   }
   onSubmitForm(){
 
-      console.log(this.characterForm)
+    const values = []
+
+    Object.keys(this.characterForm.controls).forEach(control => {
+
+      values.push({
+        name:control,
+        value:this.characterForm.controls[control].value
+      })
+      
+    });
+      console.log(values)
 
   }
   private getBase64(file) {

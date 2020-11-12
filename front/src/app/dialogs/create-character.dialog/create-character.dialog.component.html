@@ -169,21 +169,21 @@
            
             <div class="infos" [ngClass]="{closed:!displayInfos}">
     
-                <input type="number" value="age">
+                <input formControlName="age" type="number" value="age">
 
-                <select value="gender">
+                <select formControlName="gender" >
 
-                    <option *ngFor="let gender of genderEnumValues">{{gender}}</option>
-
-                </select>
-
-                <select value="alignment">
-
-                    <option *ngFor="let alignment of alignmentEnumValues">{{alignment}}</option>
+                    <option [value]="gender" *ngFor="let gender of genderEnumValues">{{gender}}</option>
 
                 </select>
 
-                <textarea [ngStyle]="{'resize':'none'}"></textarea>
+                <select formControlName="alignment" value="alignment">
+
+                    <option [value]="alignment"  *ngFor="let alignment of alignmentEnumValues">{{alignment}}</option>
+
+                </select>
+
+                <textarea formControlName="resume" [ngStyle]="{'resize':'none'}"></textarea>
         
             </div>
     
@@ -203,6 +203,28 @@
                    {{race.name}}
                     <input formControlName="race" type="radio" name="race" [value]="race.name | lowercase | translate" checked>
         
+                </label>
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displayStory = !displayStory" class="expansionPanelHeader">    
+                <h3>Story</h3>
+                <span> {{displayStory?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div
+            class="story"
+            [ngClass]="{closed:!displayStory}"
+            >
+                <label *ngFor="let story of stories">
+
+                    {{story.name}}
+                    <input formControlName="story" [value]="story.name" type="radio" name="story">
+
+
                 </label>
         
             </div>
@@ -253,27 +275,6 @@
     
         </div>
 
-        <div class="expansionPanel">
-            <div  (click)="displayStory = !displayStory" class="expansionPanelHeader">    
-                <h3>Story</h3>
-                <span> {{displayStory?"&uarr;":"&darr;"}}</span>
-            </div>
-           
-            <div
-            class="story"
-            [ngClass]="{closed:!displayStory}"
-            >
-                <label *ngFor="let story of stories">
-
-                    {{story.name}}
-                    <input  type="radio" name="story">
-
-
-                </label>
-        
-            </div>
-    
-        </div>
 
     </div>
 

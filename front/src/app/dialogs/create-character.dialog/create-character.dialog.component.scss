@@ -217,8 +217,10 @@ h3{
 
 .closed{
 
-    display:none;
-
+   // display:none;
+    animation-name: close;
+animation-fill-mode: forwards;
+animation-duration:2s ;
 }
 .positive *{
 
@@ -228,5 +230,13 @@ h3{
 .negative *{
 
     color:red
+
+}
+
+@keyframes close {
+
+    0% {height: 100%;}
+    99% {height: 0px;}
+    100%{display: none;}
 
 }
