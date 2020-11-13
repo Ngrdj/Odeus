@@ -10,7 +10,7 @@ export class FtFighterComponent implements OnInit {
 
 @Input() fighter:Fighter;
 @Input() orientation:string;
-@Input() sortfighterList:Fighter[];
+
 @Output() removeFighter:EventEmitter<any> = new EventEmitter();
 
 

@@ -8,7 +8,7 @@
 
                 <button class="ft-headerButton" (click)="setAllInitiatives()"><fa-icon [icon]="faRunning"></fa-icon></button>
                 <button class="ft-headerButton" (click)="sortCharacterByInitClick()"><fa-icon [icon]="faSort"></fa-icon></button>
-                <button class="ft-headerButton" (click)="roundCountClick($event)"><fa-icon [icon]="faPlay"></fa-icon></button>
+                <button class="ft-headerButton" (click)="roundCountClick()"><fa-icon [icon]="faPlay"></fa-icon></button>
                 <input type="number" [value]="round" >
 
 
@@ -16,10 +16,10 @@
             <div class="ft-main">
 
                 <div class="allyContainer">
-                    <ft-fighter (removeFighter)='onRemoveFighter(fighter)' [fighter]="fighter" *ngFor="let fighter of allyList"></ft-fighter>
+                    <ft-fighter [ngClass]="{'selected': selectedFighter===fighter}" (removeFighter)='onRemoveFighter(fighter)' [fighter]="fighter" *ngFor="let fighter of allyList"></ft-fighter>
                 </div>
                 <div class="enemyContainer">
-                    <ft-fighter  (removeFighter)='onRemoveFighter(fighter)' orientation="reverted" [fighter]="fighter" *ngFor="let fighter of enemyList"></ft-fighter>
+                    <ft-fighter [ngClass]="{'selected': selectedFighter===fighter}" (removeFighter)='onRemoveFighter(fighter)' orientation="reverted" [fighter]="fighter" *ngFor="let fighter of enemyList"></ft-fighter>
                 </div>
 
             </div>

@@ -96,10 +96,20 @@ export class FightTrackerComponent implements OnInit, OnChanges {
     return Math.round(Math.random() * (max - min) + min) ; 
   }  
 
-  roundCountClick(event){
+  roundCountClick(){
 
-    let sortfighterList=this.fighterList.sort((a:Fighter,b:Fighter)=>b.initiative-a.initiative)
-    this.roundCount.emit(sortfighterList);
-    return this.round+=1
+    let sortFighterList=this.fighterList.sort((a:Fighter,b:Fighter)=>b.initiative-a.initiative)
+
+    if(!this.selectedFighter){
+    this.selectedFighter=sortFighterList[0];
+    }else{
+    this.selectedFighter=sortFighterList[sortFighterList.indexOf(this.selectedFighter)+1]
+    }
+
+      
+    if(this.selectedFighter===sortFighterList[sortFighterList.length]){
+      this.round+=1;
+      this.selectedFighter=sortFighterList[0];
+    }
   }
 }
