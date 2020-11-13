@@ -252,6 +252,19 @@ export class VirtualTableComponent implements OnInit {
 
     }
 
+    watchCharacterDetails(character:Character){
+
+      //if(character instanceof Pj){...}else{'open bestiary'}
+      this.selectedCharacter = character
+
+      if(!this.displayCharacterDetails){
+
+        this.displayCharacterDetails = !this.displayCharacterDetails;
+
+      }
+
+    }
+
     loadPlaylist(){
       this.googleService.loadPlaylist().subscribe((value)=>console.log(value))
     }

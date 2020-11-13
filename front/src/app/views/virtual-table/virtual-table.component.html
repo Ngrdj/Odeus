@@ -55,14 +55,19 @@
     <my-characters-panel
       controlPanel
       (closePanel)="displayMyCharacters = false"
+      (characterEyeClick)="watchCharacterDetails($event)"
       [visible]="displayMyCharacters"
       [characteristics]="characteristics"
       [classes]="classes"
       [races]="races"
       [skills]="skills"
       [stories]="stories"
+      [userCharacters]="userCharacters"
       panelTitle="Mes personnages"
       [resizable]="true"
+
+      class="mcp"
+      parentRelativeFontSize="100" parent=".mcp"
       >
     </my-characters-panel>
 

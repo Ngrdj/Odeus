@@ -1,3 +1,15 @@
-<p>my-characters-panel works!</p>
+<h2>Personnages</h2>
+<div class="characterList">
 
-<button (click)="onNewCharacterButtonClick()">Nouveau personnage</button>
+    <character-list-item 
+    *ngFor="let character of userCharacters"
+    [character]="character"
+    (eyeClick)="onCharacterEyeClick(character)"
+    ></character-list-item>
+
+</div>
+<div class="footer">
+
+    <button (click)="onNewCharacterButtonClick()">Nouveau personnage</button>
+
+</div>

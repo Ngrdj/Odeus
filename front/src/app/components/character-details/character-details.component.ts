@@ -2,8 +2,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
-import { Pj } from 'src/app/models/pj';
-import { Pnj } from 'src/app/models/pnj';
+
 
 @Component({
   selector: 'character-details',
@@ -20,7 +19,6 @@ export class CharacterDetailsComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    
   }
 
   ngOnChanges(){

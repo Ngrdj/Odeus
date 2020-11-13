@@ -44,6 +44,8 @@ import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fo
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { CharacterCommandsDialog } from './dialogs/character-commands.dialog/character-commands.dialog.component';
+import { CharacterListItemComponent } from './components/character-list-item/character-list-item.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -79,6 +81,8 @@ export function createTranslateLoader(http: HttpClient) {
     CeilNumberPipe,
     SoundPanelComponent,
     CreateCategoryDialog,
+    CharacterCommandsDialog,
+    CharacterListItemComponent,
 
     
   ],

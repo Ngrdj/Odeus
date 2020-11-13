@@ -1,0 +1,17 @@
+:host{
+
+    background-color: white;
+    color: black;
+    display: grid;
+    align-items: center;
+    grid-template-rows: 100%;
+    grid-template-columns: 10% auto 10%;
+    justify-items: center;
+    cursor: pointer;
+
+}
+:host:hover{
+
+    filter: invert(100%);
+
+}

@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCharacterComponent } from 'src/app/dialogs/create-character.dialog/create-character.dialog.component';
+import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
+import { Pj } from 'src/app/models/pj';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -14,11 +16,15 @@ import { Story } from 'src/app/models/story';
 })
 export class MyCharactersPanelComponent implements OnInit {
 
- @Input() characteristics:Characteristic[];
- @Input() classes:Class[];
- @Input() races:Race[];
- @Input() skills:Skill[];
- @Input() stories:Story[];
+  @Input() userCharacters:Pj[];
+
+  @Input() characteristics:Characteristic[];
+  @Input() classes:Class[];
+  @Input() races:Race[];
+  @Input() skills:Skill[];
+  @Input() stories:Story[];
+
+  @Output() characterEyeClick:EventEmitter<Character> = new EventEmitter()
 
 
   constructor(private dialog: MatDialog) { }
@@ -41,6 +47,11 @@ export class MyCharactersPanelComponent implements OnInit {
       }
 
     })
+
+  }
+  onCharacterEyeClick(character:Character){
+
+    this.characterEyeClick.emit(character)
 
   }
 

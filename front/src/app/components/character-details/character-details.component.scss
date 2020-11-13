@@ -53,6 +53,7 @@
     align-items: center;
     gap: 10px;
     grid-template-columns: 50% 20% auto;
+    grid-template-rows: 100%;
     justify-items: center;
     height: 100%;
 }
@@ -67,7 +68,9 @@
 }
 .statName{
 
-    justify-self:flex-end;
+    width: 100%;
+    height: 100%;
+    text-align: right;
 
 }
 .statBonus{
