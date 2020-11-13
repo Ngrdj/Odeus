@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { faRunning } from '@fortawesome/free-solid-svg-icons';
+import { faRunning, faSort, faPlay  } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorEnum } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
 
@@ -15,13 +15,19 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   selectedFighter:Fighter;
   enemyList:Fighter[]=[];
   allyList:Fighter[]=[];
+  public round:number=0;
 
   @Output() removeFighter:EventEmitter<any> = new EventEmitter();
+  @Output() roundCount:EventEmitter<any> = new EventEmitter();
 
 
   faRunning=faRunning;
+  faSort=faSort;
+  faPlay=faPlay;
 
-  constructor() { }
+  constructor() { 
+    this.round=0
+  }
 
   ngOnInit(): void {
 
@@ -79,7 +85,21 @@ export class FightTrackerComponent implements OnInit, OnChanges {
     })
 
   }
+
+  sortCharacterByInitClick(){
+
+    this.enemyList.sort((a:Fighter,b:Fighter)=>b.initiative-a.initiative);
+    this.allyList.sort((a:Fighter,b:Fighter)=>b.initiative-a.initiative);
+  }
+
   randomNumber(min, max) {  
     return Math.round(Math.random() * (max - min) + min) ; 
   }  
+
+  roundCountClick(event){
+
+    let sortfighterList=this.fighterList.sort((a:Fighter,b:Fighter)=>b.initiative-a.initiative)
+    this.roundCount.emit(sortfighterList);
+    return this.round+=1
+  }
 }
