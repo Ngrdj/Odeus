@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Capacity } from 'src/app/models/capacity';
+import { CharacterCharacteristic } from 'src/app/models/characterCharacteristic';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
 import { AlignmentEnum } from 'src/app/models/enums/alignment.enum';
@@ -9,6 +10,7 @@ import { ClassEnum } from 'src/app/models/enums/class.enum';
 import { GenderEnum } from 'src/app/models/enums/gender.enum';
 import { RaceEnum } from 'src/app/models/enums/race.enum';
 import { StoryEnum } from 'src/app/models/enums/story.enum';
+import { Pj } from 'src/app/models/pj';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
@@ -71,9 +73,6 @@ export class CreateCharacterComponent implements OnInit {
   displayClasses:boolean=false;
   displaySpecialization:boolean=false;
   displayStory:boolean=false;
-
-
-
 
   constructor(
     private formBuilder:FormBuilder,
@@ -142,7 +141,19 @@ export class CreateCharacterComponent implements OnInit {
       })
       
     });
-      console.log(this.characterForm.controls)
+      console.log(values)
+
+   // const charCharact = this.characteristics.forEach(char => new CharacterCharacteristic())
+
+
+    /*const newPj = new Pj(
+      0,
+      this.characterForm.controls.name,
+      "",
+      this.characterForm.controls.race,
+      this.characterForm.controls.level,
+      
+      ) */
 
   }
   private getBase64(file) {

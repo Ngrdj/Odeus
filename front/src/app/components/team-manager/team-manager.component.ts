@@ -14,7 +14,7 @@ import { Team } from 'src/app/models/team';
 export class TeamManagerComponent implements OnInit {
 
   @Input() characters:Character[]
-  @Input() heroes:Team;
+  @Input() heroes:Team = new Team("Heroes",[]);
   @Input() teams:Team[];
   @Input() pnjList:Pnj[];
 
@@ -29,6 +29,7 @@ export class TeamManagerComponent implements OnInit {
 
 
   constructor(private dialog: MatDialog) { }
+
 
   ngOnInit(): void {
     this.selectedTeam = this.heroes
@@ -72,6 +73,7 @@ export class TeamManagerComponent implements OnInit {
       if(datas){
 
         this.teams.push(datas)
+        this.changeSelectedTeam(this.teams.length-1)
 
       }
 
@@ -99,6 +101,36 @@ export class TeamManagerComponent implements OnInit {
   onAddTeamToEnemies(){
 
     this.selectedTeam.members.forEach(member => this.addCharacterToEnemies.emit(member))
+
+  }
+  onDeleteTeam(){
+
+    const confirmDelete = confirm(`supprimer l'équipe \"${this.selectedTeam.name}\" ?`)
+
+    if(confirmDelete){
+
+      this.teams = this.teams.filter(team => team != this.selectedTeam)
+      this.changeSelectedTeam(this.teams.length>0?this.teams.length-1:null)
+    }
+
+  }
+
+  changeSelectedTeam(index?:number){
+
+
+
+    if(index >= 0){
+
+      this.selectedTeam = this.teams[index]
+      this.selectedTag = index+1
+
+    }else{
+      
+      this.selectedTeam = this.heroes
+      this.selectedTag = 0
+
+    }
+
 
   }
 

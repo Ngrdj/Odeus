@@ -92,6 +92,9 @@ export class VirtualTableComponent implements OnInit {
     }
 
     //this.loadPlaylist()
+    
+    this.heroes = new Team("Heroes",[])
+
 
   }
 
@@ -141,13 +144,6 @@ export class VirtualTableComponent implements OnInit {
       pjTeam.push(character);
       
     })
-    this.heroes=new Team(
-
-      'heroes',
-      pjTeam,
-
-    )
-
   }
 
   onCharacterSelected(character:Character){

@@ -47,6 +47,7 @@
 
             <button (click)="onAddTeamToAllies()" formButton>Ajouter l'équipe aux alliés</button>
             <button (click)="onAddTeamToEnemies()" formButton>Ajouter l'équipe aux ennemis</button>
+            <button *ngIf="selectedTeam != heroes" (click)="onDeleteTeam()" formButton>Supprimer cette équipe</button>
 
 
         </div>
