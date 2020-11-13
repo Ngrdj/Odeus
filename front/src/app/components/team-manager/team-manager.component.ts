@@ -110,7 +110,7 @@ export class TeamManagerComponent implements OnInit {
     if(confirmDelete){
 
       this.teams = this.teams.filter(team => team != this.selectedTeam)
-      this.changeSelectedTeam(this.teams.length>0?this.teams.length-1:null)
+      this.changeSelectedTeam(this.teams.length>0?this.teams.length-1:-1)
     }
 
   }

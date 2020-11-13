@@ -25,132 +25,32 @@
         
         <div class="characteristicsContainer">
 
+
             <p class="pointsInfo">Points restant : <span><input [value]="characteristicPoints" readonly> / {{maxCharacteristicPoints}}</span></p>
 
-            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
+            <label *ngFor="let characteristic of getCharactAsArray() ; let i = index"  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
-               Str.
-
+                {{characteristic.controls.name.value}}
                 <span class="characteristicValue">
+ 
+                    <span><button  *ngIf="characteristic.controls.value.value > 1 " (click)="onCharactLessClick(i)"  class="levelButton"><</button></span>
 
-                    <span><button  *ngIf="characterForm.controls.strength.value > 1 " (click)="onCharactLessClick('strength')"  class="levelButton"><</button></span>
+                    <input [formControl]="characteristic.controls.value" type="number" readonly>
 
-                    <input formControlName="strength" type="number" readonly>
-
-                    <span><button *ngIf="characterForm.controls.strength.value < 20 " (click)="onCharactPlusClick('strength')"  class="levelButton">></button></span>
-
-                </span>
-
-                <span [ngClass]="{'positive': strengthBonus > 0, 'negative': strengthBonus < 0}">
-
-                    (<span *ngIf="strengthBonus > 0">+</span><input [value]="strengthBonus" type="number"   readonly>)
+                    <span><button *ngIf="characteristic.controls.value.value < 20 " (click)="onCharactPlusClick(i)"  class="levelButton">></button></span>
 
                 </span>
-
-            </label>
-            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
-
-                Dex.
-                <span class="characteristicValue">
-
-                    <span><button *ngIf="characterForm.controls.dexterity.value > 1 " (click)="onCharactLessClick('dexterity')"  class="charactButton"><</button></span>
-
-                    <input formControlName="dexterity" type="number" readonly>
-
-                    <span><button *ngIf="characterForm.controls.dexterity.value < 20 " (click)="onCharactPlusClick('dexterity')"  class="charactButton">></button></span>
+                <span [ngClass]="{'positive': characteristic.controls.bonus.value > 0, 'negative': characteristic.controls.bonus.value < 0}">
+ 
+                    (<span *ngIf="characteristic.controls.bonus.value > 0">+</span>
+                    <input [formControl]="characteristic.controls.bonus" type="number"   readonly>)
 
                 </span>
+                 
+ 
+             </label>
 
-                <span [ngClass]="{'positive': dexterityBonus > 0, 'negative': dexterityBonus < 0}">
-
-                    (<span *ngIf="dexterityBonus > 0">+</span><input [value]="dexterityBonus" type="number"   readonly>)
-
-                </span>
-
-            </label>
-            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
-
-                Con.
-
-                <span class="characteristicValue">
-
-                    <span><button *ngIf="characterForm.controls.constitution.value > 1 " (click)="onCharactLessClick('constitution')"  class="charactButton"><</button></span>
-
-                    <input formControlName="constitution" type="number" readonly>
-
-                    <span><button *ngIf="characterForm.controls.constitution.value < 20 " (click)="onCharactPlusClick('constitution')"  class="charactButton">></button></span>
-
-                </span>
-                
-                <span [ngClass]="{'positive': constitutionBonus > 0, 'negative': constitutionBonus < 0}">
-
-                    (<span *ngIf="constitutionBonus > 0">+</span><input [value]="constitutionBonus" type="number"   readonly>)
-
-                </span>
-
-            </label>
-            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
-
-                Int.
-
-                <span class="characteristicValue">
-
-                    <span><button *ngIf="characterForm.controls.intelligence.value > 1 " (click)="onCharactLessClick('intelligence')"  class="charactButton"><</button></span>
-
-                    <input formControlName="intelligence" type="number" readonly>
-
-                    <span><button *ngIf="characterForm.controls.intelligence.value < 20 " (click)="onCharactPlusClick('intelligence')"  class="charactButton">></button></span>
-
-                </span>
-                
-                <span [ngClass]="{'positive': intelligenceBonus > 0, 'negative': intelligenceBonus < 0}">
-
-                    (<span *ngIf="intelligenceBonus > 0">+</span><input [value]="intelligenceBonus" type="number"   readonly>)
-
-                </span>
-
-            </label>
-            <label  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
-
-                Wis.
-                <span class="characteristicValue">
-
-                    <span><button *ngIf="characterForm.controls.wisdom.value > 1 " (click)="onCharactLessClick('wisdom')"  class="charactButton"><</button></span>
-
-                    <input formControlName="wisdom" type="number" readonly>
-
-                    <span><button *ngIf="characterForm.controls.wisdom.value < 20 " (click)="onCharactPlusClick('wisdom')"  class="charactButton">></button></span>
-
-                </span>
-                
-                <span [ngClass]="{'positive': wisdomBonus > 0, 'negative': wisdomBonus < 0}">
-
-                    (<span *ngIf="wisdomBonus > 0">+</span><input [value]="wisdomBonus" type="number"   readonly>)
-
-                </span>
-
-            </label>
-            <label  (click)="$event.stopPropagation();$event.preventDefault()"   class="characteristic">
-
-                Cha.
-                <span class="characteristicValue">
-
-                    <span><button *ngIf="characterForm.controls.charisma.value > 1 " (click)="onCharactLessClick('charisma')"  class="charactButton"><</button></span>
-
-                    <input formControlName="charisma" type="number" readonly>
-
-                    <span><button *ngIf="characterForm.controls.charisma.value < 20 " (click)="onCharactPlusClick('charisma')"  class="charactButton">></button></span>
-
-                </span>
-
-                <span [ngClass]="{'positive': charismaBonus > 0, 'negative': charismaBonus < 0}">
-
-                    (<span *ngIf="charismaBonus > 0">+</span><input [value]="charismaBonus" type="number"   readonly>)
-
-                </span>
-
-            </label>
-
+        
         </div>
 
 

@@ -1,11 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Capacity } from 'src/app/models/capacity';
 import { CharacterCharacteristic } from 'src/app/models/characterCharacteristic';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
 import { AlignmentEnum } from 'src/app/models/enums/alignment.enum';
+import { CharacteristicEnum } from 'src/app/models/enums/characteristic.enum';
 import { ClassEnum } from 'src/app/models/enums/class.enum';
 import { GenderEnum } from 'src/app/models/enums/gender.enum';
 import { RaceEnum } from 'src/app/models/enums/race.enum';
@@ -50,13 +51,6 @@ export class CreateCharacterComponent implements OnInit {
   currentClass:Class;
   currentCapacities:Capacity[]=[];
 
-  strengthBonus:number = 0;
-  dexterityBonus:number = 0;
-  constitutionBonus:number = 0;
-  intelligenceBonus:number = 0;
-  wisdomBonus:number = 0;
-  charismaBonus:number = 0;
-
   capacities:Capacity[];
   characteristics:Characteristic[];
   classes:Class[];
@@ -96,20 +90,10 @@ export class CreateCharacterComponent implements OnInit {
 
       name:this.formBuilder.control("",Validators.required),
       class:this.formBuilder.control(ClassEnum.WARRIOR,Validators.required),
-      subClass:this.formBuilder.array([
-        {
-          name:this.formBuilder.control("",Validators.required),
-          value:this.formBuilder.control(0,Validators.required), 
-        }
-      ]),
+      subClass:this.formBuilder.array([]),
+      characteristics:this.formBuilder.array([]),
       race:this.formBuilder.control(RaceEnum.HUMAN,Validators.required),
       level:this.formBuilder.control(1,Validators.required),
-      strength:this.formBuilder.control(10,Validators.required),
-      dexterity:this.formBuilder.control(10,Validators.required),
-      constitution:this.formBuilder.control(10,Validators.required),
-      intelligence:this.formBuilder.control(10,Validators.required),
-      wisdom:this.formBuilder.control(10,Validators.required),
-      charisma:this.formBuilder.control(10,Validators.required),
       resume:this.formBuilder.control("Description du personnage ",Validators.required),
       portrait:this.formBuilder.control(""),
       alignment:this.formBuilder.control(AlignmentEnum.NEUTRAL),
@@ -119,7 +103,29 @@ export class CreateCharacterComponent implements OnInit {
 
     })
 
+    this.characteristics.forEach(characteristic => {
+
+      (this.characterForm.get('characteristics') as FormArray).push(new FormGroup({
+
+        name:new FormControl(characteristic.name),
+        value:new FormControl(10),
+        bonus:new FormControl(0),
+
+      }))
+
+    })
+
+    console.log(this.characterForm)
+  
+
   }
+
+  getControllerValue(path:string){
+
+    return this.characterForm.get(path).value
+
+  }
+
   setDatas(){
 
     this.characteristics = this.data.characteristics;
@@ -129,6 +135,7 @@ export class CreateCharacterComponent implements OnInit {
     this.stories = this.data.stories;
 
   }
+
   onSubmitForm(){
 
     const values = []
@@ -143,7 +150,6 @@ export class CreateCharacterComponent implements OnInit {
     });
       console.log(values)
 
-   // const charCharact = this.characteristics.forEach(char => new CharacterCharacteristic())
 
 
     /*const newPj = new Pj(
@@ -156,14 +162,6 @@ export class CreateCharacterComponent implements OnInit {
       ) */
 
   }
-  private getBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    });
-  }
   
   setCurrentPortrait(file:File){
 
@@ -173,18 +171,10 @@ export class CreateCharacterComponent implements OnInit {
 
     )
   }
+
   onLevelLessClick(){
 
-    const characteristicsValues = [
-
-      this.characterForm.controls.strength.value,
-      this.characterForm.controls.dexterity.value,
-      this.characterForm.controls.constitution.value,
-      this.characterForm.controls.intelligence.value,
-      this.characterForm.controls.wisdom.value,
-      this.characterForm.controls.charisma.value,
-
-    ]
+    const characteristicsValues = (this.characterForm.controls.characteristics as FormArray).controls.map(control => control.value.value)
 
     if(characteristicsValues.some(char => char!=10)){
 
@@ -193,25 +183,7 @@ export class CreateCharacterComponent implements OnInit {
       if(confirmChange){
 
         this.characterForm.controls.level.setValue(this.characterForm.controls.level.value-1)
-
-        const charactControls = [
-
-          this.characterForm.controls.strength,
-          this.characterForm.controls.dexterity,
-          this.characterForm.controls.constitution,
-          this.characterForm.controls.intelligence,
-          this.characterForm.controls.wisdom,
-          this.characterForm.controls.charisma
-
-        ]
-
-        charactControls.forEach(charact => {
-
-          charact.setValue(10);
-
-        })
-
-        this.refreshAllCharactBonus()
+        this.resetCharacteristicsDefault()
         
       }
 
@@ -220,6 +192,7 @@ export class CreateCharacterComponent implements OnInit {
 
 
   }
+
   onLevelPlusClick(){
 
     const addPointLevel=[4,8,12,16,20]
@@ -233,48 +206,50 @@ export class CreateCharacterComponent implements OnInit {
 
   }
 
-  onCharactLessClick(characteristic:string){
+  onCharactLessClick(index:number){
 
-    this.characterForm.controls[characteristic].setValue(this.characterForm.controls[characteristic].value-1)
-    this.refreshCharactBonus(characteristic)
-
-  }
-  onCharactPlusClick(characteristic:string){
-
-    this.characterForm.controls[characteristic].setValue(this.characterForm.controls[characteristic].value+1)
-    this.refreshCharactBonus(characteristic)
+    const characteristic = (this.characterForm.get('characteristics.'+ index.toString()) as FormGroup).controls
+    characteristic.value.setValue(this.getControllerValue(`characteristics.${index}.value`)-1)
+    characteristic.bonus.setValue(this.getCharactBonus(characteristic.value.value))
 
   }
-  private refreshCharactBonus(characteristic:string){
 
-    switch(characteristic){
+  onCharactPlusClick(index:number){
 
-      case 'strength': this.strengthBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
-      case 'dexterity': this.dexterityBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
-      case 'intelligence': this.intelligenceBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
-      case 'constitution': this.constitutionBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
-      case 'wisdom': this.wisdomBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
-      case 'charisma': this.charismaBonus = this.getCharactBonus(this.characterForm.controls[characteristic].value);break;
-
-    }
+    const characteristic = (this.characterForm.get('characteristics.'+ index.toString()) as FormGroup).controls
+    characteristic.value.setValue(this.getControllerValue(`characteristics.${index}.value`)+1)
+    characteristic.bonus.setValue(this.getCharactBonus(characteristic.value.value))
 
   }
-  private refreshAllCharactBonus(){
 
-      this.strengthBonus = this.getCharactBonus(this.characterForm.controls['strength'].value)
-      this.dexterityBonus = this.getCharactBonus(this.characterForm.controls['dexterity'].value)
-      this.intelligenceBonus = this.getCharactBonus(this.characterForm.controls['intelligence'].value)
-      this.constitutionBonus = this.getCharactBonus(this.characterForm.controls['constitution'].value)
-      this.wisdomBonus = this.getCharactBonus(this.characterForm.controls['wisdom'].value)
-      this.charismaBonus = this.getCharactBonus(this.characterForm.controls['charisma'].value);
+  private resetCharacteristicsDefault(){
 
+      const characteristics = this.characterForm.controls.characteristics as FormArray
+
+      characteristics.controls.forEach(control => {
+
+        control.get('value').setValue(10)
+        control.get('bonus').setValue(0)
+
+      })
 
   }
+
   private getCharactBonus(value:number){
 
     return Math.floor((value-10)/2)
 
   }
+
+  private getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
   setCurrentClass(){
 
     this.currentClass = this.classes.find(charClass => charClass.name === this.characterForm.controls.class.value)
@@ -291,6 +266,12 @@ export class CreateCharacterComponent implements OnInit {
     .subClasses.forEach(subClass => capacities.push(...subClass.capacities.filter(capacity => capacity.level <= this.characterForm.controls.level.value)))
     this.currentCapacities = capacities
     console.log(this.currentCapacities)
+
+  }
+
+  getCharactAsArray(){
+
+    return (this.characterForm.get('characteristics') as FormArray).controls
 
   }
 
