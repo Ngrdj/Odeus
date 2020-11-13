@@ -23,7 +23,9 @@ export class CharacterSkill {
 
     @Exclude()
     @ManyToOne(type=>Character,
-        (character)=>character.characterSkills)
+        (character)=>character.characterSkills,{
+            cascade:true
+        })
     character:Character;
     
     @Exclude()

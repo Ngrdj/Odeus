@@ -16,14 +16,17 @@ export class CharacterCharacteristic {
 
     @Exclude()
     @ManyToOne(type=>Character,
-        (character)=>character.characterCharacteristics)
+        (character)=>character.characterCharacteristics,{
+            cascade:true
+        })
     character:Character;
 
 
     @Exclude()
     @ManyToOne(type=>Characteristic,
         (characteristic)=>characteristic.characterCharacteristics,{
-            eager:true
+            eager:true,
+            cascade:true
         })
     characteristic:Characteristic;
 

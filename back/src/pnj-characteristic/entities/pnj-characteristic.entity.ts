@@ -18,13 +18,16 @@ export class PnjCharacteristic {
 
     @Exclude()
     @ManyToOne(type=>Pnj,
-        (pnj)=>pnj.pnjCharacteristics)
+        (pnj)=>pnj.pnjCharacteristics,{
+            cascade:true
+        })
     pnj:Pnj;
 
     @Exclude()
     @ManyToOne(type=>Characteristic,
         (characteristic)=>characteristic.pnjCharacteristics,{
-            eager:true
+            eager:true,
+            cascade:true
         })
     characteristic:Characteristic;
 

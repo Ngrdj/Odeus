@@ -13,13 +13,16 @@ export class CharacterSubClass {
 
     @ManyToOne(type=>SubClass,
         (subClass)=>subClass.characterSubClass,{
-            eager:true
+            eager:true,
+            cascade:true
         })
     subClass:SubClass;
 
     @Exclude()
     @ManyToOne(type=>Character,
-        (character)=>character.characterSubClass)
+        (character)=>character.characterSubClass,{
+            cascade:true
+        })
     character:Character;
 
     @Exclude()

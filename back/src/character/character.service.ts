@@ -97,7 +97,7 @@ export class CharacterService {
     for (const [i,characteristic] of characterCharacteristics.entries()) {
       const newcharchar=await this.characterCharacteristicService.create({
         value:characteristic+raceBonus[i],
-        characteristicId:characteristics[i].id
+        characteristicId:characteristics[i].id  
       })
       newCharacter.characterCharacteristics.push(newcharchar)
     }
@@ -123,7 +123,7 @@ for (let skill of skills) {
   
         if(skill.type===newCharacterCharacteristic.characteristic.name){
 
-          console.log(newCharacterCharacteristic.bonus)
+          
           characterSkill.bonus=newCharacterCharacteristic.bonus
 
         }
@@ -137,7 +137,6 @@ for (let skill of skills) {
 
 
        if(skillStory.name===skill.name){
-          console.log('\n\n\n\n'+'ok')
           characterSkill.isChecked=true;
           characterSkill.bonus+=masteryBonus;
 
@@ -152,20 +151,18 @@ for (let skill of skills) {
     const user= await this.userService.findOneByLogin(login);
     newCharacter.user=user;
 
-
-    
-    
-
-
-    
-
-
-    
-  
-    console.log(newCharacter)
     return await this.characterRepository.save(newCharacter);
 
   }
+
+
+
+
+
+
+
+
+  
 
   async findAll(login) {
     const user= await this.userService.findOneByLogin(login);

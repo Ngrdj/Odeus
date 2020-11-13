@@ -18,13 +18,16 @@ export class PnjSkill {
 
     @ManyToOne(type=>Skill,
         (skill)=>skill.pnjSkills,{
-            eager:true
+            eager:true,
+            cascade:true
         })
     skill:Skill;
 
     
     @ManyToOne(type=>Pnj,
-        (pnj)=>pnj.pnjSkills)
+        (pnj)=>pnj.pnjSkills,{
+            cascade:true
+        })
     pnj:Pnj;
 
 
