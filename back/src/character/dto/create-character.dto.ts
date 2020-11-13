@@ -1,5 +1,6 @@
 import { CreateCharacterSubClassDto } from "src/character-sub-class/dto/create-character-sub-class.dto";
 import { ClassEnum } from "src/class/class.enum";
+import { SizeEnum } from "src/pnj/size.enum";
 import { RaceEnum } from "src/race/race.enum";
 import { StoryEnum } from "src/story/story.enum";
 import { AlignmentEnum } from "./alignment.enum";
@@ -23,5 +24,6 @@ export class CreateCharacterDto {
     story:StoryEnum;
     gender:GenderEnum;
     age:number;
+    size:SizeEnum;
 
 }

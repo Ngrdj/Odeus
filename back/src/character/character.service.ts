@@ -44,6 +44,7 @@ export class CharacterService {
     character.gender=createCharacterDto.gender;
     character.age=createCharacterDto.age;
     character.className=createCharacterDto.class;
+    character.size=createCharacterDto.size;
     //Gestion masteryBonus/Level-----------------------------------------------------------------------------------------------------Gestion masteryBonus/Level
     let masteryBonus=2;
     const level=createCharacterDto.level;
