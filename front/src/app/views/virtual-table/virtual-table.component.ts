@@ -50,6 +50,7 @@ export class VirtualTableComponent implements OnInit {
   displayDices:boolean = false;
   displayMap:boolean = false;
   displaySettings:boolean = false;
+  displayDiary:boolean = false;
 
   selectedCharacter:Character;
 

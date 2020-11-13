@@ -46,6 +46,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { CharacterCommandsDialog } from './dialogs/character-commands.dialog/character-commands.dialog.component';
 import { CharacterListItemComponent } from './components/character-list-item/character-list-item.component';
+import { DiaryPanelComponent } from './components/diary-panel/diary-panel.component';
+import { BestiaryPanelComponent } from './components/bestiary-panel/bestiary-panel.component';
+import { RandomScenarioDialogComponent } from './dialogs/random-scenario.dialog/random-scenario.dialog/random-scenario.dialog.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -83,6 +86,9 @@ export function createTranslateLoader(http: HttpClient) {
     CreateCategoryDialog,
     CharacterCommandsDialog,
     CharacterListItemComponent,
+    DiaryPanelComponent,
+    BestiaryPanelComponent,
+    RandomScenarioDialogComponent,
 
     
   ],

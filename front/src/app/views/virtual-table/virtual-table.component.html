@@ -107,6 +107,13 @@
    >
    </dice-panel>
 
+   <diary-panel
+      controlPanel
+      [visible]="displayDices"
+      (closePanel)="displayDices = false"
+      panelTitle="journal"
+   >
+   </diary-panel>
    
   
   </div>
