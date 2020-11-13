@@ -1,6 +1,7 @@
 import { AlignmentEnum } from '../../enums/alignment.enum';
 import { ClassEnum } from '../../enums/class.enum';
 import { GenderEnum } from '../../enums/gender.enum';
+import { SizeEnum } from '../../enums/size.enum';
 import { GetRaceDto } from '../race/get-race.dto';
 import { GetStoryDto } from '../story/get-story.dto';
 import { GetTeamDto } from '../team/get-team.dto';
@@ -20,6 +21,7 @@ export interface GetCharacterDto {
     portrait:string;
     resume:string;
     alignment:AlignmentEnum;
+    size:SizeEnum;
     gender:GenderEnum;
     age:number;
     user:GetUserDto;

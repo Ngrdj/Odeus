@@ -1,6 +1,7 @@
 import { Capacity } from './capacity';
 import { CharacterCharacteristic } from './characterCharacteristic';
 import { CharacterSkill } from './characterSkill';
+import { SizeEnum } from './enums/size.enum';
 
 export abstract class Character {
 
@@ -15,6 +16,7 @@ export abstract class Character {
         public characteristics:CharacterCharacteristic[],
         public skills:CharacterSkill[],
         public playable:boolean,
+        public size:SizeEnum
 
     ){}
         

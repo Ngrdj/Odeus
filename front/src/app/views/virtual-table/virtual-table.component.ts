@@ -5,6 +5,7 @@ import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
 import { BehaviorEnum } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
+import { Pj } from 'src/app/models/pj';
 import { Pnj } from 'src/app/models/pnj';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
@@ -155,6 +156,16 @@ export class VirtualTableComponent implements OnInit {
   onRemoveFighter(fighterToRemove:Fighter){
 
     this.fighterList = this.fighterList.filter(fighter => fighter !== fighterToRemove)
+
+  }
+
+  createNewPj(pj:Pj){
+
+    this.charactService.createPj(pj).subscribe(value => {
+
+      console.log(value)
+
+    })
 
   }
 

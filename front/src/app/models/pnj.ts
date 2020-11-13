@@ -3,6 +3,7 @@ import { Character } from './character';
 import { CharacterCharacteristic } from './characterCharacteristic';
 import { CharacterSkill } from './characterSkill';
 import { GetPnjDto } from './dtos/pnj/get-pnj.dto';
+import { SizeEnum } from './enums/size.enum';
 
 
 export class Pnj extends Character {
@@ -16,6 +17,8 @@ export class Pnj extends Character {
         public capacities:Capacity[],
         public skills:CharacterSkill[],
         public resume:string,
+        public size:SizeEnum,
+
 
     ){
 
@@ -28,7 +31,8 @@ export class Pnj extends Character {
             capacities,
             characteristics,
             skills,
-            false
+            false,
+            size
 
         )
 
@@ -44,7 +48,8 @@ export class Pnj extends Character {
             pnjDto.pnjCharacteristics.map(charact => CharacterCharacteristic.fromDto(charact) ),
             pnjDto.pnjCapacities.map(capacity => Capacity.fromDto(capacity)),
             pnjDto.pnjSkills.map(pnjSkill => CharacterSkill.fromDto(pnjSkill)),
-            pnjDto.resume
+            pnjDto.resume,
+            pnjDto.size
             
         )
 

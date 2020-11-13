@@ -28,7 +28,7 @@
 
             <p class="pointsInfo">Points restant : <span><input [value]="characteristicPoints" readonly> / {{maxCharacteristicPoints}}</span></p>
 
-            <label *ngFor="let characteristic of getCharactAsArray() ; let i = index"  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
+            <label *ngFor="let characteristic of getCharacteristicsAsArray() ; let i = index"  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
                 {{characteristic.controls.name.value}}
                 <span class="characteristicValue">
@@ -82,6 +82,13 @@
                     <option [value]="alignment"  *ngFor="let alignment of alignmentEnumValues">{{alignment | lowercase | translate}}</option>
 
                 </select>
+
+                <select formControlName="size" value="size">
+
+                    <option [value]="size"  *ngFor="let size of sizeEnumValues">{{size | lowercase | translate}}</option>
+
+                </select>
+
 
                 <textarea formControlName="resume" [ngStyle]="{'resize':'none'}"></textarea>
         

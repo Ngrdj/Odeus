@@ -25,6 +25,7 @@ export class MyCharactersPanelComponent implements OnInit {
   @Input() stories:Story[];
 
   @Output() characterEyeClick:EventEmitter<Character> = new EventEmitter()
+  @Output() createNewPj:EventEmitter<Pj> = new EventEmitter()
 
 
   constructor(private dialog: MatDialog) { }
@@ -43,6 +44,16 @@ export class MyCharactersPanelComponent implements OnInit {
         races:this.races,
         skills:this.skills,
         stories:this.stories,
+
+      }
+
+    })
+    .afterClosed()
+    .subscribe(newPj => {
+
+      if(newPj){
+
+        this.createNewPj.emit(newPj)
 
       }
 

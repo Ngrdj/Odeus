@@ -21,7 +21,8 @@ export class Fighter extends Character{
             character.capacities,
             character.characteristics,
             character.skills,
-            character instanceof Pj?true:false
+            character instanceof Pj?true:false,
+            character.size
 
         )
         this.behavior = behavior;

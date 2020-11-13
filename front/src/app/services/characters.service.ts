@@ -33,8 +33,16 @@ export class CharactersService {
   }
 
 
-  addCharacter(character:CreateCharacterDto){
-    return this.http.post<CreateCharacterDto>(environment.baseApiUrl + `character`,character)
+  createPj(pj:Pj):Observable<Pj>{
+    console.log(pj)
+    return this.http.post<GetCharacterDto>(environment.baseApiUrl + `character`,pj.toCreateDto())
+    .pipe(
+      
+      map((character:GetCharacterDto)=>{
+
+        return Pj.fromDto(character)
+      })
+    )
   }
 
 }

@@ -1,13 +1,14 @@
 import { Capacity } from './capacity';
 import { Class } from './class';
 import { GetSubClassDto } from './dtos/subClass/get-sub-class.dto';
+import { SubClassEnum } from './enums/subClass.enum';
 
 export class SubClass {
 
     constructor(
 
         public id:number,
-        public name:string,
+        public name:SubClassEnum,
         public capacities:Capacity[],
 
     ){}

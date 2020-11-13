@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { element } from 'protractor';
 import { Capacity } from 'src/app/models/capacity';
 import { CharacterCharacteristic } from 'src/app/models/characterCharacteristic';
 import { Characteristic } from 'src/app/models/characteristic';
@@ -10,11 +11,16 @@ import { CharacteristicEnum } from 'src/app/models/enums/characteristic.enum';
 import { ClassEnum } from 'src/app/models/enums/class.enum';
 import { GenderEnum } from 'src/app/models/enums/gender.enum';
 import { RaceEnum } from 'src/app/models/enums/race.enum';
+import { SizeEnum } from 'src/app/models/enums/size.enum';
 import { StoryEnum } from 'src/app/models/enums/story.enum';
 import { Pj } from 'src/app/models/pj';
+import { PjSubClass } from 'src/app/models/pjSubClass';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
+import { SubClass } from 'src/app/models/subClass';
+import { User } from 'src/app/models/user';
+import { UsersService } from 'src/app/services/users.service';
 import { CreateTeamDialog } from '../create-team.dialog/create-team.dialog.component';
 
 
@@ -35,6 +41,9 @@ export interface DialogData {
 })
 export class CreateCharacterComponent implements OnInit {
 
+
+  currentUser:User
+
   characterForm:FormGroup;
 
   genderEnum = GenderEnum;
@@ -42,6 +51,9 @@ export class CreateCharacterComponent implements OnInit {
 
   alignmentEnum = AlignmentEnum;
   alignmentEnumValues = Object.values(AlignmentEnum);
+
+  sizeEnum = SizeEnum;
+  sizeEnumValues = Object.values(SizeEnum);
 
   maxCharacteristicPoints:number = 27;
   characteristicPoints:number = 0;
@@ -71,7 +83,8 @@ export class CreateCharacterComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     public dialogRef: MatDialogRef<CreateTeamDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private usersService:UsersService
 
     ) {console.log(this.genderEnum) }
 
@@ -81,7 +94,7 @@ export class CreateCharacterComponent implements OnInit {
     this.setDatas()
     this.generateForm()
     this.setCurrentClass()
-
+    this.setCurrentUser()
   }
 
   generateForm(){
@@ -95,6 +108,7 @@ export class CreateCharacterComponent implements OnInit {
       race:this.formBuilder.control(RaceEnum.HUMAN,Validators.required),
       level:this.formBuilder.control(1,Validators.required),
       resume:this.formBuilder.control("Description du personnage ",Validators.required),
+      size:this.formBuilder.control(SizeEnum.MOYENNE,Validators.required),
       portrait:this.formBuilder.control(""),
       alignment:this.formBuilder.control(AlignmentEnum.NEUTRAL),
       story:this.formBuilder.control(StoryEnum.HERO,Validators.required),
@@ -138,31 +152,43 @@ export class CreateCharacterComponent implements OnInit {
 
   onSubmitForm(){
 
-    const values = []
+    if(this.characterForm.valid){
 
-    Object.keys(this.characterForm.controls).forEach(control => {
+      this.dialogRef.close(this.createNewPj())
 
-      values.push({
-        name:control,
-        value:this.characterForm.controls[control].value
-      })
-      
-    });
-      console.log(values)
-
-
-
-    /*const newPj = new Pj(
-      0,
-      this.characterForm.controls.name,
-      "",
-      this.characterForm.controls.race,
-      this.characterForm.controls.level,
-      
-      ) */
+    }
 
   }
   
+  private createNewPj():Pj{
+
+    const characterCharacteristics = this.getCharacteristicsAsArray().map(control => new CharacterCharacteristic(control.value.name,control.value.value,control.value.bonus))
+
+    const newPj = new Pj(
+      0,
+      this.characterForm.controls.name.value,
+      "",
+      this.races.find(race => race.name === this.characterForm.controls.race.value),
+      this.characterForm.controls.level.value,
+      characterCharacteristics,
+      this.characterForm.controls.class.value,
+      this.getSubClasses(),
+      [],
+      [],
+      this.stories.find(story => story.name === this.characterForm.controls.story.value),
+      this.characterForm.controls.resume.value,
+      this.characterForm.controls.size.value,
+      this.characterForm.controls.age.value,
+      this.characterForm.controls.gender.value,
+      this.currentUser,
+      this.characterForm.controls.alignment.value,
+
+      )
+
+      return newPj
+
+  }
+
   setCurrentPortrait(file:File){
 
     this.getBase64(file).then(
@@ -258,6 +284,16 @@ export class CreateCharacterComponent implements OnInit {
 
   }
 
+  setCurrentUser(){
+
+    this.usersService.getCurrentUser().subscribe(userFound => {
+
+      this.currentUser = userFound
+
+    })
+
+  }
+
   setCurrentCapacities(){
 
     const capacities = []
@@ -269,9 +305,27 @@ export class CreateCharacterComponent implements OnInit {
 
   }
 
-  getCharactAsArray(){
+  getCharacteristicsAsArray(){
 
     return (this.characterForm.get('characteristics') as FormArray).controls
+
+  }
+
+  getSubClasses():PjSubClass[]{
+
+    const currentClass = this.classes.find(element => element.name === this.characterForm.get('class').value )
+    const level = this.characterForm.get('level').value
+    const subClasses = currentClass.subClasses.map(subClass => {
+      
+      if(currentClass.subClasses.includes(subClass)){{
+
+        return new PjSubClass(0,level,subClass)
+
+      }}
+
+    })
+
+    return subClasses
 
   }
 

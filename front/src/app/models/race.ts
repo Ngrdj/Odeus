@@ -1,11 +1,12 @@
 import { GetRaceDto } from './dtos/race/get-race.dto';
+import { RaceEnum } from './enums/race.enum';
 
 export class Race {
 
     constructor(
 
         public id:number,
-        public name:string,
+        public name:RaceEnum,
         public strBonus:number,
         public dexBonus:number,
         public intBonus:number,

@@ -1,8 +1,9 @@
+import { RaceEnum } from '../../enums/race.enum';
 
 export interface GetRaceDto {
 
     id:number;
-    name:string;
+    name:RaceEnum;
     strBonus:number;
     dexBonus:number;
     intBonus:number;

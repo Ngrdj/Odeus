@@ -1,4 +1,5 @@
 import { GetStoryDto } from './dtos/story/get-story.dto';
+import { StoryEnum } from './enums/story.enum';
 import { Skill } from './skill';
 
 
@@ -7,7 +8,7 @@ export class Story {
     constructor(
 
         public id:number,
-        public name:string,
+        public name:StoryEnum,
         public description:string,
         public skills:Skill[],
 
