@@ -18,7 +18,6 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   public round:number=0;
 
   @Output() removeFighter:EventEmitter<any> = new EventEmitter();
-  @Output() roundCount:EventEmitter<any> = new EventEmitter();
 
 
   faRunning=faRunning;

@@ -51,6 +51,7 @@ export class BackgroundPanelComponent implements OnInit {
         })
         this.setFilterPictureList(datas[0].categories[0]);
         this.categories.push(datas[0].categories[0]);
+        console.log("coucou")
       }
     })
   }
@@ -83,13 +84,25 @@ export class BackgroundPanelComponent implements OnInit {
   modifyCategoryClick(picturesList:Picture[],category:string){
 
     this.openCreateCategoryDialog(picturesList,category).subscribe((datas: Picture[])=>{
-      console.log("apres dialogu", datas)
-      this.picturesList=this.picturesList.filter((picture)=>!picture.categories.includes(category));
+      console.log("data",datas)
+      this.picturesList=this.picturesList.filter((picture)=>{
+
+        return !picture.categories.includes(datas[0].categories[0])
+
+      });
+      console.log("this.picturesList",this.picturesList)
       this.categories[this.categories.indexOf(category)]=datas[0].categories[0];
-      this.selectedCategory=datas[0].categories[0];
-      this.categories.push(this.selectedCategory)
+
+      if(datas[0].categories[0]!==this.categories[this.categories.indexOf(datas[0].categories[0])]){
+
+        this.categories.push(this.selectedCategory)
+
+      }
+      
       datas.forEach((data)=>{
+
         this.picturesList.push(data)
+
       })
       this.setFilterPictureList(datas[0].categories[0]);
 
@@ -97,8 +110,9 @@ export class BackgroundPanelComponent implements OnInit {
   }
 
   deleteCategoryClick(picturesList:Picture[],categorySelected:string){
-    this.categories=this.categories.filter((category)=>categorySelected!==category);
-    picturesList=[];
+    this.picturesList=this.picturesList.filter((picture)=>!picture.categories.includes(categorySelected));
+    this.categories.splice(this.categories.indexOf(categorySelected),1)
+    this.setFilterPictureList(this.categories[0])
   }
 
 }
