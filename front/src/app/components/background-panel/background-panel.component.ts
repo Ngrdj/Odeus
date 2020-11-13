@@ -65,7 +65,7 @@ export class BackgroundPanelComponent implements OnInit {
       panelClass:'panelDialog',
       data:{
             picturesList,
-            category:category
+            category
           }
     })
     .afterClosed()

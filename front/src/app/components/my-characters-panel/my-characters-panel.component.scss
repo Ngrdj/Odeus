@@ -4,21 +4,32 @@
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 15% auto 15%;
-
+    grid-template-rows:  auto minmax(auto, 60px);
 }
 .characterList{
 
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: 1fr;
+    grid-auto-rows: minmax(auto, 50px);
+    overflow-y: auto;
+    padding: 5%;
+    width: 100%;
     height: 100%;
+    box-sizing: border-box;
 
 }
 .footer{
 
     width: 100%;
     height: 100%;
+    display: flex;
+    padding: 5%;
+    box-sizing: border-box;
+
+}
+.footer>button{
+
+    width: 100%;
 
 }
 

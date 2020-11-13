@@ -20,9 +20,16 @@ export class CreateCategoryDialog implements OnInit,OnChanges {
     @Inject(MAT_DIALOG_DATA) public data: DialogDataBackground) {
 
       if(data){
-        
-        this.picturesList=[...data.picturesList];
-        this.selectedCategory=data.category;
+        if(data.picturesList){
+
+          this.picturesList=[...data.picturesList];
+
+        }
+        if(data.category){
+
+          this.selectedCategory=data.category;
+
+        }
       }
      }
 

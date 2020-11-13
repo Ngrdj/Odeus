@@ -1,11 +1,19 @@
-<div>
+<div class="header">
 
-    <select #categorySelected (change)='setFilterPictureList($event.target.value)' >
+    <select *ngIf="selectedCategory"  (change)='setFilterPictureList($event.target.value)'>
 
         <option [selected]='category===selectedCategory' *ngFor='let category of categories' value="{{category}}">{{category}}</option>
     
     
     </select>
+
+    <div class="categoryCommands">
+
+        <button *ngIf="selectedCategory" (click)="modifyCategoryClick(filterPicturesList,selectedCategory)" formButton>Modifier</button>
+        <button *ngIf="selectedCategory" (click)="deleteCategoryClick(filterPicturesList,selectedCategory)" formButton>Supprimer</button>
+
+    </div>
+
 </div>
 
 
@@ -21,12 +29,10 @@
     </div>
 
 </div>
-<div>
+<div class="footer">
 
-    <button (click)="onChangeBackgroundClick()" formButton>changer l'arrière-plan</button>
+    <button *ngIf="selectedBackground" (click)="onChangeBackgroundClick()" formButton>changer l'arrière-plan</button>
     <button (click)="onAddCategoryClick()" formButton>Ajouter Une Categorie</button>
-    <button (click)="modifyCategoryClick(filterPicturesList,categorySelected.value)" formButton>Modifier La Categorie</button>
-    <button (click)="deleteCategoryClick(filterPicturesList,categorySelected.value)" formButton>Supprimer La Categorie</button>
 
 </div>
 

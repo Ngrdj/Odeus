@@ -28,7 +28,6 @@ private elementStyle;
   setStyle(){
 
     this.elementStyle.backgroundColor="white";
-    this.elementStyle.padding="10px";
     this.elementStyle.border="thin solid";
     this.elementStyle.minWidth="100px";
 

@@ -5,13 +5,21 @@
     display: grid;
     align-items: center;
     grid-template-rows: 100%;
-    grid-template-columns: 10% auto 10%;
+    grid-template-columns: 10% auto 50px;
     justify-items: center;
     cursor: pointer;
+    width: 100%;
 
 }
 :host:hover{
 
     filter: invert(100%);
+
+}
+button{
+
+    background: none;
+    padding: 20%;
+    border: thin solid;
 
 }
