@@ -37,6 +37,8 @@ export class MyCharactersPanelComponent implements OnInit {
 
     this.dialog.open(CreateCharacterComponent,{
 
+      width:"50%",
+      height:"80%",
       data:{
 
         characteristics:this.characteristics,

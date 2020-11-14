@@ -30,7 +30,6 @@ export class RandomScenarioDialogComponent implements OnInit {
   twist:Twist[]=[];
 
 
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogScenarioData) {
     this.init=data.init;
     this.context=data.context;
@@ -65,6 +64,10 @@ export class RandomScenarioDialogComponent implements OnInit {
       case 'twist': this.twist[Math.floor(Math.random() * this.twist.length)];
       break;
     }
+  }
+
+  randomNumber(min, max) {  
+    return Math.round(Math.random() * (max - min) + min) ; 
   }
 
 }
