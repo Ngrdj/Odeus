@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
+import { Ally } from 'src/app/models/ally';
+import { Bonus } from 'src/app/models/bonus';
 import { Character } from 'src/app/models/character';
 import { Characteristic } from 'src/app/models/characteristic';
 import { Class } from 'src/app/models/class';
+import { Context } from 'src/app/models/context';
+import { Enemy } from 'src/app/models/enemy';
 import { BehaviorEnum } from 'src/app/models/enums/behavior.enum';
 import { Fighter } from 'src/app/models/fighter';
+import { Init } from 'src/app/models/init';
 import { Pj } from 'src/app/models/pj';
 import { Pnj } from 'src/app/models/pnj';
 import { Race } from 'src/app/models/race';
 import { Skill } from 'src/app/models/skill';
 import { Story } from 'src/app/models/story';
 import { Team } from 'src/app/models/team';
+import { Twist } from 'src/app/models/twist';
 import { User } from 'src/app/models/user';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthentificationsService } from 'src/app/services/authentifications.service';
 import { CharactersService } from 'src/app/services/characters.service';
 import { GoogleService } from 'src/app/services/google.service';
+import { ScenarioService } from 'src/app/services/scenario.service';
 import { TeamsService } from 'src/app/services/teams.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -38,6 +45,13 @@ export class VirtualTableComponent implements OnInit {
   races:Race[]=[];
   skills:Skill[]=[];
   stories:Story[]=[];
+
+  init:Init[]=[];
+  context:Context[]=[];
+  enemy:Enemy[]=[];
+  ally:Ally[]=[];
+  bonus:Bonus[]=[];
+  twist:Twist[]=[];
 
   displaySide:boolean = false;
   displayHeader:boolean = false;
@@ -68,7 +82,8 @@ export class VirtualTableComponent implements OnInit {
     private charactService:CharactersService,
     private teamService:TeamsService,
     private usersService:UsersService,
-    private googleService:GoogleService
+    private googleService:GoogleService,
+    private scenarioService:ScenarioService
     ){
   }
 
@@ -96,6 +111,7 @@ export class VirtualTableComponent implements OnInit {
     //this.loadPlaylist()
     
     this.heroes = new Team("Heroes",[])
+    this.setScenarioArray();
 
 
   }
@@ -275,5 +291,15 @@ export class VirtualTableComponent implements OnInit {
 
     loadPlaylist(){
       this.googleService.loadPlaylist().subscribe((value)=>console.log(value))
+    }
+
+    setScenarioArray(){
+      this.scenarioService.getAllInitScenario().subscribe((init)=>this.init=init);
+      this.scenarioService.getAllContextScenario().subscribe((context)=>this.context=context);
+      this.scenarioService.getAllEnemyScenario().subscribe((enemy)=>this.enemy=enemy);
+      this.scenarioService.getAllAllyScenario().subscribe((ally)=>this.ally=ally);
+      this.scenarioService.getAllBonusScenario().subscribe((bonus)=>this.bonus=bonus);
+      this.scenarioService.getAllTwistScenario().subscribe((twist)=>this.twist=twist);
+
     }
 }

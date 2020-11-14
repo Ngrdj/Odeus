@@ -6,6 +6,7 @@
     (soundClick)="displaySound = !displaySound"
     (backgroundClick)="displayBackgroundSettings = !displayBackgroundSettings"
     (diceClick)="displayDices = !displayDices"
+    (diaryClick)="displayDiary = !displayDiary"
     (mapClick)="displayMap = !displayMap"
     (settingsClick)="displaySettings = !displaySettings"
 ></options-bar>
@@ -109,9 +110,16 @@
 
    <diary-panel
       controlPanel
-      [visible]="displayDices"
-      (closePanel)="displayDices = false"
+      [visible]="displayDiary"
+      (closePanel)="displayDiary = false"
       panelTitle="journal"
+      [init]="init"
+      [context]="context"
+      [enemy]="enemy"
+      [ally]="ally"
+      [bonus]="bonus"
+      [twist]="twist"
+
    >
    </diary-panel>
    

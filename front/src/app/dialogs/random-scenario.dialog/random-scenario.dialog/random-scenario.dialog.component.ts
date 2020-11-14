@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Ally } from 'src/app/models/ally';
 import { Bonus } from 'src/app/models/bonus';
 import { Context } from 'src/app/models/context';
@@ -6,6 +7,14 @@ import { Enemy } from 'src/app/models/enemy';
 import { Init } from 'src/app/models/init';
 import { Twist } from 'src/app/models/twist';
 
+export interface DialogScenarioData{
+  init:Init[];
+  context:Context[];
+  enemy:Enemy[];
+  ally:Ally[];
+  bonus:Bonus[];
+  twist:Twist[];
+}
 @Component({
   selector: 'random-scenario.dialog',
   templateUrl: './random-scenario.dialog.component.html',
@@ -13,39 +22,47 @@ import { Twist } from 'src/app/models/twist';
 })
 export class RandomScenarioDialogComponent implements OnInit {
 
-  @Input() init:Init[]=[];
-  @Input() context:Context[]=[];
-  @Input() enemy:Enemy[]=[];
-  @Input() ally:Ally[]=[];
-  @Input() bonus:Bonus[]=[];
-  @Input() twist:Twist[]=[];
+  init:Init[]=[];
+  context:Context[]=[];
+  enemy:Enemy[]=[];
+  ally:Ally[]=[];
+  bonus:Bonus[]=[];
+  twist:Twist[]=[];
 
 
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogScenarioData) {
+    this.init=data.init;
+    this.context=data.context;
+    this.enemy=data.enemy;
+    this.ally=data.enemy;
+    this.bonus=data.bonus;
+    this.twist=data.twist;
+   }
 
   ngOnInit(): void {
+    
   }
 
   randomScenario(name:string){
 
     switch(name){
-      case 'init': return this.init[Math.floor(Math.random() * this.init.length)];
+      case 'init': this.init[Math.floor(Math.random() * this.init.length)];
       break;
 
-      case 'context': return this.context[Math.floor(Math.random() * this.context.length)];
+      case 'context': this.context[Math.floor(Math.random() * this.context.length)];
       break;
 
-      case 'enemy': return this.enemy[Math.floor(Math.random() * this.enemy.length)];
+      case 'enemy': this.enemy[Math.floor(Math.random() * this.enemy.length)];
       break;
 
-      case 'ally': return this.ally[Math.floor(Math.random() * this.ally.length)];
+      case 'ally': this.ally[Math.floor(Math.random() * this.ally.length)];
       break;
 
-      case 'bonus': return this.bonus[Math.floor(Math.random() * this.bonus.length)];
+      case 'bonus': this.bonus[Math.floor(Math.random() * this.bonus.length)];
       break;
 
-      case 'twist': return this.twist[Math.floor(Math.random() * this.twist.length)];
+      case 'twist': this.twist[Math.floor(Math.random() * this.twist.length)];
       break;
     }
   }
