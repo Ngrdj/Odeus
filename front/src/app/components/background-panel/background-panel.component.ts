@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateCategoryDialog } from 'src/app/dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component';
+import { CreateCategoryDialog } from 'src/app/dialogs/create-category.dialog/create-category.dialog.component';
 import { Picture } from 'src/app/models/picture';
 
 
@@ -61,7 +61,8 @@ export class BackgroundPanelComponent implements OnInit {
     console.log('avant dialogue',picturesList)
 
    return this.dialog.open(CreateCategoryDialog, {
-      width: '250px',
+      height: '60%',
+      width: '30%',
       panelClass:'panelDialog',
       data:{
             picturesList,

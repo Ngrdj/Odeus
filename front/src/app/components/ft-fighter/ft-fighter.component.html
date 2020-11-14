@@ -1,4 +1,4 @@
-<div class="container" [ngClass]="{'reverted':orientation === 'reverted'}">
+<div class="container" [ngClass]="{'reverted':orientation === 'reverted'}"  (delete)="onDeleteButtonClick(fighter)" [deleteBadge]="orientation === 'reverted'?'Right':'Left'" badgeClass="deleteButton">
 
     <img class="portrait" [src]="fighter?.portrait">
     <div class="fighterInfos">
@@ -11,6 +11,5 @@
         <input [value]="fighter.initiative" readonly>
 
     </span>
-    <button (click)="onDeleteButtonClick(fighter)" class="deleteButton">X</button>
 
 </div>

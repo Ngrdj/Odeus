@@ -2,7 +2,7 @@
 
     display: grid;
     height: 100%;
-    grid-template-rows: 50px auto 100px;
+    grid-template-rows: 100px auto 100px;
 
 }
 .header{
@@ -14,7 +14,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 2%;
+    padding: 15px;
 
 }
 .header > select {
@@ -25,11 +25,7 @@
 }
 .categoryCommands{
 
-    display: flex;
-    margin: 5% 0;
-    justify-content: center;
-    flex-direction: column;
-
+    display: grid;
 
 }
 .backgroundsContainer{
@@ -39,7 +35,7 @@
     margin: 10px;
     gap: 10px;
     box-sizing: border-box;
-    grid-auto-rows: 40%;
+    grid-auto-rows: minmax(100px,40%);
     overflow-y: auto;
 
 }
@@ -48,6 +44,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+
 }
 
  img {
@@ -60,12 +57,15 @@
 }
 .footer{
 
-    display: flex;
-    padding: 5%;
+    display: grid;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    justify-content: space-evenly;
+    padding: 15px;
+    grid-auto-columns: auto;
+    grid-template-rows: 100%;
+    grid-auto-flow: column;
+    gap: 15px;
 
 }
 .backgroundButton{

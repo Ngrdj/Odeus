@@ -65,25 +65,8 @@
 }
 .deleteButton{
 
-    position: absolute;
-    top: -13px;
-    left: -16px;
-    border-radius: 50% 50% 50% 50%;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    padding: 0;
-    background-color: var(--darkerPanelsColor);
-    color: white;
     opacity: 0%;
-    cursor: pointer;
-    border: thin white solid;
 
-}
-.reverted > .deleteButton{
-
-    left: initial;
-    right: -16px;
 
 }
 

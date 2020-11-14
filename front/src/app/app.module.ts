@@ -39,7 +39,7 @@ import { BackgroundPanelComponent } from './components/background-panel/backgrou
 import { DicePanelComponent } from './components/dice-panel/dice-panel.component';
 import { CeilNumberPipe } from './pipes/ceil-number.pipe';
 import { SoundPanelComponent } from './components/sound-panel/sound-panel.component';
-import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog/create-category.dialog.component'
+import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog.component'
 import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fontSize';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -49,6 +49,7 @@ import { CharacterListItemComponent } from './components/character-list-item/cha
 import { DiaryPanelComponent } from './components/diary-panel/diary-panel.component';
 import { BestiaryPanelComponent } from './components/bestiary-panel/bestiary-panel.component';
 import { RandomScenarioDialogComponent } from './dialogs/random-scenario.dialog/random-scenario.dialog/random-scenario.dialog.component';
+import { DeleteBadgeDirective } from './directives/delete-badge.directive';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -89,6 +90,7 @@ export function createTranslateLoader(http: HttpClient) {
     DiaryPanelComponent,
     BestiaryPanelComponent,
     RandomScenarioDialogComponent,
+    DeleteBadgeDirective,
 
     
   ],

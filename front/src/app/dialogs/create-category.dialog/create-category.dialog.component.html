@@ -1,0 +1,35 @@
+<div class="header">
+    <input class="categoryName" type="text" value='{{selectedCategory}}' #category>
+</div>
+<div class="body">
+
+    <div class="backgroundsContainer">
+
+    
+        <label 
+        *ngFor="let background of picturesList"
+        class="backgroundItem"
+        deleteBadge="Left"
+        (delete)='deletePictureClick(background)'
+        (click)='$event.preventDefault()'
+
+        >
+
+            <img [src]='background.src'>
+
+        </label>
+                
+    
+    </div>
+
+    <input hidden type="file" (change)="getPicture($event.target.files[0],category.value)" #imgInput>
+    <button (click)="imgInput.click()" formButton >Ajouter une image</button>
+
+
+</div>
+<div class="footer">
+
+    <button (click)="addCategoryClick(category.value)" formButton>Valider</button>
+
+</div>
+
