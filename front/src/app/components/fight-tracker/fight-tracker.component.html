@@ -6,11 +6,24 @@
 
             <div class="ft-header">
 
-                <button class="ft-headerButton" (click)="setAllInitiatives()"><fa-icon [icon]="faRunning"></fa-icon></button>
-                <button class="ft-headerButton" (click)="sortCharacterByInitClick()"><fa-icon [icon]="faSort"></fa-icon></button>
-                <button class="ft-headerButton" (click)="roundCountClick()"><fa-icon [icon]="faPlay"></fa-icon></button>
-                <input type="number" [value]="round" >
+                <div>
 
+                    <button class="ft-headerButton" (click)="setAllInitiatives()"><fa-icon [icon]="faRunning"></fa-icon></button>
+                    <button class="ft-headerButton" (click)="sortCharacterByInitClick()"><fa-icon [icon]="faSort"></fa-icon></button>
+
+                </div>
+                <div>
+
+                    <label class="roundLabel">
+                        ROUND
+                        <input class="roundInput" type="number" [value]="round" >
+
+                    </label>
+                    <button class="ft-headerButton" (click)="roundCountClick()"><fa-icon [icon]="faPlay"></fa-icon></button>    
+
+                </div>
+                <div></div>
+               
 
             </div>
             <div class="ft-main">
