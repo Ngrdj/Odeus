@@ -1,3 +1,2 @@
-<button>Détails</button>
-<button>Ajouter aux alliés</button>
-<button>Ajouter aux ennemis</button>
+<button *ngFor="let command of characterCommandEnumValues" (click)="throwCommand(command)">{{command}}</button>
+

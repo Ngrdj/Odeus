@@ -24,22 +24,15 @@
         </div> 
         <div class="containerMain">
 
-            <div (click)="onSelectCharacter(character)" class="characterContainer" *ngFor="let character of selectedTeam?.getUniqueMembers()">
-
-                <div>
-
-                    <span *ngIf="selectedTeam.getNumberOfMember(character)>1">X<span>{{selectedTeam.getNumberOfMember(character)}}</span></span>
-
-                </div>
-                <span>{{character.name}}</span>
-                <div>
-                        
-                    <button  (click)="onAddCharacterToAllies(character)" formButton>Ajouter aux alliés</button>
-                    <button  (click)="onAddCharacterToEnemies(character)" formButton>Ajouter aux ennemis</button>
+            <character-list-item 
+                *ngFor="let character of selectedTeam?.getUniqueMembers()"
+                [character]="character"
+                [quantity]="selectedTeam.getNumberOfMember(character)"
+                (details)="onCharacterDetailsClick(character)"
+                (addToAllies)="onAddCharacterToAllies(character)"
+                (addToEnnemies)="onAddCharacterToEnemies(character)"
+            ></character-list-item>
             
-                </div>
-    
-            </div>
 
         </div>
         

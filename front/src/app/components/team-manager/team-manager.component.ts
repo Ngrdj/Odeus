@@ -23,7 +23,7 @@ export class TeamManagerComponent implements OnInit {
 
   selectedCharacter:Character
 
-  @Output() characterSelected:EventEmitter<Character> = new EventEmitter();
+  @Output() characterDetails:EventEmitter<Character> = new EventEmitter();
   @Output() addCharacterToAllies:EventEmitter<Character> = new EventEmitter();
   @Output() addCharacterToEnemies:EventEmitter<Character> = new EventEmitter();
 
@@ -46,9 +46,9 @@ export class TeamManagerComponent implements OnInit {
     this.selectedTeam = this.heroes
 
   }
-  onSelectCharacter(character:Character){
+  onCharacterDetailsClick(character:Character){
 
-    this.characterSelected.emit(character)
+    this.characterDetails.emit(character)
 
   }
   onChangeTagName(teamIndex,newName){

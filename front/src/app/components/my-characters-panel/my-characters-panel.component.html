@@ -6,7 +6,11 @@
     <character-list-item 
     *ngFor="let character of userCharacters"
     [character]="character"
-    (eyeClick)="onCharacterEyeClick(character)"
+    (details)="watchCharacterDetails(character)"
+    (addToAllies)="addToAllies(character)"
+    (addToEnnemies)="addToEnnemies(character)"
+
+    (details)="watchCharacterDetails(character)"
     ></character-list-item>
 
 </div>

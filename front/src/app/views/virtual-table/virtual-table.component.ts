@@ -56,6 +56,8 @@ export class VirtualTableComponent implements OnInit {
   displaySide:boolean = false;
   displayHeader:boolean = false;
   displayOptions:boolean = false;
+
+  showFightTracker:boolean = false;
   
   displayMyCharacters:boolean = false;
   displayCharacterDetails:boolean = false;
@@ -65,6 +67,7 @@ export class VirtualTableComponent implements OnInit {
   displayMap:boolean = false;
   displaySettings:boolean = false;
   displayDiary:boolean = false;
+
 
   selectedCharacter:Character;
 
@@ -173,6 +176,7 @@ export class VirtualTableComponent implements OnInit {
   onRemoveFighter(fighterToRemove:Fighter){
 
     this.fighterList = this.fighterList.filter(fighter => fighter !== fighterToRemove)
+    this.openFightTracker()
 
   }
 
@@ -222,84 +226,99 @@ export class VirtualTableComponent implements OnInit {
 
   }
 
-    private onHideSide(){
-      
-      console.log("hiding side")
+  openFightTracker(){
+
+    this.showFightTracker = true;
+
+  }
+
+  closeFightTracker(){
+
+    this.showFightTracker = false;
+
+  }
+
+  private onHideSide(){
+    
+    console.log("hiding side")
+
+  }
+  private onShowSide(){
+
+    console.log("showing side")
+
+  }
+  private onHideHeader(){
+
+    console.log("hiding header")
+
+  }
+  private onShowHeader(){
+
+    console.log("showing header")
+
+  }
+
+  logoutUser(){
+
+    sessionStorage.removeItem("currentUser")
+    console.log(sessionStorage)
+    alert("vous vous êtes déconnecté")
+    this.loadComponent()
+
+  }
+
+  loginUser(){
+
+
+  }
+  
+  onChangeBackground(newBackground:string){
+
+    this.background = newBackground
+    console.log(this.background)
+
+  }
+
+  addCharacterToFighterList(character:Character,behavior:BehaviorEnum){
+
+    const fighterListCopy = [...this.fighterList]
+    fighterListCopy.push(new Fighter(
+
+      character,
+      behavior,
+      0
+
+    ))
+    this.fighterList = fighterListCopy;
+    this.openFightTracker()
+
+  }
+
+  watchCharacterDetails(character:Character){
+
+    //if(character instanceof Pj){...}else{'open bestiary'}
+    this.selectedCharacter = character
+
+    if(!this.displayCharacterDetails){
+
+      this.displayCharacterDetails = !this.displayCharacterDetails;
 
     }
-    private onShowSide(){
 
-      console.log("showing side")
+  }
 
-    }
-    private onHideHeader(){
+  loadPlaylist(){
+    this.googleService.loadPlaylist().subscribe((value)=>console.log(value))
+  }
 
-      console.log("hiding header")
+  setScenarioArray(){
+    this.scenarioService.getAllInitScenario().subscribe((init)=>this.init=init);
+    this.scenarioService.getAllContextScenario().subscribe((context)=>this.context=context);
+    this.scenarioService.getAllEnemyScenario().subscribe((enemy)=>this.enemy=enemy);
+    this.scenarioService.getAllAllyScenario().subscribe((ally)=>this.ally=ally);
+    this.scenarioService.getAllBonusScenario().subscribe((bonus)=>this.bonus=bonus);
+    this.scenarioService.getAllTwistScenario().subscribe((twist)=>this.twist=twist);
 
-    }
-    private onShowHeader(){
-
-      console.log("showing header")
-
-    }
-
-    logoutUser(){
-
-      sessionStorage.removeItem("currentUser")
-      console.log(sessionStorage)
-      alert("vous vous êtes déconnecté")
-      this.loadComponent()
-
-    }
-    loginUser(){
-
-
-    }
-    onChangeBackground(newBackground:string){
-
-      this.background = newBackground
-      console.log(this.background)
-
-    }
-
-    addCharacterToFighterList(character:Character,behavior:BehaviorEnum){
-
-      const fighterListCopy = [...this.fighterList]
-      fighterListCopy.push(new Fighter(
-
-        character,
-        behavior,
-        0
-
-      ))
-      this.fighterList = fighterListCopy;
-
-    }
-
-    watchCharacterDetails(character:Character){
-
-      //if(character instanceof Pj){...}else{'open bestiary'}
-      this.selectedCharacter = character
-
-      if(!this.displayCharacterDetails){
-
-        this.displayCharacterDetails = !this.displayCharacterDetails;
-
-      }
-
-    }
-
-    loadPlaylist(){
-      this.googleService.loadPlaylist().subscribe((value)=>console.log(value))
-    }
-
-    setScenarioArray(){
-      this.scenarioService.getAllInitScenario().subscribe((init)=>this.init=init);
-      this.scenarioService.getAllContextScenario().subscribe((context)=>this.context=context);
-      this.scenarioService.getAllEnemyScenario().subscribe((enemy)=>this.enemy=enemy);
-      this.scenarioService.getAllAllyScenario().subscribe((ally)=>this.ally=ally);
-      this.scenarioService.getAllBonusScenario().subscribe((bonus)=>this.bonus=bonus);
-      this.scenarioService.getAllTwistScenario().subscribe((twist)=>this.twist=twist);
-
-    }
+  }
 }

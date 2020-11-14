@@ -5,7 +5,7 @@
     display: grid;
     align-items: center;
     grid-template-rows: 100%;
-    grid-template-columns: 10% auto 50px;
+    grid-template-columns: minmax(min-content,15%) auto 50px;
     justify-items: center;
     cursor: pointer;
     width: 100%;
@@ -16,10 +16,24 @@
     filter: invert(100%);
 
 }
+:host:hover img{
+
+    filter: invert(100%);
+
+}
 button{
 
-    background: none;
+    background: white;
     padding: 20%;
     border: thin solid;
+    cursor: pointer;
+
+}
+
+img{
+
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 
 }

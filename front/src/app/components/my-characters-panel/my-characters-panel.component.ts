@@ -24,7 +24,9 @@ export class MyCharactersPanelComponent implements OnInit {
   @Input() skills:Skill[];
   @Input() stories:Story[];
 
-  @Output() characterEyeClick:EventEmitter<Character> = new EventEmitter()
+  @Output() characterDetails:EventEmitter<Character> = new EventEmitter()
+  @Output() addCharacterToAllies:EventEmitter<Character> = new EventEmitter()
+  @Output() addCharacterToEnnemies:EventEmitter<Character> = new EventEmitter()
   @Output() createNewPj:EventEmitter<Pj> = new EventEmitter()
 
 
@@ -62,9 +64,20 @@ export class MyCharactersPanelComponent implements OnInit {
     })
 
   }
-  onCharacterEyeClick(character:Character){
 
-    this.characterEyeClick.emit(character)
+  watchCharacterDetails(character:Character){
+
+    this.characterDetails.emit(character)
+
+  }
+  addToAllies(character:Character){
+
+      this.addCharacterToAllies.emit(character)
+
+  }
+  addToEnnemies(character:Character){
+
+    this.addCharacterToEnnemies.emit(character)
 
   }
 

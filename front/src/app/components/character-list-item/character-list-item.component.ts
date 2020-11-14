@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { CharacterCommandsDialog } from 'src/app/dialogs/character-commands.dialog/character-commands.dialog.component';
+import { CharacterCommandEnum, CharacterCommandsDialog } from 'src/app/dialogs/character-commands.dialog/character-commands.dialog.component';
 import { Character } from 'src/app/models/character';
 
 @Component({
@@ -21,7 +21,14 @@ export class CharacterListItemComponent implements OnInit {
   }
 
   @Input() character:Character;
-  @Output() eyeClick:EventEmitter<any> = new EventEmitter()
+
+  @Output() details:EventEmitter<Character> = new EventEmitter()
+  @Output() addToAllies:EventEmitter<Character> = new EventEmitter()
+  @Output() addToEnnemies:EventEmitter<Character> = new EventEmitter()
+
+
+  @Input() quantity:number;
+  
 
   constructor(private dialog: MatDialog) { }
 
@@ -30,12 +37,21 @@ export class CharacterListItemComponent implements OnInit {
 
   openCommandsDialog(){
 
-    this.dialog.open(CharacterCommandsDialog,{
+    this.dialog.open(CharacterCommandsDialog,{})
+    .afterClosed()
+    .subscribe(command => {
 
+      switch(command){
 
-      data:{
-
-        character:this.character
+        case CharacterCommandEnum.DETAILS:
+          this.details.emit(this.character)
+        break;
+        case CharacterCommandEnum.ADDTOALLIES:
+          this.addToAllies.emit(this.character)
+        break;
+        case CharacterCommandEnum.ADDTOENNEMIES:
+          this.addToEnnemies.emit(this.character)
+        break;
 
       }
 
@@ -46,7 +62,7 @@ export class CharacterListItemComponent implements OnInit {
   onEyeClick(event:Event){
 
     event.stopPropagation()
-    this.eyeClick.emit()
+    this.details.emit(this.character)
 
 
   }

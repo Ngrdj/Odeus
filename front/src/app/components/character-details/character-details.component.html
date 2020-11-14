@@ -1,7 +1,7 @@
 <div class='container'>
 
     <img class="portrait" [src]="character?.portrait?character.portrait:'https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg'">
-    <h3 class="name" ><span parentRelativeFontSize="100" parent=".name" noWrap="true">{{character?character.name:"-nom de personnage-"}}</span></h3>
+    <h3 class="name" ><span >{{character?character.name:"-nom de personnage-"}}</span></h3>
     <h4 *ngIf='character?.playable' class="race">-race du personnage-</h4>
     
     <ul class="stats">
@@ -9,7 +9,7 @@
         <li *ngFor="let characteristic of characteristics, let i = index" >
             <label class="stat">
 
-                <span class="statName" parentRelativeFontSize="100" parent=".statName" >{{characteristic.name | lowercase | translate}}</span>
+                <span class="statName"  >{{characteristic.name | lowercase | translate}}</span>
                 <input class="statInput" readonly [value]="character?.characteristics?character.characteristics[i].value:0">
                 <span  [ngClass]="{'statBonus':character?.characteristics[i].bonus > 0, 'statMalus':character?.characteristics[i].bonus < 0}" class="statBonus">{{character?.characteristics?character.characteristics[i].bonus:0}}</span>
 

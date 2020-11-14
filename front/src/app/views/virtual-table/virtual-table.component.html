@@ -28,12 +28,18 @@
       {{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}
     </button>
   
-    <fight-tracker (removeFighter)="onRemoveFighter($event)" [fighterList]="fighterList" class="main"></fight-tracker>
+    <fight-tracker
+    (removeFighter)="onRemoveFighter($event)"
+    [fighterList]="fighterList"
+    [open]="showFightTracker"
+    (open)="openFightTracker()"
+    (close)="closeFightTracker()"
+    class="main"></fight-tracker>
   
     <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
     <team-manager
       [characters] = "userCharacters"
-      (characterSelected)="onCharacterSelected($event)"
+      (characterDetails)="watchCharacterDetails($event)"
       (addCharacterToAllies)="addCharacterToFighterList($event,behaviorEnum.ALLY)"
       (addCharacterToEnemies)="addCharacterToFighterList($event,behaviorEnum.ENEMY)"
       [teams]="teams"
@@ -56,7 +62,9 @@
     <my-characters-panel
       controlPanel
       (closePanel)="displayMyCharacters = false"
-      (characterEyeClick)="watchCharacterDetails($event)"
+      (characterDetails)="watchCharacterDetails($event)"
+      (addCharacterToAllies)="addCharacterToFighterList($event,behaviorEnum.ALLY)"
+      (addCharacterToEnemies)="addCharacterToFighterList($event,behaviorEnum.ENEMY)"
       (createNewPj)="createNewPj($event)"
       [visible]="displayMyCharacters"
       [characteristics]="characteristics"

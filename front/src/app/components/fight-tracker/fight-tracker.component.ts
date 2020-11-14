@@ -10,7 +10,9 @@ import { Fighter } from 'src/app/models/fighter';
 })
 export class FightTrackerComponent implements OnInit, OnChanges {
 
+  @Input("open")
   visibility:boolean=false;
+
   @Input() fighterList:Fighter[]=[];
   selectedFighter:Fighter;
   enemyList:Fighter[]=[];
@@ -18,6 +20,8 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   public round:number=0;
 
   @Output() removeFighter:EventEmitter<any> = new EventEmitter();
+  @Output() open:EventEmitter<any> = new EventEmitter();
+  @Output() close:EventEmitter<any> = new EventEmitter();
 
 
   faRunning=faRunning;
@@ -72,7 +76,11 @@ export class FightTrackerComponent implements OnInit, OnChanges {
 
   onShowHideButtonClick(){
 
-    this.visibility = !this.visibility
+    if(this.visibility){
+      this.close.emit()
+    }else{
+      this.open.emit()
+    }
 
   }
   setAllInitiatives(){

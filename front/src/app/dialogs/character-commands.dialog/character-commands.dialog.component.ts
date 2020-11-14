@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Character } from 'src/app/models/character';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
+export enum CharacterCommandEnum{
 
-export interface CharacterCommandsDialogData {
-
-  character:Character
+  DETAILS="DETAILS",
+  ADDTOALLIES="ADDTOALLIES",
+  ADDTOENNEMIES="ADDTOENNEMIES"
 
 }
 
@@ -16,18 +16,21 @@ export interface CharacterCommandsDialogData {
 })
 export class CharacterCommandsDialog implements OnInit {
 
-  character:Character
+  characterCommandEnum = CharacterCommandEnum;
+  characterCommandEnumValues = Object.values(this.characterCommandEnum)
 
   constructor(
     public dialogRef: MatDialogRef<CharacterCommandsDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: CharacterCommandsDialogData
-    ) {
-
-      this.character = data.character
-
-     }
+    ) {}
 
   ngOnInit(): void {
+  }
+
+
+  throwCommand(command:CharacterCommandEnum){
+
+    this.dialogRef.close(command)
+
   }
 
 }
