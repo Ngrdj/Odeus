@@ -28,15 +28,15 @@ import { Twist } from '../models/twist';
 
     getAllInitScenario(){
 
-        return this.http.get(environment.baseApiUrl + 'init')
+        return this.http.get(environment.baseApiUrl + 'init-scenario')
         .pipe(
-            map((initArray:GetInitScenarioDto[])=>initArray.map(element => Init.fromDto(element))))
+            map((initArray:GetInitScenarioDto[])=>initArray.map((element:GetInitScenarioDto) => Init.fromDto(element))))
 
     }
 
     getAllAllyScenario(){
 
-        return this.http.get(environment.baseApiUrl + 'init')
+        return this.http.get(environment.baseApiUrl + 'ally-scenario')
         .pipe(
             map((allyArray:GetAllyScenarioDto[])=>allyArray.map(element => Ally.fromDto(element))))
 
@@ -44,7 +44,7 @@ import { Twist } from '../models/twist';
 
     getAllBonusScenario(){
 
-        return this.http.get(environment.baseApiUrl + 'init')
+        return this.http.get(environment.baseApiUrl + 'bonus-scenario')
         .pipe(
             map((bonusArray:GetBonusScenarioDto[])=>bonusArray.map(element => Bonus.fromDto(element))))
 
@@ -52,7 +52,7 @@ import { Twist } from '../models/twist';
 
     getAllEnemyScenario(){
 
-        return this.http.get(environment.baseApiUrl + 'init')
+        return this.http.get(environment.baseApiUrl + 'enemy-scenario')
         .pipe(
             map((enemyArray:GetEnemyScenarioDto[])=>enemyArray.map(element => Enemy.fromDto(element))))
 
@@ -60,7 +60,7 @@ import { Twist } from '../models/twist';
 
     getAllTwistScenario(){
 
-        return this.http.get(environment.baseApiUrl + 'init')
+        return this.http.get(environment.baseApiUrl + 'twist-scenario')
         .pipe(
             map((twistArray:GetTwistScenarioDto[])=>twistArray.map(element => Twist.fromDto(element))))
 
@@ -68,7 +68,7 @@ import { Twist } from '../models/twist';
 
     getAllContextScenario(){
 
-        return this.http.get(environment.baseApiUrl + 'init')
+        return this.http.get(environment.baseApiUrl + 'context-scenario')
         .pipe(
             map((contextArray:GetContextScenarioDto[])=>contextArray.map(element => Context.fromDto(element))))
 

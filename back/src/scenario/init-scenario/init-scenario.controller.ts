@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common'
 import { InitScenarioService } from './init-scenario.service';
 import { CreateInitScenarioDto } from './dto/create-init-scenario.dto';
 import { UpdateInitScenarioDto } from './dto/update-init-scenario.dto';
+import { InitScenario } from './entities/init-scenario.entity';
 
 @Controller('init-scenario')
 export class InitScenarioController {
@@ -9,7 +10,9 @@ export class InitScenarioController {
   
   @Post()
   create(@Body() createInitScenarioDto: CreateInitScenarioDto) {
-    return this.initScenarioService.create(createInitScenarioDto);
+    const init=new InitScenario();
+    init.label=createInitScenarioDto.label
+    return this.initScenarioService.create(init);
   }
 
   @Get()

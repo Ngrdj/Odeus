@@ -1,26 +1,26 @@
 <div>
     <div>
         <button (click)="randomScenario('init')" name='init'>Situation Initial</button>
-        <input type="text" [value]="">
+        <input type="text" [value]="currentInit?.label">
     </div>
     <div>
         <button (click)="randomScenario('context')" name='context' >Contexte</button>
-        <input type="text" [value]="">
+        <input type="text" [value]="currentContext?.label">
     </div>
     <div>
         <button (click)="randomScenario('enemy')" name='enemy'>Type d'Ennemi</button>
-        <input type="text" [value]="">
+        <input type="text" [value]="currentEnemy?.label">
     </div>
     <div>
         <button (click)="randomScenario('ally')" name='ally'>Type d'Allié</button>
-        <input type="text" [value]="">
+        <input type="text" [value]="currentAlly?.label">
     </div>
     <div>
         <button (click)="randomScenario('bonus')" name='bonus'>Situation Bonus</button>
-        <input type="text" [value]="">
+        <input type="text" [value]="currentBonus?.label">
     </div>
     <div>
         <button (click)="randomScenario('twist')" name='twist'>Rebondissement</button>
-        <input type="text" [value]="">
+        <input type="text" [value]="currentTwist?.label">
     </div>
 </div>

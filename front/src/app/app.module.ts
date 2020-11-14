@@ -48,7 +48,7 @@ import { CharacterCommandsDialog } from './dialogs/character-commands.dialog/cha
 import { CharacterListItemComponent } from './components/character-list-item/character-list-item.component';
 import { DiaryPanelComponent } from './components/diary-panel/diary-panel.component';
 import { BestiaryPanelComponent } from './components/bestiary-panel/bestiary-panel.component';
-import { RandomScenarioDialogComponent } from './dialogs/random-scenario.dialog/random-scenario.dialog/random-scenario.dialog.component';
+import { RandomScenarioDialogComponent } from './dialogs/random-scenario.dialog/random-scenario.dialog.component';
 import { DeleteBadgeDirective } from './directives/delete-badge.directive';
 
 

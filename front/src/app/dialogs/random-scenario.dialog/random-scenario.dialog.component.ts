@@ -29,6 +29,14 @@ export class RandomScenarioDialogComponent implements OnInit {
   bonus:Bonus[]=[];
   twist:Twist[]=[];
 
+  currentInit:Init;
+  currentContext:Context;
+  currentEnemy:Enemy;
+  currentAlly:Ally;
+  currentBonus:Bonus;
+  currentTwist:Twist;
+
+
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogScenarioData) {
     this.init=data.init;
@@ -46,22 +54,22 @@ export class RandomScenarioDialogComponent implements OnInit {
   randomScenario(name:string){
 
     switch(name){
-      case 'init': this.init[Math.floor(Math.random() * this.init.length)];
+      case 'init': this.currentInit=this.init[this.randomNumber(0,this.init.length-1)];
       break;
 
-      case 'context': this.context[Math.floor(Math.random() * this.context.length)];
+      case 'context': this.currentContext=this.context[this.randomNumber(0,this.context.length-1)];
       break;
 
-      case 'enemy': this.enemy[Math.floor(Math.random() * this.enemy.length)];
+      case 'enemy': this.currentEnemy=this.enemy[this.randomNumber(0,this.enemy.length-1)];
       break;
 
-      case 'ally': this.ally[Math.floor(Math.random() * this.ally.length)];
+      case 'ally': this.currentAlly=this.ally[this.randomNumber(0,this.ally.length-1)];
       break;
 
-      case 'bonus': this.bonus[Math.floor(Math.random() * this.bonus.length)];
+      case 'bonus': this.currentBonus=this.bonus[this.randomNumber(0,this.bonus.length-1)];
       break;
 
-      case 'twist': this.twist[Math.floor(Math.random() * this.twist.length)];
+      case 'twist': this.currentTwist=this.twist[this.randomNumber(0,this.twist.length-1)];
       break;
     }
   }

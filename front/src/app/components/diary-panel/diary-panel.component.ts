@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { RandomScenarioDialogComponent } from 'src/app/dialogs/random-scenario.dialog/random-scenario.dialog/random-scenario.dialog.component';
+import { RandomScenarioDialogComponent } from 'src/app/dialogs/random-scenario.dialog/random-scenario.dialog.component';
 import { Ally } from 'src/app/models/ally';
 import { Bonus } from 'src/app/models/bonus';
 import { Context } from 'src/app/models/context';
