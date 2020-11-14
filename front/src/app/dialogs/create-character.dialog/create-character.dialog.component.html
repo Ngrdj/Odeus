@@ -30,7 +30,7 @@
 
             <label *ngFor="let characteristic of getCharacteristicsAsArray() ; let i = index"  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
 
-                {{characteristic.controls.name.value}}
+                {{characteristic.value.name}}
                 <span class="characteristicValue">
  
                     <span><button  *ngIf="characteristic.controls.value.value > 1 " (click)="onCharactLessClick(i)"  class="levelButton"><</button></span>

@@ -1,1 +1,26 @@
-<p>random-scenario.dialog works!</p>
+<div>
+    <div>
+        <button (click)="randomScenario(init)" [name]='init'>Situation Initial</button>
+        <input type="tex" [value]="">
+    </div>
+    <div>
+        <button (click)="randomScenario(context)" [name]='context' >Contexte</button>
+        <input type="tex" [value]="">
+    </div>
+    <div>
+        <button (click)="randomScenario(enemy)" [name]='enemy'>Type d'Ennemi</button>
+        <input type="tex" [value]="">
+    </div>
+    <div>
+        <button (click)="randomScenario(ally)" [name]='ally'>Type d'Allié</button>
+        <input type="tex" [value]="">
+    </div>
+    <div>
+        <button (click)="randomScenario(bonus)" [name]='bonus'>Situation Bonus</button>
+        <input type="tex" [value]="">
+    </div>
+    <div>
+        <button (click)="randomScenario(twist)" [name]='twist'>Rebondissement</button>
+        <input type="tex" [value]="">
+    </div>
+</div>
