@@ -23,7 +23,7 @@ export class DicePanelComponent implements OnInit {
 
   }
 
-randomNumber(min, max) {  
+  randomNumber(min, max) {  
     return Math.round(Math.random() * (max - min) + min) ; 
   }
 

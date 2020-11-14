@@ -53,10 +53,13 @@
         
         </div>
 
+        <div class="portrait">
 
-        <img (click)="browse.click()" [src]="currentPortrait" class="portrait" >
-        <input (change)="setCurrentPortrait($event.target.files[0])" accept="image/png, image/jpeg" hidden="true" type="file" #browse>
+            <img (click)="browse.click()" [src]="currentPortrait"  >
+            <input (change)="setCurrentPortrait($event.target.files[0])" accept="image/png, image/jpeg" hidden="true" type="file" #browse>    
 
+        </div>
+        
     </div>
 
     <div class="formMain">
@@ -186,6 +189,10 @@
 
     </div>
 
-    <button (click)="onSubmitForm()">Create character</button>
+    <div class="footer">
+
+        <button  (click)="onSubmitForm()" formButton>Create character</button>
+
+    </div>
 
 </form>

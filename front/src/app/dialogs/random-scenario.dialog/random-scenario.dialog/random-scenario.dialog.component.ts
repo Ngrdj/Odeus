@@ -6,6 +6,16 @@ import { Enemy } from 'src/app/models/enemy';
 import { Init } from 'src/app/models/init';
 import { Twist } from 'src/app/models/twist';
 
+export enum RandomScenarioComponentEnum{
+
+  INIT="initial",
+  CONTEXT="context",
+  ALLY="ally",
+  BONUS="bonus",
+  TWIST="twist"
+
+}
+
 @Component({
   selector: 'random-scenario.dialog',
   templateUrl: './random-scenario.dialog.component.html',
@@ -20,7 +30,7 @@ export class RandomScenarioDialogComponent implements OnInit {
   @Input() bonus:Bonus[]=[];
   @Input() twist:Twist[]=[];
 
-
+  scenarioComponentEnum = RandomScenarioComponentEnum;
 
   constructor() { }
 
@@ -48,6 +58,10 @@ export class RandomScenarioDialogComponent implements OnInit {
       case 'twist': return this.twist[Math.floor(Math.random() * this.twist.length)];
       break;
     }
+  }
+
+  randomNumber(min, max) {  
+    return Math.round(Math.random() * (max - min) + min) ; 
   }
 
 }

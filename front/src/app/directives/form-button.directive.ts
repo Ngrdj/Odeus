@@ -29,7 +29,10 @@ private elementStyle;
 
     this.elementStyle.backgroundColor="white";
     this.elementStyle.border="thin solid";
-    this.elementStyle.minWidth="100px";
+    this.elementStyle.boxSizing="border-box";
+    this.elementStyle.padding="5px";
+    this.elementStyle.width="100%";
+
 
   }
 
