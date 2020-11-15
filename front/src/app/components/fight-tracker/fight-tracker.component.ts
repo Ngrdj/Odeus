@@ -33,7 +33,7 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-
+    this.selectedFighter.portrait="https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg";
 
 
   }
@@ -120,7 +120,7 @@ export class FightTrackerComponent implements OnInit, OnChanges {
     }
   }
 
-  ResetRoundClick(){
+  resetRoundClick(){
     this.selectedFighter=undefined;
     this.round=0;
   }

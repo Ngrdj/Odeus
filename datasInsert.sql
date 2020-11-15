@@ -51,11 +51,11 @@ INSERT INTO class (id,name)
 
 INSERT INTO sub_class (id,name,class_id)
 	VALUES
-		(1,'FIRE',14),
-		(2,'WATER',14),
-		(3,'AIR',14),
-		(4,'EARTH',14),
-		(5,'ARCANA',14),
+		(1,'FIRE',13),
+		(2,'WATER',13),
+		(3,'AIR',13),
+		(4,'EARTH',13),
+		(5,'ARCANA',13),
 		(6,'WEATHER',5),
 		(7,'BESTIALITY',5),
 		(8,'HERBALIST',5),
@@ -63,7 +63,7 @@ INSERT INTO sub_class (id,name,class_id)
 		(10,'DISTANCE',9),
 		(11,'SURVIVAL',9),	
 		(12,'FAMILIAR',9),	
-		(13,'CHAMPION',13);
+		(13,'CHAMPION',6);
 
 INSERT INTO skill (id,name,type)
 	VALUES
