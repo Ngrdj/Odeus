@@ -47,8 +47,7 @@ INSERT INTO class (id,name)
 		(10,'ROGUE'),
 		(11,'SORCERER'),	
 		(12,'WARLOCK'),	
-		(13,'WARRIOR'),	
-		(14,'WIZARD');
+		(13,'WIZARD');
 
 INSERT INTO sub_class (id,name,class_id)
 	VALUES

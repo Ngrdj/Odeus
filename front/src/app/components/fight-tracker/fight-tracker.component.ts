@@ -119,4 +119,9 @@ export class FightTrackerComponent implements OnInit, OnChanges {
       this.selectedFighter=sortFighterList[0];
     }
   }
+
+  ResetRoundClick(){
+    this.selectedFighter=undefined;
+    this.round=0;
+  }
 }
