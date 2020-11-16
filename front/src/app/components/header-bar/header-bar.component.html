@@ -9,15 +9,16 @@
 
 <div class="logContainer">
 
-    <button *ngIf="(currentUser?.name==='Anonymous')"
+    <button
+    *ngIf="!currentUser"
+    routerLink="./login"
     class="logButton"
-    routerLink="/login"
     (click)="onLoginClick()">
         login
     </button>
     <button
-     *ngIf="!(currentUser?.name==='Anonymous')"
-     class="logButton"
+    *ngIf="currentUser"
+      class="logButton"
      (click)="onLogoutClick()">
         logout
     </button>

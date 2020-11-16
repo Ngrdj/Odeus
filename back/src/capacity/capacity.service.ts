@@ -24,7 +24,7 @@ export class CapacityService {
   }
 
   async findAll() {
-    return await this.capacityRepository.find({select:[]});
+    return await this.capacityRepository.find();
   }
 
   async findOne(id: number) {

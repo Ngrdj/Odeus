@@ -1,0 +1,79 @@
+import { Component, Inject, OnChanges, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Picture } from 'src/app/models/picture';
+
+export interface DialogDataBackground {
+  picturesList:Picture[];
+  category:string;
+}
+@Component({
+  selector: 'createCategoryDialog',
+  templateUrl: './create-category.dialog.component.html',
+  styleUrls: ['./create-category.dialog.component.scss']
+})
+export class CreateCategoryDialog implements OnInit,OnChanges {
+
+  public picturesList:Picture[]=[];
+  public selectedCategory:string;
+
+  constructor(public dialogRef: MatDialogRef<CreateCategoryDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogDataBackground) {
+
+      if(data){
+        if(data.picturesList){
+
+          this.picturesList=[...data.picturesList];
+
+        }
+        if(data.category){
+
+          this.selectedCategory=data.category;
+
+        }
+      }
+     }
+
+  ngOnInit(): void {
+
+  }
+
+  ngOnChanges(changes){
+
+    console.log('change',changes);
+
+
+  }
+
+  addCategoryClick(category:string){
+    this.picturesList.forEach((picture)=>{
+
+      picture.categories[picture.categories.indexOf(this.selectedCategory)]=category;
+
+    })
+    this.dialogRef.close(this.picturesList);
+
+  }
+
+  private getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  getPicture(file:File,category:string){
+      console.log("category dialog",category)
+      this.getBase64(file).then(data => { 
+        
+        this.picturesList =[...this.picturesList, new Picture(data.toString(),[category])];
+
+      })
+    
+  }
+
+  deletePictureClick(background:Picture){
+    this.picturesList=this.picturesList.filter((picture)=>picture!==background)
+  }
+}

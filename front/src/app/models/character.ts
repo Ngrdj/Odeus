@@ -1,30 +1,23 @@
-import { Characteristics } from './characteristics';
-import { CharacterGetDto } from './dtos/character.dto';
+import { Capacity } from './capacity';
+import { CharacterCharacteristic } from './characterCharacteristic';
+import { CharacterSkill } from './characterSkill';
+import { SizeEnum } from './enums/size.enum';
 
-export class Character {
+export abstract class Character {
+
 
     constructor(
 
         public id:number,
         public name:string,
-        public portrait?:string,
-        public characteristics?:Characteristics[]
-        
+        public portrait:string,
+        public resume:string,
+        public capacities:Capacity[],
+        public characteristics:CharacterCharacteristic[],
+        public skills:CharacterSkill[],
+        public playable:boolean,
+        public size:SizeEnum
 
     ){}
-
-    static fromDto(characterDto:CharacterGetDto){
-
-        return new Character(
-
-            characterDto.id,
-            characterDto.name,
-            characterDto.portrait,
-            characterDto.characteristics.map(charact => Characteristics.fromDto(charact))
-            
-
-        )
-
-    }
-
+        
 }

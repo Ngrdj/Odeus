@@ -1,25 +1,34 @@
 import { Exclude } from "class-transformer";
-import { TeamCharacter } from "src/team-character/entities/team-character.entity";
+import { Character } from "src/character/entities/character.entity";
+import { Pnj } from "src/pnj/entities/pnj.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('team')
 export class Team {
     
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
     @Column()
     name:string
 
-    @JoinColumn()
-    @OneToMany(type=>TeamCharacter,
-        (teamCharacter)=>teamCharacter.team)
-    teamCharacters:TeamCharacter[];
+    @JoinTable()
+    @ManyToMany(type=>Character,
+        (character)=>character.teams,{
+            eager:true
+        })
+    characters:Character[];
+
+    @JoinTable()
+    @ManyToMany(type=>Pnj,
+        (pnj)=>pnj.teams,{
+            eager:true
+        })
+        pnjs:Pnj[];
 
     @ManyToOne(type=>User,
         (user)=>user.team)
-    user:User;
+    userId:number;
 
     @Exclude()
     @CreateDateColumn()

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Character } from 'src/app/models/character';
+import { Pnj } from 'src/app/models/pnj';
 import { Team } from 'src/app/models/team';
 
 
@@ -69,7 +70,8 @@ teamForm:FormGroup;
       const newTeam = new Team(
 
         this.teamForm.controls.name.value,
-        this.teamMembers
+        this.teamMembers,
+        
 
       )
 
@@ -95,7 +97,7 @@ teamForm:FormGroup;
   }
   numberOfChar(character:Character){
 
-    return this.teamMembers.filter(element => element.id === character.id).length
+    return this.teamMembers.filter(element => element.name === character.name).length
 
   }
   getUniqueMembers(){

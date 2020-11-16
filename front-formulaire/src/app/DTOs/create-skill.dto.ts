@@ -1,5 +1,5 @@
-import { CharacteristicEnum } from "src/characteristic/characteristic.enum";
-import { SkillEnum } from "../skill.enum";
+import { CharacteristicEnum } from '../Enum/characteristic.enum';
+import { SkillEnum } from '../Enum/skill.enum';
 
 export class CreateSkillDto {
     name:SkillEnum;

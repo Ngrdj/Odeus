@@ -19,8 +19,27 @@ async create(createSubClassDto:CreateSubClassDto) {
     return this.subClassRepository.save(newSubClass);
   }
 
-  async findAll() {
-    return await this.subClassRepository.find();
+  async findAll(subClassesId?:number[]) {
+
+    if(subClassesId&&(subClassesId.length>0)){
+
+      const subClassArray=[];
+
+      subClassesId.forEach((subclassId)=>{
+
+        subClassArray.push({id:subclassId})
+        
+      })
+
+      return await this.subClassRepository.find({
+        where:subClassArray
+      })
+
+    }else{
+      return await this.subClassRepository.find();
+    }
+
+    
   }
 
   async findOne(id: number) {

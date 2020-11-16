@@ -1,0 +1,38 @@
+<div class="header">
+
+    <select *ngIf="selectedCategory"  (change)='setFilterPictureList($event.target.value)'>
+
+        <option [selected]='category===selectedCategory' *ngFor='let category of categories' value="{{category}}">{{category}}</option>
+    
+    
+    </select>
+
+    <div class="categoryCommands">
+
+        <button *ngIf="selectedCategory" (click)="modifyCategoryClick(filterPicturesList,selectedCategory)" formButton>Modifier</button>
+        <button *ngIf="selectedCategory" (click)="deleteCategoryClick(filterPicturesList,selectedCategory)" formButton>Supprimer</button>
+
+    </div>
+
+</div>
+
+
+<div class="backgroundsContainer">
+
+    <div (click)="onBackgroundClick(background.src)" *ngFor="let background of filterPicturesList" class="backgroundItem">
+
+        <label>
+            <input class="backgroundButton" type="radio" name="background">
+            <img [src]='background.src'>
+        </label>
+        
+    </div>
+
+</div>
+<div class="footer">
+
+    <button *ngIf="selectedBackground" (click)="onChangeBackgroundClick()" formButton>changer l'arrière-plan</button>
+    <button (click)="onAddCategoryClick()" formButton>Ajouter Une Categorie</button>
+
+</div>
+

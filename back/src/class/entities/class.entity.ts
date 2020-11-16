@@ -5,7 +5,6 @@ import { ClassEnum } from "../class.enum";
 @Entity('class')
 export class Class {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -14,7 +13,7 @@ export class Class {
 
     @JoinColumn()
     @OneToMany(type=>SubClass,
-        (subClass)=>subClass.class)
+        (subClass)=>subClass.class,{eager:true})
     subClass:SubClass[];
 
     @Exclude()

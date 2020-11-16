@@ -2,13 +2,17 @@
 import { CharacterCharacteristic } from "src/character-characteristic/entities/character-characteristic.entity";
 import { CharacterSkill } from "src/character-skill/entities/character-skill.entity";
 import { CharacterSubClass } from "src/character-sub-class/entities/character-sub-class.entity";
+import { ClassEnum } from "src/class/class.enum";
+import { SizeEnum } from "src/pnj/size.enum";
 import { Race } from "src/race/entities/race.entity";
 import { Story } from "src/story/entities/story.entity";
-import { TeamCharacter } from "src/team-character/entities/team-character.entity";
+import { Team } from "src/team/entities/team.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column,CreateDateColumn,DeleteDateColumn,Entity,JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Serializer } from "v8";
 import {AlignmentEnum } from "../dto/alignment.enum";
 import { GenderEnum } from "../dto/gender.enum";
+
 
 @Entity('character')
 export class Character {
@@ -25,6 +29,9 @@ export class Character {
             eager:true
         })
     race:Race;
+
+    @Column()
+    className:ClassEnum;
 
     @Column()
     level:number;
@@ -46,6 +53,9 @@ export class Character {
 
     @Column()
     age:number;
+
+    @Column()
+    size:SizeEnum;
 
     @JoinColumn()
     @ManyToOne(type=>User,
@@ -81,12 +91,9 @@ export class Character {
         })
     characterSkills:CharacterSkill[];
 
-    @JoinColumn()
-    @OneToMany(type=>TeamCharacter,
-        (teamCharacter)=>teamCharacter.character,{
-            eager:true
-        })
-    teamCharacters:TeamCharacter[];
+    @ManyToMany(type=>Team,
+        (team)=>team.characters)
+    teams:Team[];
 
     @CreateDateColumn()
     createdAt: Date;

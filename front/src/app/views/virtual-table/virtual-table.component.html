@@ -6,16 +6,18 @@
     (soundClick)="displaySound = !displaySound"
     (backgroundClick)="displayBackgroundSettings = !displayBackgroundSettings"
     (diceClick)="displayDices = !displayDices"
+    (diaryClick)="displayDiary = !displayDiary"
     (mapClick)="displayMap = !displayMap"
     (settingsClick)="displaySettings = !displaySettings"
 ></options-bar>
 
 
-<div class="container boundary" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
+<div class="container boundary" [ngStyle]="{'background-image': 'url(' + background + ')'}" [ngClass]="{hideSide:!displaySide, deploySide:displaySide , hideHeader:!displayHeader , deployHeader:displayHeader }">
 
     <header-bar
       (optionsButtonClick)="showHideOptions()"
       (logoutClick)="logoutUser()"
+      (loginClick)="loginUser()"
       [currentUser]="currentUser"
       [ngClass]="{hidden:!displayHeader}"
       class="header">
@@ -26,47 +28,109 @@
       {{displayHeader?"&uarr;&uarr;&uarr;":"&darr;&darr;&darr;"}}
     </button>
   
-    <fight-tracker [fighterList]="fighterList" class="main"></fight-tracker>
+    <fight-tracker
+    (removeFighter)="onRemoveFighter($event)"
+    [fighterList]="fighterList"
+    [open]="showFightTracker"
+    (open)="openFightTracker()"
+    (close)="closeFightTracker()"
+    class="main"></fight-tracker>
   
     <button (click)="showHideSide()" class="sideButton">TEAMS MANAGER</button>
     <team-manager
       [characters] = "userCharacters"
-      (characterSelected)="onCharacterSelected($event)"
+      (characterDetails)="watchCharacterDetails($event)"
+      (addCharacterToAllies)="addCharacterToFighterList($event,behaviorEnum.ALLY)"
+      (addCharacterToEnemies)="addCharacterToFighterList($event,behaviorEnum.ENEMY)"
       [teams]="teams"
       [heroes]="heroes"
       [ngClass]="{hidden:!displaySide}"
       class="side"
-      (showHideClick)="showHideSide()">
+      (showHideClick)="showHideSide()"
+      [pnjList]='pnjList'>
     </team-manager>
       
     <settings-panel 
       controlPanel
       (closePanel)="displaySettings = false"
-      [display]="displaySettings?'block':'none'"
+      [visible]="displaySettings"
+      [currentUser]="currentUser"
       panelTitle="Options"
-      cdkDragBoundary=".boundary"
-      cdkDrag>
+    >
     </settings-panel>
 
     <my-characters-panel
       controlPanel
       (closePanel)="displayMyCharacters = false"
-      [display]="displayMyCharacters?'block':'none'"
+      (characterDetails)="watchCharacterDetails($event)"
+      (addCharacterToAllies)="addCharacterToFighterList($event,behaviorEnum.ALLY)"
+      (addCharacterToEnemies)="addCharacterToFighterList($event,behaviorEnum.ENEMY)"
+      (createNewPj)="createNewPj($event)"
+      [visible]="displayMyCharacters"
+      [characteristics]="characteristics"
+      [classes]="classes"
+      [races]="races"
+      [skills]="skills"
+      [stories]="stories"
+      [userCharacters]="userCharacters"
       panelTitle="Mes personnages"
-      cdkDragBoundary=".boundary"
-      cdkDrag >
+      [resizable]="true"
+
+      class="mcp"
+      parentRelativeFontSize="100" parent=".mcp"
+      >
     </my-characters-panel>
 
 
     <character-details
       controlPanel
       (closePanel)="displayCharacterDetails = false"
-      [display]="displayCharacterDetails?'flex':'none'"
+      [visible]="displayCharacterDetails"
       panelTitle="Détails de personnage"
       [character]="selectedCharacter"
-      cdkDragBoundary=".boundary"
-      cdkDrag>
+      [characteristics]="characteristics"
+      [resizable]="true"
+      initWidth="25%"
+      initHeight="60%"
+    >
    </character-details>
+
+   <background-panel
+
+      (changeBackground)="onChangeBackground($event)"
+      controlPanel
+      [visible]="displayBackgroundSettings"
+      (closePanel)="displayBackgroundSettings = false"
+      panelTitle="paramètres de l'arrière-plan"
+      [resizable]="true"
+      initWidth="30%"
+      initHeight="50%"
+   >
+   </background-panel>
+
+   <dice-panel
+      controlPanel
+      [visible]="displayDices"
+      (closePanel)="displayDices = false"
+      panelTitle="Dés"
+   >
+   </dice-panel>
+
+   <diary-panel
+      controlPanel
+      [visible]="displayDiary"
+      (closePanel)="displayDiary = false"
+      panelTitle="journal"
+      [init]="init"
+      [context]="context"
+      [enemy]="enemy"
+      [ally]="ally"
+      [bonus]="bonus"
+      [twist]="twist"
+
+   >
+   </diary-panel>
+   
   
   </div>
   

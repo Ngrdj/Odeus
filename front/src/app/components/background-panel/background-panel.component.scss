@@ -1,0 +1,75 @@
+:host{
+
+    display: grid;
+    height: 100%;
+    grid-template-rows: 100px auto 100px;
+
+}
+.header{
+
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 60% auto;
+    gap: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+
+}
+.header > select {
+
+    text-align: center;
+    cursor: pointer;
+
+}
+.categoryCommands{
+
+    display: grid;
+
+}
+.backgroundsContainer{
+
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 10px;
+    gap: 10px;
+    box-sizing: border-box;
+    grid-auto-rows: minmax(100px,40%);
+    overflow-y: auto;
+
+}
+.backgroundItem{
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+ img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+
+}
+.footer{
+
+    display: grid;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    grid-auto-columns: auto;
+    grid-template-rows: 100%;
+    grid-auto-flow: column;
+    gap: 15px;
+
+}
+.backgroundButton{
+
+    position: absolute;
+
+}

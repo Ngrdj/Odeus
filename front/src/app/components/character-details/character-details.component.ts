@@ -1,21 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Character } from 'src/app/models/character';
+import { Characteristic } from 'src/app/models/characteristic';
+
 
 @Component({
   selector: 'character-details',
   templateUrl: './character-details.component.html',
   styleUrls: ['./character-details.component.scss']
 })
-export class CharacterDetailsComponent implements OnInit {
+export class CharacterDetailsComponent implements OnInit,OnChanges {
 
   @Input() character:Character;
-  statsArray:string[]=["Force","Dextérité","Intelligence","Charisme"]
-
-  constructor() {
-
+  @Input() characteristics:Characteristic[];
+  constructor(translate:TranslateService) {
+    translate.setDefaultLang('fr');
+      translate.use('fr');
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(){
   }
 
 }

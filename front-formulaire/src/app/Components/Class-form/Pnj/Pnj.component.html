@@ -1,0 +1,93 @@
+<form [formGroup]="pnjForm" (ngSubmit)='OnSubmitForm()'>
+
+  <div>
+    <label>
+      Nom :
+    </label>
+    <input type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label>
+      Taille :
+    </label>
+    <select>
+      <option *ngFor="let size of sizes" value="{{size}}" formControlName="size">{{size}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>
+      Force :
+    </label>
+    <input type="number" formControlName="strength">
+  </div>
+
+  <div>
+    <label>
+      Dexterité :
+    </label>
+    <input type="number" formControlName="dexterity">
+  </div>
+
+  <div>
+    <label>
+      Constitution :
+    </label>
+    <input type="number" formControlName="constitution">
+  </div>
+
+  <div>
+    <label>
+      Intelligence :
+    </label>
+    <input type="number" formControlName="intelligence">
+  </div>
+
+  <div>
+    <label>
+      Sagesse :
+    </label>
+    <input type="number" formControlName="wisdom">
+  </div>
+
+  <div>
+    <label>
+      Charisme :
+    </label>
+    <input type="number" formControlName="charisma">
+  </div>
+
+  <div>
+    <label>
+      Skills :
+    </label>
+    <div *ngFor='let skill of skills'>
+      <input type='checkbox' name='{{skill.name}}'>
+      <label>{{skill.name}}</label>
+    </div>
+  </div>
+
+  <div>
+    <label>
+      Resume :
+    </label>
+    <input type="string" formControlName="resume">
+  </div>
+
+  <div>
+    <label>
+      Portrait :
+    </label>
+    <input type="string" formControlName="portrait">
+  </div>
+
+  <div>
+    <label>
+      Type :
+    </label>
+    <select>
+      <option *ngFor="let type of types" formControlName="type">{{type}}</option>
+    </select>
+  </div>
+</form>

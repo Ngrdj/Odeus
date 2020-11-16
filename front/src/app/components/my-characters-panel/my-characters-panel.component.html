@@ -1,3 +1,22 @@
-<p>my-characters-panel works!</p>
 
-<button (click)="onNewCharacterButtonClick()">Nouveau personnage</button>
+<div class="characterList">
+
+    <span *ngIf="userCharacters.length === 0">Aucun personnages</span>
+
+    <character-list-item 
+    *ngFor="let character of userCharacters"
+    [character]="character"
+    (details)="watchCharacterDetails(character)"
+    (addToAllies)="addToAllies(character)"
+    (addToEnnemies)="addToEnnemies(character)"
+
+    (details)="watchCharacterDetails(character)"
+    ></character-list-item>
+
+</div>
+<div class="footer">
+
+    <button (click)="onNewCharacterButtonClick()" formButton>Nouveau personnage</button>
+
+</div>
+

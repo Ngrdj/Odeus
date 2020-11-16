@@ -6,7 +6,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMa
 @Entity('story')
 export class Story {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

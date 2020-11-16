@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
+import { classToPlain } from 'class-transformer';
 import { CharacterCharacteristicService } from 'src/character-characteristic/character-characteristic.service';
 import { CharacterSkillService } from 'src/character-skill/character-skill.service';
 import { CharacterSkill } from 'src/character-skill/entities/character-skill.entity';
@@ -10,6 +11,7 @@ import { ClassService } from 'src/class/class.service';
 import { RaceService } from 'src/race/race.service';
 import { SkillService } from 'src/skill/skill.service';
 import { StoryService } from 'src/story/story.service';
+import { SubClassService } from 'src/sub-class/sub-class.service';
 import { TeamService } from 'src/team/team.service';
 import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
@@ -30,7 +32,7 @@ export class CharacterService {
       private characterSkillService:CharacterSkillService,
       private raceService:RaceService,
       private userService:UserService,
-      private teamService:TeamService,
+      private subclassService:SubClassService
     ){}
   async create(createCharacterDto: CreateCharacterDto, login) {
     const character= new Character();
@@ -41,6 +43,8 @@ export class CharacterService {
     character.alignment=createCharacterDto.alignment;
     character.gender=createCharacterDto.gender;
     character.age=createCharacterDto.age;
+    character.className=createCharacterDto.class;
+    character.size=createCharacterDto.size;
     //Gestion masteryBonus/Level-----------------------------------------------------------------------------------------------------Gestion masteryBonus/Level
     let masteryBonus=2;
     const level=createCharacterDto.level;
@@ -93,7 +97,7 @@ export class CharacterService {
     for (const [i,characteristic] of characterCharacteristics.entries()) {
       const newcharchar=await this.characterCharacteristicService.create({
         value:characteristic+raceBonus[i],
-        characteristicId:characteristics[i].id
+        characteristicId:characteristics[i].id  
       })
       newCharacter.characterCharacteristics.push(newcharchar)
     }
@@ -119,7 +123,7 @@ for (let skill of skills) {
   
         if(skill.type===newCharacterCharacteristic.characteristic.name){
 
-          console.log(newCharacterCharacteristic.bonus)
+          
           characterSkill.bonus=newCharacterCharacteristic.bonus
 
         }
@@ -133,7 +137,6 @@ for (let skill of skills) {
 
 
        if(skillStory.name===skill.name){
-          console.log('\n\n\n\n'+'ok')
           characterSkill.isChecked=true;
           characterSkill.bonus+=masteryBonus;
 
@@ -148,27 +151,52 @@ for (let skill of skills) {
     const user= await this.userService.findOneByLogin(login);
     newCharacter.user=user;
 
-
-    
-    
-
-
-    
-
-
-    
-  
-    console.log(newCharacter)
     return await this.characterRepository.save(newCharacter);
 
   }
 
-  findAll() {
-    return this.characterRepository.find();
+
+
+
+
+
+
+
+  
+
+  async findAll(login) {
+    const user= await this.userService.findOneByLogin(login);
+    return this.characterRepository.find({user});
   }
 
   async findOne(id: number) {
-    return await this.characterRepository.findOne(id);
+    const characterFound=await this.characterRepository.findOne(id)
+    const character= classToPlain(characterFound);
+    const subClassId=[];
+
+    character.characterSubClass.forEach((element) => {
+
+      subClassId.push(element.subClass.id)
+
+    });
+
+    const subClass= await this.subclassService.findAll(subClassId)
+    character.capacities=[];
+
+    subClass.forEach((element,i) => {
+      const capacities=element.capacities.filter((capacity)=>capacity.level<=character.characterSubClass[i].value);
+
+      capacities.forEach((capacity)=>{
+
+        character.capacities.push(capacity)
+        
+      })
+
+    });
+    console.log(character.capacity)
+
+    return character;
+
   }
 
   update(id: number, updateCharacterDto: UpdateCharacterDto) {

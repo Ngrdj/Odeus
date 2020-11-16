@@ -2,10 +2,9 @@ import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-@Entity('characterSubClass')
+@Entity('character_sub_class')
 export class CharacterSubClass {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -14,13 +13,16 @@ export class CharacterSubClass {
 
     @ManyToOne(type=>SubClass,
         (subClass)=>subClass.characterSubClass,{
-            eager:true
+            eager:true,
+            cascade:true
         })
     subClass:SubClass;
 
     @Exclude()
     @ManyToOne(type=>Character,
-        (character)=>character.characterSubClass)
+        (character)=>character.characterSubClass,{
+            cascade:true
+        })
     character:Character;
 
     @Exclude()

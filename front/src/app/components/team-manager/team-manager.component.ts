@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTeamDialog } from 'src/app/dialogs/create-team.dialog/create-team.dialog.component';
 import { Character } from 'src/app/models/character';
+import { Pnj } from 'src/app/models/pnj';
 import { Team } from 'src/app/models/team';
 
 
@@ -13,20 +14,24 @@ import { Team } from 'src/app/models/team';
 export class TeamManagerComponent implements OnInit {
 
   @Input() characters:Character[]
-  @Input() heroes:Team;
+  @Input() heroes:Team = new Team("Heroes",[]);
   @Input() teams:Team[];
+  @Input() pnjList:Pnj[];
 
   selectedTag:number=0;
   selectedTeam:Team;
 
   selectedCharacter:Character
 
-  @Output() characterSelected:EventEmitter<Character> = new EventEmitter();
+  @Output() characterDetails:EventEmitter<Character> = new EventEmitter();
+  @Output() addCharacterToAllies:EventEmitter<Character> = new EventEmitter();
+  @Output() addCharacterToEnemies:EventEmitter<Character> = new EventEmitter();
+
 
   constructor(private dialog: MatDialog) { }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
     this.selectedTeam = this.heroes
 
   }
@@ -41,9 +46,9 @@ export class TeamManagerComponent implements OnInit {
     this.selectedTeam = this.heroes
 
   }
-  onSelectCharacter(character:Character){
+  onCharacterDetailsClick(character:Character){
 
-    this.characterSelected.emit(character)
+    this.characterDetails.emit(character)
 
   }
   onChangeTagName(teamIndex,newName){
@@ -53,14 +58,14 @@ export class TeamManagerComponent implements OnInit {
   }
   onAddTeamClick(){
 
-    this.openDialog()
+    this.openCreateTeamDialog()
 
   }
-  openDialog(){
+  openCreateTeamDialog(){
 
     const dialogRef = this.dialog.open(CreateTeamDialog, {
       width: '250px',
-      data:{characters:this.characters},
+      data:{characters:this.characters.concat(this.pnjList)},
       panelClass:'panelDialog'
     });
     dialogRef.afterClosed().subscribe(datas =>{
@@ -68,10 +73,64 @@ export class TeamManagerComponent implements OnInit {
       if(datas){
 
         this.teams.push(datas)
+        this.changeSelectedTeam(this.teams.length-1)
 
       }
 
     })
+
+  }
+
+  onAddCharacterToAllies(character:Character){
+
+    this.addCharacterToAllies.emit(character)
+
+  }
+
+  onAddCharacterToEnemies(character:Character){
+
+    this.addCharacterToEnemies.emit(character)
+
+
+  }
+  onAddTeamToAllies(){
+
+    this.selectedTeam.members.forEach(member => this.addCharacterToAllies.emit(member))
+
+  }
+  onAddTeamToEnemies(){
+
+    this.selectedTeam.members.forEach(member => this.addCharacterToEnemies.emit(member))
+
+  }
+  onDeleteTeam(){
+
+    const confirmDelete = confirm(`supprimer l'équipe \"${this.selectedTeam.name}\" ?`)
+
+    if(confirmDelete){
+
+      this.teams = this.teams.filter(team => team != this.selectedTeam)
+      this.changeSelectedTeam(this.teams.length>0?this.teams.length-1:-1)
+    }
+
+  }
+
+  changeSelectedTeam(index?:number){
+
+
+
+    if(index >= 0){
+
+      this.selectedTeam = this.teams[index]
+      this.selectedTag = index+1
+
+    }else{
+      
+      this.selectedTeam = this.heroes
+      this.selectedTag = 0
+
+    }
+
 
   }
 

@@ -24,7 +24,7 @@ export class AuthentificationsService {
       const headers = new HttpHeaders()
         .set('Authorization', 'Basic ' + datas)
 
-      return this.http.get<any>("https://api.grandjeannicolas.ml/login",{headers:headers})
+      return this.http.get<any>("http://localhost:3000/login",{headers:headers})
         .pipe(
           
           tap(value => sessionStorage.setItem('currentUser',value.access_token)),
@@ -32,9 +32,20 @@ export class AuthentificationsService {
         )
 
     }
+    
 
     return of(null)
   }
+  loginGoogleUser(){
 
+    return  this.http.get<any>("http://localhost:3000/google")
+
+  }
+
+  userLogged(){
+
+    return !!sessionStorage.getItem("currentUser");
+
+  }
 
 }

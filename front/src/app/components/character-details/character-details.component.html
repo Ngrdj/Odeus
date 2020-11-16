@@ -1,14 +1,17 @@
 <div class='container'>
 
-    <img class="portrait" [src]="character.portrait?character.portrait:'https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg'">
-    <h3 class="name">{{character?character.name:"-nom de personnage-"}}</h3>
+    <img class="portrait" [src]="character?.portrait?character.portrait:'https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg'">
+    <h3 class="name" ><span >{{character?character.name:"-nom de personnage-"}}</span></h3>
+    <h4 *ngIf='character?.playable' class="race">-race du personnage-</h4>
+    
     <ul class="stats">
 
-        <li *ngFor="let stat of statsArray, let i = index">
+        <li *ngFor="let characteristic of characteristics, let i = index" >
             <label class="stat">
 
-                {{character.characteristics?character.characteristics[i].name:stat}}
-                <input class="statInput" readonly [value]="character.characteristics?character.characteristics[i].value:0">
+                <span class="statName"  >{{characteristic.name | lowercase | translate}}</span>
+                <input class="statInput" readonly [value]="character?.characteristics?character.characteristics[i].value:0">
+                <span  [ngClass]="{'statBonus':character?.characteristics[i].bonus > 0, 'statMalus':character?.characteristics[i].bonus < 0}" class="statBonus">{{character?.characteristics?character.characteristics[i].bonus:0}}</span>
 
             </label> 
         </li>
@@ -16,16 +19,19 @@
     </ul>
 
     <p class="description">
+        {{character?.resume}}
+    </p>
+    <ul>
+        <li *ngFor='let capacity of character?.capacities'>
+            <label class="capacity">
+                <span>
+                    {{capacity.name}}
+                    {{capacity.description}}
+                </span>
+            </label>
+
+        </li>
+    </ul>
         
-        Qui ut fugiat enim laborum do aliqua reprehenderit irure magna Lorem magna non sunt. Incididunt labore incididunt esse do laboris laborum sint commodo fugiat dolore consequat Lorem qui esse. Minim pariatur ad dolore est elit magna dolor. Quis voluptate eu magna enim qui do pariatur proident aliqua. Anim culpa ut irure ad dolor laboris pariatur.
-
-Ut reprehenderit id laboris et Lorem ut id. Velit excepteur exercitation magna sint pariatur nulla ea exercitation minim sit. Aute sunt ex consectetur deserunt duis nulla laboris dolor ea. Qui aute fugiat nostrud anim adipisicing nisi exercitation. Sint sint laboris minim exercitation laborum nulla proident quis nostrud cillum id sint culpa.
-
-Minim ullamco duis deserunt eiusmod deserunt veniam amet aliqua consectetur est eu. Est esse excepteur ipsum ex sunt do excepteur velit eu ex ex ea ut. Velit dolore quis in consectetur occaecat culpa laboris amet ex veniam commodo ipsum dolor velit. Esse est excepteur Lorem velit. Ipsum commodo sunt reprehenderit ut dolore duis dolor consectetur fugiat. Duis tempor ad incididunt culpa incididunt elit occaecat ex. Eu enim quis dolor laborum.
-
-Elit nisi dolor dolor ex veniam culpa reprehenderit. Do est id est sit laboris cupidatat. Id elit ad consectetur ad enim eiusmod dolor ullamco qui. Proident ea sunt officia deserunt et proident pariatur anim labore. Officia elit eu officia laboris fugiat velit in aute commodo ut pariatur. Nisi tempor consequat ullamco sit pariatur. Culpa ut consectetur minim commodo esse dolore eu ipsum velit non Lorem eu incididunt.
-
-Labore ea minim pariatur do aute quis nulla commodo laborum ea. Magna velit fugiat ipsum cillum minim culpa officia sint cupidatat exercitation amet consequat. Cupidatat veniam voluptate aute culpa amet. Labore in consequat anim dolor proident aliqua.</p>
-
-
+        
 </div>

@@ -4,7 +4,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMan
 @Entity('race')
 export class Race {
    
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 

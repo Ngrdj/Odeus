@@ -1,4 +1,4 @@
-import { UserDto } from './dtos/user.dto'
+import { GetUserDto } from './dtos/user/get-user.dto'
 import { RolesEnum } from './enums/roles.enum'
 
 export class User {
@@ -14,7 +14,7 @@ export class User {
     ){}
 
 
-    static fromDto(userDto:UserDto):User{
+    static fromDto(userDto:GetUserDto):User{
 
         return new User(
 

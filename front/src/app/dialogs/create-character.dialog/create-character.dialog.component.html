@@ -1,14 +1,197 @@
-<p>create-character.dialog works!</p>
-<form [formGroup]='character'>
+<form [formGroup]='characterForm'>
 
-    <input formControlName="name" placeholder="nom de personnage">
-    <div class="classContainer">
+    <div class="formHeader">
 
-        <label>
-            
-            <input type="radio"name="class" [value]="" checked>
+        <input class="nameInput" formControlName="name" placeholder="nom de personnage">
 
-        </label>
+        <div class="levelContainer">
+
+            <span>
+
+                <button *ngIf="characterForm.controls.level.value > 1 " (click)="onLevelLessClick()"  class="levelButton"><</button>
+
+            </span>
+            <label  class="level">
+
+                lvl:
+                <input formControlName="level" type="number" min="1" max="20" #level>
+            </label>
+            <span>
+
+                <button *ngIf="characterForm.controls.level.value < 20 " (click)="onLevelPlusClick()"  class="levelButton">></button>
+
+            </span>
+        </div>
+        
+        <div class="characteristicsContainer">
+
+
+            <p class="pointsInfo">Points restant : <span><input [value]="characteristicPoints" readonly> / {{maxCharacteristicPoints}}</span></p>
+
+            <label *ngFor="let characteristic of getCharacteristicsAsArray() ; let i = index"  (click)="$event.stopPropagation();$event.preventDefault()"  class="characteristic">
+
+                {{characteristic.value.name}}
+                <span class="characteristicValue">
+ 
+                    <span><button  *ngIf="characteristic.controls.value.value > 1 " (click)="onCharactLessClick(i)"  class="levelButton"><</button></span>
+
+                    <input [formControl]="characteristic.controls.value" type="number" readonly>
+
+                    <span><button *ngIf="characteristic.controls.value.value < 20 " (click)="onCharactPlusClick(i)"  class="levelButton">></button></span>
+
+                </span>
+                <span [ngClass]="{'positive': characteristic.controls.bonus.value > 0, 'negative': characteristic.controls.bonus.value < 0}">
+ 
+                    (<span *ngIf="characteristic.controls.bonus.value > 0">+</span>
+                    <input [formControl]="characteristic.controls.bonus" type="number"   readonly>)
+
+                </span>
+                 
+ 
+             </label>
+
+        
+        </div>
+
+        <div class="portrait">
+
+            <img (click)="browse.click()" [src]="currentPortrait"  >
+            <input (change)="setCurrentPortrait($event.target.files[0])" accept="image/png, image/jpeg" hidden="true" type="file" #browse>    
+
+        </div>
+        
+    </div>
+
+    <div class="formMain">
+
+        <div class="expansionPanel">
+            <div  (click)="displayInfos = !displayInfos" class="expansionPanelHeader">    
+                <h3>Infos</h3>
+                <span> {{displayInfos?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div class="infos" [ngClass]="{closed:!displayInfos}">
+    
+                <input formControlName="age" type="number" value="age">
+
+                <select formControlName="gender" >
+
+                    <option [value]="gender" *ngFor="let gender of genderEnumValues">{{gender | lowercase | translate}}</option>
+
+                </select>
+
+                <select formControlName="alignment" value="alignment">
+
+                    <option [value]="alignment"  *ngFor="let alignment of alignmentEnumValues">{{alignment | lowercase | translate}}</option>
+
+                </select>
+
+                <select formControlName="size" value="size">
+
+                    <option [value]="size"  *ngFor="let size of sizeEnumValues">{{size | lowercase | translate}}</option>
+
+                </select>
+
+
+                <textarea formControlName="resume" [ngStyle]="{'resize':'none'}"></textarea>
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displayRaces = !displayRaces" class="expansionPanelHeader">    
+                <h3>Choisir une race</h3>
+                <h3>{{characterForm.controls.race.value}}</h3>
+                <span> {{displayRaces?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div class="raceGrid" [ngClass]="{closed:!displayRaces}">
+    
+                <label class="raceLabel" *ngFor="let race of races">
+                    
+                   {{race.name | lowercase | translate}}
+                    <input formControlName="race" type="radio" name="race" [value]="race.name" checked>
+        
+                </label>
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displayStory = !displayStory" class="expansionPanelHeader">    
+                <h3>Story</h3>
+                <h3>{{characterForm.controls.story.value}}</h3>
+                <span> {{displayStory?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div
+            class="story"
+            [ngClass]="{closed:!displayStory}"
+            >
+                <label *ngFor="let story of stories">
+
+                    {{story.name | lowercase | translate}}
+                    <input formControlName="story" [value]="story.name" type="radio" name="story">
+
+
+                </label>
+        
+            </div>
+    
+        </div>
+        
+        <div class="expansionPanel">
+    
+            <div  (click)="displayClasses = !displayClasses" class="expansionPanelHeader">    
+                <h3>Choisir une classe</h3>
+                <h3>{{characterForm.controls.class.value}}</h3>
+                <span> {{displayClasses?"&uarr;":"&darr;"}}</span>
+            </div>
+            <div class="classGrid" [ngClass]="{closed:!displayClasses}">
+    
+                <label class="classLabel" *ngFor="let class of classes">
+                    
+                   {{class.name | lowercase | translate}}
+
+                    <input (change)="setCurrentClass()" formControlName="class" type="radio" name="class" [value]="class.name" checked>
+        
+                </label>
+        
+            </div>
+    
+        </div>
+
+        <div class="expansionPanel">
+            <div  (click)="displaySpecialization = !displaySpecialization" class="expansionPanelHeader">    
+                <h3>{{hasSpecialization?"Spécialisations":"Capacités"}}</h3>
+                <span> {{displaySpecialization?"&uarr;":"&darr;"}}</span>
+            </div>
+           
+            <div
+            [ngStyle]="{ 'grid-template-columns': 'repeat('+currentClass.subClasses.length+', 1fr)','grid-template-rows': 'repeat('+ ((characterForm.controls.level.value/2) | ceilNumber) +', 1fr)'}"
+            class="specialization"
+            [ngClass]="{closed:!displaySpecialization}"
+            >
+    
+                <div class="capacity" *ngFor="let capacity of currentCapacities" [ngStyle]="{'grid-row': ((capacity.level/2) | ceilNumber)}" >
+
+                    <h4>{{capacity.name}}  lvl:{{capacity.level}}</h4>
+                    <p>{{capacity.description}}</p>
+
+                </div>
+        
+            </div>
+    
+        </div>
+
+
+    </div>
+
+    <div class="footer">
+
+        <button  (click)="onSubmitForm()" formButton>Create character</button>
 
     </div>
 

@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CharacterService } from 'src/character/character.service';
 import { Character } from 'src/character/entities/character.entity';
-import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
@@ -10,26 +9,27 @@ import { Team } from './entities/team.entity';
 
 @Injectable()
 export class TeamService {
-  constructor(@InjectRepository(Team) private readonly teamRepository:Repository<Team>, private characterService:CharacterService, private userService:UserService){}
+  constructor(@InjectRepository(Team) private readonly teamRepository:Repository<Team>, private characterService:CharacterService){}
 
- async create(createTeamDto: CreateTeamDto,login) {
+ async create(createTeamDto: CreateTeamDto,id) {
     const charactersId=[]
-    const user= await this.userService.findOneByLogin(login)
     for (const characterId of createTeamDto.characters) {
-      const characters= await this.characterService.findOne(characterId)
-      charactersId.push(characters)
+      
+      const characterFound= await this.characterService.findOne(characterId)
+      charactersId.push(characterFound)
     }
     
     const newTeam=new Team();
     newTeam.name=createTeamDto.name;
-    newTeam.user=user;
-    newTeam.teamCharacters=charactersId;
-    this.teamRepository.save(newTeam)
-    return 'This action adds a new team';
+    newTeam.userId=id;
+    newTeam.characters=charactersId;
+    
+    return this.teamRepository.save(newTeam);
   }
 
-  async findAll() {
-    return await this.teamRepository.find();
+  async findAll(id) {
+    
+    return await this.teamRepository.find({userId:id});
   }
 
   async findOne(id: number) {

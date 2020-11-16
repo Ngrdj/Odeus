@@ -1,0 +1,11 @@
+<div class="diceButtonContainer">
+
+  <button *ngFor="let dice of dices" class="diceButton"  (click)="lancerDe(dice)">
+
+    <img class="diceImg" [src]="'../../../assets/icons/dices/d'+ dice + '.png'">
+    <span class="diceLabel" >D{{dice}}</span>
+
+  </button>
+  
+</div>
+<input class="diceResult" type="number" size="5" [value]="diceResult"  readonly>

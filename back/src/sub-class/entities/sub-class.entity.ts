@@ -6,7 +6,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToO
 @Entity('sub_class')
 export class SubClass {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -15,7 +14,9 @@ export class SubClass {
 
     @JoinColumn()
     @OneToMany(type=>Capacity,
-        (capacity)=>capacity.subClass)
+        (capacity)=>capacity.subClass,{
+            eager:true
+        })
     capacities:Capacity[];
 
     @ManyToOne(type=>Class,

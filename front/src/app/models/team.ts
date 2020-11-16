@@ -1,9 +1,30 @@
 import { Character } from './character';
+import { GetTeamDto } from './dtos/team/get-team.dto';
+import { Pj } from './pj';
+import { Pnj } from './pnj';
+import { User } from './user';
 
 export class Team {
 
-    constructor(public name:string,
-                public members:Character[]){}
+    constructor(
+                public name:string,
+                public members:Character[]
+                ){}
+
+    
+    static fromDto(teamDto:GetTeamDto):Team{
+        const membersPj=teamDto.characters.map(pj => Pj.fromDto(pj));
+        const membersPnj=teamDto.pnjs.map(pnj => Pnj.fromDto(pnj));
+        const members=[];
+        membersPj.forEach((pj)=>{ members.push(pj)})
+        membersPnj.forEach((pnj)=>{members.push(pnj)})
+
+
+        return new Team(
+            teamDto.name,
+            members
+        )
+    }
 
     public getUniqueMembers():Character[]{
 
@@ -13,6 +34,12 @@ export class Team {
               return JSON.stringify(obj) === _element;
             });
         });
+    
+    }
+
+    public getNumberOfMember(member:Character):number{
+
+        return this.members.filter(element => element === member).length;
     
     }
 

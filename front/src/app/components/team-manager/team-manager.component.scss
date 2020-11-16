@@ -14,6 +14,8 @@
     
     width: 80%;
     height: 80%;
+    display: flex;
+    flex-direction: column;
     
 
 }.container{
@@ -38,7 +40,9 @@
 
     height: 100%;
     overflow-y: auto;
-    max-height: 50vh;
+    display: grid;
+    grid-auto-rows: minmax(50px,15%);
+    gap: 5px;
 
 }
 .containerFooter{
@@ -132,18 +136,5 @@
     height: 3px;
     background-color: white;
     color: white;
-
-}
-.characterContainer{
-
-    padding: 10px;
-    background: white;
-    margin: 5px;
-    cursor: pointer;
-
-}
-.characterContainer:hover{
-
-    filter: invert(100%);
 
 }

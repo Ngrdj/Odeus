@@ -1,0 +1,4 @@
+<img [src]="character.portrait" >
+<span><span *ngIf="quantity>1">({{quantity}}x)</span> {{character.name}}</span>
+<button (click)="onEyeClick($event)"><fa-icon [icon]="faEye"></fa-icon></button>
+

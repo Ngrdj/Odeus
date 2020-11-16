@@ -17,8 +17,7 @@ export class AuthService {
             throw new UnauthorizedException()
         }
         const cryptedPassword= await bcrypt.hash(password,foundUser.salt)
-        console.log(foundUser.password)
-        console.log(cryptedPassword)
+
         if(foundUser.password!==cryptedPassword){
           throw new UnauthorizedException()
         }

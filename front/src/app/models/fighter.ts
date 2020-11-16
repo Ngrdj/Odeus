@@ -1,20 +1,32 @@
 import { Character } from './character';
-import { Behavior } from './enums/behavior.enum';
+import { BehaviorEnum } from './enums/behavior.enum';
+import { Pj } from './pj';
+import { Pnj } from './pnj';
 
 export class Fighter extends Character{
 
+    public character:Pj|Pnj
+
     public initiative:number=0;
-    public behavior:Behavior = Behavior.NEUTRAL;
+    public behavior:BehaviorEnum = BehaviorEnum.NEUTRAL;
 
-    constructor(public id:number, public name:string,public portrait:string){
+    constructor(character:Pnj|Pj ,behavior?:BehaviorEnum, initiative?:Number){
 
-        super(id,name,portrait)
+        super(
+
+            character.id,
+            character.name,
+            character.portrait,
+            character.resume,
+            character.capacities,
+            character.characteristics,
+            character.skills,
+            character instanceof Pj?true:false,
+            character.size
+
+        )
+        this.behavior = behavior;
 
     }
 
-    static fromCharacter(character:Character){
-
-        return new Fighter(character.id,character.name,character.portrait)
-
-    }
 }

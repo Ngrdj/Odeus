@@ -2,10 +2,9 @@ import { Exclude } from "class-transformer";
 import { Character } from "src/character/entities/character.entity";
 import { Characteristic } from "src/characteristic/entities/characteristic.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-@Entity('characterCharacteristic')
+@Entity('character_characteristic')
 export class CharacterCharacteristic {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -17,13 +16,17 @@ export class CharacterCharacteristic {
 
     @Exclude()
     @ManyToOne(type=>Character,
-        (character)=>character.characterCharacteristics)
+        (character)=>character.characterCharacteristics,{
+            cascade:true
+        })
     character:Character;
+
 
     @Exclude()
     @ManyToOne(type=>Characteristic,
         (characteristic)=>characteristic.characterCharacteristics,{
-            eager:true
+            eager:true,
+            cascade:true
         })
     characteristic:Characteristic;
 

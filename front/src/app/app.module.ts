@@ -33,9 +33,28 @@ import { FtInfoBoxComponent } from './components/ft-info-box/ft-info-box.compone
 import { MyCharactersPanelComponent } from './components/my-characters-panel/my-characters-panel.component';
 import { UserRoleDirective } from './directives/user-role.directive';
 import { CreateCharacterComponent } from './dialogs/create-character.dialog/create-character.dialog.component';
+import { UserNotLoggedDirective } from './directives/user-not-logged.directive';
+import { UserLoggedDirective } from './directives/user-logged.directive';
+import { BackgroundPanelComponent } from './components/background-panel/background-panel.component';
+import { DicePanelComponent } from './components/dice-panel/dice-panel.component';
+import { CeilNumberPipe } from './pipes/ceil-number.pipe';
+import { SoundPanelComponent } from './components/sound-panel/sound-panel.component';
+import { CreateCategoryDialog } from './dialogs/create-category.dialog/create-category.dialog.component'
+import { ParentRelativeFontSizeDirective } from './directives/parent-relative-fontSize';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { CharacterCommandsDialog } from './dialogs/character-commands.dialog/character-commands.dialog.component';
+import { CharacterListItemComponent } from './components/character-list-item/character-list-item.component';
+import { DiaryPanelComponent } from './components/diary-panel/diary-panel.component';
+import { BestiaryPanelComponent } from './components/bestiary-panel/bestiary-panel.component';
+import { RandomScenarioDialogComponent } from './dialogs/random-scenario.dialog/random-scenario.dialog.component';
+import { DeleteBadgeDirective } from './directives/delete-badge.directive';
 
 
-
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -58,7 +77,21 @@ import { CreateCharacterComponent } from './dialogs/create-character.dialog/crea
     MyCharactersPanelComponent,
     UserRoleDirective,
     CreateCharacterComponent,
-    
+    UserNotLoggedDirective,
+    UserLoggedDirective,
+    ParentRelativeFontSizeDirective,
+    BackgroundPanelComponent,
+    DicePanelComponent,
+    CeilNumberPipe,
+    SoundPanelComponent,
+    CreateCategoryDialog,
+    CharacterCommandsDialog,
+    CharacterListItemComponent,
+    DiaryPanelComponent,
+    BestiaryPanelComponent,
+    RandomScenarioDialogComponent,
+    DeleteBadgeDirective,
+
     
   ],
   imports: [
@@ -69,7 +102,16 @@ import { CreateCharacterComponent } from './dialogs/create-character.dialog/crea
     DragDropModule,
     MatDialogModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    
+    TranslateModule.forRoot({
+      defaultLanguage:'fr',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+      deps: [HttpClient]
+      }
+    })
 
   ],
   providers: [

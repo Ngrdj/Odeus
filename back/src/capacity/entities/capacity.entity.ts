@@ -1,6 +1,7 @@
 import { Exclude } from "class-transformer";
+import { Pnj } from "src/pnj/entities/pnj.entity";
 import { SubClass } from "src/sub-class/entities/sub-class.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 @Entity('capacity')
 export class Capacity {
 
@@ -19,6 +20,10 @@ export class Capacity {
     @ManyToOne(type=>SubClass,
         (subClass)=>subClass.capacities)
     subClass:SubClass;
+
+    @ManyToMany(type=>Pnj,
+        (Pnj)=>Pnj.pnjCapacities)
+        pnjs:Pnj[]
 
     @Exclude()
     @CreateDateColumn()

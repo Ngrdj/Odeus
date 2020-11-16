@@ -6,7 +6,6 @@ import { RoleEnum } from "../role.enum";
 @Entity('user')
 export class User {
 
-    @Exclude()
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
@@ -35,7 +34,7 @@ export class User {
     characters:Character[];
 
     @OneToMany(type=>Team,
-        (team)=>team.user)
+        (team)=>team.userId)
     team:Team[];
 
 }

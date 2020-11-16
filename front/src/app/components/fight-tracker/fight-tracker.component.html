@@ -6,22 +6,40 @@
 
             <div class="ft-header">
 
-                <button class="ft-headerButton" (click)="setAllInitiatives()"><fa-icon [icon]="faRunning"></fa-icon></button>
+                <div>
+
+                    <button class="ft-headerButton" (click)="setAllInitiatives()"><fa-icon [icon]="faRunning"></fa-icon></button>
+                    <button class="ft-headerButton" (click)="sortCharacterByInitClick()"><fa-icon [icon]="faSort"></fa-icon></button>
+                    <button class="ft-headerButton" (click)='resetRoundClick()'>Reset</button>
+
+                </div>
+                <div>
+
+                    <label class="roundLabel">
+                        ROUND
+                        <input class="roundInput" type="number" [value]="round" >
+
+                    </label>
+                    <button class="ft-headerButton" (click)="roundCountClick()"><fa-icon [icon]="faPlay"></fa-icon></button>    
+
+                </div>
+                <div></div>
+               
 
             </div>
             <div class="ft-main">
 
                 <div class="allyContainer">
-                    <ft-fighter [fighter]="fighter" *ngFor="let fighter of allyList"></ft-fighter>
+                    <ft-fighter [ngClass]="{'selected': selectedFighter===fighter}" (removeFighter)='onRemoveFighter(fighter)' [fighter]="fighter" *ngFor="let fighter of allyList"></ft-fighter>
                 </div>
                 <div class="enemyContainer">
-                    <ft-fighter class="revertedGrid" [fighter]="fighter" *ngFor="let fighter of enemyList"></ft-fighter>
+                    <ft-fighter [ngClass]="{'selected': selectedFighter===fighter}" (removeFighter)='onRemoveFighter(fighter)' orientation="reverted" [fighter]="fighter" *ngFor="let fighter of enemyList"></ft-fighter>
                 </div>
 
             </div>
             <div class="ft-footer">
-
-                <img class="ft-footerImg" src="https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg">
+                
+                <img class="ft-footerImg" src="{{selectedFighter?.portrait}}">
                 <ft-infoBox></ft-infoBox>
 
             </div>
