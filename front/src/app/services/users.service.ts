@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import jwt_decode from "jwt-decode";
 import { GetUserDto } from '../models/dtos/user/get-user.dto';
+import { environment } from '../../environments/environment'
 
 
 
@@ -18,7 +19,7 @@ export class UsersService {
 
   createUser(user:User):Observable<GetUserDto>{
 
-    return this.http.post<GetUserDto>("http://localhost:3000/user",user.toDto())
+    return this.http.post<GetUserDto>(environment.baseApiUrl + "user",user.toDto())
 
   }
   getCurrentUser():Observable<User>{
@@ -34,7 +35,7 @@ export class UsersService {
   
   private getUserByLogin(login:string):Observable<User>{
 
-    return this.http.get<GetUserDto>(`http://localhost:3000/user/login/${login}`)
+    return this.http.get<GetUserDto>(environment.baseApiUrl + `login/${login}`)
       .pipe(
 
         map(userFound => {return User.fromDto(userFound)})
