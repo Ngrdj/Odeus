@@ -1,0 +1,8 @@
+<p [innerHTML]="message"></p>
+<button class="okButton" (click)="onClickOk(!displayNext.checked)">Ok</button>
+<label class="displayNext">
+
+    Ne plus afficher ce message
+    <input type="checkbox" #displayNext>
+
+</label>

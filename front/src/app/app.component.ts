@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
+import { AlertDialog } from './dialogs/alert/alert.dialog';
 import { User } from './models/user';
 import { UsersService } from './services/users.service';
 
@@ -8,10 +10,10 @@ import { UsersService } from './services/users.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   
 
-    constructor( private usersService:UsersService,translate: TranslateService){
+    constructor(private dialog: MatDialog, private usersService:UsersService,translate: TranslateService){
       translate.setDefaultLang('fr');
       translate.use('fr');
       usersService.createUser(new User(
@@ -34,5 +36,37 @@ export class AppComponent {
       
 
     }
+  ngOnInit(): void {
+
+    this.displayAlertMessage()
+
+  }
+  displayAlertMessage(){
+
+    const alertMsg = sessionStorage.getItem('alertMsg')
+    if(!alertMsg){
+
+      const alertDialog = this.dialog.open(AlertDialog,{
+
+        data:"Attention<br><br>Ce site est un projet en cours, certaines fonctionnalités pourraient ne pas fonctionner correctement."
+      
+      })
+      .afterClosed()
+      .subscribe(displayNextTime =>{
+
+        console.log(displayNextTime)
+
+        if(!displayNextTime){
+
+          sessionStorage.setItem("alertMsg",'true')
+
+        }
+        
+
+      })
+
+    }
+
+  }
 
 }

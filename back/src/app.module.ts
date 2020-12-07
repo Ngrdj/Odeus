@@ -38,9 +38,6 @@ import { TwistScenarioModule } from './scenario/twist-scenario/twist-scenario.mo
     StoryModule,
     UserModule,
     TeamModule,
-  
-    
-    
     TypeOrmModule.forRoot({                         //Connection Avec La Base De Données sur Postgres
       type: 'postgres',
       host: 'localhost',

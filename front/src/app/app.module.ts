@@ -50,6 +50,7 @@ import { DiaryPanelComponent } from './components/diary-panel/diary-panel.compon
 import { BestiaryPanelComponent } from './components/bestiary-panel/bestiary-panel.component';
 import { RandomScenarioDialogComponent } from './dialogs/random-scenario.dialog/random-scenario.dialog.component';
 import { DeleteBadgeDirective } from './directives/delete-badge.directive';
+import { AlertDialog } from './dialogs/alert/alert.dialog';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -91,6 +92,7 @@ export function createTranslateLoader(http: HttpClient) {
     BestiaryPanelComponent,
     RandomScenarioDialogComponent,
     DeleteBadgeDirective,
+    AlertDialog,
 
     
   ],

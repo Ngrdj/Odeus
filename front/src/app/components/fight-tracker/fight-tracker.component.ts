@@ -19,6 +19,8 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   allyList:Fighter[]=[];
   public round:number=0;
 
+  defaultPortraitInfoBox:string = "https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg"
+
   @Output() removeFighter:EventEmitter<any> = new EventEmitter();
   @Output() open:EventEmitter<any> = new EventEmitter();
   @Output() close:EventEmitter<any> = new EventEmitter();
@@ -33,9 +35,6 @@ export class FightTrackerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.selectedFighter.portrait="https://img.freepik.com/vecteurs-libre/dragon-silhouette_23-2147510587.jpg?size=338&ext=jpg";
-
-
   }
   ngOnChanges(changes:SimpleChanges):void{
 
