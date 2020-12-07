@@ -35,7 +35,7 @@ export class UsersService {
   
   private getUserByLogin(login:string):Observable<User>{
 
-    return this.http.get<GetUserDto>(environment.baseApiUrl + `login/${login}`)
+    return this.http.get<GetUserDto>(environment.baseApiUrl + `user/login/${login}`)
       .pipe(
 
         map(userFound => {return User.fromDto(userFound)})

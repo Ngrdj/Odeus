@@ -3,6 +3,8 @@ import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { encode } from "js-base64";
 import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment'
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +26,7 @@ export class AuthentificationsService {
       const headers = new HttpHeaders()
         .set('Authorization', 'Basic ' + datas)
 
-      return this.http.get<any>("http://localhost:3000/login",{headers:headers})
+      return this.http.get<any>(environment.baseApiUrl + "login",{headers:headers})
         .pipe(
           
           tap(value => sessionStorage.setItem('currentUser',value.access_token)),
@@ -38,7 +40,7 @@ export class AuthentificationsService {
   }
   loginGoogleUser(){
 
-    return  this.http.get<any>("http://localhost:3000/google")
+    return  this.http.get<any>(environment.baseApiUrl + "google")
 
   }
 

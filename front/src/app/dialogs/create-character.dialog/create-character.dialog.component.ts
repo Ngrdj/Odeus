@@ -102,7 +102,7 @@ export class CreateCharacterComponent implements OnInit {
     this.characterForm = this.formBuilder.group({
 
       name:this.formBuilder.control("",Validators.required),
-      class:this.formBuilder.control(ClassEnum.WARRIOR,Validators.required),
+      class:this.formBuilder.control(ClassEnum.FIGHTER,Validators.required),
       subClass:this.formBuilder.array([]),
       characteristics:this.formBuilder.array([]),
       race:this.formBuilder.control(RaceEnum.HUMAN,Validators.required),
