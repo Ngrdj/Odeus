@@ -1,18 +1,18 @@
 # Odeus
 Outils de jeux DnD
 
-front: 
+#front: 
 
 -npm i
 -npm run start
 
-back:
+#back:
 
 -npm i
 -npm install typeorm pg --save
 -npm run start
 
-DB:
+#DB:
 
 -creation db : 'odeus'
 -datainsert.sql
